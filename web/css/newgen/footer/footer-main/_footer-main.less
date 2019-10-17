@@ -1,0 +1,95 @@
+& when (@media-common =true) {
+
+    .page-footer {
+        .heading {
+            color: #3883c7;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+
+            .footer-list-point {
+                line-height: 27px;
+                vertical-align: baseline;
+                margin-right: 7px;
+            }
+        }
+
+        .grid12-3 {
+            .block-content {
+                ul {
+                    li.footer-column3 {
+                        display: inline-flex;
+                    }
+                }
+
+                .office-img {
+                    float: left;
+                    margin-right: 18px;
+                }
+
+                .office-address {
+                    .ff-open {
+                        display: table;
+                    }
+
+                    p.ff-open.fw-600.mb-0 {
+                        color: #4d94ce;
+                    }
+                }
+            }
+        }
+
+        .footer-bottom-container.section-container {
+            border-bottom: 7px solid;
+            border-bottom-color: #1077d0;
+            border-top: 1px solid;
+            border-top-color: rgba(0, 0, 0, 0.05);
+
+            .footer-copyright {
+                .copyright {
+                    color: #1077d0;
+                }
+            }
+
+            .item-right {
+
+                .privacy-policy {
+                    .footer-links-list {
+                        display: inline;
+                        font-size: 12px;
+
+                        a {
+                            color: #444444;
+
+                            &:hover {
+                                color: #000000;
+                            }
+                        }
+
+                        &::after {
+                            content: ' ';
+                            height: 0.1em;
+                            border-right: 1px solid #444444;
+                            margin: 2%;
+                            transform: translate3d(1px, 0, 0);
+                        }
+
+                        &:last-child {
+                            &::after {
+                                content: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-primary a.highlight-active {
+            color: #1077d0;
+        }
+    }
+    .footer-container .footer-primary-bottom-spacing {
+        border-top: none;
+    }
+}
