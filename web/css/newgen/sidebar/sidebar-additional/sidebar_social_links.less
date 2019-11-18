@@ -1,0 +1,54 @@
+.columns {
+    .sidebar.sidebar-additional {
+        .social-links {
+            .social-links-container {
+                .social-link-item.facebook {
+                    a>.ic-facebook {
+                        background-color: #4267B2;
+                        color: #fff;
+                    }
+                }
+
+                .social-link-item.linkedin {
+                    a>.ic-linkedin {
+                        background-color: #0077b5;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .antratek-newsletter {
+            .antratek-newsletter-links {
+                margin-left: 0;
+                a.newsletter-blog {
+                    &::before {
+                        content: "\f105";
+                        font-family: FontAwesome;
+                        position: absolute;
+                        left: 3px;
+                        top: 0;
+                    }
+                }
+            }
+
+            .newsletter-button {
+                background-color: #3079c4;
+                color: #fff;
+
+                &:hover {
+                    background-color: #fff;
+                    color: #3079c4;
+                }
+
+                .btn-label {
+                    &::after {
+                        content: "\f1d9";
+                        font-family: FontAwesome;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
