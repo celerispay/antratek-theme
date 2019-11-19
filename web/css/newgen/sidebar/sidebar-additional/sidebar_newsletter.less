@@ -1,15 +1,33 @@
-.columns {    
-    .sidebar.sidebar-additional {
-        .widget.block {
-            .antratek-newsletter {
-                font-size: 12px;
-                font-weight: 500;
+.antratek-newsletter {
+    .antratek-newsletter-links {
+        margin-left: 0;
 
-                .antratek-newsletter-links {
-                    font-size: 10px;
-                }
+        a.newsletter-blog {
+            &::before {
+                content: "\f105";
+                font-family: FontAwesome;
+                position: absolute;
+                left: 3px;
+                top: 0;
             }
         }
-    }    
-                    
+    }
+
+    .newsletter-button {
+        background-color: #3079c4;
+        color: #fff;
+
+        &:hover {
+            background-color: #fff;
+            color: #3079c4;
+        }
+
+        .btn-label {
+            &::after {
+                content: "\f1d9";
+                font-family: FontAwesome;
+                padding: 5px;
+            }
+        }
+    }
 }
