@@ -7,7 +7,7 @@
             padding: 0 10px;
 
             &.onload-color {
-                color: #5094ce;
+                color: @ngp-common-color1;
             }
         }
 
@@ -43,17 +43,17 @@
             width: 14px;
             left: 3px;
             bottom: 5px;
-            background-color: white;
+            background-color: #ffffff;
             -webkit-transition: .4s;
             transition: .4s;
         }
 
         input:checked+.switcher-slider {
-            background-color: #25ce03
+            background-color: @ngp-menu-switcher-input;
         }
 
         input:focus+.switcher-slider {
-            box-shadow: 0 0 1px #25ce03
+            box-shadow: 0 0 1px @ngp-menu-switcher-input;
         }
 
         input:checked+.switcher-slider:before {
