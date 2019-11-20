@@ -23,6 +23,7 @@
         </move>
         
         <move element="simplebundle.tab" destination="content.aside" before="catalog.product.related" />
-
+        <move element="product.info" destination="product.info.main" before="product.price.tier" />
+        <move element="product.info.sku" destination="product.info.main" before="-" />
     </body>
 </page>
