@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.review" remove="true" />
+
+        <referenceContainer name="container_product_lower_secondary_2">
+            <block class="Magento\Cms\Block\Block" name="blockname" before="">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">nl-product-page-usp</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <move element="product.info.overview" destination="product.info.details" group="detailed_info">
+            <!-- <arguments>
+                <argument name="at_call" xsi:type="string">getShortDescription</argument>
+                <argument name="at_code" xsi:type="string">short_description</argument>
+                <argument name="css_class" xsi:type="string">overview</argument>
+                <argument name="at_label" xsi:type="string">none</argument>
+                <argument name="title" translate="true" xsi:type="string">Description</argument>
+                <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+            </arguments> -->
+        </move>
+        
+        <move element="simplebundle.tab" destination="content.aside" before="catalog.product.related" />
+        <move element="product.info" destination="product.info.main" before="product.price.tier" />
+        <move element="product.info.sku" destination="product.info.main" before="-" />
+    </body>
+</page>
