@@ -1,0 +1,28 @@
+.right-column {
+    .minicart-wrapper {
+        span .icon.ic.ic-cart {
+            background: url('@{baseDir}images/logo/antratek_shopping cart_icon.svg')no-repeat left center transparent;
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+
+            &::before {
+                content: '';
+            }
+        }
+    }
+
+    #header-account {
+        .authorization-link {
+            a::before {
+                content: '';
+                background: url('@{baseDir}images/logo/antratek_user account_icon.svg ') no-repeat left center transparent;
+                width: 15px;
+                height: 15px;
+                display: inline-block;
+                background-size: contain;
+                margin-bottom: -4px;
+            }
+        }
+    }
+}
