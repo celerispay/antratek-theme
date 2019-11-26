@@ -46,8 +46,15 @@
                     }
                 }
 
-                .footer-column-4.antratek-branch-2 {
-                    padding: 10px 0;
+                .footer-column-4 {
+                    display: -moz-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+
+                    &.antratek-branch-2 {
+                        padding: 10px 0;
+                    }
                 }
 
                 .office-img {
@@ -59,9 +66,7 @@
                 }
 
                 .office-address {
-                    .ff-open {
-                        display: table;
-                    }
+                    width: 50%;
 
                     p.ff-open.fw-600.mb-0 {
                         color: @ngp-common-color1;
@@ -137,10 +142,15 @@
                 .footer-column-4.antratek-branch-2 {
                     padding: 35px 0;
                 }
+
                 .office-img {
                     img.office-image.pull-left {
                         width: auto;
                     }
+                }
+
+                .office-address {
+                    width: 57%;
                 }
             }
         }
