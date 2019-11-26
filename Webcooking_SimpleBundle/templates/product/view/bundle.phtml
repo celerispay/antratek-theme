@@ -1,0 +1,140 @@
+<?php
+/**
+ * Copyright (c) 2011-2019 SAS WEB COOKING - Vincent René Lucien Enjalbert. All rights reserved.
+ * See LICENSE-EN.txt for license details.
+ */
+$pricingHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
+?>
+<?php if($this->getBundles()->count() > 0): ?>
+<div class="block-content content" id="product-simple-bundles" aria-labelledby="tab-label-simplebundle-title">
+<h4 class="sbundle-title">Bundle Products</h4>
+<ul>
+<?php foreach($this->getBundles() as $bundle): ?>
+    <?php $_bundleItems = $bundle->getBundleItems() ?>
+    <?php $_legend = $bundle->getBaseQty().'*'.$this->getProduct()->getName(); ?>
+    <li class="simplebundle">
+        
+        <div class="simplebundle-infos">
+            <p class="simplebundle-info-prices"><span class="simplebundle-orig-price"><?php echo $pricingHelper->currency($bundle->getOriginalAmount()) ?></span> <span class="simplebundle-price"><?php echo $pricingHelper->currency($bundle->getAmount()) ?></span>  </p>
+            <?php if($bundle->getDiscountPercentageValue() > 0): ?>
+                <p class="simplebundle-percent">
+                    <?php echo __('%1% discount', round($bundle->getDiscountPercentageValue(),2)) ?>
+                    <?php if($bundle->getExcludeBaseProductFromDiscount() && !$bundle->getUsedLowerPrice()): ?>
+                        <?php echo __('on accessories') ?>
+                    <?php endif ?>
+                    <br />
+                    <span class="small"><?php echo __('-%1 buying this bundle', $pricingHelper->currency($bundle->getDiscountAmountValue(false))) ?></span>
+                </p>
+            <?php endif; ?>
+            
+        <?php /* POPUP IF SOME PRODUCT NEEDS CONFIGURATION (configurable, custom options, bundle) */ ?>
+        <?php if($bundle->needsConfiguration()): ?>
+            <div class="block-actions">
+                <button type="button" title="<?php echo __('Add to Cart') ?>" class="action primary tocart simplebundle-required-options-btn" data-sb-addtocart-url="<?php echo $this->getPopupAjaxUrl($bundle)?>"><span><?php echo __('Add to Cart') ?></span></button>
+            </div>
+        <?php else: ?>
+            <div class="block-actions">
+                <button type="button" title="<?php echo __('Add to Cart') ?>" class="action primary tocart simplebundle-addtocart-btn" data-sb-addtocart-url="<?php echo $this->getAddToCartUrl($bundle) ?>" data-title="<?php echo __('Add to Cart') ?>" data-adding-title="<?php echo __('Adding...') ?>"><span><?php echo __('Add to Cart') ?></span></button>
+            </div>
+        <?php endif; ?>
+        </div>
+        
+        
+        <div class="simplebundle-selection">
+            
+                    <?php if($_bundleItems->getSize()<=0 && $bundle->getBaseQty() < 6): ?>
+                        <?php for($i=0; $i < intval($bundle->getBaseQty()); $i++): ?>
+                            <?php if($i != 0): ?><div class="simplebundle-plus">+</div><?php endif; ?>
+                            <div class="simplebundle-selection-item">
+                                <div class="simplebundle-pic">
+                                   <?php echo $block->getImage($this->getProduct(), 'product_small_image')->toHtml(); ?>
+                                   <div class="sbundle-product-name"><?= $this->getProduct()->getName() ?></div>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+                    <?php else: ?>
+                            <div class="simplebundle-selection-item">
+                                <div class="simplebundle-pic">
+                                    <?php echo $block->getImage($this->getProduct(), 'product_small_image')->toHtml(); ?>
+                                    <div class="simplebundle-pic-qty">X<?php echo $bundle->getBaseQty() ?></div>
+                                    <div class="sbundle-product-name"><?= $this->getProduct()->getName() ?></div>
+                                </div>
+                            </div>
+                    <?php endif; ?>
+              
+            <?php foreach($_bundleItems as $_selection): ?>
+                <div class="simplebundle-plus">+</div>
+                
+                <div class="simplebundle-selection-item">
+                    <div class="simplebundle-pic">
+                        <?php $_legend .= ' + ' . $_selection->getSelectionQty().'*'.$_selection->getName(); ?>
+                        <?php $_product = $_selection->getProduct() ?>
+                        <a href="<?php echo $_product->getProductUrl() ?>" >
+                            <?php echo $block->getImage($_product, 'product_small_image')->toHtml(); ?>
+                            <div class="simplebundle-pic-qty">X<?php echo $_selection->getSelectionQty() ?></div>
+                        </a>
+                        <div class="sbundle-product-name"><?= $_selection->getName() ?></div>
+                    </div>
+                    <div class="extra-infos">
+                        <strong><a href="<?php echo $_product->getProductUrl() ?>" ><?php echo $_selection->getProduct()->getName() ?></a></strong><br/>
+                        <div class="price-box">
+                            <span class="regular-price">
+                                <span class="price"><?php echo $pricingHelper->currency($_selection->getProduct()->getFinalPrice()) ?></span>                                    
+                            </span>
+                        </div>
+                        <?php echo $_selection->getProduct()->getShortDescription() ?>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <br/>
+        <div class="sbundle-description"><?php echo $bundle->getBundleName()?$bundle->getBundleName():$_legend ?></div>
+        
+        
+        
+        <div style="clear:left;"></div>
+        
+        
+    </li>
+<?php endforeach; ?>
+</ul>
+
+</div>
+
+
+<script type="text/javascript">
+
+    
+require([
+    'jquery',
+    'Webcooking_SimpleBundle/js/simplebundle'
+], function($, simplebundle){
+    
+    jQuery(function($) {
+        $('.simplebundle-addtocart-btn').on('click', function(){
+            var addToCartUrl = $(this).data('sb-addtocart-url') + '&' + jQuery('#product_addtocart_form').serialize();
+            $(this).addClass('disabled');
+            $(this).find('span').text($(this).data('adding-title'));
+            $(this).attr('title', $(this).data('adding-title'));
+            self = this;
+            $.post(addToCartUrl).done(function(){
+                $(self).find('span').text($(self).data('title'));
+                $(self).attr('title', $(self).data('title'));
+                $(self).removeClass('disabled');
+                $('html, body').animate({scrollTop : 0},800);
+            });
+        });
+
+
+        $('.simplebundle-required-options-btn').each(function() {
+            $(this).on('click', function() {
+                simplebundle.openSimpleBundlePopup($(this).data('sb-addtocart-url'));
+            });
+        });
+    });
+});
+
+
+</script>
+
+<?php endif; ?>
