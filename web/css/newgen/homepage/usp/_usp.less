@@ -1,9 +1,8 @@
 .antratek-usp {
-    position: relative;
-    margin-left: -8px;
+    margin-left: -16px;
 
     .antratek-usp-item {
-        background-color: #f4f4f4;
+        background-color: @ngp-bg-color;
         width: 150px;
         height: 200px;
         margin: 1px;
@@ -12,23 +11,66 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 25%;
-            margin-bottom: 25%;
+            margin-top: 20%;
+            margin-bottom: 15%;
             width: 85%;
             height: 50px;
         }
                 
         .antratek-usp-label {
-            font-size: 11px;
             font-weight: 600;
             text-align: center;
         }
 
         .antratek-usp-description {
-            font-size: 10px;
             font-weight: 500;
-            margin: 12px;
+            margin: 12px auto;
             text-align: center;
         }
     }
-}      
+}
+
+@media only screen and (max-width: 1024px) {
+    .antratek-usp {
+        margin-left: -25px;
+
+        .antratek-usp-item {
+            width: 125px;
+        }
+    }        
+}
+
+@media only screen and (max-width: 420px) {
+    .antratek-usp {
+        margin-left: -8px;
+
+        .antratek-usp-item {
+            width: 150px;
+        }
+    }
+}
+
+@media only screen and (min-width: 421px) and (max-width: 768px) {
+    .antratek-usp {
+        margin-left: -15px;
+
+        .antratek-usp-item {
+            width: 180px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .antratek-usp {
+        margin-left: -15px;
+
+        .antratek-usp-item {
+            width: 220px;
+            height: 250px;
+
+            img {
+                height: 70px;
+            }
+        }
+    }
+}
