@@ -2,11 +2,11 @@ body {
 
     .column.main {
         padding-left: 20px;
-        padding-top: 70px;
+        padding-top: 55px;
     }
 
     .sidebar.sidebar-main {
-        padding-top: 50px;
+        padding-top: 35px;
     }
 
     h1,
@@ -27,14 +27,20 @@ body {
         font-weight: 500;
     }
 
+    button,
+    .action.primary {
+        font: @ngp-f_para;
+    }
+
     nav#mainmenu,
     .nav-regular .nav-item.level0>a {
         font: @ngp-f_para;
     }
 
-    li.item.Home::before{
+    li.item.Home::before {
         content: "\f015";
         font-family: FontAwesome;
+        font-size: 16px;
     }
 }
 
