@@ -10,9 +10,23 @@
             padding-left: 95px;
             padding-right: 20px;
 
-            .nav-item a.level-top {
-                font-size: 115%;
-                line-height: 35px;
+            li {
+                &.nav-item {
+
+                    &.level0.level-top.right {
+                        margin-left: 0;
+
+                        &.b2c-checkbox {
+                            margin: 0 25px;
+                        }
+                    }
+
+                    a.level-top {
+                        font-weight: 500;
+                        line-height: 35px;
+                        padding: 0 18px;
+                    }
+                }
             }
         }
     }
