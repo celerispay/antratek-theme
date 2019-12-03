@@ -1,14 +1,17 @@
 .nav-regular li.level0.right {
     float: left;
-    margin-left: 25px;
+
+    &.b2c-checkbox {
+        margin: 0 25px;
+        font-weight: 600;
+    }
 
     label.list-label {
         color: #ffffff;
-        font-size: 115%;
         line-height: 35px;
 
         &.onload-color {
-            color:#5396cf;
+            color: #5396cf;
         }
     }
 
@@ -74,6 +77,10 @@
 
 .page-header {
     .switcher {
+        strong {
+            font-weight: 600;
+        }
+
         .options {
 
             .action.toggle,
