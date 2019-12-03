@@ -1,44 +1,38 @@
 & when (@media-common =true) {
-    .columns {
-        .column.main {
-            .slideshow-wrapper-outer {
-                .slideshow-wrapper {
-                    .slideshow.owl-carousel.owl-theme {
-                        .owl-wrapper-outer {
-                            .owl-item {
-                                .item {
-                                    .antratek-slider-content {
-                                        font-size: 2.5vw;
-                                        font-weight: 100;
-                                        width: 40%;
-                                        height: 200px;
-                                        margin-top: -320px;
-                                        margin-left: 8%;
+    .column.main {
+        .slideshow-wrapper {
+            .owl-carousel .owl-item .item {
+                .antratek-slider {
+                    position: absolute;
+                    bottom: 7%;
+                    width: 50%;
+                    margin-left: 7%;
+                    font: @ngp-f_home_slider;
 
-                                    }
+                    .antratek-slider-caption {
+                        margin-top: -10px;
+                        color: #fff;
+                    }
 
-                                    .antratek-slider-caption {
-                                        position: absolute;
-                                        margin-left: 75px;
-                                        font-size: 2.5vw;
-                                        font-weight: 100;
-                                        color: #fff;
-                                    }
+                    .antratek-slider-button {
+                        margin-top: 15px;
 
-                                    .antratek-shop-button {
-                                        width: 140px;
-                                        height: 40px;
-                                        color: #fff;
-                                        background-color: @ngp-common-color1;
-                                        margin: 60px 0 30px 75px;
-                                    }
-                                }
-                            }
+                        .antratek-shop-button {
+                            width: 140px;
+                            height: 40px;
+                            color: #fff;
+                            background-color: @ngp-common-color1;
                         }
                     }
                 }
             }
         }
+    }
+
+    .slider-arrows2 .owl-controls .owl-buttons div {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
     }
 }
 
