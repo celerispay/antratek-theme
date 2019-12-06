@@ -6,6 +6,11 @@
             font: @ngp-f_para_bold;
         }
 
+        .footer-primary-container.section-container {
+            padding-top: 10px;
+            padding-bottom: 0;
+        }
+
         ul li {
             margin-bottom: 16px;
         }
@@ -89,8 +94,12 @@
             }
 
             .item-right {
-
                 .privacy-policy {
+                    position: absolute;
+                    left: 18%;
+                    right: 0;
+                    padding-top: 2px;
+
                     .footer-links-list {
                         display: inline;
                         font-size: 11px;
@@ -99,7 +108,7 @@
                             color: @ngp-heading-color;
 
                             &:hover {
-                                color: #000000;
+                                color: @ngp-common-color1;
                             }
                         }
 
@@ -124,10 +133,11 @@
         .footer-primary a.highlight-active {
             color: #1077d0;
         }
-    }
 
-    .footer-container .footer-primary-bottom-spacing {
-        border-top: none;
+        .footer-primary-bottom-spacing,
+        .footer-primary-top-spacing {
+            border: 0;
+        }
     }
 }
 
@@ -151,6 +161,18 @@
 
                 .office-address {
                     width: 57%;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum ='max') and (@break=@screen__m) {
+    .page-footer {
+        .footer-bottom-container.section-container {
+            .item-right {
+                .privacy-policy {
+                    position: unset;
                 }
             }
         }
