@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var \Infortis\Base\Block\Html\Header\Logo $block
+ */
+?>
+<?php
+	$logoSrc = $block->getStickyLogoSrc();
+?>
+<?php if ($logoSrc !== false): ?>
+	<li class="nav-item nav-item--stickylogo level0 level-top nav-holder">
+		<?php if (!$block->isHomePage()): ?>
+			<a class="logo" href="<?php echo $block->getUrl(''); ?>" title="<?php /* @escapeNotVerified */ echo $block->getLogoAlt(); ?>">
+		<?php endif; ?>	
+		<img
+			src="<?php /* @escapeNotVerified */ echo $logoSrc; ?>"
+			alt="<?php /* @escapeNotVerified */ echo $block->getLogoAlt(); ?>"
+		/>
+		<?php if (!$block->isHomePage()): ?>
+			</a>
+		<?php endif; ?>
+	</li>
+<?php endif; ?>
