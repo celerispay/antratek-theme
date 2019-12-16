@@ -5,14 +5,14 @@
     .antratek-usp-item {
         background-color:  @ngp-bg-color;
         width: 140px;
-        height: 190px;
-        margin: 1px;
+        height: 140px;
+        margin: 5px;
 
         img {
             display: block;
-            margin: 10% auto;
-            width: 50%;
-            height: 50px;
+            margin: 5% auto;
+            width: 45%;
+            height: 45px;
         }
                 
         .antratek-usp-label {
@@ -22,7 +22,7 @@
 
         .antratek-usp-description {
             font-weight: 500;
-            margin: 15px auto;
+            margin: 5px auto;
             text-align: center;
         }
     }
@@ -30,15 +30,15 @@
 
 @media only screen and (max-width: 420px) {
     .antratek-product-page-usp {
-        margin: 75px 0 75px 8px;
+        margin: 30px auto;
         float: none;
     
         .antratek-usp-item {
-            width: 150px;
-            height: 200px;
+            width: 46%;
+            height: 150px;
     
             img {
-                margin:20px auto;
+                margin:10px auto;
             }
         }
     } 
@@ -47,7 +47,14 @@
 @media only screen and (min-width: 768px) and (max-width: 992px) {
     .antratek-product-page-usp {
         .antratek-usp-item {
-            width: 128px;
+            width: 46%;
+            height: 170px;
         }
     }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1200px) {
+  .antratek-product-page-usp {
+      margin-left: 15%;
+  }  
 }
