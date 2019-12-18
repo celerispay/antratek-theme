@@ -1,5 +1,6 @@
 .itemslider {
     margin-top: 20px;
+
     .block-title {
         border-color: transparent;
         padding-left: 15px;
@@ -11,6 +12,40 @@
             background: linear-gradient(to right, @ngp-common-color1, transparent);
             padding: 1px;
             width: 100%;
+        }
+
+        .price-box {
+            float: left;
+            width: 43%;
+        }
+
+        .price-including-tax {
+            .price {
+                margin-left: -42px;
+            }
+        }
+
+        .price-excluding-tax {
+            color: @ngp-common-color1;
+        }
+
+        .product-item-name {
+            height: 70px;
+        }
+
+        .product-item-actions {
+            button.action.tocart.primary {
+                padding: 10px 8px;
+            }
+        }
+    }
+
+}
+
+.products-related.items-grid {
+    .itemslider {
+        .price-box {
+            float: none;
         }
     }
 }
