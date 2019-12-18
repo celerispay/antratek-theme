@@ -41,6 +41,51 @@
 
 .qty-buttons-wrapper,
 .catalog-product-view .columns .sidebar.sidebar-main .block-title,
-.action.feature.feature-icon-hover.towishlist {
+.action.tocompare.feature.feature-icon-hover {
     display: none;
+}
+
+.product-social-links {
+    .action.feature {
+        &:hover {
+            color: unset;
+
+            .ic-heart {
+                background-color: unset !important;
+            }
+
+            .ic-letter {
+                background-color: unset !important;
+            }
+        }
+        .icon {
+            &.ic-heart {
+                background: url('@{baseDir}images/logo/antratek_wishlist_icon.svg') no-repeat left center transparent;
+                width: 15px;
+                height: 40px;
+                display: inline-block;
+                background-size: contain;
+
+                &::before {
+                    content: none;
+                }
+            }
+
+            &.ic-letter {
+                background: url('@{baseDir}images/logo/antratek_share_icon.svg') no-repeat left center transparent;
+                width: 15px;
+                height: 40px;
+                display: inline-block;
+                background-size: contain;
+
+                &::before {
+                    content: none;
+                }
+            }
+        }
+    }
+}
+
+.product-info-main .product-addto-links+.action.mailto.friend {
+    margin-left: 88px;
 }
