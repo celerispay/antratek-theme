@@ -107,3 +107,15 @@ body {
         }
     }
 }
+
+/** Mobile **/
+.media-width(@extremum, @break) when (@extremum ='max') and (@break=@screen__m) {
+    
+    .main.container {
+        .inner-container {
+            .breadcrumbs {
+                display: none;
+            }
+        }
+    }
+}
