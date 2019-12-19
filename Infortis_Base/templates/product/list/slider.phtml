@@ -434,7 +434,7 @@ switch ($type = $block->getType()) {
     }
 
     // Align elements to the center 
-    if ($this->getData('centered'))
+    if (!$this->getData('centered'))
     {
         $wrapperClasses .= ' centered';
     }
