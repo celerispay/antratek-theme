@@ -1,9 +1,22 @@
 #product-simple-bundles {
     width: 100%;
-    padding: 20px;
     margin: 50px 0;
 
-    ul li.simplebundle {
+    .sbundle-title {
+        padding-left: 12px;
+    }
+
+    ul {
+        &::before {
+            content: '';
+            background: linear-gradient(to right, @ngp-common-color1, transparent);
+            display: inline-block;
+            padding: 1px;
+            width: 100%;
+        }
+    }
+
+    li.simplebundle {
         border: none;
         margin: 20px 0;
 
@@ -37,5 +50,19 @@
             display: none;
         }
     }
+}
+
+@media screen and (min-width:768px) and (max-width: 1350px) {
+    #product-simple-bundles {
+        li.simplebundle {
+            .simplebundle-selection {
+                width: 60%;
+                
+                .simplebundle-selection-item {
+                    width: 85px;
+                }
+            }
+        }
+    } 
 }
  

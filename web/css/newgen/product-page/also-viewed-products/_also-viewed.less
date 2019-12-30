@@ -1,0 +1,112 @@
+.aw_wbtab {
+    .block-title {
+        padding-left: 12px;
+    }
+    
+    .block-content::before {
+        content: '';
+        background: linear-gradient(to right, @ngp-common-color1, transparent);
+        padding: 1px;
+        width: 100%;
+        display: inline-block;
+    }
+
+    .products-aw_wbtab {
+        ol.product-items {
+            button.slick-prev {
+                left: 93.5%;
+            }
+            
+            .slick-prev, .slick-next {
+                top: -10%;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                cursor: pointer;
+                background-color: @ngp-bg-color;
+                color: #333;
+                padding: 5px;
+            }
+
+            .slick-prev:hover,.slick-next:hover
+            {
+                background-color: @ngp-common-color1;
+                color: #fff;
+            }
+
+            .slick-prev:hover:before,
+            .slick-next:hover:before {
+                color: #fff;
+            }
+
+            li.product-item {
+                .product-item-details {
+                    .product-item-name {
+                        font-size: 1.6rem;
+                        line-height: 2.2rem;
+                        height: 70px;
+                    }
+
+                    .price-box.price-final_price {
+                        float: left;
+                    }
+
+                    .actions-primary {
+                        .action.tocart.primary {
+                            width: 115px;
+                            float: right;
+                            padding: 10px 10px;
+                            margin-top: 4%;
+                        }
+                    }
+                }
+            }
+
+            .slick-prev::before {
+                content: "\e260";
+                font-family: ThemeIcons;
+            }
+
+            .slick-next::before {
+                content: "\e263";
+                font-family: ThemeIcons;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .aw_wbtab {
+        .products-aw_wbtab {
+            ol.product-items {
+                button.slick-prev {
+                    left: 79%;
+                }
+            }
+        }
+    }        
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .aw_wbtab {
+        .products-aw_wbtab {
+            ol.product-items {
+                button.slick-prev {
+                    left: 88%;
+                }
+            }
+        }
+    }        
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1350px) {
+    .aw_wbtab {
+        .products-aw_wbtab {
+            ol.product-items {
+                button.slick-prev {
+                    left: 91.5%;
+                }
+            }
+        }
+    }        
+}
