@@ -6,5 +6,8 @@
         <referenceBlock name="wish-list-link" remove="true"/>
         <referenceBlock name="register-link" remove="true"/>
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceContainer name="content">
+            <referenceBlock name="catalog.leftnav" remove="true"/>
+        </referenceContainer>
     </body>
 </page>
