@@ -39,6 +39,26 @@ body {
     }
 }
 
+.breadcrumbs {
+    .items {
+        li.item {
+            &:last-child {
+                color: @ngp-common-color1;
+
+                strong {
+                    color: @ngp-common-color1;
+                }
+            }
+
+            &.Home {
+                color: unset;
+                Strong{
+                    color: unset;
+                }
+            }
+        }
+    }
+}
 
 /** Large Screen Only **/
 @media (min-width: 1600px) {
@@ -110,7 +130,7 @@ body {
 
 /** Mobile **/
 .media-width(@extremum, @break) when (@extremum ='max') and (@break=@screen__m) {
-    
+
     .main.container {
         .inner-container {
             .breadcrumbs {
