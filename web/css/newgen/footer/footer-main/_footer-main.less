@@ -95,14 +95,10 @@
 
             .item-right {
                 .privacy-policy {
-                    position: absolute;
-                    left: 18%;
-                    right: 0;
                     padding-top: 2px;
 
                     .footer-links-list {
                         display: inline;
-                        font-size: 11px;
 
                         a {
                             color: @ngp-heading-color;
@@ -142,6 +138,24 @@
 }
 .footer .footer-copyright{
     position: relative;
+}
+
+.media-width(@extremum, @break) when (@extremum ='min') and (@break =@screen__l) {
+    .page-footer {
+        .footer-bottom-container.section-container {
+            .item-right {
+                .privacy-policy {
+                    position: absolute;
+                    left: 18%;
+                    right: 0;
+
+                    .footer-links-list {
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .media-width(@extremum, @break) when (@extremum ='min') and (@break=@screen__xl) {
