@@ -6,7 +6,7 @@
         <referenceContainer name="container_product_lower_secondary_2">
             <block class="Magento\Cms\Block\Block" name="blockname" before="">
                 <arguments>
-                    <argument name="block_id" xsi:type="string">nl-product-page-usp</argument>
+                    <argument name="block_id" xsi:type="string">product-page-usp</argument>
                 </arguments>
             </block>
         </referenceContainer>
