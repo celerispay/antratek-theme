@@ -17,5 +17,6 @@
         <move element="product.info" destination="product.info.main" before="product.price.tier" />
         <move element="product.info.sku" destination="product.info.main" before="-" />
         <move element="catalog.product.related" destination="content.aside" after="-" />
+        <move element="product.info.upsell" destination="content.aside" before="catalog.product.related" />
     </body>
 </page>
