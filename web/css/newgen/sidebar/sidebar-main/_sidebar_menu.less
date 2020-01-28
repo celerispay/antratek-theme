@@ -1,52 +1,68 @@
-.columns {
-    .sidebar.sidebar-main {
+& when (@media-common =true) {
+    .columns {
+        .sidebar.sidebar-main {
 
-        .block-title {
-            border-bottom: 0;
-        }
-
-        .uaccordion.uaccordion-style1.sideacco {
-            font-weight: 500;
-
-            .nav-item>a {
-                color: @ngp-common-color1;
-                border: 0;
+            .block-title {
+                border-bottom: 0;
             }
 
-            li {
-                &.level0>a {
-                    border-bottom: 0;
+            .uaccordion.uaccordion-style1.sideacco {
+                font-weight: 500;
+
+                .nav-item>a {
+                    color: @ngp-common-color1;
+                    border: 0;
                 }
 
-                &.level1 {
-                    .opener {
-                        background-color: transparent !important;
+                li {
+                    &.level0>a {
+                        border-bottom: 0;
                     }
 
-                    >a {
-                        color: #000000;
+                    &.level1 {
+                        .opener {
+                            background-color: transparent !important;
+                        }
+
+                        >a {
+                            color: #000000;
+                            background-color: #fff;
+                        }
+                    }
+
+                    &.level2>a {
+                        color: @ngp-common-color1;
                         background-color: #fff;
                     }
                 }
+            }
 
-                &.level2>a {
-                    color: @ngp-common-color1;
-                    background-color: #fff;
+            .opener {
+                background-color: @ngp-bg-color  !important;
+                color: #000000;
+
+                &::before {
+                    font-size: 9px;
                 }
             }
         }
+    }
 
-        .opener {
-            background-color: @ngp-bg-color  !important;
-            color: #000000;
-
-            &::before {
-                font-size: 9px;
-            }
-        }
+    .uaccordion-style1 li li li a {
+        padding-left: 20px;
     }
 }
 
-.uaccordion-style1 li li li a {
-    padding-left: 20px;
+.media-width(@extremum, @break) when (@extremum ='min') and (@break=@screen__xl) {
+    .columns {
+        .sidebar.sidebar-main {
+            .block-title {
+                >strong {
+                    span {
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
 }
