@@ -6,7 +6,9 @@ body {
     }
 
     .sidebar.sidebar-main {
-        padding-top: 10px;
+        padding-top: 0px;
+        height: 580px;
+        overflow: auto;
     }
 
     h1,
@@ -38,10 +40,13 @@ body {
         font-size: 16px;
     }
 }
-small,div >.dd-by-boostsales{
+
+small,
+div>.dd-by-boostsales {
     font-size: 13px;
 }
-strong{
+
+strong {
     font-weight: 500;
 }
 
@@ -58,7 +63,8 @@ strong{
 
             &.Home {
                 color: unset;
-                Strong{
+
+                Strong {
                     color: unset;
                 }
             }
@@ -76,12 +82,20 @@ strong{
 
         .column.main {
             padding-left: 58px;
-            padding-top: 100px;
+            padding-top: 48px;
         }
 
         .sidebar.sidebar-main {
-            padding-top: 80px;
+            padding-top: 25px;
         }
+
+        .cms-home {
+            .sidebar.sidebar-main {
+                height: 610px;
+                overflow: auto;
+            }
+        }
+
 
         body {
 
@@ -124,7 +138,9 @@ strong{
                 font-size: 18px;
             }
 
-            small,div >.dd-by-boostsales,label {
+            small,
+            div>.dd-by-boostsales,
+            label {
                 font-size: 18px;
             }
 
