@@ -12,28 +12,6 @@
 
     .product-add-form {
         border: none;
-
-        .field.qty {
-
-            .qty-minus,
-            .qty-plus {
-                position: absolute;
-                bottom: 37%;
-                right: 33%;
-                background-color: #f5f5f5f5;
-                width: 20px;
-                height: 20px;
-                text-align: center;
-            }
-
-            .qty-plus {
-                right: 29%;
-            }
-
-            .qty-input {
-                margin-left: 25px;
-            }
-        }
     }
 
     .product.attribute.sku {
@@ -60,6 +38,34 @@
     }
 }
 
+& when (@media-common =true) {
+    .product-info-main {
+        .product-add-form {
+            .field.qty {
+
+                .qty-minus,
+                .qty-plus {
+                    position: absolute;
+                    bottom: 37%;
+                    right: 33%;
+                    background-color: #f5f5f5f5;
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                }
+
+                .qty-plus {
+                    right: 29%;
+                }
+
+                .qty-input {
+                    margin-left: 25px;
+                }
+            }
+        }
+    }
+}
+
 .qty-buttons-wrapper,
 .catalog-product-view .columns .sidebar.sidebar-main .block-title,
 .action.tocompare.feature.feature-icon-hover {
@@ -79,6 +85,7 @@
                 background-color: unset !important;
             }
         }
+
         .icon {
             &.ic-heart {
                 background: url('@{baseDir}images/logo/antratek_wishlist_icon.svg') no-repeat left center transparent;
@@ -111,15 +118,38 @@
     margin-left: 88px;
 }
 
+.media-width(@extremum, @break) when (@extremum ='min') and (@break=@screen__xl) {
+    .product-info-main {
+        .product-add-form {
+            .field.qty {
+
+                .qty-minus,
+                .qty-plus {
+                    bottom: 55%;
+                }
+
+                .qty-plus {
+                    right: 30%;
+                }
+
+                .qty-input {
+                    margin-left: 25px;
+                }
+
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: @screen__m) {
     .product-info-main {
         .prices-tier {
             width: 100%;
-    
+
             .price-container {
                 margin-left: 10%;
             }
-        }    
+        }
     }
 }
 
@@ -129,5 +159,5 @@
             width: 93%;
             margin-top: 10%;
         }
-    }        
+    }
 }
