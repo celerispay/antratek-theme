@@ -1,0 +1,113 @@
+<?php if ($block->getHelper()->usePrivateContent()):?>
+	<li data-bind="scope: 'switcher'"><span data-bind="text: switcher().label"></span></li>
+	<li data-bind="scope: 'switcher'">
+		<script type="text/x-magento-init">
+ 		{
+            "*": 
+			{
+                "Magento_Ui/js/core/app": 
+				{
+                    "components": 
+					{
+                        "switcher": 
+						{
+                            "component": "Anowave_TaxSwitch/js/switcher",
+							"config":
+							{
+								"endpoint": "<?php echo $block->getUrl('taxswitch/index/index') ?>"
+							}
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+		<script>
+			var bindTrack  = <?php echo $block->getHelper()->getTrack() ?>; 
+			var bindRender = function()
+			{
+				return true;
+			};
+			var bindRenderOptions = function()
+			{
+				<?php if (false):?>
+				
+					<?php
+					/**
+					 * This is kind of dirty workaround. value: switcher().current doesn't seem to work in Magento 2.1.2
+					 */
+					?>
+					var select = jQuery('select[name=tax_display]'), current = jQuery(':hidden[name=current]').val(), current_arg = jQuery(':hidden[name=current_arg]').val();
+	
+					if (0 < parseInt(current_arg))
+					{
+						select.val(current_arg);
+					}
+					else 
+					{
+						select.val(current);
+					}
+
+				<?php endif ?>
+
+				return this;
+			};
+			var bindChange = function(target, event)
+			{
+				 if (event.originalEvent)
+				 {
+				 	if (true == bindTrack.enable)
+					{
+						/**
+						 * Get tax display type
+						 */
+						bindTrack.fieldsObject['eventLabel'] = jQuery('select[name=tax_display]').find('option:selected:first').text();
+
+						if ('ua' == bindTrack.type) 
+						{
+							if ('undefined' !== typeof ga)
+							{
+								ga('send', bindTrack.fieldsObject);						
+							}
+						}
+						else 
+						{
+							if ('undefined' !== typeof dataLayer)
+							{
+								bindTrack.fieldsObject['event'] = 'taxSwitch';
+
+								/**
+								 * Push event to dataLayer
+								 */
+								dataLayer.push(bindTrack.fieldsObject);
+							}
+						}
+					}
+						
+					 jQuery(event.target).parents('form:first').submit();
+				 }
+			};
+	
+        </script>
+		<div data-bind="text: switcher().select"></div>
+		<input type="hidden" name="current" data-bind="value: switcher().current" />
+		<input type="hidden" name="current_arg" value="<?php echo (int) @$_GET['tax_display'] ?>" />
+		<form method="post" action="<?php echo $block->getUrl('taxswitch/index/switch')?>">
+			<select name="tax_display" class="tax_display_select" data-bind="event: { change: bindChange }, afterRender: bindRender, optionsAfterRender: bindRenderOptions, options: switcher().options, optionsText: 'label', optionsValue: 'value', value: switcher().current"></select>
+		</form>
+	</li>
+	<?php else: ?>
+
+	<li class="nav-item level0 level-top right">
+		<form method="post" action="<?php echo $block->getUrl('taxswitch/index/switch')?>">
+			<input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
+            <select name="tax_display" class="tax_display_select" onchange="this.form.submit()">
+                <?php foreach($block->getOptions() as $option):?>
+                    <?php if($option['value'] > 2){break;}?>
+                    <option value="<?php echo $option['value'] ?>" <?php if ($option['checked']):?>selected<?php endif ?>><?php echo $option['label'] ?></option>
+				<?php endforeach?>
+			</select>
+		</form>
+	</li>
+<?php endif ?>
+
