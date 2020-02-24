@@ -161,3 +161,23 @@
         }
     }
 }
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
+    .column.main {
+        .slideshow-wrapper {
+            .owl-carousel .owl-item .item {
+                .antratek-slider {
+                    bottom: 25%;
+                    width: 40%;
+
+                    .antratek-slider-button {
+                        .antratek-shop-button {
+                            width: 175px;
+                            height: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
