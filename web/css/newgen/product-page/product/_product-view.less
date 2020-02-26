@@ -64,6 +64,26 @@
             }
         }
     }
+
+    .product-info-main .product-addto-links+.action.mailto.friend {
+        margin-left: 88px;
+    }
+
+    .amxnotif-block {
+        #form-validate-price {
+            .notification-container {
+                .fieldset {
+                    label[for="amxnotif-price-gdrp"] {
+                        display: contents;
+                    }
+                }
+
+                .amxnotif_guest_action {
+                    margin-left: 3%;
+                }
+            }
+        }
+    }
 }
 
 .qty-buttons-wrapper,
@@ -114,8 +134,23 @@
     }
 }
 
-.product-info-main .product-addto-links+.action.mailto.friend {
-    margin-left: 88px;
+.media-width(@extremum, @break) when (@extremum ='max') and (@break=@screen__m) {
+    .product-info-main {
+        .product-add-form {
+            .field.qty {
+
+                .qty-minus,
+                .qty-plus {
+                    bottom: 3px;
+                    right: 77%;
+                }
+
+                .qty-plus {
+                    right: 60%;
+                }
+            }
+        }
+    }
 }
 
 .media-width(@extremum, @break) when (@extremum ='min') and (@break=@screen__xl) {
