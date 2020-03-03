@@ -29,3 +29,13 @@
         }
     }
 }
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .sidebar.sidebar-additional {
+        .block {
+            .block-title::after {
+                margin-top: -35px;
+            }
+        }
+    }        
+}    
