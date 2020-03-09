@@ -12,11 +12,14 @@
                 .nav-item>a {
                     color: @ngp-common-color1;
                     border: 0;
+
                 }
+
 
                 li {
                     &.level0>a {
                         border-bottom: 0;
+                        font-weight: 600;
                     }
 
                     &.level1 {
@@ -73,10 +76,23 @@
 
             .block-vertnav {
                 .block-content {
-                    height: 485px;
+                    height: 690px;
                     overflow: auto;
                 }
             }
+
+            .uaccordion.uaccordion-style1.sideacco {
+                .nav-item>a {
+                    padding: 15px 25px 0px;
+                }
+            }
+
+            .opener {
+                &::before {
+                    line-height: 60px;
+                }
+            }
+
         }
     }
 }
