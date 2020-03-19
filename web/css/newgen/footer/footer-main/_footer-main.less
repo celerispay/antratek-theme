@@ -121,9 +121,6 @@
                                 content: none;
                             }
                         }
-                        a.footer-links{
-                            font-size: 13px;
-                        }
                     }
                 }
             }
@@ -139,10 +136,12 @@
         }
     }
 }
-.footer .footer-copyright{
+
+.footer .footer-copyright {
     position: relative;
-    .copyright{
-        span{
+
+    .copyright {
+        span {
             font-weight: 600;
         }
     }
@@ -154,11 +153,14 @@
             .item-right {
                 .privacy-policy {
                     position: absolute;
-                    left: 18%;
+                    left: 22%;
                     right: 0;
 
                     .footer-links-list {
-                        font-size: 11px;
+                        a
+                        {
+                            font-size: 11px;
+                        }
                     }
                 }
             }
@@ -186,6 +188,25 @@
 
                 .office-address {
                     width: 57%;
+                }
+            }
+        }
+
+        .footer-column3 {
+            .footer-column-content {
+                font-size: 18px;
+            }
+        }
+
+        .footer-bottom-container.section-container {
+            .item-right {
+                .privacy-policy {
+                    .footer-links-list {
+                        a {
+                            font-size: 18px;
+                        }
+
+                    }
                 }
             }
         }
