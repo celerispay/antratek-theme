@@ -23,7 +23,16 @@
         }
     }
 }
-
+.media-width(@extremum, @break) when (@extremum ='min') and (@break=@screen__xl){
+    .cms-page-view{
+        font-weight: 500;
+        .column.main{
+            li,td, tr {
+                font-size: 18px;
+            }
+        }
+    }
+}
 @media only screen and (max-width: 480px) {
    .columns {
        .column.main {
