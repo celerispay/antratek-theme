@@ -12,6 +12,7 @@ $wrapperClasses = '';
 $timeout = null;
 $numberOfRows = null;
 $thumbnails = null;
+$delivery= $this->helper('Boostsales\Delivering\Helper\Delivery'); 
 
 switch ($type = $block->getType()) {
 
@@ -524,7 +525,7 @@ switch ($type = $block->getType()) {
                                     <?php echo $productNameEscaped; ?>
                                 </a>
                             </strong>
-
+                             <?php echo $delivery->getDeliveryHtml($_item->getId()); ?>
                             <?php /* @escapeNotVerified */ echo $block->getProductPrice($_item); ?>
 
                             <?php if ($templateType): ?>
