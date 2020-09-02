@@ -41,7 +41,7 @@
                 width="50%"
                 height="30mm"
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
-            ><?= $block->escapeHtml($block->getTitle()) ?></td>
+            ><?php //$block->escapeHtml($block->getTitle()) ?></td>
             <td valign="top">&nbsp;<?= /* @noEscape */ $block->getLogoBlock() ?></td>
         <?php else: ?>
             <td width="50%"
@@ -49,11 +49,15 @@
             <td valign="top"
                 height="30mm"
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
-            ><?= $block->escapeHtml($block->getTitle()) ?></td>
+            ><?php // $block->escapeHtml($block->getTitle()) ?></td>
         <?php endif; ?>
     </tr>
     <tr>
-        <td valign="top" width="50%"><?= $block->escapeHtml(__('Invoice #')) ?>:
+        <td valign="top" width="70%"><span valign="top"
+                height="30mm"
+                style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
+            > <?= $block->escapeHtml($block->getTitle()) ?></span><br />
+            <?= $block->escapeHtml(__('Invoice #')) ?>:
             <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/>
             <?= $block->escapeHtml(__('Invoice Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($invoice->getCreatedAt()) ?><br/>
@@ -63,6 +67,7 @@
             <?= $block->escapeHtml(__('Order Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
         </td>
+        <td valign="top" colspan="2" align="left" width="80%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
         <td valign="top"><?= /* @noEscape */ nl2br($block->escapeHtml($block->getOwnerAddress())) ?></td>
     </tr>
     <tr>
@@ -92,7 +97,7 @@
         <?php elseif ($block->shouldDisplayShippingAddress()): ?>
             <td valign="top" colspan="2" align="right" width="80%"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
         <?php elseif ($block->shouldDisplayBillingAddress()): ?>
-            <td valign="top" colspan="2" align="right" width="80%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
+            <td valign="top" colspan="2" align="left" width="80%"><?php /* @noEscape */ //$block->getBillingAddress() ?></td>
         <?php endif; ?>
     </tr>
     <tr>
