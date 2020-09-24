@@ -1,4 +1,5 @@
 & when (@media-common =true) {
+
     .columns {
         .sidebar.sidebar-main {
 
@@ -38,6 +39,24 @@
                         background-color: #fff;
                     }
                 }
+
+                .nav-item>.opener {
+                    width: 100%;
+                    height: 43px;
+                    line-height: 44px;
+
+                }
+
+                .level0.parent .opener {
+                    background-color: transparent !important;
+                }
+
+            }
+
+            .uaccordion .opener:before,
+            .uacco .opener:before {
+                float: right;
+                padding-right: 15px;
             }
 
             .opener {
