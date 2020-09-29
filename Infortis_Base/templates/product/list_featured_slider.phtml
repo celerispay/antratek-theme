@@ -358,7 +358,9 @@
                             <?php if (!$hidePrice): ?>
                                 <?php echo $this->getProductPrice($_product) ?>
                             <?php endif; ?>
-                            <?php echo $delivery->getDeliveryHtml($_product->getId()); ?>
+                            <span class="product-delivery-details">
+                                <?php echo $delivery->getDeliveryHtml($_product->getId()); ?>
+                            </span>
 
                             <div class="product actions product-item-actions">
 
