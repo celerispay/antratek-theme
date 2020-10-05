@@ -10,9 +10,11 @@
                 </arguments>
             </block>
         </referenceContainer>
+        
+        <move element="page.messages" destination="product.info.main" after="-" />
 
         <move element="product.info.overview" destination="product.info.details" />
-        
+
         <move element="simplebundle.tab" destination="content.aside" before="-" />
         <move element="product.info" destination="product.info.main" before="product.price.tier" />
         <move element="product.info.sku" destination="product.info.main" before="-" />
