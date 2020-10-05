@@ -64,6 +64,20 @@
                     display: flex;
                     flex-direction: column;
                     justify-content: space-between;
+
+                    .product-item-details {
+                        position: relative;
+
+                        .product-delivery-details{
+                            position: absolute;
+                            bottom: 0;
+                            right: 0;
+                            width: 55%;
+                            .product-availability-in-stock {
+                                display: inline;
+                            }                     
+                        }
+                    }
                 }
             }
         }
