@@ -49,6 +49,23 @@
     position: relative;
 }
 
+.miniquote-wrapper {
+    position: relative;
+    top: 50px;
+    left: 25px;
+}
+.miniquote-wrapper.active .block-miniquote {
+    margin-top: 0;
+    top: 65px;
+    right: -35px;
+}
+.miniquote-wrapper .block-miniquote:before {
+    right: 40px;
+}
+.miniquote-wrapper .block-miniquote:after {
+    right: 39px;
+}
+
 .media-width(@extremum, @break) when (@extremum ='min') and (@break=@screen__xl) {
     #header-account {
         .authorization-link {
