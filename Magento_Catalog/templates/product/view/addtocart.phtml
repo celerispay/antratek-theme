@@ -42,16 +42,19 @@
         </div>
         <script type="text/javascript">
 		require(['jquery','domReady!'],function($){
+            $(".qty-minus").hide();
 			$(".btn-qty").click(function (event) {
 				var $button = $(this);
 				var oldValue = $button.closest('.control').find("input#qty").val();
 				var defaultValue = <?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>;
 				if ($button.hasClass('plus')) {
 					var newVal = parseFloat(oldValue) + 1;
+                    $(".qty-minus").show("fast","linear");
 				} else {
 					if (oldValue > defaultValue) {
 					    var newVal = parseFloat(oldValue) - 1;
 					} else {
+                        $(".qty-minus").hide("fast","linear");
 					    newVal = defaultValue;
 					}
 				}
