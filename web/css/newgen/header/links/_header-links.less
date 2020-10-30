@@ -52,16 +52,20 @@
 .miniquote-wrapper {
     position: relative;
     top: 50px;
-    left: 25px;
+    left: 0;
+    margin-left: 0;
 }
+
 .miniquote-wrapper.active .block-miniquote {
     margin-top: 0;
     top: 65px;
     right: -35px;
 }
+
 .miniquote-wrapper .block-miniquote:before {
     right: 40px;
 }
+
 .miniquote-wrapper .block-miniquote:after {
     right: 39px;
 }
@@ -73,5 +77,18 @@
                 font-size: 18px;
             }
         }
+    }
+
+    .header-container .hp-blocks-holder {
+        padding-right: 115px;
+    }
+
+    .miniquote-wrapper .action.showquote .text {
+        width: auto;
+        height: auto;
+        position: static;
+        clip: unset;
+        overflow: unset;
+        font: 15px Quicksand, Arial, 'Helvetica Neue', Helvetica, sans-serif;
     }
 }
