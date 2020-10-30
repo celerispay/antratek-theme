@@ -348,7 +348,9 @@
                                     </a>
                                 </strong>
                             <?php endif; ?>
-
+                            <span class="product-delivery-details">
+                                <?php echo $delivery->getDeliveryHtml($_product->getId()); ?> 
+                            </span>
                             <?php if (!$hideRating): ?>
                                 <?php if ($reviewsSummaryHtml = $this->getReviewsSummaryHtml($_product, 'short')): ?>
                                     <?php echo $reviewsSummaryHtml; ?>
@@ -358,43 +360,41 @@
                             <?php if (!$hidePrice): ?>
                                 <?php echo $this->getProductPrice($_product) ?>
                             <?php endif; ?>
-                            <span class="product-delivery-details">
-                                <?php echo $delivery->getDeliveryHtml($_product->getId()); ?>
+                                <div class="product actions product-item-actions">
+    
+                                    <?php if (!$hideAddToCart): ?>
+                                            <div class="actions-primary">
+                                                <?php if ($_product->isSaleable()): ?> <?php //if (!$_product->canConfigure() && $_product->isSaleable()): ?>
+                                                    <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                                    <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+                                                        <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                                                        <input type="hidden" name="<?php /* @escapeNotVerified */ echo \Magento\Framework\App\Action\Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][\Magento\Framework\App\Action\Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                                        <?php echo $block->getBlockHtml('formkey')?>
+                                                        <button type="submit"
+                                                                title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                                class="action tocart primary">
+                                                            <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
+                                                        </button>
+                                                    </form>
+                                                <?php else: ?>
+                                                    <?php if ($_product->getIsSalable()): ?>
+                                                        <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                                    <?php else: ?>
+                                                        <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                                    <?php endif; ?>
+                                                <?php endif; ?>
+    
+                                                <?php /*
+                                                    <button class="action tocart primary see-details" data-mage-init='{"redirectUrl": {"url": "<?php echo $_product->getProductUrl(); ?>"}}' type="button" title="<?php echo __('View Details'); ?>">
+                                                        <span><?php echo __('View Details'); ?></span>
+                                                    </button>
+                                                */ ?>
+                                            </div>
+                                    <?php endif; ?>
+    
+                                </div> <!-- end: product-item-actions -->
                             </span>
 
-                            <div class="product actions product-item-actions">
-
-                                <?php if (!$hideAddToCart): ?>
-                                        <div class="actions-primary">
-                                            <?php if ($_product->isSaleable()): ?> <?php //if (!$_product->canConfigure() && $_product->isSaleable()): ?>
-                                                <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-                                                <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
-                                                    <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
-                                                    <input type="hidden" name="<?php /* @escapeNotVerified */ echo \Magento\Framework\App\Action\Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][\Magento\Framework\App\Action\Action::PARAM_NAME_URL_ENCODED]; ?>">
-                                                    <?php echo $block->getBlockHtml('formkey')?>
-                                                    <button type="submit"
-                                                            title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
-                                                            class="action tocart primary">
-                                                        <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
-                                                    </button>
-                                                </form>
-                                            <?php else: ?>
-                                                <?php if ($_product->getIsSalable()): ?>
-                                                    <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
-                                                <?php else: ?>
-                                                    <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
-
-                                            <?php /*
-                                                <button class="action tocart primary see-details" data-mage-init='{"redirectUrl": {"url": "<?php echo $_product->getProductUrl(); ?>"}}' type="button" title="<?php echo __('View Details'); ?>">
-                                                    <span><?php echo __('View Details'); ?></span>
-                                                </button>
-                                            */ ?>
-                                        </div>
-                                <?php endif; ?>
-
-                            </div> <!-- end: product-item-actions -->
                         </div> <!-- end: product-item-details -->
                     </div> <!-- end: product-item-info -->
                 </div>
