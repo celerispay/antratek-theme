@@ -4,6 +4,10 @@
 /* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
 ?>
 
+<?php 
+use Magento\Framework\App\ActionInterface;
+?>
+
 <?php
 $theme = $this->helper('Infortis\Base\Helper\Data');
 $helperImage = $this->helper('Infortis\Infortis\Helper\Image');
@@ -552,13 +556,17 @@ switch ($type = $block->getType()) {
                                                     </button>
                                                 <?php else: ?>
                                                     <?php $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
-                                                    $postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()])
+                                                    $postData = json_decode($postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()]),true);
+                                                    $value = $postData['data'][ActionInterface::PARAM_NAME_URL_ENCODED];
                                                     ?>
-                                                    <button class="action tocart primary"
-                                                            data-post='<?php /* @escapeNotVerified */ echo $postData; ?>'
-                                                            type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
-                                                        <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
-                                                    </button>
+                                                    <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtmlAttr($_item->getSku()) ?>" action="<?= $block->escapeUrl($block->getAddToCartUrl($_item)) ?>" method="post">
+                                                        <input type="hidden" name="product" value="<?= /* @noEscape */ (int)$_item->getEntityId() ?>">
+                                                        <input type="hidden" name="<?= /* @noEscape */ ActionInterface::PARAM_NAME_URL_ENCODED?>" value="<?= /* @noEscape */ $value ?>">
+                                                        <?= $block->getBlockHtml('formkey') ?>
+                                                        <button type="submit" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="action tocart primary">
+                                                            <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                                        </button>
+                                                    </form>
                                                 <?php endif; ?>
                                             <?php else: ?>
                                                 <?php if ($_item->getIsSalable()): ?>

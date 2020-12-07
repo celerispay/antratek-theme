@@ -5,6 +5,7 @@
  */
 
 // @codingStandardsIgnoreFile
+use Magento\Framework\App\ActionInterface;
 
 /** @var \Aheadworks\Wbtab\Block\Wbtab\ProductList $block */
 $items = $block->getItems();
@@ -16,6 +17,8 @@ if (count($items) > 0):
     $showCart =  $block->getDisplayAddToCart();
     $dataMageInit = $block->getDataMageInit();
     $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery');
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); 
+    $FormKey = $objectManager->get('Magento\Framework\Data\Form\FormKey'); 
 ?>
 
     <div data-mage-init='<?php /* @noEscape */ echo $dataMageInit ?>' class="block <?php /* @noEscape */ echo $class; ?>" >
@@ -56,18 +59,21 @@ if (count($items) > 0):
                                                 </button>
                                             <?php else: ?>
                                                 <?php
-                                                $postData = $block->getPostDataHelper()
+                                                $postData = json_decode($block->getPostDataHelper()
                                                     ->getPostData(
                                                         $block->getAddToCartUrl($_item),
                                                         ['product' => $_item->getEntityId()]
-                                                    );
+                                                    ),true);
+                                                $value = $postData['data'][ActionInterface::PARAM_NAME_URL_ENCODED];
                                                 ?>
-
-                                                <button class="action tocart primary"
-                                                        data-post='<?php /* @noEscape */ echo $postData; ?>'
-                                                        type="button" title="<?php echo $block->escapeHtml(__('Add to Cart')) ?>">
-                                                    <span><?php echo $block->escapeHtml(__('Add to Cart')) ?></span>
-                                                </button>
+                                                <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtmlAttr($_item->getSku()) ?>" action="<?= $block->escapeUrl($block->getAddToCartUrl($_item)) ?> method="post">
+                                                    <input type="hidden" name="product" value="<?= /* @noEscape */ (int)$_item->getEntityId() ?>">
+                                                    <input type="hidden" name="<?= /* @noEscape */ ActionInterface::PARAM_NAME_URL_ENCODED?>" value="<?= /* @noEscape */ $value ?>">
+                                                    <input name="form_key" type="hidden" value="<?php echo $FormKey->getFormKey();?>">
+                                                    <button type="submit" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="action tocart primary">
+                                                        <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                                    </button>
+                                                </form>
                                             <?php endif; ?>
                                         <?php else: ?>
                                             <?php if ($_item->getIsSalable()): ?>
@@ -88,3 +94,12 @@ if (count($items) > 0):
     </div>
 
 <?php endif;?>
+<script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {
+                    "product_sku": "<?= /* @NoEscape */ $_item->getSku() ?>"
+                }
+            }
+        }
+</script>
