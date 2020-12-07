@@ -1,0 +1,125 @@
+<?php
+/**
+ * Copyright 2019 aheadWorks. All rights reserved.
+See LICENSE.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+use Magento\Framework\App\ActionInterface;
+
+$delivery= $this->helper('Boostsales\Delivering\Helper\Delivery'); 
+
+/* @var \Aheadworks\Wvtav\Block\Catalog\Product\ProductList\Wvtav $block */
+if ($exist = ($block->getItems() && $block->getItems()->getSize())) {
+    $title = $block->getBlockName();
+    $items = $block->getItems();
+    $showCart = true;
+}
+?>
+<?php if ($exist) : ?>
+    <div class="aw-wvtav-container aw-wvtav-container--slider" style="display: none">
+        <h3 class="aw-wvtav-container__title"><?php echo $block->escapeHtml($title) ?></h3>
+        <div id="<?php /* @noEscape */ echo $block->getBlockId() ?>" class="aw-wvtav-container__items js-aw-wvtav-slider">
+            <?php foreach ($items as $item): ?>
+                <div class="aw-wvtav-container__item">
+                    <div class="product-item">
+                        <div class="product-item-info">
+                            <a href="<?php echo $block->escapeUrl($block->getProductUrl($item)) ?>"
+                               class="product-item-photo">
+                                <span class="product-image-container">
+                                    <span class="product-image-wrapper">
+                                        <img class="product-image-photo"
+                                             src="<?php echo $block->escapeUrl($block->getImage($item, 'product_base_image')->getImageUrl()); ?>"
+                                             width="240" height="300" alt="<?php echo $block->escapeHtml($item->getName())?>">
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a title="<?php echo $block->escapeHtml($item->getName())?>"
+                                       href="<?php echo $block->escapeUrl($block->getProductUrl($item)) ?>"
+                                       class="product-item-link"><?php echo $block->escapeHtml($item->getName())?></a>
+                                </strong>
+                                <?php echo $delivery->getDeliveryHtml($item->getId()); ?>
+                                <?php /* @noEscape */ echo $block->getProductPrice($item); ?>
+                                <?php if ($showCart) : ?>
+                                    <div class="actions-primary">
+                                        <?php if ($item->isSaleable()): ?>
+                                            <?php if ($item->getTypeInstance()->hasRequiredOptions($item)): ?>
+                                                <button class="action tocart primary"
+                                                        data-mage-init='{
+                                                            "redirectUrl": {
+                                                                "url": "<?php echo $block->escapeUrl($block->getAddToCartUrl($item)) ?>"
+                                                            }
+                                                        }'
+                                                        type="button"
+                                                        title="<?php echo $block->escapeHtml(__('Add to Cart')) ?>">
+                                                    <span><?php echo $block->escapeHtml(__('Add to Cart')) ?></span>
+                                                </button>
+                                            <?php else: ?>
+                                                <?php
+                                                    $postDataHelper = $block->getPostDataHelper();
+                                                    $postData = json_decode($postDataHelper->getPostData($block->getAddToCartUrl($item), ['product' => $item->getEntityId()]),true);
+                                                    $value = $postData['data'][ActionInterface::PARAM_NAME_URL_ENCODED];
+                                                ?>
+                                                 <form data-role="tocart-form"
+                                                    data-product-sku="<?= $block->escapeHtmlAttr($item->getSku()) ?>"
+                                                    action="<?= $block->escapeUrl($block->getAddToCartUrl($item)) ?>"
+                                                    method="post">
+                                                <input type="hidden" name="product"
+                                                    value="<?= /* @noEscape */ (int)$item->getEntityId() ?>">
+                                                <input type="hidden"
+                                                    name="<?= /* @noEscape */ ActionInterface::PARAM_NAME_URL_ENCODED?>"
+                                                    value="<?= /* @noEscape */ $value ?>">
+                                                <?= $block->getBlockHtml('formkey') ?>
+                                                <button type="submit"
+                                                    title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                                                    class="action tocart primary">
+                                                <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                                </button>
+                                                </form>
+                                            <?php endif; ?>
+                                        <?php else: ?>
+                                            <?php if ($item->isSaleable()): ?>
+                                                <div class="stock available">
+                                                    <span><?php echo $block->escapeHtml(__('In stock')) ?></span>
+                                                </div>
+                                            <?php else: ?>
+                                                <div class="stock unavailable">
+                                                    <span><?php echo $block->escapeHtml(__('Out of stock')) ?></span>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require([
+            'aheadworksWvtavBlockManager',
+            'mage/apply/main'
+        ], function($, mage){
+            var config = {
+                sliderId: '<?php /* @noEscape */ echo $block->getBlockId() ?>'
+            };
+            jQuery.fn.initWvtavSlider(config);
+            mage.apply();
+        });
+    </script>
+    <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {
+                    "product_sku": "<?= /* @NoEscape */ $item->getSku() ?>"
+                }
+            }
+        }
+    </script>
+<?php endif;?>
+
