@@ -2,9 +2,117 @@
     <div id="logxstarpickup_wrapper">
 
         <div id="pickup_container">
+            <div class="modal fade" id="map-container" role="dialog" style="display: none;">
+                <div class="modal-dialog" style="height: 750px; width: 80%; max-width: 1100px; min-width: 750px;">
+                    <div class="modal-content" style="height: 100%;">
+                        <div class="modal-header">
+                            <button type="button" class="close primary" data-dismiss="modal" aria-label="Close"><img
+                                    src="https://os.logxstar.com/bundles/npdbase/img/plugins/pickup/cross.png"
+                                    class="modal-title" alt="" /></button>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 filters">
+                                <div class="row">
+                                    <span class="title trn filter_title">FILTER OP VERVOERDER</span>
+                                </div>
+                                <div class="row">
+                                    <div id="points_filter" class="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="header_logo" class="col-lg-6 col-md-6 col-sm-12 hidden">
+                                <img src="https://os.logxstar.com/bundles/npdbase/img/plugins/pickup/logx.bright.logo.png"
+                                    width="180px" class="modal-title" alt="" />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 types">
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-12 ">
+                                        <span class="title trn">MAAK UW BEZORGKEUZE</span>
+                                    </div>
+                                    <div class="col-lg-6">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="delivery_types" class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="btn-group">
+                                            <button class="btn btn-default primary delivery-type hidden trn"
+                                                data-type="pickup" type="button">OPHALEN</button>
+                                            <button class="btn btn-default primary delivery-type hidden trn"
+                                                data-type="deliver" type="button">BEZORGEN</button>
+                                        </div>
+                                    </div>
+                                    <div id="langs" class="langs col-lg-6 col-md-6 col-sm-12">
+                                        <div class="btn-group">
+                                            <button id="nl" class="btn btn-default primary lang-selector selected"
+                                                type="button"
+                                                style="background-image: url(https://os.logxstar.com/bundles/npdbase/img/plugins/country_flags/nl.png)"></button>
+
+                                            <button id="en" class="btn btn-default primary lang-selector" type="button"
+                                                style="background-image: url(https://os.logxstar.com/bundles/npdbase/img/plugins/country_flags/gb.png)"></button>
+
+                                            <button id="de" class="btn btn-default  primary lang-selector" type="button"
+                                                style="background-image: url(https://os.logxstar.com/bundles/npdbase/img/plugins/country_flags/de.png);"></button>
+
+                                            <button id="es" class="btn btn-default primary lang-selector" type="button"
+                                                style="background-image: url(https://os.logxstar.com/bundles/npdbase/img/plugins/country_flags/es.png)"></button>
+
+                                            <button id="fr" class="btn btn-default primary lang-selector" type="button"
+                                                style="background-image: url(https://os.logxstar.com/bundles/npdbase/img/plugins/country_flags/fr.png)"></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <input type="hidden" name="carierFilter" value="all" />
+                        <input type="hidden" id="selected_lang" value="nl" />
+                        <input type="hidden" id="selected_type" value="pickup" />
+                        <div class="modal-body" style="height: 89%; padding: 0">
+                            <div class="row" style="height: 90%;">
+                                <div class="col-lg-4 col-sm-12 map-modal-left map-modal-list pickup-type type-content ">
+                                    <input type="hidden" value="" name="chosen_point" id="chosen_point" />
+                                    <div class="items" id="map-modal-items">
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-sm-12 pickup-type type-content"
+                                    style="height: 98%; position: relative; overflow: hidden;">
+
+                                    <div class="row">
+                                        <div class="map-modal-right" id="map"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 col-sm-12 map-modal-left map-modal-list deliver-type type-content">
+                                    <div class="items" id="deliver-modal-items">
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-sm-12 deliver-type type-content deliver-content-block"
+                                    style=" position: relative; overflow: hidden;">
+                                    <div class="row">
+                                        <div class="map-modal-right" id="deliver-details"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" bottom-bar">
+                                <div class="col-lg-12">
+                                    <div class="col-lg-6 title">
+                                        <a href="https://logxstar.com" target="_blank">Powered by</a>
+                                    </div>
+                                    <div class="col-lg-6 powered-logo">
+                                        <a href="https://logxstar.com" target="_blank"><img
+                                                src="https://os.logxstar.com/bundles/npdbase/img/plugins/pickup/ospowered.png"
+                                                alt="" /> </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</div>  
 <script type="text/x-magento-init">
     {
         "#logxstarpickup": {
