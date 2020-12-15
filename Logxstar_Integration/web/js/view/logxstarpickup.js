@@ -8,8 +8,9 @@ define(
         'Magento_Checkout/js/model/shipping-rates-validator',
         'Magento_Checkout/js/model/shipping-service',
         'Magento_Catalog/js/price-utils',
+        'Magento_Checkout/js/checkout-data',
     ],
-    function($, Component, quote, registry, shippingRatesValidator, shippingService, priceUtils) {
+    function($, Component, quote, registry, shippingRatesValidator, shippingService, priceUtils, checkoutData) {
         "use strict";
         var checkoutConfig = window.checkoutConfig;
         var selected_pickuppoint_address = {};
@@ -322,6 +323,43 @@ define(
 
         function capitalizeFirstLetter(string) {
             return string[0].toUpperCase() + string.slice(1);
+        }
+
+        function cartPickupPoint(click) {
+            var pointText = '';
+            var method_name = checkoutData.getSelectedShippingRate().method_code ? checkoutData.getSelectedShippingRate().method_code : selected_method.method_code;
+            var checked_el = 'logxstar_' + method_name;
+            var pickuppoint = checkoutData.getSelectedShippingRate().pickuppoint;
+
+            var selected_el = $('input[value="' + checked_el + '"]');
+            if (click) {
+                selected_el.click();
+            }
+            //selected_el.closest('form').find('input').prop('checked', checked_el);
+
+            if (pickuppoint != 'undefined') {
+                pointText = '<p>(' + pickuppoint + ')</p>' +
+                    '<p class="select_link">' + checkoutConfig.logxstar.pickuppoint.select_button + '</p>';
+            }
+            var element = $('#selected_method');
+            if (element.length == 0) {
+                selected_el.closest('tr').find('.col-method').eq(1).find('p').remove();
+                selected_el.closest('tr').find('.col-method').eq(1).append(pointText);
+
+            } else {
+                element.html('<table class="table-checkout-shipping-method">' +
+                    selected_el.closest('tr').html() +
+                    '</table>'
+                ).find('input').val('');
+                element.find('.col-method').eq(1).append(pointText);
+                $('#deliver_pickup').hide();
+            }
+
+            $('.select_link').on('click', function() {
+                component.initTypes();
+                component.type = 'pickup';
+                component.showPopup();
+            });
         }
 
         function formatMethod(click) {
@@ -690,6 +728,9 @@ define(
                                 component.showPopup();
                             });
                             component.mocked = true;
+                            if (typeof checkoutData.getSelectedShippingRate().pickuppoint != 'undefined') {
+                                cartPickupPoint(true);
+                            }
                         } else {
 
                         }
