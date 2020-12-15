@@ -351,7 +351,7 @@ define(
                 selected_el.closest('.field.choice.item').find('.label').append(pointText);
 
             } else {
-                element.html(selected_el.closest('.field.choice.item').html()).find('input').val('');
+                element.html(selected_el.closest('.field.choice.item').html()).find('input').val('').prop('checked', true);
                 element.find('.label').append(pointText);
                 $('#deliver_pickup').hide();
                 selected_method.pickuppoint = selected_pickuppoint_address[selected_method.method_code];
