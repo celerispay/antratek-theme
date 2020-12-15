@@ -7,9 +7,10 @@ define(
         'uiRegistry',
         'Magento_Checkout/js/model/shipping-rates-validator',
         'Magento_Checkout/js/model/shipping-service',
-        'Magento_Catalog/js/price-utils'
+        'Magento_Catalog/js/price-utils',
+        'Magento_Checkout/js/checkout-data',
     ],
-    function($, Component, quote, registry, shippingRatesValidator, shippingService, priceUtils) {
+    function($, Component, quote, registry, shippingRatesValidator, shippingService, priceUtils, checkoutData) {
         "use strict";
         var checkoutConfig = window.checkoutConfig;
         var selected_pickuppoint_address = {};
