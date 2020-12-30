@@ -9,8 +9,9 @@ define([
     'underscore',
     'Magento_Catalog/js/product/view/product-ids-resolver',
     'Magento_Catalog/js/product/view/product-info-resolver',
+    'mage/url',
     'jquery-ui-modules/widget'
-], function($, $t, _, idsResolver, productInfoResolver) {
+], function($, $t, _, idsResolver, productInfoResolver, url) {
     'use strict';
 
     $.widget('mage.catalogAddToCart', {
@@ -222,6 +223,10 @@ define([
                 addToCartButton.find('span').text(addToCartButtonTextDefault);
                 addToCartButton.attr('title', addToCartButtonTextDefault);
             }, 1000);
+            $(form).append('<div class="ajax-message">' + $t('Added') + ' <a href="' + url.build('checkout/cart') + '">' + $t('My Cart') + '</a>' + '</div>');
+            if ($(form).find('.ajax-message').length > 0) {
+                $('.page.messages').hide();
+            }
         }
     });
 
