@@ -3,18 +3,17 @@
     <body>
         <referenceBlock name="product.info.review" remove="true" />
 
-        <referenceContainer name="container_product_lower_secondary_2">
+        <referenceContainer name="container_product_lower_primary_2">
             <block class="Magento\Cms\Block\Block" name="blockname" before="-">
                 <arguments>
                     <argument name="block_id" xsi:type="string">product-page-usp</argument>
                 </arguments>
             </block>
         </referenceContainer>
-        
-        <move element="page.messages" destination="product.info.main" after="-" />
 
         <move element="product.info.overview" destination="product.info.details" />
-
+        <move element="availabilitystatus.product.info.simple" destination="product.info.form.content" before="-" />
+        <move element="product.info.social" destination="product.info.addtocart" after="-" /> 
         <move element="simplebundle.tab" destination="content.aside" before="-" />
         <move element="product.info" destination="product.info.main" before="product.price.tier" />
         <move element="product.info.sku" destination="product.info.main" before="-" />
