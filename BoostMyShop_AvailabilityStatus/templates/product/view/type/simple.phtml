@@ -1,4 +1,7 @@
 <?php $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery'); ?>
 <?php  $productId= $delivery->getProductId();
-       echo $delivery->getDeliveryHtml($productId);
 ?>
+<div class="erp-delivery-status">
+      <?php  echo $delivery->getDeliveryHtml($productId);
+?>
+</div>
