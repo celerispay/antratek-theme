@@ -1,31 +1,21 @@
-require(['jquery'], function ($) {
+require(['jquery'], function($) {
     'use strict';
-    $("document").ready(function () {
+    $("document").ready(function() {
         var list_childs = $('.nav-item.level0.level-top.right.b2c-checkbox').children();
-        var inp = $("#check");
-        var sel = $(".tax_display_select");
-        var switcherVal = sel.val();
-        if (switcherVal == 1) {
-            inp.prop("checked", true);
-            $(list_childs[2]).removeClass('onload-color');
-            $(list_childs[0]).addClass('onload-color');
-        } else {
-            inp.prop("checked", false);
-            $(list_childs[2]).addClass('onload-color');
-            $(list_childs[0]).removeClass('onload-color');
-        }
-        $(inp).change(function () {
-            var checked = inp.prop("checked");
-            sel.val(checked ? 1 : 2);
-            if (checked) {
+        $("#check").click(function() {
+            if ($('#check').is(":checked")) {
                 $(list_childs[2]).removeClass('onload-color');
                 $(list_childs[0]).addClass('onload-color');
+                $('.price-including-tax').css("display", "table-footer-group");
+                $('.price-including-tax .price').css("font-size", "1.6rem");
+                $('.price-excluding-tax .price').css("font-size", "2.2rem");
             } else {
                 $(list_childs[2]).addClass('onload-color');
                 $(list_childs[0]).removeClass('onload-color');
+                $('.price-including-tax').css("display", "table-header-group");
+                $('.price-including-tax .price').css("font-size", "2.2rem");
+                $('.price-excluding-tax .price').css("font-size", "1.6rem");
             }
-            sel.trigger("change");
         });
     });
 });
-
