@@ -48,6 +48,10 @@
         }
     }
 }
+.price-including-tax::before {
+    content: attr(data-label) ": ";
+    font-size: 1.1rem;
+}
 
 & when (@media-common =true) {
     .product-info-main {
