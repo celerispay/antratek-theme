@@ -79,7 +79,9 @@
             </a>
         </div>
     </div>
-    <span class="minicart-shipping-text"> En kies uw verzendmethode </span>
+    <if args="getCartParam('summary_count')">
+        <span class="minicart-shipping-text"> En kies uw verzendmethode </span>
+    </if>
     <div id="minicart-widgets" class="minicart-widgets" if="getRegion('promotion').length">
         <each args="getRegion('promotion')" render="" />
     </div>
