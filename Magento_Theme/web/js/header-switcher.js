@@ -22,8 +22,8 @@ require(['jquery'], function($) {
             $(list_childs[2]).removeClass('onload-color');
             $(list_childs[0]).addClass('onload-color');
             $('.price-including-tax').css("display", "table-footer-group");
-            $('.price-including-tax').addClass('business');
-            $('.price-including-tax').removeClass('consumer');
+            $('.price-including-tax').addClass('business').removeClass('consumer');
+            $('.price-excluding-tax').addClass('business').removeClass('consumer');
 
         }
 
@@ -32,8 +32,8 @@ require(['jquery'], function($) {
             $(list_childs[2]).addClass('onload-color');
             $(list_childs[0]).removeClass('onload-color');
             $('.price-including-tax').css("display", "table-header-group");
-            $('.price-including-tax').removeClass('business');
-            $('.price-including-tax').addClass('consumer');
+            $('.price-including-tax').addClass('consumer').removeClass('business');
+            $('.price-excluding-tax').addClass('consumer').removeClass('business');
         }
 
     });
