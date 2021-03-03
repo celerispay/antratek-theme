@@ -105,7 +105,7 @@ $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery');
                             </div>
                             <?php if ($showDescription):?>
                                 <div class="product description product-item-description">
-                                    <?= /* @escapeNotVerified */ $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                    <?= /* @escapeNotVerified */ substr($_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description'),0,300); ?>
                                     <a href="<?= /* @escapeNotVerified */ $_product->getProductUrl() ?>" title="<?= /* @escapeNotVerified */ $_productNameStripped ?>"
                                        class="action more"><?= /* @escapeNotVerified */ __('Learn More') ?></a>
                                 </div>
