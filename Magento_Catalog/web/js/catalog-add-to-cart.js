@@ -27,7 +27,8 @@ define([
             addToCartButtonTextWhileAdding: '',
             addToCartButtonTextAdded: '',
             addToCartButtonTextDefault: '',
-            productInfoResolver: productInfoResolver
+            productInfoResolver: productInfoResolver,
+            ajaxMessageQuote: false
         },
 
         /** @inheritdoc */
@@ -215,7 +216,6 @@ define([
 
             addToCartButton.find('span').text(addToCartButtonTextAdded);
             addToCartButton.attr('title', addToCartButtonTextAdded);
-
             setTimeout(function() {
                 var addToCartButtonTextDefault = self.options.addToCartButtonTextDefault || $t('Add to Cart');
 
@@ -223,7 +223,11 @@ define([
                 addToCartButton.find('span').text(addToCartButtonTextDefault);
                 addToCartButton.attr('title', addToCartButtonTextDefault);
             }, 1000);
-            $(form).append('<div class="ajax-message">' + $t('Added') + ' <a href="' + url.build('checkout/cart') + '">' + $t('My Cart') + '</a>' + '</div>');
+            if (this.options.ajaxMessageQuote) {
+                $(form).append('<div class="ajax-message">' + ' <a href="' + url.build('quotation/quote/') + '">' + $t('Added to your Quote') + '</a>' + '</div>');
+            } else {
+                $(form).append('<div class="ajax-message">' + $t('Added') + ' <a href="' + url.build('checkout/cart') + '">' + $t('My Cart') + '</a>' + '</div>');
+            }
             if ($(form).find('.ajax-message').length > 0) {
                 $('.page.messages').hide();
             }
