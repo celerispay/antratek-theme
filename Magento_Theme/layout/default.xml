@@ -8,8 +8,12 @@
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="category.product.addto.compare" remove="true"/>
         <referenceBlock name="category.product.addto.wishlist" remove="true" />
+        <referenceContainer name="columns">
+            <container name="content.custom" as="customContainer" label="extra" htmlTag="div" htmlClass="content-wrapper" before="-"/>
+        </referenceContainer>
         <referenceContainer name="content">
             <referenceBlock name="catalog.leftnav" remove="true"/>
         </referenceContainer>
+        <move element="main" destination="content.custom" before="-"/>
     </body>
 </page>
