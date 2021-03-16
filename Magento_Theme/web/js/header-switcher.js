@@ -3,11 +3,22 @@ require(['jquery'], function($) {
     $("document").ready(function() {
         var list_childs = $('.nav-item.level0.level-top.right.b2c-checkbox').children();
         var switchState = localStorage.getItem('tax-switch');
-        if (switchState == "true") {
-            priceSwitchActive();
-        } else {
-            priceSwitchDeactive();
-        }
+        var interval = undefined;
+        var counter = 0;
+        interval = setInterval(function() {
+            counter += 1;
+            var check = $('.block.aw_wbtab .slick-list').length > 0;
+            if (check) {
+                if (switchState == "true") {
+                    priceSwitchActive();
+                } else {
+                    priceSwitchDeactive();
+                }
+            }
+            if (check || counter >= 250) {
+                clearInterval(interval);
+            }
+        }, 200)
         $('#check').click(function() {
             if ($('#check').is(":checked") == true) {
                 priceSwitchActive();
