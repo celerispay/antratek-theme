@@ -20,38 +20,31 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
       } 
 ?>
 <?php if ($block->isPossibleOnepageCheckout()) :?>
-    <button type="button"
-            data-role="proceed-to-checkout"
-            title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
-            <?php if($availability != 0):?>
-            data-mage-init='{
+<button type="button" data-role="proceed-to-checkout" title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
+    <?php if($availability != 0): ?> data-mage-init='{
                 "Magento_Checkout/js/proceed-to-checkout":{
                     "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl())) ?>",
                 }
-            }'
-            <?php else:?>
-            id = "order_btn"
-            <?php endif; ?>
-            class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>"
-            <?php if ($block->isDisabled()) :?>
-                disabled="disabled"
-            <?php endif; ?>
-        <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
-    </button>
-    <div id="modal">
+            }' <?php else:?> id="order_btn" <?php endif; ?>
+    class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>" <?php if ($block->isDisabled()) :?>
+    disabled="disabled" <?php endif; ?> <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
+</button>
+<div id="modal">
     <div class="content">
         <p> Ship Complete </p>
         <p> Choosing to ship complete will ship your order in one shipment </p>
         <p> Seperate Order </p>
-        <p> Choosing to ship complete will ship in-stock items now and Backorder items later under differend shipment and seperate charges</p>
+        <p> Choosing to ship complete will ship in-stock items now and Backorder items later under differend shipment
+            and seperate charges</p>
     </div>
-    </div>
-    <script type="text/javascript">
+</div>
+<?php if($availability == 0):?>
+<script type="text/javascript">
     require([
         "jquery",
         "Magento_Ui/js/modal/modal",
         "Magento_Customer/js/customer-data"
-    ],function($, modal,customerData) {
+    ], function ($, modal, customerData) {
         var options = {
             type: 'popup',
             responsive: true,
@@ -59,23 +52,32 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
             buttons: [{
                 text: jQuery.mage.__('SHIP COMPLETE'),
                 class: 'action primary',
-                click: function(){
-                    customerData.set('order preference',{type:'complete_order'});
-                    window.location.href = '<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl())).'?backorder_pref=complete' ?>';
+                click: function () {
+                    customerData.set('order preference', {
+                        type: 'complete_order'
+                    });
+                    window.location.href =
+                        '<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl()))?>';
                 }
-                },{text: jQuery.mage.__('SEPARATE ORDER'),
+            }, {
+                text: jQuery.mage.__('SEPARATE ORDER'),
                 class: 'action primary',
-                click: function(){
-                    customerData.set('order preference',{type:'separate_order'});
-                    window.location.href = '<?= $block->getBaseUrl().'PartialOrder/index/index' ?>';
+                click: function () {
+                    customerData.set('order preference', {
+                        type: 'separate_order'
+                    });
+                    window.location.href =
+                        '<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl().'
+                    PartialOrder / index / index ')) ?>';
                 }
             }]
         };
         var popup = modal(options, $('#modal'));
-        $("#order_btn").click(function() {
+        $("#order_btn").click(function () {
             $('#modal').modal('openModal');
         });
     });
+
 </script>
 <?php endif?>
-
+<?php endif?>
