@@ -2,13 +2,54 @@
     .form.form-cart {
         .cart {
             .action {
-                background-color: @ngp-common-color1;
-                color: #ffffff;
+                &.action-edit::before {
+                    background: url('@{baseDir}images/cart-icons/edit.svg')no-repeat left center transparent;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: 32px;
+                    content: '';
+                    vertical-align: top;
+                    display: inline-block;
+                    font-weight: normal;
+                    overflow: hidden;
+                    text-align: center;
+                    height: 50px;
+                    width: 50px;
+                }
 
-                &:hover {
-                    background-color: #30a5ff;
+                &.action-delete::before {
+                    background: url('@{baseDir}images/cart-icons/delete.svg')no-repeat left center transparent;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: 32px;
+                    content: '';
+                    margin: 0;                    
+                    vertical-align: top;
+                    display: inline-block;
+                    font-weight: normal;
+                    overflow: hidden;
+                    text-align: center;
+                    height: 50px;
+                    width: 50px;
                 }
             }
         }
     }
+}
+.cart-container .form-cart .action.update:before{
+    background: url('@{baseDir}images/cart-icons/update.svg')no-repeat left center transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 32px;
+    line-height: 16px;
+    color: inherit;
+    content: '';
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+    font-weight: normal;
+    overflow: hidden;
+    text-align: center;
+    height: 50px;
+    width: 50px;
 }
