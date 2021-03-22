@@ -23,12 +23,14 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
 <button type="button" data-role="proceed-to-checkout" title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
     <?php if($availability != 0): ?> data-mage-init='{
                 "Magento_Checkout/js/proceed-to-checkout":{
-                    "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl())) ?>",
+                    "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl())) ?>"
                 }
-            }' <?php else:?> id="order_btn" <?php endif; ?>
+            }' 
+    <?php else:?> id="order_btn" <?php endif; ?>
     class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>" <?php if ($block->isDisabled()) :?>
-    disabled="disabled" <?php endif; ?> <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
+    disabled="disabled" <?php endif; ?>> <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
 </button>
+<?php if($availability == 0):?>
 <div id="modal">
     <div class="content">
         <p> Ship Complete </p>
@@ -38,7 +40,7 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
             and seperate charges</p>
     </div>
 </div>
-<?php if($availability == 0):?>
+
 <script type="text/javascript">
     require([
         "jquery",
