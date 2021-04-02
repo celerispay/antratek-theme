@@ -36,7 +36,9 @@ $priceHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
             <?php endif; ?>
         <?php endif;?>
     <?php endif;?>
+    <?php if($orderArray): ?>
     <?php $order = $splitOrder->getOrder($orderArray); ?>
+    <?php if($order): ?>
     <h2> Backorder Details </h2>
     <div class="order-detail">
         <table>
@@ -93,6 +95,8 @@ $priceHelper = $this->helper('Magento\Framework\Pricing\Helper\Data');
             </tfoot>
         </table>
     </div>
+    <?php endif; ?>
+    <?php endif; ?>
     <?= $block->getChildHtml('order.success.blocks') ?>
     <?= $block->getAdditionalInfoHtml() ?>
     <div class="actions-toolbar">
