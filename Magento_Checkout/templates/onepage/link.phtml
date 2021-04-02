@@ -11,6 +11,7 @@ $availability = 1;
 $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery'); 
 $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
       $items = $quoteHelper->getItems();
+      if($items){
       foreach($items as $item){
            $availability = $delivery->getAvailableStock($item->getProduct()->getId());
            if($availability == 0){
@@ -18,12 +19,13 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
                break;
            }
       } 
+    }
 ?>
 <?php if ($block->isPossibleOnepageCheckout()) :?>
 <button type="button" data-role="proceed-to-checkout" title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
     <?php if($availability != 0): ?> data-mage-init='{
                 "Magento_Checkout/js/proceed-to-checkout":{
-                    "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl())) ?>"
+                    "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl().'#shipping')) ?>"
                 }
             }' 
     <?php else:?> id="order_btn" <?php endif; ?>
@@ -55,9 +57,6 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
                 text: jQuery.mage.__('SHIP COMPLETE'),
                 class: 'action primary',
                 click: function () {
-                    customerData.set('order preference', {
-                        type: 'complete_order'
-                    });
                     window.location.href =
                         '<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl().'#shipping'))?>';
                 }
@@ -65,9 +64,6 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
                 text: jQuery.mage.__('SEPARATE ORDER'),
                 class: 'action primary',
                 click: function () {
-                    customerData.set('order preference', {
-                        type: 'separate_order'
-                    });
                     window.location.href =
                         '<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl().'PartialOrder/index/index')) ?>';
                 }
