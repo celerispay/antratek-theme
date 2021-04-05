@@ -171,6 +171,7 @@ define([
                             .html(res.product.statusText);
                     }
                     self.enableAddToCartButton(form);
+                    self.setPriceMinicart(JSON.parse(localStorage.getItem('tax-switch')));
                 },
 
                 /** @inheritdoc */
@@ -231,7 +232,24 @@ define([
             if ($(form).find('.ajax-message').length > 0) {
                 $('.page.messages').hide();
             }
+        },
+
+        setPriceMinicart: function(switchState) {
+            if (switchState == true) {
+                setTimeout(function() {
+                    $('.price-including-tax').css("display", "table-footer-group");
+                    $('.price-including-tax').addClass('business').removeClass('consumer');
+                    $('.price-excluding-tax').addClass('business').removeClass('consumer');
+                }, 5000);
+            } else {
+                setTimeout(function() {
+                    $('.price-including-tax').css("display", "table-header-group");
+                    $('.price-including-tax').addClass('consumer').removeClass('business');
+                    $('.price-excluding-tax').addClass('consumer').removeClass('business');
+                }, 5000)
+            }
         }
+
     });
 
     return $.mage.catalogAddToCart;
