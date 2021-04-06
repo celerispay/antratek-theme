@@ -27,10 +27,6 @@ $finalPriceExclTax = 0;
     $finalPriceExclTax = 0;
     ?>
     <li class="simplebundle">
-        
-        
-        
-        
         <div class="simplebundle-selection">
             
                     <?php if($_bundleItems->getSize()<=0 && $bundle->getBaseQty() < 6): ?>
@@ -94,11 +90,6 @@ $finalPriceExclTax = 0;
 
                     <div class="extra-infos">
                         <strong><a href="<?php echo $_product->getProductUrl() ?>" ><?php echo $_selection->getProduct()->getName() ?></a></strong><br/>
-                        <div class="price-box">
-                            <span class="regular-price">
-                                <span class="price"><?php echo $pricingHelper->currency($_selection->getProduct()->getFinalPrice()) ?></span>                                    
-                            </span>
-                        </div>
                         <?php echo $_selection->getProduct()->getShortDescription() ?>
                     </div>
                 </div>
