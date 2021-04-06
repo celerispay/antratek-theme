@@ -31,10 +31,9 @@
 
     .prices-tier {
         padding: 10px;
-        width: 80%;
-
         .price-container {
             margin-left: 55px;
+            display: table;
         }
 
         .price {
@@ -48,9 +47,22 @@
         }
     }
 }
+
+.prices-tier{
+    .price-container{
+        .price-including-tax + .price-excluding-tax{
+            &::before{
+                content:attr(data-label)":";
+            }
+            &:last-child::after{
+                content:"";
+            }
+        }
+    }
+}
+
 .price-including-tax::before {
     content: attr(data-label) ": ";
-    font-size: 1.1rem;
 }
 
 & when (@media-common =true) {
