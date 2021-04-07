@@ -8,7 +8,7 @@ require(['jquery'], function($) {
         var counter = 0;
         interval = setInterval(function() {
             counter += 1;
-            var check = $('.block.aw_wbtab .slick-list').length > 0 || $('#checkout-shipping-method-load').length > 0;
+            var check = $('.block.aw_wbtab .slick-list').length > 0 || $('#checkout-shipping-method-load').length > 0 || $('#mini-cart').find('.price-container').length > 0;
             if (check) {
                 priceSwitch(switchState);
             }
