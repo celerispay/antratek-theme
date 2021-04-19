@@ -5,8 +5,7 @@ require(['jquery'], function($) {
         var switchState = JSON.parse(localStorage.getItem('tax-switch'));
         priceSwitch(switchState);
         var intervals = new Array();
-        var counter = 0;
-
+        var counter = 0;​
         var configs = [{
                 key: 'block.aw_wbtab',
                 check: function() {
@@ -31,13 +30,12 @@ require(['jquery'], function($) {
                 successCallback: priceSwitchActive,
                 failCallback: priceSwitchDeactive,
             }
-        ]
-
-        for (var index = 0; index < configs.length; index++) {
-            var config = configs[index];
-            config.counter = 0;
+        ];​
+        function registerInterval(conf) {
+            var config = Object.assign({ counter: 0 }, conf);
             intervals[config.key] = setInterval(function() {
                 config.counter += 1;
+                console.info(config.key, config.counter);
                 var check = config.check();
                 if (check) {
                     if (switchState == "true") {
@@ -50,20 +48,20 @@ require(['jquery'], function($) {
                     clearInterval(intervals[config.key]);
                 }
             }, 200);
-        }
-
+        }​
+        for (var index = 0; index < configs.length; index++) {
+            registerInterval(configs[index]);
+        }​
         $('#check').click(function() {
             $('#check').is(":checked") ? priceSwitch(true) : priceSwitch(false);
-        });
-
+        });​
         function priceSwitch(currState) {
             if (currState == true) {
                 priceSwitchActive();
             } else {
                 priceSwitchDeactive();
             }
-        }
-
+        }​
         function priceSwitchActive() {
             localStorage.setItem('tax-switch', true);
             $('#check').prop('checked', true);
@@ -71,10 +69,8 @@ require(['jquery'], function($) {
             $(list_childs[0]).addClass('onload-color');
             $('.price-including-tax').css("display", "table-footer-group");
             $('.price-including-tax').addClass('business').removeClass('consumer');
-            $('.price-excluding-tax').addClass('business').removeClass('consumer');
-
-        }
-
+            $('.price-excluding-tax').addClass('business').removeClass('consumer');​
+        }​
         function priceSwitchDeactive() {
             localStorage.setItem('tax-switch', false);
             $(list_childs[2]).addClass('onload-color');
@@ -82,7 +78,6 @@ require(['jquery'], function($) {
             $('.price-including-tax').css("display", "table-header-group");
             $('.price-including-tax').addClass('consumer').removeClass('business');
             $('.price-excluding-tax').addClass('consumer').removeClass('business');
-        }
-
+        }​
     });
 });
