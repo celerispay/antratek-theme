@@ -2,8 +2,7 @@ require(['jquery'], function($) {
     'use strict';
     $("document").ready(function() {
         var list_childs = $('.nav-item.level0.level-top.right.b2c-checkbox').children();
-        var switchState = JSON.parse(localStorage.getItem('tax-switch'));
-        priceSwitch(switchState);
+        priceSwitch(isSwitchSet());
         var intervals = new Array();
         var counter = 0;​
         var configs = [{
@@ -30,7 +29,13 @@ require(['jquery'], function($) {
                 successCallback: priceSwitchActive,
                 failCallback: priceSwitchDeactive,
             }
-        ];​
+        ];
+
+        function isSwitchSet() {
+            var switchCase = JSON.parse(localStorage.getItem('tax-switch'));
+            return (switchCase + '').toLowerCase() == 'true';
+        }​
+
         function registerInterval(conf) {
             var config = Object.assign({ counter: 0 }, conf);
             intervals[config.key] = setInterval(function() {
@@ -38,7 +43,7 @@ require(['jquery'], function($) {
                 console.info(config.key, config.counter);
                 var check = config.check();
                 if (check) {
-                    if (switchState == "true") {
+                    if (isSwitchSet()) {
                         config.successCallback();
                     } else {
                         config.failCallback();
