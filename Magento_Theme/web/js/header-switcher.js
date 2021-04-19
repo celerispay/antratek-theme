@@ -4,18 +4,53 @@ require(['jquery'], function($) {
         var list_childs = $('.nav-item.level0.level-top.right.b2c-checkbox').children();
         var switchState = JSON.parse(localStorage.getItem('tax-switch'));
         priceSwitch(switchState);
-        var interval = undefined;
+        var intervals = new Array();
         var counter = 0;
-        interval = setInterval(function() {
-            counter += 1;
-            var check = $('.block.aw_wbtab .slick-list').length > 0 || $('#checkout-shipping-method-load').length > 0 || $('#mini-cart').find('.price-container').length > 0;
-            if (check) {
-                priceSwitch(switchState);
+
+        var configs = [{
+                key: 'block.aw_wbtab',
+                check: function() {
+                    return $('.block.aw_wbtab .slick-list').length > 0;
+                },
+                successCallback: priceSwitchActive,
+                failCallback: priceSwitchDeactive,
+            },
+            {
+                key: 'mini-cart',
+                check: function() {
+                    return $('#mini-cart').find('.price-container').length > 0;
+                },
+                successCallback: priceSwitchActive,
+                failCallback: priceSwitchDeactive,
+            },
+            {
+                key: 'checkout-shipping',
+                check: function() {
+                    return $('#checkout-shipping-method-load').length > 0;
+                },
+                successCallback: priceSwitchActive,
+                failCallback: priceSwitchDeactive,
             }
-            if (check || counter >= 250) {
-                clearInterval(interval);
-            }
-        }, 200)
+        ]
+
+        for (var index = 0; index < configs.length; index++) {
+            var config = configs[index];
+            config.counter = 0;
+            intervals[config.key] = setInterval(function() {
+                config.counter += 1;
+                var check = config.check();
+                if (check) {
+                    if (switchState == "true") {
+                        config.successCallback();
+                    } else {
+                        config.failCallback();
+                    }
+                }
+                if (check || config.counter >= 250) {
+                    clearInterval(intervals[config.key]);
+                }
+            }, 200);
+        }
 
         $('#check').click(function() {
             $('#check').is(":checked") ? priceSwitch(true) : priceSwitch(false);
