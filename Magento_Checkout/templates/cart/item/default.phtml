@@ -93,7 +93,9 @@ $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery');
             </td>
         <?php else :?>
             <td class="col price" data-th="<?= $block->escapeHtmlAttr(__('Price')) ?>">
+                <div class="cart-price-wrapper">
                 <?= $block->getUnitPriceHtml($_item) ?>
+                </div>
             </td>
         <?php endif; ?>
         <td class="col qty" data-th="<?= $block->escapeHtmlAttr(__('Qty')) ?>">
@@ -121,7 +123,9 @@ $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery');
             <?php if ($canApplyMsrp) :?>
                 <span class="cart msrp subtotal">--</span>
             <?php else :?>
+            <div class="cart-price-wrapper">
                 <?= $block->getRowTotalHtml($_item) ?>
+            </div>
             <?php endif; ?>
         </td>
     </tr>
