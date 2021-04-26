@@ -35,11 +35,25 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
 <?php if($availability == 0):?>
 <div id="modal">
     <div class="content">
-        <p> Ship Complete </p>
-        <p> Choosing to ship complete will ship your order in one shipment </p>
-        <p> Seperate Order </p>
-        <p> Choosing to ship complete will ship in-stock items now and Backorder items later under differend shipment
-            and seperate charges</p>
+        <div class="backorder_row_1">
+            <div class="backorder_icon">
+                <img src="" alt="backorder_icon_image">
+            </div>
+            <div class="backorder_main_heading">
+                Please choose backorder preference
+            </div>
+        </div>
+        <div class="backorder_row_2">
+            <div class="col_1">
+                <h3>Ship Complete</h3>
+                <p> Choosing to ship complete will ship your order in one shipment. </p>
+            </div>
+            <div class="col_2">
+                <h3>Seperate Order</h3>
+                <p> Choosing to ship complete will ship in-stock items now and Backorder items later under differend
+                    shipment and seperate charges.</p>
+            </div>
+        </div>
     </div>
 </div>
 
