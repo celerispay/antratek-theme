@@ -40,7 +40,6 @@ require(['jquery'], function($) {
             var config = Object.assign({ counter: 0 }, conf);
             intervals[config.key] = setInterval(function() {
                 config.counter += 1;
-                console.info(config.key, config.counter);
                 var check = config.check();
                 if (check) {
                     if (isSwitchSet()) {
@@ -60,6 +59,8 @@ require(['jquery'], function($) {
         $('#check').click(function() {
             $('#check').is(":checked") ? priceSwitch(true) : priceSwitch(false);
         });
+
+        shippingType();
 
         function priceSwitch(currState) {
             if (currState == true) {
@@ -86,6 +87,21 @@ require(['jquery'], function($) {
             $('.price-including-tax').css("display", "table-header-group");
             $('.price-including-tax').addClass('consumer').removeClass('business');
             $('.price-excluding-tax').addClass('consumer').removeClass('business');
+        }
+        /**
+         * Shopping cart default delivery option
+         */
+        function shippingType() {
+            if ($('.checkout-cart-index').length) {
+                var shippingHandle = setInterval(function() {
+                    if ($('#co-shipping-method-form .radio[name="shipping-method-option').length > 0) {
+                        $('#co-shipping-method-form .radio[name="shipping-method-option"]').each(function(index) {
+                            (index == 0) ? $(this).attr('checked', true): $('#pickup_mock_up').slideUp(0);
+                            clearInterval(shippingHandle);
+                        });
+                    }
+                }, 5000);
+            }
         }
     });
 });
