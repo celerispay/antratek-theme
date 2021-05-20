@@ -619,8 +619,8 @@ define(
                 var hideTimer = setTimeout(function() {
                     component.getServicePoints();
 
-                    if ($('input[value$="__lgxspickup"]').length > 1) {
-                        $('input[value$="__lgxspickup"]').closest('.field.choice.item').hide();
+                    if ($('#co-shipping-method-form input[value$="__lgxspickup"]').length > 1) {
+                        $('#co-shipping-method-form input[value$="__lgxspickup"]').closest('.field.choice.item').hide();
                         var selected_el = jQuery('#co-shipping-method-form')
                             .find('input[type="radio"][value^="logxstar"]:checked:not([value$="__lgxspickup"])');
                         jQuery('#co-shipping-method-form')
@@ -632,7 +632,7 @@ define(
                             });
                         if (component.mocked == false || selected_el.length > 0) {
                             jQuery('#pickup_mock_up').remove();
-                            $('#co-shipping-method-form').append(
+                            $('#co-shipping-method-form dl.items.methods dd.item-options:nth-of-type(2)').append(
                                 '<div id="pickup_mock_up">' +
                                 '<div id="deliver_pickup" class="selectPickuppoint">' +
                                 '<table class="table-checkout-shipping-method">' +
