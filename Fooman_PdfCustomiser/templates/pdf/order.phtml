@@ -44,7 +44,7 @@
     </tr>
     <tr>
         <td valign="top" width="50%"><?= $block->escapeHtml(__('Order #')) ?>:
-            <?= $block->escapeHtml($order->getIncrementId()) ?><br/>
+            <?= $block->escapeHtml($order->getIncrementId()) ?><br/><br/>
             <?= $block->escapeHtml(__('Order Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/>
         </td>
@@ -77,7 +77,7 @@
         <?php elseif ($block->shouldDisplayShippingAddress()): ?>
             <td valign="top" colspan="2"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
         <?php elseif ($block->shouldDisplayBillingAddress()): ?>
-            <td valign="top" colspan="2" align="right" width="80%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
+            <td valign="top" colspan="2" align="right" width="70%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
         <?php endif; ?>
     </tr>
     <tr>
