@@ -72,14 +72,14 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
                 class: 'action primary',
                 click: function () {
                     window.location.href =
-                        '<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl().'#shipping'))?>';
+                        '<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl().'PartialOrder/index/index?order_type=complete'))?>';
                 }
             }, {
                 text: jQuery.mage.__('SEPARATE ORDER'),
                 class: 'action primary',
                 click: function () {
                     window.location.href =
-                        '<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl().'PartialOrder/index/index')) ?>';
+                        '<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl().'PartialOrder/index/index?order_type=separate')) ?>';
                 }
             }]
         };
