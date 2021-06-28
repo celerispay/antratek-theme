@@ -35,16 +35,18 @@
                 <tcpdf method="write1DBarcode" <?php echo $block->getEncodedParams($barcodeParams) ?>/>
         </td>
     </tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
     <tr>
         <?php if ($block->isLogoOnRight()): ?>
             <td valign="top"
-                width="50%"
+                width="40%"
                 height="30mm"
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
             ><?php //$block->escapeHtml($block->getTitle()) ?></td>
             <td valign="top">&nbsp;<?= /* @noEscape */ $block->getLogoBlock() ?></td>
         <?php else: ?>
-            <td width="50%"
+            <td width="40%"
                 valign="top">&nbsp;<?= /* @noEscape */ $block->getLogoBlock() ?></td>
             <td valign="top"
                 height="30mm"
