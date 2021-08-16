@@ -27,8 +27,65 @@
                 }
             }
         }
+        
+
+        @media screen and (min-width: 1200px){
+            h3 {
+                font-size: 21px !important;
+                line-height: 24px;
+                font-weight: 500;
+                letter-spacing: 0.7px;
+            }
+            .widget.block.block-static-block {
+                >.row {
+                    margin: 0;
+                    background: #f5f5f5;
+                }
+            }
+            
+            .sidebar-social-links {
+                margin: 25px 0;
+                padding: 15px 15px 20px;
+                background: #f5f5f5;
+
+                h3 {
+                    font-size: 21px !important;
+                    line-height: 24px;
+                    font-weight: 500;
+                    letter-spacing: 0.7px;
+                }
+                .ib {
+                    height: 38px;
+                    width: 38px;
+                }
+                .social-links {
+                    margin-top: 15px;
+                }
+            }
+        }
+
+        @media @ant-desktop-xl{
+            padding-left: 0;
+
+            h3 {
+                font-size: 23px !important;
+                line-height: 24px;
+                font-weight: 500;
+                letter-spacing: 0.7px;
+            }
+            .sidebar-social-links {
+                h3 {
+                    font-size: 23px !important;
+                    line-height: 24px;
+                    font-weight: 500;
+                    letter-spacing: 0.7px;
+                }
+            }
+        }
     }
 }
+
+
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
     .sidebar.sidebar-additional {
