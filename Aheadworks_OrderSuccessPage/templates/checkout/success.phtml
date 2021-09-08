@@ -1,0 +1,33 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Magento\Checkout\Block\Onepage\Success $block */
+/** @var \Aheadworks\OrderSuccessPage\ViewModel\Checkout\Success\Text $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<div class="checkout-success">
+    <?php if ($viewModel->getSuccessPageText()): ?>
+        <div class="aw_osp-success-text">
+            <p><?= $block->escapeHtml($viewModel->getSuccessPageText()) ?></p>
+        </div>
+    <?php endif; ?>
+    <?php if ($block->getOrderId()):?>
+        <?php if ($block->getCanViewOrder()) :?>
+            <p><?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
+        <?php  else :?>
+            <p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
+        <?php endif;?>
+        <?php if ($viewModel->isOrderEmailEnabled()): ?>
+            <p><?= $block->escapeHtml(__('We\'ll email you an order confirmation with details and tracking info.')) ?></p>
+        <?php endif; ?>
+    <?php endif;?>
+    <?= $block->getChildHtml('order.success.aftersteps') ?>
+    <?= $block->getChildHtml('order.success.blocks') ?>
+    <?= $block->getAdditionalInfoHtml() ?>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <a class="action primary continue" href="<?= $block->escapeUrl($block->getContinueUrl()) ?>">
+                <span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
+            </a>
+        </div>
+    </div>
+</div>
