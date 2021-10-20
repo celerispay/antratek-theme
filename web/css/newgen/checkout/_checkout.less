@@ -6,3 +6,56 @@
         }
     }
 }
+
+.tab-switch-container{
+    display: flex;
+    margin-bottom: 8px;
+
+    .tab-1,
+    .tab-2 {
+        border: 1px solid #ddd;
+        border-color: transparent transparent #ddd transparent;
+        
+        &.active{
+            border: 1px solid #ddd;
+        }
+        
+        width: 50%;
+        display: inline-block;
+        
+        label{
+            padding: 6px;
+            width: 100%;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    }
+}
+
+.cart-container .cart-summary #block-shipping .title{
+    border-top: none;
+}
+
+#block-shipping{
+
+    &.tab-case-1{
+        #shipping-zip-form{
+            input[name="postcode"]{
+                pointer-events: none;
+            }
+        }
+    }
+    &.tab-case-2{
+        #shipping-zip-form{
+            input[name="postcode"]{
+                pointer-events: auto;
+            }
+        }
+    }
+
+    .field.note{
+        display: none;
+    } 
+}
+
