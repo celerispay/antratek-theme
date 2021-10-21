@@ -27,11 +27,12 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
                 "Magento_Checkout/js/proceed-to-checkout":{
                     "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl().'#shipping')) ?>"
                 }
-            }' 
+            }'
     <?php else:?> id="order_btn" <?php endif; ?>
     class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>" <?php if ($block->isDisabled()) :?>
     disabled="disabled" <?php endif; ?>> <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
 </button>
+<span class="shopping-cart-proceed-text"><?= $block->escapeHtml(__('Eenvoudig en snel, u hoeft geen account te maken')) ?></span>
 <?php if($availability == 0):?>
 <div id="modal">
     <div class="content">
