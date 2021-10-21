@@ -1,0 +1,108 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+?>
+<?php /** @var $block \Magento\Checkout\Block\Cart\Shipping */ ?>
+<div class="tab-switch-container">
+    <div class="tab-1 active">
+        <label> <input type="radio" name="tab" checked="checked"> Thuisbezorgen </label>
+    </div>
+    <div class="tab-2">
+        <label> <input type="radio" name="tab" > Ophalen </label>
+    </div>
+</div>
+<div id="block-shipping"
+     class="block shipping tab-case-1"
+     data-mage-init='{"collapsible":{"openedState": "active", "saveState": true}}'
+>
+    <div class="title" data-role="title">
+        <strong id="block-shipping-heading" role="heading" aria-level="2">
+            <?= $block->getQuote()->isVirtual()
+                ? $block->escapeHtml(__('Estimate Tax'))
+                : $block->escapeHtml(__('Estimate Shipping and Tax'))
+            ?>
+        </strong>
+    </div>
+    <div id="block-summary"
+         data-bind="scope:'block-summary'"
+         class="content"
+         data-role="content"
+         aria-labelledby="block-shipping-heading"
+    >
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+            {
+                "#block-summary": {
+                    "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getJsLayout() ?>
+                }
+            }
+        </script>
+        <script>
+            window.checkoutConfig = <?= /* @noEscape */ $block->getSerializedCheckoutConfig() ?>;
+            window.customerData = window.checkoutConfig.customerData;
+            window.isCustomerLoggedIn = window.checkoutConfig.isCustomerLoggedIn;
+            require([
+                'mage/url',
+                'Magento_Ui/js/block-loader'
+            ], function(url, blockLoader) {
+                blockLoader(
+                    "<?= $block->escapeJs($block->escapeUrl($block->getViewFileUrl('images/loader-1.gif'))) ?>"
+                );
+                return url.setBaseUrl('<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl())) ?>');
+            })
+        </script>
+    </div>
+</div>
+<script>
+    function registerListeners() {
+        jQuery('.tab-switch-container .tab-1').click(function(){
+          jQuery('.tab-switch-container .tab-2').removeClass('active');
+          jQuery(this).addClass('active');
+          jQuery('#block-shipping').removeClass('tab-case-2').addClass('tab-case-1');
+          jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
+          hideOptions();
+        });
+        jQuery('.tab-switch-container .tab-2').click(function(){
+          jQuery('.tab-switch-container .tab-1').removeClass('active');
+          jQuery(this).addClass('active');
+          jQuery('#block-shipping').removeClass('tab-case-1').addClass('tab-case-2');
+          jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','default');
+          hideOptions();
+        });
+    }
+    registerListeners();
+    function hideOptions() {
+        if(jQuery('#block-shipping').hasClass('tab-case-1')) {
+            jQuery('#block-shipping #co-shipping-method-form input').each(function(index, ele){
+                if(jQuery(this).attr('id').includes('accesspoint') || jQuery(this).attr('id').includes('parcelshop') || jQuery(this).attr('id').includes('package_signature')){
+                    jQuery(this).parent('.field').slideUp(500);
+                } else{
+                    jQuery(this).parent('.field').slideDown(500);
+                }
+            });
+        }
+        else if(jQuery('#block-shipping').hasClass('tab-case-2')) {
+            jQuery('#block-shipping #co-shipping-method-form input').each(function(index, ele){
+                if(jQuery(this).attr('id').includes('accesspoint') || jQuery(this).attr('id').includes('parcelshop') || jQuery(this).attr('id').includes('package_signature')){
+                    jQuery(this).parent('.field').slideDown(500);
+                } else{
+                    jQuery(this).parent('.field').slideUp(500);
+                }
+            });
+        }
+    }
+    
+    jQuery(document).ready(function(){
+        var interval = setInterval(function(){
+            if (jQuery('#co-shipping-method-form .item-options .field.item').length > 0) {
+                hideOptions();
+                // jQuery('.tab-switch-container .tab-1').trigger('click');
+                jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
+                clearInterval(interval);
+            }
+        }, 200);
+    });
+</script>
