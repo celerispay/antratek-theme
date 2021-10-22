@@ -64,6 +64,7 @@
           jQuery('#block-shipping').removeClass('tab-case-2').addClass('tab-case-1');
           jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
           hideOptions();
+          disableCheckoutBtn();
         });
         jQuery('.tab-switch-container .tab-2').click(function(){
           jQuery('.tab-switch-container .tab-1').removeClass('active');
@@ -71,6 +72,7 @@
           jQuery('#block-shipping').removeClass('tab-case-1').addClass('tab-case-2');
           jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','default');
           hideOptions();
+          disableCheckoutBtn();
         });
     }
     registerListeners();
@@ -94,15 +96,37 @@
             });
         }
     }
-    
+
+    function checkOptionsClick(){
+        jQuery('#block-shipping #co-shipping-method-form .label').click(function(){
+            jQuery('.cart-container .action.primary.checkout').attr('disabled', false);
+        });
+    }
+
+    function disableCheckoutBtn(){
+        var isSelect = false;
+        jQuery('#block-shipping #co-shipping-method-form input[type=radio]').each(function(){
+            if(this.checked){
+                isSelect = true;
+            }
+        });
+        if(isSelect){
+            jQuery('.cart-container .action.primary.checkout').attr('disabled', false);
+        }
+        else {
+            jQuery('.cart-container .action.primary.checkout').attr('disabled', true);    
+        }
+    }
+
     jQuery(document).ready(function(){
         var interval = setInterval(function(){
             if (jQuery('#co-shipping-method-form .item-options .field.item').length > 0) {
                 hideOptions();
-                // jQuery('.tab-switch-container .tab-1').trigger('click');
                 jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
                 clearInterval(interval);
+                checkOptionsClick();
             }
         }, 200);
+        jQuery('.cart-container .action.primary.checkout').attr('disabled', true);
     });
 </script>
