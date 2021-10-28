@@ -3,13 +3,17 @@
 /** @var \Magento\Checkout\Block\Onepage\Success $block */
 /** @var \Aheadworks\OrderSuccessPage\ViewModel\Checkout\Success\Text $viewModel */
 $viewModel = $block->getViewModel();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager
+$order = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId($block->getOrderId());
 ?>
 <div class="checkout-success">
     <div class="top-section">
-
         <div class="column-1 column">
             <h1 class="title"> <span class="circle-icon"></span><?=__('Thank you for your order!') ?></h1>
             <div class="aw_osp-success-text">
+                <p class="user-text">
+                        <?= $order->getBillingAddress()->getFirstname() ?>
+                </p>
                 <p>
                     <?php if ($viewModel->getSuccessPageText()): ?>
                         <?= $block->escapeHtml($viewModel->getSuccessPageText()) ?>.
