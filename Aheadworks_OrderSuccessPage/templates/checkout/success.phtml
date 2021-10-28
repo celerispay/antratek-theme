@@ -5,29 +5,51 @@
 $viewModel = $block->getViewModel();
 ?>
 <div class="checkout-success">
-    <?php if ($viewModel->getSuccessPageText()): ?>
-        <div class="aw_osp-success-text">
-            <p><?= $block->escapeHtml($viewModel->getSuccessPageText()) ?></p>
+    <div class="top-section">
+
+        <div class="column-1 column">
+            <h1 class="title"> <span class="circle-icon"></span><?=__('Thank you for your order!') ?></h1>
+            <div class="aw_osp-success-text">
+                <p>
+                    <?php if ($viewModel->getSuccessPageText()): ?>
+                        <?= $block->escapeHtml($viewModel->getSuccessPageText()) ?>.
+                    <?php endif; ?>
+                    <?php if ($block->getOrderId()):?>
+                        <?php if ($viewModel->isOrderEmailEnabled()): ?>
+                            <?= $block->escapeHtml(__('We\'ll email you an order confirmation with details and tracking info.')) ?>
+                        <?php endif; ?>
+                        <?php if ($block->getCanViewOrder()) :?>
+                            <?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?>
+                        <?php  else :?>
+                            <?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?>
+                        <?php endif;?>
+                    <?php endif;?>
+                </p>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <a class="action primary continue" href="<?= $block->escapeUrl($block->getContinueUrl()) ?>">
+                        <span class="img-wrapper"><img src="<?php echo $block->getViewFileUrl('/images/logo/antratek_success_cart_icon.svg'); ?>" alt=""></span><span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
+                    </a>
+                </div>
+            </div>
         </div>
-    <?php endif; ?>
-    <?php if ($block->getOrderId()):?>
-        <?php if ($block->getCanViewOrder()) :?>
-            <p><?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?></p>
-        <?php  else :?>
-            <p><?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?></p>
-        <?php endif;?>
-        <?php if ($viewModel->isOrderEmailEnabled()): ?>
-            <p><?= $block->escapeHtml(__('We\'ll email you an order confirmation with details and tracking info.')) ?></p>
-        <?php endif; ?>
-    <?php endif;?>
+        <div class="column-2 column">
+            <div class="user-icon-wrapper">
+                <span><img src="<?php echo $block->getViewFileUrl('/images/logo/antratek_success_page_user_icon.svg'); ?>" alt=""></span>
+            </div>
+            <div class="text">
+                <p>You can track your order status by creating an account. Email Address: xyz@example.com</p>
+            </div>
+            <div class="actions">
+                <div class="primary">
+                    <a class="action"><span><img src="<?php echo $block->getViewFileUrl('/images/logo/antratek_success_page_user_icon.svg'); ?>" alt=""></span>Create an account</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <?= $block->getChildHtml('order.success.aftersteps') ?>
     <?= $block->getChildHtml('order.success.blocks') ?>
     <?= $block->getAdditionalInfoHtml() ?>
-    <div class="actions-toolbar">
-        <div class="primary">
-            <a class="action primary continue" href="<?= $block->escapeUrl($block->getContinueUrl()) ?>">
-                <span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
-            </a>
-        </div>
-    </div>
 </div>
