@@ -10,5 +10,10 @@
     <referenceContainer name="content">
         <block class="Magento\Framework\View\Element\Template" name="checkout.cart.progress.bar" before="-" template="Boostsales_PartialShipment::Progressbar.phtml"/>
     </referenceContainer>
+    <referenceBlock name="checkout.cart.summary.title">
+        <arguments>
+            <argument translate="true" name="text" xsi:type="string">Shipment</argument>
+        </arguments>
+    </referenceBlock>
     </body>
 </page>
