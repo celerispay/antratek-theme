@@ -1,0 +1,34 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Aheadworks\OrderSuccessPage\ViewModel\Checkout\Success\BlockList\OrderSummary $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<?php if ($viewModel->isEnabled()): ?> 
+    <div class="aw_osp-block-order-summary block">
+        <h2 class="order-summary-title <?php if ($viewModel->isListCollapsed()): ?>collapsed <?php endif; ?>"
+            data-mage-init='{"awOspOrderItemsCollapser":{
+                "itemsSelector":".aw_osp-block-order-summary .order-summary-body",
+                "isCollapsed":"<?= /* @noEscape */ $viewModel->isListCollapsed() ?>"
+                }}'>
+                <span><?= $block->escapeHtml(__('Order Details')) ?></span>
+        </h2>
+        <div class="order-summary-body <?php if ($viewModel->isListCollapsed()): ?>collapsed <?php endif; ?>">
+          <div class="order-column">
+            <div class="order-details-items">
+                <?= /* @noEscape */ $viewModel->getOrderItemsContent() ?>
+            </div>
+            <?php if ($viewModel->isOrderDetailsInfoAvailable()): ?>
+                <div class="order-details-info">
+                    <?php if ($viewModel->isNeedToDisplayMergedAddressInfo()): ?>
+                        <?= $block->getChildHtml('shipping_billing_info') ?>
+                    <?php else: ?>
+                        <?= $block->getChildHtml('shipping_info') ?>
+                        <?= $block->getChildHtml('billing_info') ?>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+          </div>
+        </div>
+    </div>
+<?php endif; ?>
