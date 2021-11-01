@@ -58,6 +58,7 @@ $order = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId(
         </div>
 
     </div>
+    <?= $block->getChildHtml('guest.registration') ?>
     <?= $block->getChildHtml('order.success.aftersteps') ?>
     <?= $block->getChildHtml('order.success.blocks') ?>
     <?= $block->getAdditionalInfoHtml() ?>

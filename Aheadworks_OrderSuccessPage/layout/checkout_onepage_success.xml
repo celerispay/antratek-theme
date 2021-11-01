@@ -4,6 +4,11 @@
         <referenceContainer name="content">
             <referenceBlock name="checkout.success">
                 <block name="order.success.aftersteps" template="Aheadworks_OrderSuccessPage::checkout/success/aftersteps.phtml"/>
+                <block name="guest.registration" template="Aheadworks_OrderSuccessPage::checkout/success/blocks/registration.phtml">
+                    <arguments>
+                        <argument name="view_model" xsi:type="object">Aheadworks\OrderSuccessPage\ViewModel\Checkout\Success\BlockList\Block\Registration</argument>
+                    </arguments>
+                </block>
             </referenceBlock>
         </referenceContainer>
     </body>
