@@ -11,7 +11,7 @@ $viewModel = $block->getViewModel();
                 "itemsSelector":".aw_osp-block-order-summary .order-summary-body",
                 "isCollapsed":"<?= /* @noEscape */ $viewModel->isListCollapsed() ?>"
                 }}'>
-                <span><?= $block->escapeHtml(__('Order Details')) ?></span>
+                <span><?= $block->escapeHtml(__('Order ID')) ?></span>
         </h2>
         <div class="order-summary-body <?php if ($viewModel->isListCollapsed()): ?>collapsed <?php endif; ?>">
           <div class="order-column">

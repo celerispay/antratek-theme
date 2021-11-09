@@ -27,7 +27,106 @@
         }
 
         .block-content.content{
-          
+          .product-items{
+
+            .product-item{
+              width: 325px;
+              box-sizing: border-box;
+              padding: 0 12px;
+
+              .product-item-info {
+                width: 100%;
+                height: 350px;
+                position: relative;
+
+                .product-item-photo{
+                  display: block;
+                  text-align: center;
+                  height: 200px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+                  margin-bottom: 10px;
+                }
+
+                .product-item-details{
+                  .product-item-name{
+                    font-family: 'Oswald', 'sans-serif';
+                    height: 70px;
+                    a{
+                      font-size: 18px;
+                      font-weight: 500;
+                      letter-spacing: .5px;
+                    }
+                  }
+
+                  .price-box.price-final_price{
+                    position: absolute;
+                    left: 0;
+                    bottom: 5px;
+
+                    .price-wrapper::before,
+                    .price-excluding-tax.consumer .price,
+                    .price-including-tax.business .price{
+                      font-size: 14px;
+                    }
+
+                    .price-excluding-tax.consumer,
+                    .price-including-tax.business{
+                      &::before{
+                        color: #747576;
+                      }
+                    }
+
+                    .price-including-tax.consumer,
+                    .price-excluding-tax.business{
+                      &::before,
+                      .price{
+                        color: #444;
+                      }
+                      .price{
+                        font-size: 21px;
+                      }
+                    }
+
+                    .price-excluding-tax,
+                    .price-including-tax{
+                      margin: 0;
+                      line-height: 20px;
+                    }
+
+                  }
+
+                  .product-item-actions{
+                    .actions-primary{
+                      float: none;
+                      position: absolute;
+                      right: 0;
+                      bottom: 0;
+
+                      .action.tocart.primary{
+                        margin: 0;
+                        background-color: #5BB85D;
+
+                        &:hover{
+                          background-color: #00B900;
+                        }
+                        span{
+                          font-size: 14px;
+                          font-weight: 500;
+                        }
+                      }
+                    }
+                  }
+                }
+
+                .product-item-actions{
+                  .secondary-addto-links.actions-secondary{
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

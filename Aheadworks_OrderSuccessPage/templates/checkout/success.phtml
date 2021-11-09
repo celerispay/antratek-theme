@@ -13,11 +13,11 @@ $order = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId(
                 <span class="img-wrap">
                     <img src="<?php echo $block->getViewFileUrl('/images/logo/right_tick.svg'); ?>" alt="">
                 </span>
-                <?=__('Thank you for your order!') ?>
+                <?=__('Thank you for the Order!') ?>
             </h1>
             <div class="aw_osp-success-text">
                 <p class="user-text">
-                        <?= $order->getBillingAddress()->getFirstname() ?>
+                    Hello <?= $order->getBillingAddress()->getFirstname() ?>,
                 </p>
                 <p>
                     <?php if ($viewModel->getSuccessPageText()): ?>
@@ -28,9 +28,9 @@ $order = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId(
                             <?= $block->escapeHtml(__('We\'ll email you an order confirmation with details and tracking info.')) ?>
                         <?php endif; ?>
                         <?php if ($block->getCanViewOrder()) :?>
-                            <?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?>
+                            <?= __('Your order number is: %1.', sprintf('<a href="%s" class="order-number"><strong>#%s</strong></a>', $block->escapeHtml($block->getViewOrderUrl()), $block->escapeHtml($block->getOrderId()))) ?>
                         <?php  else :?>
-                            <?= __('Your order # is: <span>%1</span>.', $block->escapeHtml($block->getOrderId())) ?>
+                            <?= __('Your order number is: <span class="order-number">#%1</span>.', $block->escapeHtml($block->getOrderId())) ?>
                         <?php endif;?>
                     <?php endif;?>
                 </p>
@@ -43,22 +43,9 @@ $order = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId(
                 </div>
             </div>
         </div>
-        <div class="column-2 column">
-            <div class="user-icon-wrapper">
-                <span><img src="<?php echo $block->getViewFileUrl('/images/logo/antratek_success_page_user_icon.svg'); ?>" alt=""></span>
-            </div>
-            <div class="text">
-                <p>You can track your order status by creating an account. Email Address: xyz@example.com</p>
-            </div>
-            <div class="actions">
-                <div class="primary">
-                    <a class="action"><span><img src="<?php echo $block->getViewFileUrl('/images/logo/user_add.svg'); ?>" alt=""></span>Create an account</a>
-                </div>
-            </div>
-        </div>
-
+        <?= $block->getChildHtml('guest.registration') ?>
     </div>
-    <?= $block->getChildHtml('guest.registration') ?>
+
     <?= $block->getChildHtml('order.success.aftersteps') ?>
     <?= $block->getChildHtml('order.success.blocks') ?>
     <?= $block->getAdditionalInfoHtml() ?>
