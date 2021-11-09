@@ -1,3 +1,5 @@
+@import '../_breakpoint-variable.less';
+
 .checkout-onepage-success{
   .bottom{
     .aw_osp-block-crosssell{
@@ -15,6 +17,10 @@
             margin-bottom: 2rem;
             display: inline-block;
             padding-left: 12px;
+
+            @media @ant-desktop-sm{
+              font-size: 21px;
+            }
           }
   
           &::after{
@@ -53,9 +59,13 @@
                     font-family: 'Oswald', 'sans-serif';
                     height: 70px;
                     a{
-                      font-size: 18px;
+                      font-size: 21px;
                       font-weight: 500;
                       letter-spacing: .5px;
+
+                      @media @ant-desktop-sm{
+                        font-size: 18px;
+                      }
                     }
                   }
 
@@ -85,6 +95,9 @@
                       }
                       .price{
                         font-size: 21px;
+                        @media @ant-desktop-sm{
+                          font-size: 18px;
+                        }
                       }
                     }
 

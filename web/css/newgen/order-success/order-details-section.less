@@ -1,3 +1,5 @@
+@import '../_breakpoint-variable.less';
+
 .checkout-onepage-success{
   .top {
     margin-bottom: 0;
@@ -27,6 +29,10 @@
         span{
           font-size: 26px;
           letter-spacing: 1px;
+
+          @media @ant-desktop-sm{
+            font-size: 21px;
+          }
         }
       }
   
@@ -67,6 +73,10 @@
                   font-size: 16px;
                   font-weight: 400;
                   letter-spacing: .5px;
+
+                  @media @ant-desktop-sm{
+                    font-size: 14px;
+                  }
   
                   .name{
                     font-size: inherit;
@@ -95,6 +105,10 @@
                     font-size: 18px;
                     font-weight: 600;
                     color: #333 !important;
+
+                    @media @ant-desktop-sm{
+                      font-size: 16px;
+                    }
                   }
                 }
               }
@@ -106,6 +120,11 @@
                 font-weight: 400;
                 letter-spacing: .5px;
                 padding: 15px 10px 3px;
+
+                @media @ant-desktop-sm{
+                  font-size: 14px;
+                  padding: 10px 10px 3px;
+                }
   
                 strong{
                   font-size: inherit;
@@ -115,10 +134,17 @@
               }
               td{
                 padding: 15px 10px 3px;
+
+                @media @ant-desktop-sm{
+                  padding: 10px 10px 3px;
+                }
                 .price{
                   font-size: 18px;
                   font-weight: 600;
                   color: #333 !important;
+                  @media @ant-desktop-sm{
+                    font-size: 16px;
+                  }
                 }
               }
               tr.totals-tax-summary{
@@ -134,6 +160,10 @@
                     font-size: 16px;
                     font-weight: 600;
                     color: #333 !important;
+
+                    @media @ant-desktop-sm{
+                      font-size: 14px;
+                    }
                   }
                 }
                 td{
@@ -163,6 +193,10 @@
                     font-weight: 500;
                     font-size: 26px;
                     letter-spacing: 1px;
+
+                    @media @ant-desktop-sm{
+                      font-size: 21px;
+                    }
                   }
                 }
   
@@ -170,6 +204,10 @@
                   font-size: 16px;
                   font-weight: 400;
                   letter-spacing: 1px;
+
+                  @media @ant-desktop-sm{
+                    font-size: 14px;
+                  }
   
                   br{
                     display: none;
@@ -188,6 +226,10 @@
       padding: 2rem;
       box-sizing: border-box;
       text-align: center;
+
+      @media @ant-desktop-sm{
+        padding: 2rem 1rem;
+      }
 
       .thank-you-brand-block{
         display: flex;
@@ -214,6 +256,10 @@
               font-weight: 500;
               letter-spacing: 1px;
               margin: 1.5rem 0 .5rem;
+
+              @media @ant-desktop-sm{
+                font-size: 16px;
+              }
             }
             .usp-desc{
               font-size: 14px;
@@ -226,7 +272,11 @@
         .column-2{
           position: absolute;
           bottom: 5rem;
-          right: 50px
+          right: 50px;
+
+          @media @ant-desktop-sm{
+            right: 40px;
+          }
         }
       }
     }

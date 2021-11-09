@@ -1,3 +1,5 @@
+@import '../_breakpoint-variable.less';
+
 .checkout-onepage-success{
 
   .aw_osp-blocks{
@@ -9,6 +11,7 @@
         width: 100%;
         background-color: #0079c4;
         padding: 5rem 2.5rem;
+        box-sizing: border-box;
 
         #aw_osp-newsletter-form{
           display: flex;
@@ -20,6 +23,10 @@
             color: white;
             letter-spacing: 1px;
             font-size: 26px;
+            
+            @media @ant-desktop-sm{
+              font-size: 21px;
+            }
 
             &::before{
               content: "";
@@ -90,6 +97,9 @@
                 span {
                   font-size: 16px;
                   font-weight: 500;
+                  @media @ant-desktop-sm{
+                    font-size: 14px;
+                  }
                 }
               }
             }

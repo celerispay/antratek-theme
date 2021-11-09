@@ -1,3 +1,5 @@
+@import '../_breakpoint-variable.less';
+
 .checkout-onepage-success{
 
   .page-title-wrapper{
@@ -31,12 +33,20 @@
         margin-bottom: 3rem;
         display: flex;
         align-items: center;
+
+        @media @ant-desktop-sm{
+          font-size: 42px;
+        }
   
         .img-wrap{
           width: 80px;
           margin-right: 15px;
           img{
             width: 100%;
+          }
+
+          @media @ant-desktop-sm{
+            width: 60px;
           }
         }
       }
@@ -48,6 +58,10 @@
           font-size: 24px;
           font-weight: 500;
           color: #0079c4;
+
+          @media @ant-desktop-sm{
+            font-size: 21px;
+          }
         }
 
         .order-number{
@@ -58,13 +72,22 @@
         a.order-number{
           cursor: pointer;
         }
+
+        p:not(.user-text){
+          margin-bottom: 5px;
+          font-weight: 400;
+          letter-spacing: .5px;
+          line-height: 25px;
+  
+          @media @ant-desktop-lg{
+            font-size: 16px;
+          }
+          @media @ant-desktop-sm{
+            font-size: 14px;
+          }
+        }
       }
 
-      p{
-        margin-bottom: 5px;
-        font-weight: 400;
-        letter-spacing: .5px;
-      }
 
       .actions-toolbar{
         margin-top: 3rem;
