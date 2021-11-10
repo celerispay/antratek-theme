@@ -98,7 +98,11 @@
     }
 
     function checkOptionsClick(){
-        jQuery('#block-shipping #co-shipping-method-form .label').click(function(){
+        jQuery('#block-shipping #co-shipping-method-form .label').click(function(ele){
+            jQuery('.cart-container .action.primary.checkout').attr('disabled', false);
+        });
+
+        jQuery('#block-shipping #co-shipping-method-form .field.item input[type=radio]').click(function(ele){
             jQuery('.cart-container .action.primary.checkout').attr('disabled', false);
         });
     }
