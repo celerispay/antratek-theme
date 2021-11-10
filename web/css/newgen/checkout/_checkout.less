@@ -33,20 +33,6 @@
     }
 }
 
-.cart-container{
-    .cart-summary{
-        #block-shipping{
-            .title{
-                border-top: none;
-            }
-        }
-
-        .action.primary.checkout{
-            margin-bottom: 10px;
-        }
-    }
-}
-
 #block-shipping{
 
     &.tab-case-1{
@@ -80,12 +66,55 @@
     }
 }
 
-.cart-summary{
-    .checkout.methods.items.checkout-methods-items{
-        .shopping-cart-proceed-text{
-           color: green;
-            float: right;
-            font: @ngp-f_btn;
+.checkout-cart-index{
+    .cart-container{
+        .cart-summary{
+            #block-shipping{
+                .title{
+                    border-top: none;
+                }
+            }
+    
+            .action.primary.checkout{
+                margin-bottom: 10px;
+            }
+
+            .checkout.methods.items.checkout-methods-items{
+                .shopping-cart-proceed-text{
+                   color: green;
+                    float: right;
+                    font: @ngp-f_btn;
+                }
+            }
+        }
+
+        .form-cart{
+            .cart.table-wrapper.detailed{
+                .cart.items.table{
+                    .cart.item{
+                        .item-info{
+                            .product-item-details{
+                                .item-no{
+                                    font-size: 14px;
+                                    letter-spacing: .5px;
+                                    font-weight: 400;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                .cart-page-freeship{
+                    background-color: rgb(223, 240, 216);
+                    padding: 8px 16px;
+                    display: block;
+                    margin-top: 2rem;
+                    border-radius: 4px;
+                    font-size: 13px;
+                    letter-spacing: .5px;
+                    font-weight: 600;
+                }
+            }
         }
     }
 }
