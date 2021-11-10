@@ -1,11 +1,22 @@
 @import '../_breakpoint-variable.less';
 
 .checkout-onepage-success{
+  .content-left,
+  .content-right{
+    margin-bottom: 20px;
+  }
   .bottom{
     .aw_osp-block-crosssell{
       margin-top: 70px;
+
+      @media @ant-mobile{
+        margin-top: 20px;       
+      }
       .block.crosssell{
         margin-top: 0;
+        @media @ant-mobile{
+          padding: 0 15px;     
+        }
         .block-title.title{
           margin-bottom: 0;
           border-bottom: none;
@@ -18,6 +29,10 @@
             display: inline-block;
             padding-left: 12px;
 
+            @media @ant-mobile{
+              font-size: 21px;
+              margin-bottom: 1rem; 
+            }
             @media @ant-desktop-sm{
               font-size: 21px;
             }
@@ -40,10 +55,18 @@
               box-sizing: border-box;
               padding: 0 12px;
 
+              @media @ant-mobile{
+                padding: 0;
+              }
+
               .product-item-info {
                 width: 100%;
-                height: 350px;
+                height: 370px;
                 position: relative;
+
+                @media @ant-mobile{
+                  margin-bottom: 20px;
+                }
 
                 .product-item-photo{
                   display: block;
@@ -63,10 +86,42 @@
                       font-weight: 500;
                       letter-spacing: .5px;
 
+                      @media @ant-mobile{
+                        font-size: 18px;
+                      }
                       @media @ant-desktop-sm{
                         font-size: 18px;
                       }
                     }
+                  }
+
+                  > img{
+                    margin-top: 0 !important;
+                    margin-right: 10px;
+
+                    @media @ant-mobile{
+                      margin-right: 8px;
+                    }
+                  }
+
+                  .product-availability-backorder,
+                  .product-availability-in-stock,
+                  .product-availability-out-of-stock,
+                  .delay-message-0,
+                  .delay-message-1,
+                  .delay-message-2,
+                  .delay-message-3{
+                    display: inline-block;
+                    font-size: 14px;
+                    font-weight: 600;
+
+                    @media @ant-mobile{
+                      font-size: 13px;
+                    }
+                  }
+
+                  .product-availability-in-stock{
+                    color: #00B900 !important;
                   }
 
                   .price-box.price-final_price{
@@ -78,6 +133,10 @@
                     .price-excluding-tax.consumer .price,
                     .price-including-tax.business .price{
                       font-size: 14px;
+
+                      @media @ant-mobile{
+                        font-size: 13px;
+                      }
                     }
 
                     .price-excluding-tax.consumer,
@@ -95,6 +154,9 @@
                       }
                       .price{
                         font-size: 21px;
+                        @media @ant-mobile{
+                          font-size: 18px;
+                        }
                         @media @ant-desktop-sm{
                           font-size: 18px;
                         }
