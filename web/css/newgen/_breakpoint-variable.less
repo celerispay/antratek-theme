@@ -1,5 +1,19 @@
-@ant-desktop-xl: ~"only screen and (min-width: 1600px)";
-@ant-desktop-lg: ~"only screen and (min-width: 1400px) and (max-width: 1599px)";
-@ant-desktop-sm: ~"only screen and (min-width: 1200px) and (max-width: 1599px)";
+@ant-tab-min: 768px;
+// desktop min widths
+@ant-desktop-sm-min: 1200px;
+@ant-desktop-lg-min: 1400px;
+@ant-desktop-xl-min: 1600px;
 
-@ant-mobile: ~"only screen and (max-width: 767px)";
+
+@ant-mobile-max: (@ant-tab-min - 1);
+// desktop max widths
+@ant-desktop-sm-max: (@ant-desktop-lg-min - 1);
+@ant-desktop-lg-max: (@ant-desktop-xl-min - 1);
+
+@ant-mobile: ~"only screen and (max-width: @{ant-mobile-max})";
+// desktop media query range
+@ant-desktop-sm: ~"only screen and (min-width: @{ant-desktop-sm-min}) and (max-width: @{ant-desktop-sm-max})";
+@ant-desktop-lg: ~"only screen and (min-width: @{ant-desktop-lg-min}) and (max-width: @{ant-desktop-lg-max})";
+@ant-desktop-xl: ~"only screen and (min-width: @{ant-desktop-xl-min})";
+
+

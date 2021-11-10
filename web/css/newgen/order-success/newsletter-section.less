@@ -1,0 +1,111 @@
+@import '../_breakpoint-variable.less';
+
+.checkout-onepage-success{
+
+  .aw_osp-blocks{
+
+    .bottom{
+      margin-bottom: 0;
+
+      .aw_osp-block-newsletter{
+        width: 100%;
+        background-color: #0079c4;
+        padding: 5rem 2.5rem;
+        box-sizing: border-box;
+
+        #aw_osp-newsletter-form{
+          display: flex;
+          align-items: center;
+
+          h2{
+            width: 50%;
+            margin: 0;
+            color: white;
+            letter-spacing: 1px;
+            font-size: 26px;
+            
+            @media @ant-desktop-sm{
+              font-size: 21px;
+            }
+
+            &::before{
+              content: "";
+              padding-top: 0px;
+              padding-left: 30px;
+              margin-right: 5px;
+              background: url(../images/logo/subscribe-icon.svg) no-repeat left center transparent;
+            }
+          }
+
+          .aw-osp__newsletter-form{
+            width: 50%;
+            display: block;
+
+            .aw-osp___wrapper-fieldset{
+              display: flex;
+              justify-content: flex-end;
+            }
+
+            .actions,
+            .fieldset{
+              display: inline-block;
+              vertical-align: unset;
+            }
+
+            .fieldset {
+              width: 50%;
+              .field {
+                margin: 0;
+                label {
+                  display: none;
+                }
+                .control {
+                  text-align: left;
+                  position: relative;
+
+                  &::before {
+                    display: none;
+                  }
+                  input {
+                    border: 1px solid white;
+                    padding: 0 10px;
+                    background-color: transparent;
+                    color: white;
+                  }
+
+                  .field-error {
+                    color: white;
+                    position: absolute;
+                    span{
+                      font-size: 14px;
+                    }
+                  }
+                }
+              }
+            }
+            .actions{
+              width: auto;
+              
+              .action-submit.subscribe{
+                background-color: white;
+                color: #0079c4;
+                height: 40px;
+                &::after{
+                  content: '>';
+                  margin-left: 5px;
+                }
+                span {
+                  font-size: 16px;
+                  font-weight: 500;
+                  @media @ant-desktop-sm{
+                    font-size: 14px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

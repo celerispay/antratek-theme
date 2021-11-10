@@ -1,0 +1,24 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Aheadworks\OrderSuccessPage\ViewModel\Checkout\Success\BlockList\Registration $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<?php if ($viewModel->isAvailable()): ?>
+  <div class="column-2 column">
+      <div class="user-icon-wrapper">
+          <span><img src="<?php echo $block->getViewFileUrl('/images/logo/antratek_success_page_user_icon.svg'); ?>" alt=""></span>
+      </div>
+      <div class="aw_osp-block-registration block">
+          <div class="text">
+            <p><?= /* @noEscape */ $viewModel->getShortDescription() ?></p>
+            <p><span><?= $block->escapeHtml(__('Email Address')) ?></span>: <span><?= $block->escapeHtml($viewModel->getEmailAddress()) ?></span></p>
+          </div>
+          <form method="get" action="<?= $block->escapeUrl($viewModel->getAccountCreateUrl()) ?>" class="actions">
+              <button type="submit" class="action primary">
+                <span><img src="<?php echo $block->getViewFileUrl('/images/logo/user_add.svg'); ?>" alt=""></span><?= $block->escapeHtml(__('Create an Account')) ?>
+              </button>
+          </form>
+      </div>
+  </div>
+<?php endif; ?>

@@ -1,0 +1,32 @@
+<?php
+// @codingStandardsIgnoreFile
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Aheadworks\OrderSuccessPage\ViewModel\Checkout\Success\BlockList\OrderSummary\Info $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<?php if ($viewModel->isShippingInfoEnabled() && $viewModel->isBillingInfoEnabled()): ?>
+    <div class="shipping-billing-info">
+        <div class="box box-order-billing-method">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Payment Method')) ?></span>
+            </strong>
+            <div class="box-content">
+                <?= /* @noEscape */ $viewModel->getPaymentInfoHtml() ?>
+            </div>
+        </div>
+        <div class="box box-order-shipping-method">
+            <strong class="box-title">
+                <span><?= $block->escapeHtml(__('Shipping Method')) ?></span>
+            </strong>
+            <div class="box-content">
+                <?= $block->escapeHtml($viewModel->getShippingDescription()) ?>
+            </div>
+        </div>
+        <div class="box box-order-shipping-address">
+            <strong class="box-title"><span><?= $block->escapeHtml(__('Shipping and Billing Address')) ?></span></strong>
+            <div class="box-content">
+                <address><?= /* @noEscape */ $viewModel->getFormattedAddress() ?></address>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

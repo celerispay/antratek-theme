@@ -1,0 +1,100 @@
+@import '../_breakpoint-variable.less';
+
+.checkout-onepage-success{
+  .success-order-aftersteps{
+    margin: 5rem 0 7rem;
+
+    .section-heading{
+      padding: 15px 0 0;
+  
+      &::after{
+        background: linear-gradient(to right, #0079c4, transparent);
+        padding: 1px;
+        width: 100%;
+        content: '';
+        display: inline-block;
+      }
+  
+      .title{
+        font-size: 26px;
+        letter-spacing: 1px;
+        margin-bottom: 2rem;
+        padding-left: 12px;
+
+        @media @ant-desktop-sm {
+          font-size: 21px;
+        }
+      }
+    }
+    .section-body{
+      padding: 4rem 6px 0;
+  
+      .row-1{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+  
+        .col{
+          width: 25%;
+          padding: 0 0 0 12px;
+  
+          .circle-icon-row{
+            display: flex;
+            align-items: center;
+  
+            .circle-icon-col-1{
+              width: 27%;
+              .circle-icon{
+                width: 75px;
+                height: 75px;
+                border-radius: 50%;
+                background: #0079c4;
+                position: relative;
+
+                &::before{
+                  content: '\2709';
+                  font-size: 50px;
+                  position: absolute;
+                  top: 50%;
+                  transform: translate(-50%, -50%);
+                  left: 50%;
+                  color: white;
+                }
+              }
+            }
+            .circle-icon-col-2{
+              width: 73%;
+              .icon-bar{
+                height: 4px;
+                background-color: #0079c4;
+                width: 100%;
+                transform: translateX(2px);
+              }
+            }
+          }
+
+          .col-heading{
+            font-size: 22px;
+            color: #0079c4;
+            margin: 25px 0 10px;
+            font-weight: 500;
+            letter-spacing: .5px;
+
+            @media @ant-desktop-sm {
+              font-size: 18px;
+            }
+          }
+
+          .col-text{
+            font-size: 16px;
+            letter-spacing: .5px;
+            width: 95%;
+            @media @ant-desktop-sm {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

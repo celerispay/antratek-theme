@@ -1,0 +1,284 @@
+@import '../_breakpoint-variable.less';
+
+.checkout-onepage-success{
+  .top {
+    margin-bottom: 0;
+    display: flex;
+    overflow: unset;
+    position: relative;
+    padding: 3rem;
+    background: #f5f5f5;
+    box-sizing: border-box;
+    min-height: 700px;
+
+    .aw_osp-block-registration{
+      display: none;
+    }
+
+    .aw_osp-block-order-summary{
+      margin-bottom: 0 !important;
+      width: 75%;
+      padding-right: 3%;
+  
+      .order-summary-title{
+        cursor: auto;
+        pointer-events: none;
+        &::after{
+          display: none;
+        }
+        span{
+          font-size: 26px;
+          letter-spacing: 1px;
+
+          @media @ant-desktop-sm{
+            font-size: 21px;
+          }
+        }
+      }
+  
+      .order-summary-body{
+        overflow: unset;
+
+        .order-column{
+          width: 100%;
+          padding-right: 0;
+  
+          .order-details-items{
+            width: 100%;
+            float: none;
+            box-sizing: border-box;
+            padding: 0;
+            border-right: none;
+            margin-top: 2rem;
+  
+  
+            thead{
+              th{
+                font-size: 14px;
+                padding-left: 0;
+                color: #898989;
+                letter-spacing: .5px;
+              }
+            }
+  
+            tbody{
+              tr{
+  
+                td{
+                  padding: 2rem 10px 2rem 0;
+                }
+  
+                td.name,
+                td.sku{
+                  font-size: 16px;
+                  font-weight: 400;
+                  letter-spacing: .5px;
+
+                  @media @ant-desktop-sm{
+                    font-size: 14px;
+                  }
+  
+                  .name{
+                    font-size: inherit;
+                    font-weight: inherit;
+                    letter-spacing: .5px;
+
+                    .partial_tag{
+                      font-size: 11px;
+                      margin-left: 10px;
+                      background: #D7EBF4;
+                      padding: 3px 12px;
+                      border-radius: 25px;
+                      font-weight: 600;
+                      color: #0079c4;
+                      letter-spacing: .5px;
+                      text-transform: capitalize;
+                    }
+                  }
+                }
+  
+                td.price,
+                td.qty,
+                td.subtotal{
+                  .price,
+                  .content{
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #333 !important;
+
+                    @media @ant-desktop-sm{
+                      font-size: 16px;
+                    }
+                  }
+                }
+              }
+            }
+  
+            tfoot{
+              th{
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: .5px;
+                padding: 15px 10px 3px;
+
+                @media @ant-desktop-sm{
+                  font-size: 14px;
+                  padding: 10px 10px 3px;
+                }
+  
+                strong{
+                  font-size: inherit;
+                  font-weight: inherit;
+                  letter-spacing: inherit;
+                }
+              }
+              td{
+                padding: 15px 10px 3px;
+
+                @media @ant-desktop-sm{
+                  padding: 10px 10px 3px;
+                }
+                .price{
+                  font-size: 18px;
+                  font-weight: 600;
+                  color: #333 !important;
+                  @media @ant-desktop-sm{
+                    font-size: 16px;
+                  }
+                }
+              }
+              tr.totals-tax-summary{
+                th,td{
+                  padding-bottom: 15px;
+                }
+              }
+              tr.grand_total_incl{
+                th{
+                  padding-top: 2rem;
+                  border-top: 1px solid #d1d1d1;
+                  strong{
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #333 !important;
+
+                    @media @ant-desktop-sm{
+                      font-size: 14px;
+                    }
+                  }
+                }
+                td{
+                  padding-top: 2rem;
+                  border-top: 1px solid #d1d1d1;
+                }
+              }
+            }
+          }
+  
+          .order-details-info{
+            width: 100%;
+            float: none;
+            overflow: unset;
+  
+            .shipping-billing-info{
+              float: none;
+              .box{
+                float: none;
+                width: 100%;
+                margin-bottom: 2rem;
+  
+                .box-title{
+                  margin: 0 0 2rem;
+                  span{
+                    font-family: 'Oswald';
+                    font-weight: 500;
+                    font-size: 26px;
+                    letter-spacing: 1px;
+
+                    @media @ant-desktop-sm{
+                      font-size: 21px;
+                    }
+                  }
+                }
+  
+                .box-content{
+                  font-size: 16px;
+                  font-weight: 400;
+                  letter-spacing: 1px;
+
+                  @media @ant-desktop-sm{
+                    font-size: 14px;
+                  }
+  
+                  br{
+                    display: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .aw_osp-block-static-block{
+      height: 100%;
+      width: 22%;
+      padding: 2rem;
+      box-sizing: border-box;
+      text-align: center;
+
+      @media @ant-desktop-sm{
+        padding: 2rem 1rem;
+      }
+
+      .thank-you-brand-block{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 3rem;
+
+        .column-1{
+          .usp-card{
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+
+            .usp-img-container{
+              width: 70px;
+              margin: auto;
+              img{
+                width: 100%;
+              }
+            }
+            .usp-heading{
+              font-size: 18px;
+              font-family: 'Oswald';
+              font-weight: 500;
+              letter-spacing: 1px;
+              margin: 1.5rem 0 .5rem;
+
+              @media @ant-desktop-sm{
+                font-size: 16px;
+              }
+            }
+            .usp-desc{
+              font-size: 14px;
+              font-weight: 400;
+              letter-spacing: .5px;
+            }
+          }
+        }
+
+        .column-2{
+          position: absolute;
+          bottom: 5rem;
+          right: 50px;
+
+          @media @ant-desktop-sm{
+            right: 40px;
+          }
+        }
+      }
+    }
+  }
+}
