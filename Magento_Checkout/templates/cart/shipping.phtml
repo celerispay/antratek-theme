@@ -60,7 +60,13 @@
     require(['jquery'], function($) {
         registerListeners($);
         $(document).ready(function(){
-            $('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
+            var interval = setInterval(function(){
+                if (jQuery('#co-shipping-method-form .item-options .field.item').length > 0) {
+                    hideOptions();
+                    jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
+                    clearInterval(interval);
+                }
+            }, 200);
             $('.cart-container .action.primary.checkout').attr('disabled', true);
         });
     });
