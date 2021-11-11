@@ -57,7 +57,15 @@
     </div>
 </div>
 <script>
-    function registerListeners() {
+    require(['jquery'], function($) {
+        registerListeners($);
+        $(document).ready(function(){
+            $('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
+            $('.cart-container .action.primary.checkout').attr('disabled', true);
+        });
+    });
+
+    function registerListeners(jQuery) {
         jQuery('.tab-switch-container .tab-1').click(function(){
           jQuery('.tab-switch-container .tab-2').removeClass('active');
           jQuery(this).addClass('active');
@@ -75,10 +83,10 @@
           disableCheckoutBtn();
         });
     }
-    registerListeners();
+    
     function hideOptions() {
         if(jQuery('#block-shipping').hasClass('tab-case-1')) {
-            jQuery('#block-shipping #co-shipping-method-form input').each(function(index, ele){
+            jQuery('#block-shipping #co-shipping-method-form input').each(function(){
                 if(jQuery(this).attr('id').includes('accesspoint') || jQuery(this).attr('id').includes('parcelshop') || jQuery(this).attr('id').includes('package_signature')){
                     jQuery(this).parent('.field').slideUp(500);
                 } else{
@@ -87,7 +95,7 @@
             });
         }
         else if(jQuery('#block-shipping').hasClass('tab-case-2')) {
-            jQuery('#block-shipping #co-shipping-method-form input').each(function(index, ele){
+            jQuery('#block-shipping #co-shipping-method-form input').each(function(){
                 if(jQuery(this).attr('id').includes('accesspoint') || jQuery(this).attr('id').includes('parcelshop') || jQuery(this).attr('id').includes('package_signature')){
                     jQuery(this).parent('.field').slideDown(500);
                 } else{
@@ -95,15 +103,16 @@
                 }
             });
         }
+        checkOptionsClick();   
+        disableCheckoutBtn();
     }
 
-    function checkOptionsClick(){
+    function checkOptionsClick() {
         jQuery('#block-shipping #co-shipping-method-form .label').click(function(ele){
-            jQuery('.cart-container .action.primary.checkout').attr('disabled', false);
+            jQuery('.cart-container .action.primary.checkout').attr('disabled', false).css('cursor','pointer');
         });
-
         jQuery('#block-shipping #co-shipping-method-form .field.item input[type=radio]').click(function(ele){
-            jQuery('.cart-container .action.primary.checkout').attr('disabled', false);
+            jQuery('.cart-container .action.primary.checkout').attr('disabled', false).css('cursor','pointer');
         });
     }
 
@@ -112,26 +121,14 @@
         jQuery('#block-shipping #co-shipping-method-form input[type=radio]').each(function(){
             if(this.checked){
                 isSelect = true;
-                console.log('true case');
             }
         });
-        if(isSelect){
-            jQuery('.cart-container .action.primary.checkout').attr('disabled', false);
+        if(isSelect) {
+            jQuery('.cart-container .action.primary.checkout').attr('disabled', false).css('cursor','pointer');
         }
         else {
             jQuery('.cart-container .action.primary.checkout').attr('disabled', true);
         }
     }
 
-    jQuery(document).ready(function(){
-        var interval = setInterval(function(){
-            if (jQuery('#co-shipping-method-form .item-options .field.item').length > 0) {
-                hideOptions();
-                jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
-                clearInterval(interval);
-                checkOptionsClick();
-            }
-        }, 200);
-        jQuery('.cart-container .action.primary.checkout').attr('disabled', true);
-    });
 </script>
