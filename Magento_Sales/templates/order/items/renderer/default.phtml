@@ -16,7 +16,7 @@ $wQty = $delivery->getAvailableStock($_item->getProductId());
     <td class="col name" data-th="<?= $block->escapeHtmlAttr(__('Product Name')) ?>">
         <strong class="product name product-item-name"><?= $block->escapeHtml($_item->getName()) ?>
         <?php if($isPartialOrder && $wQty < 1):?>
-            <span class="partial_tag"> partial Delivery tag </span>
+            <span class="partial_tag"> Partial Delivery </span>
         <?php endif; ?>
         </strong>
         <?php if ($_options = $block->getItemOptions()) : ?>
