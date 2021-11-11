@@ -115,10 +115,10 @@
 
     function checkOptionsClick() {
         jQuery('#block-shipping #co-shipping-method-form .label').click(function(ele){
-            jQuery('.cart-container .action.primary.checkout').attr('disabled', false).css('cursor','pointer');
+            disableCheckoutBtn();
         });
         jQuery('#block-shipping #co-shipping-method-form .field.item input[type=radio]').click(function(ele){
-            jQuery('.cart-container .action.primary.checkout').attr('disabled', false).css('cursor','pointer');
+            disableCheckoutBtn();
         });
     }
 
@@ -131,9 +131,11 @@
         });
         if(isSelect) {
             jQuery('.cart-container .action.primary.checkout').attr('disabled', false).css('cursor','pointer');
+            jQuery('#block-shipping #co-shipping-method-form .help-text-container').slideUp(300);
         }
         else {
             jQuery('.cart-container .action.primary.checkout').attr('disabled', true);
+            jQuery('#block-shipping #co-shipping-method-form .help-text-container').slideDown(300);
         }
     }
 
