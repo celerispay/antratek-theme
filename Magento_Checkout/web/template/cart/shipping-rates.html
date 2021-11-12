@@ -14,7 +14,7 @@
                 <span>*</span>
             </div>
             <div class="column-2">
-                <p class="checkout-btn-help-text">Please select one of the options below in order to proceed</p>
+                <p class="checkout-btn-help-text" data-bind="visible: !isLoading() "><!-- ko text: $t('Please select one of the options below in order to proceed')--><!-- /ko --></p>
             </div>
         </div>
     </div>
