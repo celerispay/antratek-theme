@@ -19,12 +19,12 @@
      data-mage-init='{"collapsible":{"openedState": "active", "saveState": true, "collapsible": true, "active": true}}'
 >
     <div class="title" data-role="title">
-        <strong id="block-shipping-heading" role="heading" aria-level="2">
+        <!-- <strong id="block-shipping-heading" role="heading" aria-level="2">
             <?= $block->getQuote()->isVirtual()
                 ? $block->escapeHtml(__('Estimate Tax'))
                 : $block->escapeHtml(__('Estimate Shipping and Tax'))
             ?>
-        </strong>
+        </strong> -->
     </div>
     <div id="block-summary"
          data-bind="scope:'block-summary'"
@@ -63,7 +63,14 @@
             var interval = setInterval(function(){
                 if (jQuery('#co-shipping-method-form .item-options .field.item').length > 0) {
                     hideOptions();
-                    jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
+                    if(jQuery('#block-shipping').hasClass('tab-case-1')) {
+                        var intl = setInterval(function(){
+                            if (jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').length > 0) {
+                                jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.field').slideUp(400);
+                                clearInterval(intl);
+                            }
+                        });
+                    }
                     clearInterval(interval);
                 }
             }, 200);
@@ -76,7 +83,7 @@
           jQuery('.tab-switch-container .tab-2').removeClass('active');
           jQuery(this).addClass('active');
           jQuery('#block-shipping').removeClass('tab-case-2').addClass('tab-case-1');
-          jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','not-allowed');
+          jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.field').slideUp(400);
           hideOptions();
           disableCheckoutBtn();
         });
@@ -84,7 +91,7 @@
           jQuery('.tab-switch-container .tab-1').removeClass('active');
           jQuery(this).addClass('active');
           jQuery('#block-shipping').removeClass('tab-case-1').addClass('tab-case-2');
-          jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.control').css('cursor','default');
+          jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.field').slideDown(400);
           hideOptions();
           disableCheckoutBtn();
         });
