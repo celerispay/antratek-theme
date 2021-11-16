@@ -338,7 +338,7 @@ define(
             //selected_el.closest('form').find('input').prop('checked', checked_el);
 
             if (pickuppoint != 'undefined') {
-                pointText = '<p>(' + pickuppoint + ')</p>' +
+                pointText = '<p class="select-pickup-address">(' + pickuppoint + ')</p>' +
                     '<p class="select_link">' + checkoutConfig.logxstar.pickuppoint.select_button + '</p>';
             }
             var element = $('#selected_method');

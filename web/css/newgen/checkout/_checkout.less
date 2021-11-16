@@ -1,3 +1,7 @@
+@import './_top-progress-bar.less';
+@import './_checkout-step-2.less';
+@import './_checkout-step-3.less';
+
 .checkout-container {
     .opc-progress-bar {
         .opc-progress-bar-item._active::before,
@@ -52,6 +56,10 @@
 
     #co-shipping-method-form{
         .field.choice.item{
+            .select-pickup-address{
+                font-size: 14px;
+                font-weight: 500;
+            }
             .select_link{
                 button{
                     font-size: 14px;

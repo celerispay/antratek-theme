@@ -1,6 +1,14 @@
 .checkout-cart-index {
     .form.form-cart {
         .cart {
+            .item-actions{
+                .actions-toolbar{
+                    .action.towishlist{
+                        display: none;
+                    }
+                }
+            }
+
             .action {
                 &.action-edit::before {
                     background: url('@{baseDir}images/cart-icons/edit.svg')no-repeat left center transparent;
@@ -55,6 +63,7 @@
             }
         }
     }
+    
 }
 
 .cart-container .form-cart .action.update:before {
