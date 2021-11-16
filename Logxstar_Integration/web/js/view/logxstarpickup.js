@@ -374,7 +374,7 @@ define(
             //selected_el.closest('form').find('input').prop('checked', checked_el);
 
             if (typeof selected_pickuppoint_address[selected_method.method_code] != 'undefined') {
-                pointText = '<p>(' + selected_pickuppoint_address[selected_method.method_code] + ')</p>' +
+                pointText = '<p class="select">(' + selected_pickuppoint_address[selected_method.method_code] + ')</p>' +
                     '<p class="select_link">' + checkoutConfig.logxstar.pickuppoint.select_button + '</p>';
             }
             var element = $('#selected_method');
@@ -568,7 +568,7 @@ define(
                                 var time = val['time_frames'][time_frame].replace('Available: ', '');
                                 right_items = right_items +
                                     '<li class="rightList" data-carrier-id="' + val['carrier_id'] + '" data-carrier-short="' + val['carrier_short'] + '" data-delivery-date="' + key + '" data-delivery-time="' + time + '" data-date-text="' + clearDateStr + '"><span class="col-lg-6 col-sm-10 delivery_date">' +
-                                    '<img src="' + logo_url + '">' + datestr + ', ' + time + '</span>';
+                                    '<span class="img-wrapper"><img src="' + logo_url + '"></span>' + datestr + ', ' + time + '</span>';
                                 if (carrier_label.length > 0) {
                                     right_items = right_items + '<span class="carrier_label">' + carrier_label + '</span>';
                                 }

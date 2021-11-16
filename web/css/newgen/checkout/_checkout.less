@@ -64,6 +64,22 @@
     .field.note{
         display: none;
     }
+
+    .help-text-row{
+        display: flex;
+        overflow: hidden;
+        .column-1{
+            span{
+                color: red;
+            }
+        }
+        .column-2{
+            padding-left: 8px;
+            .checkout-btn-help-text{
+                font-size: 14px;
+            }
+        }
+    }
 }
 
 .checkout-cart-index{
@@ -72,6 +88,10 @@
             #block-shipping{
                 .title{
                     border-top: none;
+                    padding: 0;
+                    &::after{
+                        display: none;
+                    }
                 }
             }
     

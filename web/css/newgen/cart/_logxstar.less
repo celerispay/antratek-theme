@@ -1,0 +1,108 @@
+#logxstarpickup{
+
+  #pickup_container{
+    .modal-header{
+      background-color: white;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 30px;
+      padding-bottom: 20px;
+
+      button.close{
+        float: none;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        height: 15px;
+      }
+
+      #header_logo{
+        img{
+          margin: 0 !important;
+        }
+      }
+
+      .types{
+        .row:first-of-type{
+          span{
+            display: inline-block;
+            width: auto;
+            margin-bottom: 8px;
+            color: #333;
+          }
+        }
+
+        .row:last-of-type{
+          #delivery_types{
+            .delivery-type{
+              border-radius: 2px;
+            }
+          }
+
+          .langs{
+            .lang-selector{
+              background-color: white;
+              border: 1px solid #adb4bd;
+              border-radius: 2px;
+
+              &.selected{
+                border: 2px solid #53afe9;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .modal-body{
+      .row{
+        .map-modal-left.pickup-type.map-modal-list,
+        .map-modal-left.deliver-type.map-modal-list,
+        .pickup-type.type-content{
+          height: 103% !important;
+        }
+
+        .map-modal-left.deliver-type.map-modal-list{
+          span{
+            font-size: 16px;
+          }
+        }
+
+        .deliver-type.deliver-content-block{
+          .rightList{
+            span,
+            img{
+              float: none;
+            }
+
+            .delivery_date{
+              text-align: left;
+              font-size: 16px;
+              display: inline-block;
+
+              .img-wrapper{
+                width: 200px;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                img{
+                  float: none;
+                  width: 100%;
+                }
+              }
+
+              span, font{
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+  
+      .bottom-bar{
+        display: none;
+      }
+    }
+  }
+}

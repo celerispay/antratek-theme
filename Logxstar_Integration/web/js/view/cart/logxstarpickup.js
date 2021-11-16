@@ -520,7 +520,8 @@ define(
                             if (logo_name == 'dpd_germany') {
                                 logo_name = 'dpd';
                             }
-                            var logo_url = 'https://os.logxstar.com/bundles/npdbase/img/plugins/pickup/' + logo_name + '_logo.png';
+                            // var logo_url = 'https://os.logxstar.com/bundles/npdbase/img/plugins/pickup/' + logo_name + '_logo.png';
+                            var logo_url = 'https://cdn.antratek.nl/skin/frontend/ultimo/default/images/logo.png';
                             var carrier_label = '';
 
                             if (component.label_details[logo_name] != null && component.label_details[logo_name][val['carrier_id']] != null) {
@@ -531,12 +532,12 @@ define(
 
                                 var time = val['time_frames'][time_frame].replace('Available: ', '');
                                 right_items = right_items +
-                                    '<li class="rightList" data-carrier-id="' + val['carrier_id'] + '" data-carrier-short="' + val['carrier_short'] + '" data-delivery-date="' + key + '" data-delivery-time="' + time + '" data-date-text="' + clearDateStr + '"><span class="col-lg-6 col-sm-10 delivery_date">' +
-                                    '<img src="' + logo_url + '">' + datestr + ', ' + time + '</span>';
+                                    '<li class="rightList" data-carrier-id="' + val['carrier_id'] + '" data-carrier-short="' + val['carrier_short'] + '" data-delivery-date="' + key + '" data-delivery-time="' + time + '" data-date-text="' + clearDateStr + '"><span class="col-lg-9 col-sm-10 delivery_date">' +
+                                    '<span class="img-wrapper"><img src="' + logo_url + '"></span>' + datestr + ', ' + time + '</span>';
                                 if (carrier_label.length > 0) {
                                     right_items = right_items + '<span class="carrier_label">' + carrier_label + '</span>';
                                 }
-                                right_items = right_items + '<span class="col-lg-2 price">' + price[val['carrier_id']] + '</span></li>';
+                                right_items = right_items + '<span class="col-lg-3 price">' + price[val['carrier_id']] + '</span></li>';
 
                             }
                         });
