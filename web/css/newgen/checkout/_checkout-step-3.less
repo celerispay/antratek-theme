@@ -1,40 +1,240 @@
 .checkout-index-index{
 
-  #checkout-payment-method-load .payment-group .payment-method-title .label span{
-    font-size: 16px;
-    font-weight: 600;
-  }
-  #checkout-payment-method-load .payment-group .checkout-billing-address span,
-  #checkout-payment-method-load .payment-group .checkout-billing-address .billing-address-details,
-  #checkout-payment-method-load .payment-group .checkout-billing-address .billing-address-details span,
-  #checkout-payment-method-load .payment-group .checkout-billing-address .billing-address-details a,
-  #checkout-payment-method-load .payment-group .checkout-agreement span,
-  #checkout-payment-method-load .payment-group .form-purchase-order .label span,
-  .opc-wrapper .step-content .payment-option .action.action-toggle span,
-  .opc-block-shipping-information .ship-to .shipping-information-content,
-  .opc-block-shipping-information .ship-to .shipping-information-content span,
-  .opc-block-shipping-information .ship-to .shipping-information-content a{
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.52px;
-  }
-  #checkout-payment-method-load .payment-group .checkout-agreement span,
-  .opc-wrapper .step-content .payment-option .action.action-toggle span{
-    color: #444;
-  }
-  #checkout-payment-method-load .payment-group .checkout-agreement span:hover{
-    color: #30a5ff;
-  }
-  #checkout-payment-method-load .payment-group .actions-toolbar .action.primary.checkout span,
-  .opc-wrapper .step-content .payment-option .action.action-apply span{
-    font-size: 16px;
-    font-weight: 500;
-  }
-  #checkout-payment-method-load .payment-group .form-purchase-order .label{
-    width: 22.5%;
+  #checkout-payment-method-load{
+    .payment-group{
+      .step-title{
+        font-size: 21px;
+        font-weight: 500;
+      }
+
+      .payment-method-title{
+        .label{
+          span{
+            font-size: 16px;
+            font-weight: 600;
+          }
+        }
+      }
+
+      .checkout-billing-address{
+        span,
+        .billing-address-details{
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.52px;
+
+          br{
+            display: none;
+          }
+
+          span, a{
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.52px;
+          }
+        }
+
+        .actions-toolbar{
+          .primary{
+            .action{
+              padding: 8px 16px;
+              transition: all 350ms;
+              span{
+                font-size: 16px;
+              }
+            }
+            .action-cancel{
+              margin-top: 0;
+              background: #e74c3c;
+              color: white;
+              &:hover{
+                background: #e40707;
+                color: white;
+              }
+              span{
+                text-transform: capitalize;
+              }
+            }
+          }
+        }
+      }
+      
+      .checkout-agreement{
+        span{
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.52px;
+          color: #444;
+
+          &:hover{
+            color: #30a5ff;
+          }
+        }
+      }
+
+      .form-purchase-order{
+        display: none;
+      }
+
+      .actions-toolbar{
+        .action.primary.checkout{
+          
+          padding: 8px 16px;
+
+          span{
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
   }
 
+  .opc-wrapper{
+    .step-content{
+      .payment-option{
+        .action.action-toggle{
+          span{
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.52px;
+            color: #444;
+          }
+        }
+        .action.action-apply{
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  
+  .opc-block-shipping-information{
+    .ship-to{
+      .shipping-information-content{
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.52px;
+
+        br{
+          display: none;
+        }
+  
+        span, a{
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.52px;
+        }
+      }
+    }
+
+    .ship-via{
+      .shipping-information-content{
+        span{
+          font-size: 16px !important; 
+          color: #444 !important;
+          font-weight: 500 !important;
+        }
+      }
+    }
+  }
+
+  .opc-block-summary{
+    .table-totals{
+      tr{
+        th, th span, th strong{
+          font-size: 16px !important; 
+          color: #444 !important;
+          font-weight: 500 !important;
+        }
+        &:not(.grand){
+          td, td span{
+            font-size: 16px !important; 
+            color: #444 !important;
+            font-weight: 500 !important;
+          }
+        }
+        &.totals.shipping.excl{
+          th.mark{
+            .label{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .no-quotes-block{
+    span{
+      font-size: 16px;
+    }
+  }
+
+  .payment-option.discount-code{
+    border-top: 1px solid #cccccc;
+    .payment-option-title{
+      padding-left: 0;
+      border-top: none;
+
+      .action.action-toggle{
+        span{
+          font-size: 16px;
+          font-weight: 600;
+        }
+      }
+    }
+    .payment-option-content{
+      padding-left: 0;
+
+      .form-discount{
+        display: flex;
+        align-items: center;
+        .payment-option-inner{
+          width: 50%;
+          display: inline-block;
+          margin-bottom: 0;
+        }
+        .actions-toolbar{
+          width: 45%;
+          display: inline-block;
+          margin-top: 0;
+
+          .primary{
+            float: none;
+            margin-left: 15px;
+            
+            .action.action-apply{
+              
+              span{
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .extra-po-number{
+    .po-number-text{
+      display: block;
+      margin-bottom: 15px;
+      
+      span{
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .modal-popup.agreements-modal{
+    .modal-content{
+
+    }
+  }
 }
+
 
 .new-address-popup .action-show-popup{
   padding: 8px 15px;
@@ -58,29 +258,3 @@
   font-weight: 500;
   font-size: 16px;
 }
-
-.opc-wrapper .step-content .payment-option .action.action-toggle span,
-  .opc-block-shipping-information .ship-to .shipping-information-content,
-  .opc-block-shipping-information .ship-to .shipping-information-content span,
-  .opc-block-shipping-information .ship-to .shipping-information-content a{
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.52px;
-  }
-  .opc-wrapper .step-content .payment-option .action.action-toggle span{
-    color: #444;
-  }
-  .opc-wrapper .step-content .payment-option .action.action-apply span{
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .opc-block-summary .table-totals tr th,
-  .opc-block-summary .table-totals tr th span,
-  .opc-block-summary .table-totals tr:not(.grand) td span,
-  .opc-block-summary .table-totals tr:not(.grand) td,
-  .opc-block-summary .table-totals tr th strong,
-  .opc-block-shipping-information .ship-via .shipping-information-content span{
-    font-size: 16px !important; 
-    color: #444 !important;
-    font-weight: 500 !important;
-  }

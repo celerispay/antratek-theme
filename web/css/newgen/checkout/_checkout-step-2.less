@@ -54,6 +54,16 @@
               font-size: small;
             }
 
+            .field{
+              margin-bottom: 20px;
+
+              .remChar{
+                position: absolute;
+                bottom: -30px;
+                font-size: small;
+              }
+            }
+
             &>.field:first-of-type{
               .controls{
                 .col-sm-12{
@@ -81,6 +91,10 @@
             &>.field{
               .control{
                 width: 95%;
+
+                .field{
+                  margin-bottom: 0;
+                }
               }
             }
             &>.field:nth-of-type(5){
@@ -92,8 +106,16 @@
             }
 
             .field.street{
-              .contorl{
+              .control{
                 width: 98.8%;
+              }
+            }
+
+            .field[name='shippingAddress.firstname'],
+            .field[name='shippingAddress.lastname']{
+              position: relative;
+              #remName{
+                display: none;
               }
             }
 
@@ -112,12 +134,23 @@
             }
             .field[name='shippingAddress.company']{
               width: 97.5%;
+              position: relative;
               .control{
                 width: 100%;
+              }
+              #remComp{
+                display: none;
               }
             }
             .field.field-vatid .control{
               width: 103%;
+
+              .action-euvat-vatid-validate{
+                span{
+                  font-size: 16px;
+                  font-weight: 500;
+                }
+              }
             }
           }
         }
@@ -145,9 +178,16 @@
             }
       
             .note{
+              margin-top: 10px;
               span{
                 font-size: small;
                 font-weight: 500;
+              }
+            }
+            .field{
+              margin-bottom: 20px;
+              div.mage-error{
+                display: none !important;
               }
             }
           }
@@ -155,6 +195,15 @@
 
         #checkout-step-shipping{
           margin-bottom: 0;
+        }
+        .shipping-address-items{
+          .shipping-address-item{
+            width: 100%;
+            padding: 15px 20px;
+            br{
+              display: none;
+            }
+          }
         }
       }
 
@@ -172,7 +221,6 @@
     }
 
     .shipping-methods{
-      margin-top: 4rem;
       
       .step-title{
         font-size: 21px;
@@ -215,16 +263,40 @@
             }
           }
   
-          .price-excluding-tax .price,
-          .price-including-tax .price{
+          .price-including-tax,
+          .price-excluding-tax{
+            margin: 0 !important;
+            line-height: 22px;
+          }
+          
+          .price-excluding-tax.business .price,
+          .price-including-tax.consumer .price{
             font-size: 21px !important;
             font-weight: 600 !important;
           }
 
-          .price-excluding-tax{
-            margin: 0 !important;
+          .price-excluding-tax::before,
+          .price-including-tax::before,
+          .price-including-tax.business .price,
+          .price-excluding-tax.consumer .price{
+            font-size: 14px;
+            font-weight: 500;
           }
         }    
+      }
+
+      .methods-shipping{
+        .message.notice{
+          padding: 8px 20px;
+          padding-left: 40px;
+          span{
+            font-size: 14px;
+            &::before{
+              margin-top: -16px;
+              font-size: 25px;
+            }
+          }
+        }
       }
     }
 
@@ -272,14 +344,22 @@
                   color: #444 !important;
                 }
               }
-
+              .price-including-tax,
               .price-excluding-tax{
                 margin: 0 !important;
+                line-height: 22px;
               }
 
-              .price-excluding-tax .price,
-              .price-including-tax .price{
+              .price-excluding-tax.business .price,
+              .price-including-tax.consumer .price{
                 font-size: 18px !important;
+                font-weight: 500;
+              }
+              .price-excluding-tax::before,
+              .price-including-tax::before,
+              .price-including-tax.business .price,
+              .price-excluding-tax.consumer .price{
+                font-size: 14px;
               }
             }
           }
@@ -329,8 +409,8 @@
   }
 
   .fieldset .field-error,
-  .fieldset div.mage-error{
-    position: absolute;
+  .field .field-error{
+    display: none;
   }
 }
  
