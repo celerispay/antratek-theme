@@ -6,90 +6,15 @@
 
 /** @var $block \Magento\Checkout\Block\Onepage\Link */
 ?>
-<?php
-$availability = 1;
-$delivery= $this->helper('Boostsales\Delivering\Helper\Delivery'); 
-$quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
-      $items = $quoteHelper->getItems();
-      if($items){
-      foreach($items as $item){
-           $availability = $delivery->getAvailableStock($item->getProduct()->getId());
-           if($availability == 0){
-               $availability = 0;
-               break;
-           }
-      } 
-    }
-?>
 <?php if ($block->isPossibleOnepageCheckout()) :?>
 <button type="button" data-role="proceed-to-checkout" title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
-    <?php if($availability != 0): ?> data-mage-init='{
+    data-mage-init='{
                 "Magento_Checkout/js/proceed-to-checkout":{
                     "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl().'#shipping')) ?>"
                 }
             }'
-    <?php else:?> id="order_btn" <?php endif; ?>
     class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>" <?php if ($block->isDisabled()) :?>
     disabled="disabled" <?php endif; ?>> <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
 </button>
 <span class="shopping-cart-proceed-text"><?= $block->escapeHtml(__('Eenvoudig en snel, u hoeft geen account te maken')) ?></span>
-<?php if($availability == 0):?>
-<div id="modal">
-    <div class="content">
-        <div class="backorder_row_1">
-            <div class="backorder_icon">
-                <img src="" alt="backorder_icon_image">
-            </div>
-            <div class="backorder_main_heading">
-                Please choose backorder preference
-            </div>
-        </div>
-        <div class="backorder_row_2">
-            <div class="col_1">
-                <h3>Ship Complete</h3>
-                <p> Choosing to ship complete will ship your order in one shipment. </p>
-            </div>
-            <div class="col_2">
-                <h3>Seperate Order</h3>
-                <p> Choosing to ship complete will ship in-stock items now and Backorder items later under differend
-                    shipment and seperate charges.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript">
-    require([
-        "jquery",
-        "Magento_Ui/js/modal/modal",
-        "Magento_Customer/js/customer-data"
-    ], function ($, modal, customerData) {
-        var options = {
-            type: 'popup',
-            responsive: true,
-            title: 'Please Choose Preference',
-            buttons: [{
-                text: jQuery.mage.__('SHIP COMPLETE'),
-                class: 'action primary',
-                click: function () {
-                    window.location.href =
-                        '<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl().'PartialOrder/index/index?order_type=complete'))?>';
-                }
-            }, {
-                text: jQuery.mage.__('SEPARATE ORDER'),
-                class: 'action primary',
-                click: function () {
-                    window.location.href =
-                        '<?= $block->escapeJs($block->escapeUrl($block->getBaseUrl().'PartialOrder/index/index?order_type=separate')) ?>';
-                }
-            }]
-        };
-        var popup = modal(options, $('#modal'));
-        $("#order_btn").click(function () {
-            $('#modal').modal('openModal');
-        });
-    });
-
-</script>
-<?php endif?>
 <?php endif?>
