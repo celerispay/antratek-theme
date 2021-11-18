@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
@@ -10,24 +11,33 @@
 ?>
 <?php $mergedCells = ($this->helper(Magento\Tax\Helper\Data::class)->displayCartBothPrices() ? 2 : 1); ?>
 <?= $block->getChildHtml('form_before') ?>
-<form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>"
-          method="post"
-          id="form-validate"
-          data-mage-init='{"Magento_Checkout/js/action/update-shopping-cart":
+<?php
+$availability = 1;
+$delivery = $this->helper('Boostsales\Delivering\Helper\Delivery');
+$quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
+$items = $quoteHelper->getItems();
+if ($items) {
+    foreach ($items as $item) {
+        $availability = $delivery->getAvailableStock($item->getProduct()->getId());
+        if ($availability == 0) {
+            $availability = 0;
+            break;
+        }
+    }
+}
+?>
+
+<form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>" method="post" id="form-validate" data-mage-init='{"Magento_Checkout/js/action/update-shopping-cart":
               {"validationURL" : "<?= $block->escapeUrl($block->getUrl('checkout/cart/updateItemQty')) ?>",
               "updateCartActionContainer": "#update_cart_action_container"}
-          }'
-          class="form form-cart">
+          }' class="form form-cart">
     <?= $block->getBlockHtml('formkey') ?>
     <div class="cart table-wrapper<?= $mergedCells == 2 ? ' detailed' : '' ?>">
-        <?php if ($block->getPagerHtml()) :?>
-            <div class="cart-products-toolbar cart-products-toolbar-top toolbar"
-                 data-attribute="cart-products-toolbar-top"><?= $block->getPagerHtml() ?>
+        <?php if ($block->getPagerHtml()) : ?>
+            <div class="cart-products-toolbar cart-products-toolbar-top toolbar" data-attribute="cart-products-toolbar-top"><?= $block->getPagerHtml() ?>
             </div>
         <?php endif ?>
-        <table id="shopping-cart-table"
-               class="cart items data table"
-               data-mage-init='{"shoppingCart":{"emptyCartButton": ".action.clear",
+        <table id="shopping-cart-table" class="cart items data table" data-mage-init='{"shoppingCart":{"emptyCartButton": ".action.clear",
                "updateCartActionContainer": "#update_cart_action_container"}}'>
             <caption class="table-caption"><?= $block->escapeHtml(__('Shopping Cart Items')) ?></caption>
             <thead>
@@ -39,27 +49,121 @@
                     <th class="col subtotal" scope="col"><span><?= $block->escapeHtml(__('Subtotal')) ?></span></th>
                 </tr>
             </thead>
-            <?php foreach ($block->getItems() as $_item) :?>
+            <?php foreach ($block->getItems() as $_item) : ?>
                 <?= $block->getItemHtml($_item) ?>
             <?php endforeach ?>
         </table>
         <span class="cart-page-freeship">boven de 20000 verzaden vij gratis! </span>
-        <?php if ($block->getPagerHtml()) :?>
-            <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar"
-                 data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?>
+        <?php if ($block->getPagerHtml()) : ?>
+            <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar" data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?>
             </div>
         <?php endif ?>
     </div>
     <div class="cart main actions">
-        <?php if ($block->getContinueShoppingUrl()) :?>
-            <a class="action continue"
-               href="<?= $block->escapeUrl($block->getContinueShoppingUrl()) ?>"
-               title="<?= $block->escapeHtmlAttr(__('Continue Shopping')) ?>">
+        <?php if ($block->getContinueShoppingUrl()) : ?>
+            <a class="action continue" href="<?= $block->escapeUrl($block->getContinueShoppingUrl()) ?>" title="<?= $block->escapeHtmlAttr(__('Continue Shopping')) ?>">
                 <span><?= $block->escapeHtml(__('Continue Shopping')) ?></span>
             </a>
         <?php endif; ?>
-        <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
+        <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update="" />
     </div>
 </form>
 <?= $block->getChildHtml('checkout.cart.order.actions') ?>
 <?= $block->getChildHtml('shopping.cart.table.after') ?>
+
+<?php if ($availability == 0) : ?>
+<div id="modal">
+    <div class="content">
+        <div class="backorder_row_1">
+            <div class="backorder_icon">
+                <img src="" alt="backorder_icon_image">
+            </div>
+            <div class="backorder_main_heading">
+                Please choose backorder preference
+            </div>
+        </div>
+        <div class="backorder_row_2">
+            <div class="col_1">
+                <h3>Ship Complete</h3>
+                <p> Choosing to ship complete will ship your order in one shipment. </p>
+            </div>
+            <div class="col_2">
+                <h3>Seperate Order</h3>
+                <p> Choosing to ship complete will ship in-stock items now and Backorder items later under differend
+                    shipment and seperate charges.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal",
+        "Magento_Checkout/js/model/quote",
+        "Magento_Checkout/js/model/shipping-rate-registry",
+        "Magento_Checkout/js/model/cart/totals-processor/default",
+        "Magento_Checkout/js/model/shipping-service",
+        "Magento_Checkout/js/model/shipping-rate-processor/new-address",
+        "Magento_Checkout/js/model/cart/cache",
+        "Magento_Checkout/js/model/error-processor"
+    ], function($, modal, mainQuote, rateReg, totals, shippingService, defaultProcessor, cartCache, errorProcessor) {
+        var rateProcessors = {}
+        var options = {
+            type: 'popup',
+            responsive: true,
+            title: jQuery.mage.__('Please Choose Preference'),
+            autoOpen: true,
+            buttons: [{
+                    text: jQuery.mage.__('SHIP COMPLETE'),
+                    class: 'action primary',
+                    click: function() {
+                        $.ajax({
+                            url: "<?php echo $block->escapeJs($block->escapeUrl($block->getBaseUrl() . 'PartialOrder/index/index?order_type=complete')) ?>",
+                            type: 'POST',
+                            showLoader: true,
+                        }).done(function() {
+                            estimateShipping();
+                        }).fail(function(response) {
+                            errorProcessor.process(response);
+                        })
+                        this.closeModal();
+                    }
+                },
+                {
+                    text: jQuery.mage.__('SEPARATE ORDER'),
+                    class: 'action primary',
+                    click: function() {
+                        $.ajax({
+                            url: "<?php echo $block->escapeJs($block->escapeUrl($block->getBaseUrl() . 'PartialOrder/index/index?order_type=separate')) ?>",
+                            type: 'POST',
+                            showLoader: true,
+                        }).done(function() {
+                            estimateShipping();
+                        }).fail(function(response) {
+                            errorProcessor.process(response);
+                        })
+                        this.closeModal();
+                    }
+                }
+            ]
+        };
+        function estimateShipping(){
+            var address = mainQuote.shippingAddress();
+            address.trigger_reload = new Date().getTime();
+            rateReg.set(address.getKey(), null);
+            rateReg.set(address.getCacheKey(), null);
+            var type = mainQuote.shippingAddress().getType();
+            console.log(type);
+            rateProcessors['default'] = defaultProcessor;
+            rateProcessors[type] ?
+            rateProcessors[type].getRates(mainQuote.shippingAddress()) :
+            rateProcessors['default'].getRates(mainQuote.shippingAddress());
+            shippingService.getShippingRates().subscribe(function(rates) {
+                cartCache.set('rates', rates);
+            });
+            totals.estimateTotals(mainQuote.shippingAddress())
+        }
+        var popup = modal(options, $('#modal'));
+    });
+</script>
+<?php endif ?>
