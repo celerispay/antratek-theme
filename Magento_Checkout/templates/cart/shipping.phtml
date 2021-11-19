@@ -62,7 +62,9 @@
         $(document).ready(function(){
             var intl = setInterval(function(){
                 if (jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').length > 0) {
-                    jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.field').slideUp(400);
+                    if(jQuery('#block-shipping').hasClass('tab-case-1')){
+                        jQuery('#block-shipping #shipping-zip-form input[name="postcode"]').closest('.field').slideUp(400);
+                    }
                     clearInterval(intl);
                 }
             });
