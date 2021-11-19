@@ -341,7 +341,7 @@ define(
             //selected_el.closest('form').find('input').prop('checked', checked_el);
 
             if (typeof selected_pickuppoint_address[selected_method.method_code] != 'undefined') {
-                pointText = '<p>(' + selected_pickuppoint_address[selected_method.method_code] + ')</p>' +
+                pointText = '<p class="select-pickup-address">(' + selected_pickuppoint_address[selected_method.method_code] + ')</p>' +
                     '<p class="select_link">' + checkoutConfig.logxstar.pickuppoint.select_button + '</p>';
             }
             var element = $('#selected_method');

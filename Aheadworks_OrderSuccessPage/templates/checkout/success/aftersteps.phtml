@@ -1,75 +1,191 @@
 <?php
 
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$orderObj = $objectManager->create('Magento\Checkout\Model\Session')->getLastRealOrder();
+$payment = $orderObj->getPayment();
+$method = $payment->getMethodInstance();
+$methodCode = $method->getCode();
+
 ?>
+
+
 <div class="success-order-aftersteps">
     <div class="section-heading">
-        <h2 class="title"><?=__('Good to Know') ?></h2>
+        <h2 class="title"><?=__('Good to Know') ?> </h2>
     </div>
     <div class="section-body">
-        <div class="row-1">
-            <div class="col-1 col">
-                <div class="circle-icon-row">
-                    <div class="circle-icon-col-1">
-                        <div class="circle-icon"></div>
+        <?php switch($methodCode): 
+            case 'checkmo': ?>
+                <div class="row-1 three-column">
+                    <div class="col-1 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Order Confirmation') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
                     </div>
-                    <div class="circle-icon-col-2">
-                        <div class="icon-bar"></div>
+                    <div class="col-2 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Track & Trace') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
                     </div>
-                </div>
-                <div class="col-heading">
-                    Lorem Ipsum
-                </div>
-                <div class="col-text">
-                    Reference site about Lorem Ipsum, giving information on its origin as well as random.
-                </div>
-            </div>
-            <div class="col-2 col">
-                <div class="circle-icon-row">
-                    <div class="circle-icon-col-1">
-                        <div class="circle-icon"></div>
-                    </div>
-                    <div class="circle-icon-col-2">
-                        <div class="icon-bar"></div>
-                    </div>
-                </div>
-                <div class="col-heading">
-                    Lorem Ipsum
-                </div>
-                <div class="col-text">
-                    Reference site about Lorem Ipsum, giving information on its origin as well as random.
-                </div>
-            </div>
-            <div class="col-3 col">
-                <div class="circle-icon-row">
-                    <div class="circle-icon-col-1">
-                        <div class="circle-icon"></div>
-                    </div>
-                    <div class="circle-icon-col-2">
-                        <div class="icon-bar"></div>
-                    </div>
-                </div>
-                <div class="col-heading">
-                    Lorem Ipsum
-                </div>
-                <div class="col-text">
-                    Reference site about Lorem Ipsum, giving information on its origin as well as random.
-                </div>
-            </div>
-            <div class="col-4 col">
-                <div class="circle-icon-row">
-                    <div class="circle-icon-col-1">
-                        <div class="circle-icon"></div>
-                    </div>
-                    <div class="circle-icon-col-2">
+                    <div class="col-3 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <!-- <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div> -->
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Invoice') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
                     </div>
                 </div>
-                <div class="col-heading">
-                    Lorem Ipsum
+            <?php break; ?>
+            <?php case 'banktransfer': ?>
+                <div class="row-1 checkmo">
+                    <div class="col-1 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Order Confirmation') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
+                    </div>
+                    <div class="col-2 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Pro Forma Invoice') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
+                    </div>
+                    <div class="col-3 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Final Invoice') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
+                    </div>
+                    <div class="col-4 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Track & Trace')?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
+                    </div>
                 </div>
-                <div class="col-text">
-                    Reference site about Lorem Ipsum, giving information on its origin as well as random.
+            <?php break; ?>
+            <?php default: ?>
+                <div class="row-1 three-column">
+                    <div class="col-1 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Order Confirmation') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
+                    </div>
+                    <div class="col-2 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div>
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Final Invoice') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
+                    </div>
+                    <div class="col-3 col">
+                        <div class="circle-icon-row">
+                            <div class="circle-icon-col-1">
+                                <div class="circle-icon"></div>
+                            </div>
+                            <!-- <div class="circle-icon-col-2">
+                                <div class="icon-bar"></div>
+                            </div> -->
+                        </div>
+                        <div class="col-heading">
+                            <?= __('Track & Trace') ?>
+                        </div>
+                        <!-- <div class="col-text">
+                            Reference site about Lorem Ipsum, giving information on its origin as well as random.
+                        </div> -->
+                    </div>
                 </div>
-            </div>
-        </div>
+            <?php break; ?>
+        <?php endswitch; ?>
     </div>
 </div>
