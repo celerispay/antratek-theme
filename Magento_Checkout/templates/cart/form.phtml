@@ -25,6 +25,7 @@ if ($items) {
         }
     }
 }
+$subtotal = $quoteHelper->getSubtotal();
 ?>
 
 <form action="<?= $block->escapeUrl($block->getUrl('checkout/cart/updatePost')) ?>" method="post" id="form-validate" data-mage-init='{"Magento_Checkout/js/action/update-shopping-cart":
@@ -53,7 +54,12 @@ if ($items) {
                 <?= $block->getItemHtml($_item) ?>
             <?php endforeach ?>
         </table>
-        <span class="cart-page-freeship">boven de 20000 verzaden vij gratis! </span>
+        <?php if($subtotal < 99.99){
+            $balPrice = number_format(100-$subtotal);?>
+            <span class="cart-page-freeship"><?= $block->escapeHtml(__('&euro;'.$balPrice.' ot gratis verzending'));?> </span>
+        <?php } else {?>
+            <span class="cart-page-freeship"><?=  $block->escapeHtml(__('Gratis verzending')); ?></span>
+        <?php } ?>
         <?php if ($block->getPagerHtml()) : ?>
             <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar" data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?>
             </div>
