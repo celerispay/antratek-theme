@@ -153,7 +153,6 @@ if ($items) {
             rateReg.set(address.getKey(), null);
             rateReg.set(address.getCacheKey(), null);
             var type = mainQuote.shippingAddress().getType();
-            console.log(type);
             rateProcessors['default'] = defaultProcessor;
             rateProcessors[type] ?
             rateProcessors[type].getRates(mainQuote.shippingAddress()) :
@@ -161,7 +160,6 @@ if ($items) {
             shippingService.getShippingRates().subscribe(function(rates) {
                 cartCache.set('rates', rates);
             });
-            totals.estimateTotals(mainQuote.shippingAddress())
         }
         var popup = modal(options, $('#modal'));
     });
