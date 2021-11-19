@@ -880,7 +880,11 @@ background-image: url(' + self.getImagePath() + '/' + self.filters_details[servi
                 return checkoutConfig.logxstar.pickuppoint.header_logo_src;
             },
             shippingMethodUpdate: function(method) {
-                var method_name = method.method_code;
+                if(method === null){
+                    var method_name = null;
+                }else{
+                    var method_name = method.method_code;
+                }
 
                 this.addFreeShippingMessage();
 
