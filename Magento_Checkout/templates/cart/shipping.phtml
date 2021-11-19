@@ -108,9 +108,14 @@
             });
         }
         else if(jQuery('#block-shipping').hasClass('tab-case-2')) {
+            var postCodeInput = jQuery('#block-shipping #shipping-zip-form input[name="postcode"]');
             jQuery('#block-shipping #co-shipping-method-form input').each(function(){
                 if(jQuery(this).attr('id').includes('accesspoint') || jQuery(this).attr('id').includes('parcelshop') || jQuery(this).attr('id').includes('package_signature')){
-                    jQuery(this).parent('.field').slideDown(500);
+                    if( postCodeInput.length > 0 && postCodeInput.val().length > 0 ){
+                        jQuery(this).parent('.field').slideDown(500);
+                    } else{
+                        jQuery(this).parent('.field').css('display','none');
+                    }
                 } else{
                     jQuery(this).parent('.field').slideUp(500);
                 }
