@@ -58,3 +58,149 @@
         }
     }
 }
+
+
+.header-container{
+    .nav-container .nav-regular{
+        background-color: #0079c4 !important;
+    }
+
+    #mainmenu{
+        ul{
+            max-width: 1300px;
+            margin: auto;
+            padding: 0;
+
+            .nav-item{
+
+                .list-label{
+                    .inner-heading{
+                        padding: 0;
+                    }
+                }
+                a.level-top{
+                    line-height: 48px;
+                    span {
+                        font-size: 15px;
+                        color: white;
+                        font-weight: 500;
+                        letter-spacing: 0.5px;
+                    }
+                }
+                &:hover{
+                    a.level-top{
+                        color: #444;
+                        span{
+                            color: #444;
+                        }
+                    }
+                }
+                &.b2c-checkbox{
+                    margin: 0 25px 0 35px;
+                    .switcher-slider{
+                        top: 4px;
+                        bottom: -7px;
+                        &::before{
+                            width: 12px;
+                            height: 12px;
+                        }
+                    }
+                    .b2c-switcher{
+                        top: 2px;
+                    }
+                    .list-label{
+                        font-size: 15px;
+                        color: white;
+                        font-weight: 500;
+                        letter-spacing: 0.5px;
+                    }
+                }
+                .dropdown-block.filled-heading{
+                    &.open{
+                        box-shadow: none;
+                        .dropdown-heading{
+                            box-shadow: none;
+                        }
+                        .dropdown-content{
+                            padding: 15px;
+                            min-width: 115px;
+                            li{
+                                margin: 5px 0;
+                            }
+                        }
+                        .inner-heading{
+                            background-color: #0079c4;
+
+                            .caret{
+                                color: white;
+                            }
+                            .label{
+                                font-size: 15px;
+                                color: white;
+                                font-weight: 500;
+                                letter-spacing: 0.5px;
+                            }
+                        }    
+                    }
+                    .dropdown-content{
+                        min-width: 130px;
+                        left: -5px;
+                        li{
+                            a{
+                                font-size: 15px;
+                                &:hover{
+                                    color: #444;
+                                }
+                            }
+                        }
+                    }
+                    .inner-heading{
+                        .label{
+                            font-size: 15px;
+                            color: white;
+                            font-weight: 500;
+                            letter-spacing: 0.5px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/****************** header navigation CSS Start ******************/
+
+  @media(max-width: 767px){
+    .header-container .mini-cart.minicart-wrapper{
+      margin-top: 0;
+    }
+    .header-primary-container .miniquote-wrapper{
+      position: absolute;
+      right: 0;
+      width: 20%;
+      margin: 0;
+      bottom: 0;
+      top: auto;
+      left: auto;
+      height: 50px;
+      float: none;
+      display: none;
+    }
+    .header-primary-container .miniquote-wrapper .action.showquote{
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0079c4;
+    }
+    .header-primary-container .miniquote-wrapper .action.showquote::before{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      top: 50%;
+      height: 20px;
+      width: 20px;
+    }
+  }
+  
+/****************** header navigation CSS End ******************/
