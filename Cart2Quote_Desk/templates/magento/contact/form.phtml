@@ -1,0 +1,145 @@
+<?php
+/**
+ *
+ * CART2QUOTE CONFIDENTIAL
+ * __________________
+ *
+ *  [2009] - [2018] Cart2Quote B.V.
+ *  All Rights Reserved.
+ *
+ * NOTICE OF LICENSE
+ *
+ * All information contained herein is, and remains
+ * the property of Cart2Quote B.V. and its suppliers,
+ * if any.  The intellectual and technical concepts contained
+ * herein are proprietary to Cart2Quote B.V.
+ * and its suppliers and may be covered by European and Foreign Patents,
+ * patents in process, and are protected by trade secret or copyright law.
+ * Dissemination of this information or reproduction of this material
+ * is strictly forbidden unless prior written permission is obtained
+ * from Cart2Quote B.V.
+ *
+ * @category    Cart2Quote
+ * @package     Desk
+ * @copyright   Copyright (c) 2018 Cart2Quote B.V. (https://www.cart2quote.com)
+ * @license     https://www.cart2quote.com/ordering-licenses(https://www.cart2quote.com)
+ */
+
+
+/** @var Magento\Contact\Block\ContactForm $block */
+?>
+
+<form class="form contact ticket-form-content ticket-form"
+      action="<?php /* @escapeNotVerified */
+        echo $block->getFormAction(); ?>"
+      id="contact-form"
+      data-role="product-ticket-form"
+      data-bind="scope: 'ticket-form'"
+      data-mage-init='{"desk.form.ticket":{}, "validation":{}}'
+      data-hasrequired="<?php /* @escapeNotVerified */
+      echo __("* Required Fields") ?>">
+    <fieldset class="fieldset">
+        <legend class="legend">
+            <span><?php /* @escapeNotVerified */ echo __("Write Us") ?></span>
+        </legend>
+        <br/>
+
+        <div class="field note no-label"><?php /* @escapeNotVerified */
+            echo __("Jot us a note and we’ll get back to you as quickly as possible.") ?></div>
+        <?php
+        if (!$block->getChildBlock('ticket.message.success')->isLoggedIn()) : ?>
+                <div class="field name required ticket-non-registered-users">
+                    <label class="label" for="name">
+                        <span><?php /* @escapeNotVerified */ echo __("First name") ?></span>
+                    </label>
+                    <div class="control">
+                        <input name="customer[firstname]"
+                               id="name"
+                               title="<?php /* @escapeNotVerified */ echo __("First name") ?>"
+                               value="<?php echo $block->escapeHtml(
+                                   $this->helper('Magento\Contact\Helper\Data')->getUserName()
+                               ) ?>"
+                               class="input-text"
+                               type="text"
+                               data-validate="{required:true}"/>
+                    </div>
+                </div>
+                <div class="field name required ticket-non-registered-users">
+                    <label class="label" for="name"><span><?php /* @escapeNotVerified */
+                            echo __("Last name") ?></span></label>
+
+                    <div class="control">
+                        <input name="customer[lastname]"
+                               id="name"
+                               title="<?php /* @escapeNotVerified */ echo __("Last name") ?>"
+                               value="<?php echo $block->escapeHtml(
+                                   $this->helper('Magento\Contact\Helper\Data')->getUserName()
+                               ) ?>"
+                               class="input-text"
+                               type="text"
+                               data-validate="{required:true}"/>
+                    </div>
+                </div>
+                <div class="field email required ticket-non-registered-users">
+                    <label class="label" for="email"><span><?php /* @escapeNotVerified */
+                            echo __("Email") ?></span></label>
+
+                    <div class="control">
+                        <input name="customer[email]"
+                               id="email"
+                               title="<?php /* @escapeNotVerified */ echo __("Email") ?>"
+                               value="<?php echo $block->escapeHtml(
+                                   $this->helper('Magento\Contact\Helper\Data')->getUserEmail()
+                               ) ?>"
+                               class="input-text"
+                               type="email"
+                               data-validate="{required:true, 'validate-email':true}"/>
+                    </div>
+                </div>
+        <?php
+        endif; ?>
+        <div class="field comment required">
+            <label class="label" for="comment">
+                <span><?php /* @escapeNotVerified */ echo __("Subject") ?></span>
+            </label>
+
+            <div class="control">
+                <input name="ticket[subject]"
+                       id="comment"
+                       title="<?php /* @escapeNotVerified */ echo __("Subject") ?>"
+                       class="input-text"
+                       type="text"
+                       data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field comment required">
+            <label class="label" for="comment">
+                <span><?php /* @escapeNotVerified */ echo __("What’s on your mind?") ?></span>
+            </label>
+
+            <div class="control">
+                <textarea name="message[message]"
+                          id="ticket-message-field"
+                          title="<?php /* @escapeNotVerified */ echo __("What’s on your mind?") ?>"
+                          class="input-text"
+                          cols="5"
+                          rows="3"
+                          data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <?php echo $block->getChildHtml('form.additional.info'); ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value=""/>
+            <button type="submit"
+                    title="<?php /* @escapeNotVerified */ echo __("Submit") ?>"
+                    class="action submit primary"
+                    id="send-ticket-button">
+                <span><?php /* @escapeNotVerified */
+                    echo __("Submit") ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<?php echo $this->getChildHtml('ticket.message.success');
