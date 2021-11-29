@@ -1,5 +1,5 @@
 
-
+.catalogsearch-result-index,
 .catalog-category-view{
   #maincontent{
     .column.main{
@@ -95,7 +95,8 @@
               .delay-message-1,
               .delay-message-2,
               .delay-message-3,
-              .product-availability-out-of-stock{
+              .product-availability-out-of-stock,
+              .product-availability-backorder{
                 display: inline-block;
                 font-size: 14px;
                 font-weight: 600;
@@ -123,6 +124,12 @@
                   animation: moveLeft 1000ms ease-in-out;
                   a{
                     font-size: 14px;
+                  }
+                }
+
+                .stock.unavailable{
+                  span{
+                    font-size: 16px;
                   }
                 }
 
@@ -192,6 +199,7 @@
                 top: 12px;
                 left: 77%;
               }
+              .product-availability-backorder,
               .product-availability-out-of-stock,
               .delay-message-0,
               .delay-message-1,
@@ -201,6 +209,7 @@
                 font-weight: 600;
               }
 
+              .delay-message-0,
               .delay-message-1,
               .delay-message-2,
               .delay-message-3{
@@ -209,10 +218,11 @@
                 left: 77%;
               }
 
+              .product-availability-backorder,
               .product-availability-out-of-stock{
                 margin-bottom: 5px;
                 position: absolute;
-                top: 42px;
+                top: 12px;
                 left: 73%;
               }
 
