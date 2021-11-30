@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 329 552.9" style="enable-background:new 0 0 329 552.9;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#0079C4;stroke-width:18;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:20;stroke-linecap:round;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#0079C4;stroke-width:18;stroke-linecap:round;stroke-miterlimit:10;}
+	.st4{fill:#0079C4;}
+</style>
+<g>
+	<path class="st0" d="M243.3,96.9h-78.8h-4.7v39.2c0,35-28.4,63.4-63.4,63.4h0c-35,0-63.4-28.4-63.4-63.4V96.9H20c-11,0-20,9-20,20
+		v416c0,11,9,20,20,20h289c11,0,20-9,20-20V183.7L243.3,96.9z"/>
+	<polyline class="st1" points="235.5,96.9 235.5,191.2 329,191.2 	"/>
+	<path class="st2" d="M130.4,32.2v96.3c0,21.8-15.6,39.5-34.9,39.5h0c-19.3,0-34.9-17.7-34.9-39.5V29.7c0-10.9,7.8-19.7,17.4-19.7h0
+		c9.6,0,17.4,8.8,17.4,19.7v29"/>
+	<line class="st3" x1="193.7" y1="274.1" x2="272.1" y2="273.3"/>
+	<line class="st3" x1="193.7" y1="317.4" x2="272.1" y2="316.7"/>
+	<line class="st3" x1="193.7" y1="360.8" x2="272.1" y2="360.1"/>
+	<line class="st3" x1="56" y1="419.1" x2="272.1" y2="418.3"/>
+	<line class="st3" x1="56" y1="472.9" x2="272.1" y2="472.2"/>
+	<g>
+		<path class="st4" d="M50,333.5l0.4-8.1h11.2c-0.3-2.6-0.4-5.3-0.4-8.1c0-2.2,0.1-4.5,0.4-7H49.9l0.4-8.6h12.6
+			c1.2-5.1,3-9.9,5.5-14.2c2.5-4.3,5.3-8,8.6-11.1c3.2-3,6.8-5.6,10.7-7.8c3.9-2.1,8-3.7,12.2-4.7c4.2-1,8.4-1.5,12.7-1.5
+			c13.8,0,25.6,3.8,35.3,11.4l-7.2,12.9c-8-5.6-16.9-8.3-26.6-8.3c-7,0-13.3,2.1-18.9,6.2c-5.7,4.1-9.8,9.9-12.3,17.2h33.8l-0.5,8.6
+			H80.9c-0.3,2.2-0.4,4.5-0.4,6.8c0,2.9,0.2,5.7,0.7,8.3h33l-0.5,8.1H83.2c2.6,7,6.8,12.4,12.5,16.4c5.7,3.9,12.2,5.9,19.6,5.9
+			c10.6,0,20.3-3.6,29.2-10.7l6.2,14.6c-10.3,8-22.5,12-36.6,12c-7.7,0-15.1-1.4-21.9-4.3c-6.9-2.9-12.9-7.2-18.1-13.1
+			c-5.2-5.9-8.8-12.8-10.9-20.8H50z"/>
+	</g>
+</g>
+</svg>
