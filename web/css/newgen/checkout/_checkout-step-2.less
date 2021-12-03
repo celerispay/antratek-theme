@@ -56,6 +56,7 @@
 
             .field{
               margin-bottom: 20px;
+              position: relative;
 
               .remChar{
                 position: absolute;
@@ -139,6 +140,17 @@
                 width: 100%;
               }
               #remComp{
+                display: none;
+              }
+            }
+            .field[name="shippingAddress.bss_custom_field[business_additional]"]{
+              width: 103%;
+              #remExtraInfo{
+                display: none;
+              }
+            }
+            .field[name="shippingAddress.bss_custom_field[housenumber]"]{
+              #remHouseNumber{
                 display: none;
               }
             }
