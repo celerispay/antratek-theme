@@ -33,6 +33,26 @@ define([
       }, 400);
     }
 
+    function attachExtraInfoListener(){
+      var extraIntl = setInterval(function(){
+        var extraInfo = $('#co-shipping-form .field[name="shippingAddress.bss_custom_field[business_additional]"] input[name="bss_custom_field[business_additional]"]');
+
+        if(extraInfo.length > 0){
+          extraInfo.closest('.field').append('<p id="remExtraInfo" class="remChar">Remaining Characters: 35</p>');
+          extraInfo.on('keypress', function(){
+            if(this.value.length >= 35) return false;
+            else updateFeedbackFactory('#remExtraInfo', 35, this.value.length)();
+          }).on('keydown', function(){
+            updateFeedbackFactory('#remExtraInfo', 35, this.value.length)();
+          }).on('keyup', function(){
+            updateFeedbackFactory('#remExtraInfo', 35, this.value.length)();
+          });
+
+          clearInterval(extraIntl);
+        }
+      }, 400);
+    }
+
     function attachNameListener(){
       var nameIntl = setInterval( function(){
         var firstname = $('#co-shipping-form .field[name="shippingAddress.firstname"] input[name="firstname"]');
@@ -53,6 +73,31 @@ define([
             updateFeedbackFactory('#remName', 35, nameVal.length)();
           });
           clearInterval(nameIntl);
+        }
+      }, 400);
+    }
+
+    function attachHouseNumberListener(){
+      var houseIntl = setInterval( function(){
+        var firstnumber = $('#co-shipping-form .field[name="shippingAddress.bss_custom_field[housenumber]"] input[name="bss_custom_field[housenumber]"]');
+        var lastnumber = $('#co-shipping-form .field[name="shippingAddress.bss_custom_field[housenumbe_additional]"] input[name="bss_custom_field[housenumbe_additional]"]');
+        var housenumber = firstnumber.add(lastnumber);
+
+        if(firstnumber.length>0){
+          firstnumber.closest('.field').append('<p id="remHouseNumber" class="remChar">Remaining Characters: 35</p>');
+          housenumber.on('keypress', function(){
+            var numberVal = firstnumber.val()+lastnumber.val();
+            if(numberVal.length >= 8) return false;
+            else updateFeedbackFactory('#remHouseNumber', 8, numberVal.length)();
+          }).on('keydown', function(){
+            var numberVal = firstnumber.val()+lastnumber.val();
+            updateFeedbackFactory('#remHouseNumber', 8, numberVal.length)();
+          }).on('keyup', function(){
+            var numberVal = firstnumber.val()+lastnumber.val();
+            updateFeedbackFactory('#remHouseNumber', 8, numberVal.length)();
+          });
+
+          clearInterval(houseIntl);
         }
       }, 400);
     }
@@ -85,7 +130,9 @@ define([
         var form = $('#co-shipping-form');
         if(form.length > 0){
           attachCompanyListener();
+          attachExtraInfoListener();
           attachNameListener();
+          attachHouseNumberListener();
           attachPostCodeListener();
           clearInterval(checkForm);
         }
