@@ -12,19 +12,7 @@
 <?php $mergedCells = ($this->helper(Magento\Tax\Helper\Data::class)->displayCartBothPrices() ? 2 : 1); ?>
 <?= $block->getChildHtml('form_before') ?>
 <?php
-$availability = 1;
-$delivery = $this->helper('Boostsales\Delivering\Helper\Delivery');
 $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
-$items = $quoteHelper->getItems();
-if ($items) {
-    foreach ($items as $item) {
-        $availability = $delivery->getAvailableStock($item->getProduct()->getId());
-        if ($availability == 0) {
-            $availability = 0;
-            break;
-        }
-    }
-}
 $subtotal = $quoteHelper->getSubtotal();
 ?>
 
@@ -76,98 +64,3 @@ $subtotal = $quoteHelper->getSubtotal();
 </form>
 <?= $block->getChildHtml('checkout.cart.order.actions') ?>
 <?= $block->getChildHtml('shopping.cart.table.after') ?>
-
-<?php if ($availability == 0) : ?>
-<div id="modal">
-    <div class="content">
-        <div class="backorder_row_1">
-            <div class="backorder_icon">
-                <img src="" alt="backorder_icon_image">
-            </div>
-            <div class="backorder_main_heading">
-                Please choose backorder preference
-            </div>
-        </div>
-        <div class="backorder_row_2">
-            <div class="col_1">
-                <h3>Ship Complete</h3>
-                <p> Choosing to ship complete will ship your order in one shipment. </p>
-            </div>
-            <div class="col_2">
-                <h3>Seperate Order</h3>
-                <p> Choosing to ship complete will ship in-stock items now and Backorder items later under differend
-                    shipment and seperate charges.</p>
-            </div>
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-    require([
-        "jquery",
-        "Magento_Ui/js/modal/modal",
-        "Magento_Checkout/js/model/quote",
-        "Magento_Checkout/js/model/shipping-rate-registry",
-        "Magento_Checkout/js/model/cart/totals-processor/default",
-        "Magento_Checkout/js/model/shipping-service",
-        "Magento_Checkout/js/model/shipping-rate-processor/new-address",
-        "Magento_Checkout/js/model/cart/cache",
-        "Magento_Checkout/js/model/error-processor"
-    ], function($, modal, mainQuote, rateReg, totals, shippingService, defaultProcessor, cartCache, errorProcessor) {
-        var rateProcessors = {}
-        var options = {
-            type: 'popup',
-            responsive: true,
-            title: jQuery.mage.__('Please Choose Preference'),
-            autoOpen: true,
-            buttons: [{
-                    text: jQuery.mage.__('SHIP COMPLETE'),
-                    class: 'action primary',
-                    click: function() {
-                        $.ajax({
-                            url: "<?php echo $block->escapeJs($block->escapeUrl($block->getBaseUrl() . 'PartialOrder/index/index?order_type=complete')) ?>",
-                            type: 'POST',
-                            showLoader: true,
-                        }).done(function() {
-                            estimateShipping();
-                        }).fail(function(response) {
-                            errorProcessor.process(response);
-                        })
-                        this.closeModal();
-                    }
-                },
-                {
-                    text: jQuery.mage.__('SEPARATE ORDER'),
-                    class: 'action primary',
-                    click: function() {
-                        $.ajax({
-                            url: "<?php echo $block->escapeJs($block->escapeUrl($block->getBaseUrl() . 'PartialOrder/index/index?order_type=separate')) ?>",
-                            type: 'POST',
-                            showLoader: true,
-                        }).done(function() {
-                            estimateShipping();
-                        }).fail(function(response) {
-                            errorProcessor.process(response);
-                        })
-                        this.closeModal();
-                    }
-                }
-            ]
-        };
-        function estimateShipping(){
-            var address = mainQuote.shippingAddress();
-            address.trigger_reload = new Date().getTime();
-            rateReg.set(address.getKey(), null);
-            rateReg.set(address.getCacheKey(), null);
-            var type = mainQuote.shippingAddress().getType();
-            rateProcessors['default'] = defaultProcessor;
-            rateProcessors[type] ?
-            rateProcessors[type].getRates(mainQuote.shippingAddress()) :
-            rateProcessors['default'].getRates(mainQuote.shippingAddress());
-            shippingService.getShippingRates().subscribe(function(rates) {
-                cartCache.set('rates', rates);
-            });
-        }
-        var popup = modal(options, $('#modal'));
-    });
-</script>
-<?php endif ?>
