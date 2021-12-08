@@ -45,6 +45,17 @@ $websiteId = $deliveryHelper->getStore()->getWebsiteId();
     <script>
       require(['jquery', 'checkoutStepTwo'], function($, checkoutStepTwo){
         checkoutStepTwo();
+        $(document).ready(function(){
+            if(webstoreId == 3){
+                var invoiceEmailIntl = setInterval(() => {
+                    var invoiceEmail = $('#opc-custom-invoice-email');
+                    if(invoiceEmail.length > 0){
+                        $('#opc-custom-invoice-email .invoice-field').css('display','none');
+                        clearInterval(invoiceEmailIntl);
+                    }
+                }, 400);
+            }
+        });
       })
     </script>
 </div>
