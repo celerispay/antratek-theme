@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 .contact-index-index {
   * {
     letter-spacing: 0.5px;
@@ -207,4 +209,26 @@
           }
       }
   }
+}
+
+@media @ant-mobile {
+    .contact-index-index {
+        #maincontent {
+            margin-top: 10% !important;
+            padding-left: 15px;
+            padding-right: 15px;
+            width: auto;
+
+            .fieldset {
+                padding-left: 0 !important;
+                margin-bottom: 20px;
+            }
+            
+            .actions-toolbar {
+                .primary {
+                    padding-left: 0 !important;
+                }
+            }
+        }
+    }
 }
