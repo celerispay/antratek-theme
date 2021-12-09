@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 .cms-terms-and-condition {
 	* {
 		letter-spacing: 0.5px;
@@ -22,4 +24,21 @@
 			list-style: inside !important;
 		}
 	}
+}
+
+@media @ant-mobile {
+		.cms-privacy,
+		.cms-terms-and-condition,
+		.cms-over-ons {
+			#maincontent {
+				.page-title {
+					margin-left: 0;
+					padding: 0 15px;
+				}
+				.column.main {
+					padding-left: 15px !important;
+					padding-right: 15px !important;
+				}
+			}
+		}
 }

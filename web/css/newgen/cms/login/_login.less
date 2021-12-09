@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 .login-container{
   .block-title strong{
     letter-spacing: 0.52px;
@@ -76,6 +78,45 @@
         font-size: 14px;
         font-weight: 500;
         letter-spacing: 0.52px;         
+      }
+    }
+  }
+}
+
+@media @ant-mobile {
+  .customer-account-login,
+  .customer-account-create {
+
+    #maincontent {
+      .page-title {
+        margin-left: 0;
+        padding: 0 15px;
+      }
+
+      .column.main {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+
+        .fieldset.login {
+          position: relative !important;
+          .control {
+            width: 100% !important;
+          }
+          &::after {
+            bottom: 30% !important;
+          }
+        }
+        
+        .actions-toolbar {
+          margin-left: 0 !important;
+          button {
+            width: 100% !important;
+          }
+          .action.back {
+            display: block !important;
+            width: auto !important;
+          }
+        }
       }
     }
   }

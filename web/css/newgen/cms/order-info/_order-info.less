@@ -1,4 +1,8 @@
+@import '../../_breakpoint-variable.less';
+
+.cms-orderinformation,
 .cms-bestelinformatie,
+.cms-bestellinformationen,
 .cms-consultancy,
 .cms-service {
     * {
@@ -78,6 +82,31 @@
 
         li {
             list-style: inside !important;
+        }
+    }
+}
+
+@media @ant-mobile{
+    .cms-bestelinformatie,
+    .cms-consultancy,
+    .cms-service {
+        #maincontent {
+            .page-title {
+                margin-left: 0;
+				padding: 0 15px;
+            }
+            .column.main {
+                padding-left: 0 !important;
+            }
+            .align-center-container {
+                flex-direction: column-reverse !important;
+                .margin-top {
+                    margin-top: 0 !important;
+                }
+            }
+            .cms-img-container {
+                margin: 10px auto !important;
+            }
         }
     }
 }
