@@ -86,16 +86,39 @@ span.delay-message-{
     }
 }
 
+html{
+    .main-container{
+        z-index:50;
+
+        .column.main{
+            padding-left: 0;
+        }
+    }
+    .ajax-message{
+        font-size: 16px;
+        letter-spacing: 1px;
+        background: rgb(223, 240, 216);
+        width: max-content;
+        padding: 5px 15px;
+        border-radius: 5px;
+        color: #5cb85c;
+        position: absolute;
+    }
+    .ajax-message a{
+        font-size: 16px;
+        color: #0079c4;
+    }
+}
+
 /** Large Screen Only **/
 @media (min-width: 1600px) {
     html {
 
         .container {
-            max-width: 1550px;
+            max-width: 1310px;
         }
 
         .column.main {
-            padding-left: 58px;
             padding-top: 48px;
         }
 

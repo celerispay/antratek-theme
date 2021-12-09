@@ -1,4 +1,15 @@
+@import '../_breakpoint-variable.less';
 @import 'slider/_banner-slider.less';
 @import 'slider/_product-slider.less';
 @import 'certificate/_certificate.less';
 @import 'usp/_usp.less';
+
+@media(min-width: @ant-desktop-sm-min){
+  html .container{
+      max-width: 1140px;
+  }
+}
+
+.main-container{
+  margin-top: 175px;
+}
