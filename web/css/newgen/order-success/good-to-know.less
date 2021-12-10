@@ -4,9 +4,16 @@
   .success-order-aftersteps{
     margin: 5rem 0 7rem;
 
+    @media @ant-mobile{
+      margin: 4rem 0 5rem;     
+    }
+
     .section-heading{
       padding: 15px 0 0;
   
+      @media @ant-mobile{
+        padding: 15px 15px 0; 
+      }
       &::after{
         background: linear-gradient(to right, #0079c4, transparent);
         padding: 1px;
@@ -21,6 +28,10 @@
         margin-bottom: 2rem;
         padding-left: 12px;
 
+        @media @ant-mobile{
+          font-size: 21px;
+          padding: 0 15px; 
+        }
         @media @ant-desktop-sm {
           font-size: 21px;
         }
@@ -28,15 +39,49 @@
     }
     .section-body{
       padding: 4rem 6px 0;
+
+      &::before{
+        @media @ant-mobile{
+          background: #0079c4;
+          height: 55%;
+          width: 4px;
+          content: '';
+          display: block;
+          position: absolute;
+          left: 45px;
+          top: 75px; 
+        }
+      }
+
+      @media @ant-mobile{
+        padding: 4rem 15px 0;  
+        position: relative; 
+      }
   
       .row-1{
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
+
+        @media @ant-mobile{
+          flex-direction: column; 
+        }
   
         .col{
           width: 25%;
           padding: 0 0 0 12px;
+
+          @media @ant-mobile{
+            width: 100%;
+            padding: 0;
+            margin-bottom: 3rem;
+          }
+
+          &:last-of-type{
+            @media @ant-mobile{
+              margin-bottom: 0;
+            }
+          }
   
           .circle-icon-row{
             display: flex;
@@ -51,6 +96,10 @@
                 background: #0079c4;
                 position: relative;
 
+                @media @ant-mobile{
+                  width: 65px;
+                  height: 65px;
+                }
                 img{
                   width: 45px;
                   position: absolute;
@@ -58,14 +107,24 @@
                   transform: translate(-50%, -50%);
                   left: 50%;
 
+                  @media @ant-mobile{
+                    width: 35px;
+                  }
                   &.big{
                     width: 30px;
+                    @media @ant-mobile{
+                      width: 25px;
+                    }
                   }
                 }
               }
             }
             .circle-icon-col-2{
               width: 73%;
+
+              @media @ant-mobile{
+                display: none;
+              }
               .icon-bar{
                 height: 4px;
                 background-color: #0079c4;
@@ -82,6 +141,11 @@
             font-weight: 500;
             letter-spacing: .5px;
 
+            @media @ant-mobile{
+              font-size: 18px;
+              margin-top: -15%;
+              padding-left: 28%;
+            }
             @media @ant-desktop-sm {
               font-size: 18px;
             }
@@ -91,6 +155,11 @@
             font-size: 16px;
             letter-spacing: .5px;
             width: 95%;
+            @media @ant-mobile{
+              font-size: 13px;
+              padding-left: 28%;
+              width: 100%;
+            }
             @media @ant-desktop-sm {
               font-size: 14px;
             }
@@ -101,12 +170,20 @@
           .col{
             width: 32.5%;
 
+            @media @ant-mobile{
+              width: 100%;
+            }
+
             .circle-icon-row{
               .circle-icon-col-1{
                 width: 22%;
               }
               .circle-icon-col-2{
                 width: 78%;
+
+                @media @ant-mobile{
+                  display: none;
+                }
               }
             }
           }

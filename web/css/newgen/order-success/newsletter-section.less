@@ -13,9 +13,17 @@
         padding: 5rem 2.5rem;
         box-sizing: border-box;
 
+        @media @ant-mobile{
+          padding: 4rem 15px; 
+        }
+
         #aw_osp-newsletter-form{
           display: flex;
           align-items: center;
+
+          @media @ant-mobile{
+            display: block;
+          }
 
           h2{
             width: 50%;
@@ -24,6 +32,10 @@
             letter-spacing: 1px;
             font-size: 26px;
             
+            @media @ant-mobile{
+              width: 100%;
+              font-size: 21px;
+            }
             @media @ant-desktop-sm{
               font-size: 21px;
             }
@@ -34,12 +46,20 @@
               padding-left: 30px;
               margin-right: 5px;
               background: url(../images/logo/subscribe-icon.svg) no-repeat left center transparent;
+              @media @ant-mobile{
+                margin-right: 10px;
+              }
             }
           }
 
           .aw-osp__newsletter-form{
             width: 50%;
             display: block;
+
+            @media @ant-mobile{
+              width: 100%;
+              margin-top: 2rem;
+            }
 
             .aw-osp___wrapper-fieldset{
               display: flex;
@@ -54,6 +74,10 @@
 
             .fieldset {
               width: 50%;
+
+              @media @ant-mobile{
+                width: 65%;
+              }
               .field {
                 margin: 0;
                 label {
@@ -97,6 +121,9 @@
                 span {
                   font-size: 16px;
                   font-weight: 500;
+                  @media @ant-mobile{
+                    font-size: 14px;
+                  }
                   @media @ant-desktop-sm{
                     font-size: 14px;
                   }
