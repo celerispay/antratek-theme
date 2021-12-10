@@ -14,15 +14,28 @@
     padding: 3rem 0 4rem;
     display: flex;
 
+    @media @ant-mobile{
+      flex-direction: column;     
+      padding: 2rem 15px 3rem;
+    }
+
     .column{
       padding: 0 4rem;
       width: 100%;
       position: relative;
       flex: 1;
+
+      @media @ant-mobile{
+        padding: 0;   
+      }
     }
 
     .column-1{
       align-self: flex-end;
+
+      @media @ant-mobile{
+        margin-bottom: 3rem;   
+      }
 
       .title{
         padding-top: 2rem;
@@ -34,6 +47,10 @@
         display: flex;
         align-items: center;
 
+        @media @ant-mobile{
+          padding-top: 1rem;
+          font-size: 28px; 
+        }
         @media @ant-desktop-sm{
           font-size: 42px;
         }
@@ -45,6 +62,9 @@
             width: 100%;
           }
 
+          @media @ant-mobile{
+            width: 45px;
+          }
           @media @ant-desktop-sm{
             width: 60px;
           }
@@ -59,6 +79,9 @@
           font-weight: 500;
           color: #0079c4;
 
+          @media @ant-mobile{
+            font-size: 21px;
+          }
           @media @ant-desktop-sm{
             font-size: 21px;
           }
@@ -97,10 +120,17 @@
           background-color: #5BB85D;
           font-weight: 500;
 
+          @media @ant-mobile{
+            justify-content: center;
+          }
           .img-wrapper{
             width: 30px;
             display: inline-block;
             margin-right: 10px;
+            @media @ant-mobile{
+              width: 25px;
+            }
+
           }
           &:hover{
             background-color: #00B900;
@@ -120,10 +150,18 @@
         left: 0;
         top: 60%;
         transform: translateY(-45%);
+
+        @media @ant-mobile{
+          display: none; 
+        }
       }
 
       .user-icon-wrapper{
         margin-bottom: 3.5rem;
+
+        @media @ant-mobile{
+          margin-bottom: 2.5rem; 
+        }
         span{
           width: 130px;
           height: 130px;
@@ -131,6 +169,11 @@
           background: white;
           border-radius: 50%;
           display: inline-block;
+
+          @media @ant-mobile{
+            width: 75px;
+            height: 75px;
+          }
           img{
             position: absolute;
             top: 50%;
@@ -141,6 +184,10 @@
       }
       .text{
         margin-bottom: 5rem;
+
+        @media @ant-mobile{
+          margin-bottom: 3rem;
+        }
         p{
           margin-bottom: 5px;
           font-weight: 400;
@@ -156,6 +203,11 @@
           padding: 8px 15px;
           background-color: #0079c4;
           cursor: pointer;
+
+          @media @ant-mobile{
+            justify-content: center;
+            width: 100%;
+          }
           &:hover{
             background-color: #30a5ff;
           }
@@ -163,6 +215,10 @@
             width: 28px;
             display: inline-block;
             margin-right: 10px;
+
+            @media @ant-mobile{
+              width: 25px;
+            }
           }
         }
       }

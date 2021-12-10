@@ -11,6 +11,11 @@
     box-sizing: border-box;
     min-height: 700px;
 
+    @media @ant-mobile{
+      flex-direction: column;     
+      padding: 3rem 15px;
+    }
+
     .aw_osp-block-registration{
       display: none;
     }
@@ -20,6 +25,10 @@
       width: 75%;
       padding-right: 3%;
   
+      @media @ant-mobile{
+        width: 100%;
+        padding: 0; 
+      }
       .order-summary-title{
         cursor: auto;
         pointer-events: none;
@@ -30,6 +39,9 @@
           font-size: 26px;
           letter-spacing: 1px;
 
+          @media @ant-mobile{
+            font-size: 21px;
+          }
           @media @ant-desktop-sm{
             font-size: 21px;
           }
@@ -50,8 +62,7 @@
             padding: 0;
             border-right: none;
             margin-top: 2rem;
-  
-  
+            
             thead{
               th{
                 font-size: 14px;
@@ -66,6 +77,31 @@
   
                 td{
                   padding: 2rem 10px 2rem 0;
+                  @media @ant-mobile{
+                    padding: 1rem 0 0;
+                    width: 100%;
+                    font-size: 14px;
+                  }
+
+                  &::before{
+                    font-size: 14px;
+                    text-transform: capitalize;
+                    width: 50%;
+                  }
+                  &> span,
+                  .item,
+                  .items-qty{
+                    display: inline-block;
+                  }
+                }
+
+                td.name{
+                  @media @ant-mobile{
+                    .product-item-name{
+                      display: block;
+                      width: 100%;
+                    }
+                  }
                 }
   
                 td.name,
@@ -74,6 +110,9 @@
                   font-weight: 400;
                   letter-spacing: .5px;
 
+                  @media @ant-mobile{
+                    font-size: 14px;
+                  }
                   @media @ant-desktop-sm{
                     font-size: 14px;
                   }
@@ -93,6 +132,7 @@
                       color: #0079c4;
                       letter-spacing: .5px;
                       text-transform: capitalize;
+                      word-break: keep-all;
                     }
                   }
                 }
@@ -106,9 +146,19 @@
                     font-weight: 600;
                     color: #333 !important;
 
+                    @media @ant-mobile{
+                      font-size: 14px;
+                      font-weight: 400;
+                    }
                     @media @ant-desktop-sm{
                       font-size: 16px;
                     }
+                  }
+                }
+
+                td.subtotal{
+                  @media @ant-mobile{
+                    padding-bottom: 1rem;
                   }
                 }
               }
@@ -121,6 +171,10 @@
                 letter-spacing: .5px;
                 padding: 15px 10px 3px;
 
+                @media @ant-mobile{
+                  font-size: 14px;
+                  padding: 1rem 0 0;
+                }
                 @media @ant-desktop-sm{
                   font-size: 14px;
                   padding: 10px 10px 3px;
@@ -135,6 +189,9 @@
               td{
                 padding: 15px 10px 3px;
 
+                @media @ant-mobile{
+                  padding: 1rem 0 0;
+                }
                 @media @ant-desktop-sm{
                   padding: 10px 10px 3px;
                 }
@@ -142,6 +199,11 @@
                   font-size: 18px;
                   font-weight: 600;
                   color: #333 !important;
+
+                  @media @ant-mobile{
+                    font-size: 14px;
+                    font-weight: 400;
+                  }
                   @media @ant-desktop-sm{
                     font-size: 16px;
                   }
@@ -152,10 +214,18 @@
                   padding-bottom: 15px;
                 }
               }
+              tr.totals-tax{
+                @media @ant-mobile{
+                  padding-bottom: 1rem;
+                }
+              }
               tr.grand_total_incl{
                 th{
                   padding-top: 2rem;
                   border-top: 1px solid #d1d1d1;
+                  @media @ant-mobile{
+                    padding-top: 1.5rem;
+                  }
                   strong{
                     font-size: 16px;
                     font-weight: 600;
@@ -169,6 +239,17 @@
                 td{
                   padding-top: 2rem;
                   border-top: 1px solid #d1d1d1;
+                  @media @ant-mobile{
+                    padding-top: 1.5rem;
+                  }
+                  strong{
+                    .price{
+                      @media @ant-mobile{
+                        font-size: 16px;
+                        font-weight: 600;
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -194,6 +275,9 @@
                     font-size: 26px;
                     letter-spacing: 1px;
 
+                    @media @ant-mobile{
+                      font-size: 21px;
+                    }
                     @media @ant-desktop-sm{
                       font-size: 21px;
                     }
@@ -205,6 +289,10 @@
                   font-weight: 400;
                   letter-spacing: 1px;
 
+                  @media @ant-mobile{
+                    font-size: 13px;
+                    letter-spacing: .5px;
+                  }
                   @media @ant-desktop-sm{
                     font-size: 14px;
                   }
@@ -227,6 +315,10 @@
       box-sizing: border-box;
       text-align: center;
 
+      @media @ant-mobile{
+        width: 100%;
+        padding: 0;   
+      }
       @media @ant-desktop-sm{
         padding: 2rem 1rem;
       }
@@ -238,6 +330,9 @@
         margin-top: 3rem;
 
         .column-1{
+          @media @ant-mobile{
+            margin-bottom: 2rem;
+          }
           .usp-card{
             width: 100%;
             padding: 12px;
@@ -274,6 +369,9 @@
           bottom: 5rem;
           right: 50px;
 
+          @media @ant-mobile{
+            position: static;
+          }
           @media @ant-desktop-sm{
             right: 40px;
           }
