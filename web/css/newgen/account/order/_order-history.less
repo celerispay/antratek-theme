@@ -1,0 +1,65 @@
+@import '../../_common-mixin.less';
+
+.quotation-quote-history,
+.sales-order-history{
+  .column.main{
+    padding-top: 25px;
+
+    .orders-history{
+      .paddingLeft(48px);
+      thead{
+        th{
+          .fontSize(16px);
+          .commonLetterSpacing();
+          text-transform: capitalize;
+        }
+      }
+      tbody{
+        td{
+          .fontSize(14px);
+          .commonLetterSpacing();
+          font-weight: 500;
+
+          .price{
+            .fontSize(14px);
+            .commonLetterSpacing();
+            font-weight: 500;
+          }
+
+          &.actions{
+            .action{
+              &.view,
+              &.order{
+                color: #0079c4;
+                span{
+                  .fontSize(14px);
+                  .commonLetterSpacing();
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .order-products-toolbar{
+      .paddingLeft(48px);
+      .toolbar-amount{
+        padding-top: 0;
+
+        .toolbar-number{
+          .fontSize(16px);
+          .commonLetterSpacing();
+          text-transform: capitalize;
+        }
+      }
+      .limiter{
+        .limiter-label,
+        .limiter-text{
+          .fontSize(16px);
+          .commonLetterSpacing();
+        }
+      }
+    }
+  }
+}

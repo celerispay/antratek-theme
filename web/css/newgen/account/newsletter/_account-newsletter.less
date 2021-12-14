@@ -1,0 +1,33 @@
+@import '../../_common-mixin.less';
+
+.newsletter-manage-index{
+  .column.main{
+    .form-newsletter-manage{
+      .fieldset{
+        .paddingLeft(48px);
+        margin-bottom: 0;
+        .legend{
+          margin-left: 0;
+          span{
+            .fontSize(18px);
+            .commonLetterSpacing();
+            font-weight: 500;
+          }
+        }
+
+        .field.choice{
+          &::before{
+            display: none;
+          }
+          .label{
+            span{
+              .fontSize(14px);
+              .commonLetterSpacing();
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
