@@ -1,4 +1,4 @@
-// @import "../../_breakpoint-variable.less";
+@import "../../_breakpoint-variable.less";
 
 & when (@media-common =true) {
 
@@ -116,6 +116,28 @@
 
         }
     }
+}
+
+@media @ant-mobile{
+	.columns{
+		.sidebar.sidebar-main{
+			padding: 0 15px;
+			.block-title{
+				strong{
+					font-size: 21px;
+					font-weight: 500;
+				}
+			}
+		}
+		.sidebar.sidebar-additional{
+			padding: 0 15px;
+
+			h3{
+				font-size: 21px;
+				font-weight: 500;
+			}
+		}
+	}
 }
 
 @media screen and (min-width:1200px) {
