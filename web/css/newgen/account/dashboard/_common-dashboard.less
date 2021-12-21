@@ -1,0 +1,36 @@
+@import '../../_common-mixin.less';
+
+.account{
+  &.wishlist-index-index{
+    .message.info.empty{
+      margin-left: 0;
+    }  
+  }
+  .message.info.empty{
+    margin-left: 48px;
+    span{
+      .fontSize(14px);
+      .commonLetterSpacing();
+      font-weight: 500;
+    }
+  }
+  .actions-toolbar{
+    .paddingLeft(48px);
+    margin-left: 0 !important;
+    .primary{
+      .action{
+        span{
+          font-weight: 500;
+          .fontSize(16px);
+        }
+      }
+    }
+    .action.back{
+      span{
+        .fontSize(16px);
+        .commonLetterSpacing();
+        color: #0079c4;
+      }
+    }
+  }
+}

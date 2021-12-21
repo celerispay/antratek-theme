@@ -1,0 +1,142 @@
+@import '../../_common-mixin.less';
+
+.commonLeftPadding{
+  padding-left: 48px;
+}
+
+.customer-address-index,
+.customer-account-index{
+  .column.main{
+    padding-top: 25px;
+    .block{
+
+      .block-title{
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 15px;
+        strong{
+          .commonLetterSpacing();
+        }
+        .action{
+          &.edit,
+          &.view{
+            float: right;
+            font-family: 'Quicksand';
+            color: #0079c4;
+
+            span{
+              .fontSize(14px);
+              .commonLetterSpacing();
+            }
+          }
+        }
+      }
+
+      &-addresses-list,
+      &-addresses-default,
+      &-dashboard-addresses,
+      &-dashboard-info{
+        .commonLeftPadding();
+
+        .block-content{
+
+          p{
+            .fontSize(14px);
+            .commonLetterSpacing();
+            font-weight: 500;
+          }
+
+          .box-title{
+            width: 100%;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+            span{
+              .fontSize(18px);
+              font-weight: 500;
+            } 
+          }
+
+          .box-content{
+            address,
+            p{
+              .fontSize(14px);
+              font-weight: 500;
+              .commonLetterSpacing();
+            }
+            .euvat-status-container{
+              .euvat-message{
+                padding: 10px;
+                span{
+                  .fontSize(14px);
+                }
+              }
+            }
+          }
+
+          .box-actions{
+            .action{
+              &.change-password,
+              &.edit{
+                .fontSize(14px);
+                .commonLetterSpacing();
+                color: #0079c4;
+                
+                span{
+                  .fontSize(14px);
+                  .commonLetterSpacing();
+                  color: #0079c4;
+                }
+              }
+              &.edit{
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+      }
+
+      &-dashboard-orders{
+        .commonLeftPadding();
+
+        .block-content{
+          .orders-recent{
+            margin-top: 15px;
+            thead{
+              th{
+                .fontSize(16px);
+                .commonLetterSpacing();
+                text-transform: capitalize;
+              }
+            }
+            tbody{
+              td{
+                .fontSize(14px);
+                .commonLetterSpacing();
+                font-weight: 500;
+
+                .price{
+                  .fontSize(14px);
+                  .commonLetterSpacing();
+                  font-weight: 500;
+                }
+
+                &.actions{
+                  .action{
+                    &.view,
+                    &.order{
+                      color: #0079c4;
+                      span{
+                        .fontSize(14px);
+                        .commonLetterSpacing();
+                        font-weight: 500;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

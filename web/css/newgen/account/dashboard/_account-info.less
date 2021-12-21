@@ -1,0 +1,60 @@
+@import '../../_common-mixin.less';
+
+.customer-account-edit{
+  .column.main{
+    padding-top: 25px;
+
+    .form-edit-account{
+      .fieldset{
+        &.password,
+        &.info{
+          .paddingLeft(48px);
+          margin-bottom: 20px;
+          .legend{
+            span{
+              .fontSize(18px);
+              font-weight: 500;
+              .commonLetterSpacing();
+            }
+          }
+
+          & > .field:not(.choice){
+            span{
+              .fontSize(14px);
+            }
+          }
+
+          .field-taxvat{
+            .comment{
+              width: 100%;
+              margin-top: 1rem;
+              a{
+                .fontSize(14px);
+                color: #0079c4;
+              }
+            }
+          }
+          
+          .field.choice{
+            .label{
+              span{
+                .fontSize(14px);
+                .commonLetterSpacing();
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+      .password-info{
+        .paddingLeft(48px);
+        p, a{
+          .fontSize(14px);
+        }
+        a{
+          color: #0079c4;
+        }
+      }
+    }
+  }
+}
