@@ -13,6 +13,15 @@
         padding-left: 58px;
         margin-bottom: 40px;
 
+        & + .block{
+          .title{
+            font-size: 21px;
+          }
+          .item a{
+            font-size: 16px;
+          }
+        }
+
         @media @ant-mobile{
           padding: 0 15px; 
           margin-bottom: 20px;
@@ -348,6 +357,30 @@
           }
         }
       }
+
+      &>h3{
+        margin-top: 20px;
+      }
+      .message.notice{
+        .title{
+          font-size: 21px;
+        }
+        .block{
+          margin-top: 10px;
+        }
+        .item{
+          a{
+            font-size: 16px;
+          }
+        }
+      }
+
+      .message.notice,
+      & > ul:last-of-type,
+      .toolbar-products + .block,
+      & > h3 {
+        margin-left: 48px;
+      }
     }
 
     .page-title-wrapper{
@@ -424,6 +457,3 @@
     opacity: 1;
   }
 }
-
-
-
