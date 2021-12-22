@@ -1,0 +1,28 @@
+.inner-container{
+  .breadcrumbs{
+    margin-bottom: 0;
+    .items{
+      li{
+        vertical-align: baseline;
+  
+        &.item:last-child,
+        &.item:last-child strong,
+        a{
+          font-size: 14px;
+          letter-spacing: 0.52px;
+          font-weight: 600;
+          opacity: 0.4;
+        }
+  
+        &.item:last-child,
+        &.item:last-child strong{
+          opacity: 1;
+        }
+      }
+
+      :not(:last-child):after{
+        margin-top: -3px;
+      }
+    }
+  }
+}
