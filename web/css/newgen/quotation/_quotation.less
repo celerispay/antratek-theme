@@ -1,0 +1,182 @@
+.quotation-quote-index {
+  .page-title-wrapper{
+    margin-top: 2rem;
+  }
+
+  .column.main{
+    padding-top: 28px;
+  }
+  
+  .cart-container{
+    .form.form-cart{
+      width: 62%;
+
+      #shopping-cart-table {
+        thead {
+          th.col {
+            text-align: left;
+            text-transform: capitalize;
+
+            &.item {
+              width: 60%;
+            }
+
+            &.price {
+              width: 25%;
+            }
+
+            &.qty {
+              width: 15%;
+              text-align: right;
+            }
+          }
+        }
+
+        tbody{
+          tr{
+            &.item-info{
+              td.col{
+                &.item {
+                  .product-item-details{
+                    .product-item-name a {
+                      font-size: 16px;
+                      color: #0079c4;
+                      font-weight: 600;
+                    }
+                    .control.comment{
+                      a{
+                        font-size: 14px;
+                        letter-spacing: .5px;
+                        &:hover{
+                          &::after{
+                            color: #0079c4;
+                          }
+                        }
+                        &::after{
+                          margin-top: 1px;
+                          margin-left: 3px;
+                        }
+                      }
+                    }
+                  }
+                }
+    
+                &.price {
+                  .price-wrapper{
+                    .cart-price{
+                      display: table;
+    
+                      .price-excluding-tax,
+                      .price-including-tax{
+                        margin: 0 !important;
+                        text-align: left;
+                        &::before,
+                        .price{
+                          font-weight: 500 !important;
+                          font-size: 12px !important;
+                          letter-spacing: 0.5px;
+                        }
+                      }
+          
+                      .price-excluding-tax.business,
+                      .price-including-tax.consumer{
+                        .price{
+                          font-weight: 600 !important;
+                          font-size: 16px !important;
+                          letter-spacing: 0.5px;
+                        }
+                      }
+                    }
+                  }
+                }
+    
+                &.qty {
+                  .input-text{
+                    margin-top: 0;
+                    height: 25px;
+                  }
+                }
+              }
+            }
+
+            &.item-actions{
+              .actions-toolbar {
+                margin-top: 0;
+                & > .action:last-child {
+                  margin-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .cart-summary{
+      .authentication-wrapper{
+        .action-auth-toggle{
+          color: #0079c4;
+        }
+      }
+
+      .step-title{
+        font-size: 21px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .form.form-cart,
+    .cart-summary{
+      .action {
+        span {
+          font-weight: 500;
+          font-size: 16px;
+        }
+        &.primary.checkout {
+          background-color: #5cb85c;
+          padding: 8px 15px;
+
+          &:hover{
+            background-color: #00b900;  
+          }
+        }
+      }
+    }
+  }
+
+  .form.quotation-fields {
+    label {
+      padding-bottom: 8px !important;
+    }
+  }
+
+  .fieldset {
+    .field {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0 !important;
+      .control {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.quotation-quote-emptyquote{
+  .page-title-wrapper{
+    margin-top: 2rem;
+  }
+
+  .column.main{
+    padding-top: 28px;
+  }
+
+  .quote-empty{
+    p{
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: .5px;
+    }
+  }
+}
