@@ -65,84 +65,38 @@
 
 
 .header-container{
-    .header-primary-container{
-      margin: 2rem 0 1.5rem;
-      
-      .header-primary{
-        .hp-blocks-holder{
-          padding-right: 0;
-          display: block;
-  
-          .left-column.hp-block{
-            width: 17%;
-          }
-          .central-column.hp-block{
-            width: 20%;
-            padding: 0;
-  
-            .block-search{
-              width: 500px;
-              form{
-                top: -1px;
-              }
-            }
-            #search{
-              padding: 20px 10px;
-              &:hover,
-              &:focus{
-                border-color: #0079c4 !important;
-                box-shadow: none;
-              }
-            }
-            #action-search{
-              height: 97%;
-              width: 11rem;
-              font-size: 15px;
-              background: #0079c4 !important;
-              .icon{
-                font-size: 1em;
-              }
-            }
-            .mst-searchautocomplete__autocomplete{
-              min-width:35rem;
+  .header-primary-container{
+    .header-primary{
+      .hp-blocks-holder{
+        .central-column.hp-block{
+          .block-search{
+            width: 500px;
+            form{
+              top: -1px;
             }
           }
-          .right-column.hp-block{
-            width: 35%;
-    
-            #header-account{
-              float: right;
-              .my-account{
-                font-size: 15px;
-                font-weight: 500;
-                &:hover{
-                  color: #0079c4 !important;
-                }
-              }
-              .authorization-link{
-                a{
-                  font-size: 15px !important;
-                  font-weight: 500;
-                  margin-right: 5px;
-                  &::before{
-                    width: 21px !important;
-                    height: 21px !important;
-                    vertical-align: middle;
-                    margin-right: 5px;
-                    margin-top: -3px;
-                  }
-                }
-              }
+          #search{
+            padding: 20px 10px;
+            &:hover,
+            &:focus{
+              border-color: #0079c4 !important;
+              box-shadow: none;
             }
+          }
+          #action-search{
+            height: 97%;
+            width: 11rem;
+            font-size: 15px;
+            background: #0079c4 !important;
+            .icon{
+              font-size: 1em;
+            }
+          }
+          .mst-searchautocomplete__autocomplete{
+            min-width:35rem;
           }
         }
       }
     }
-    #header-cart .action.viewcart span{
-        font-size: 16px;
-    }
-    #header-cart{
-        padding: 20px;
-        width: 350px;
-    }
+  }
 }
