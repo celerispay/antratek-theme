@@ -88,11 +88,11 @@
         </tr>
     <?php else: ?>
         <tr>
-            <!-- <td valign="top" width="50%"><strong><?php //$block->escapeHtml(__('Payment Method')) ?></strong></td> -->
+            <td valign="top" width="50%"><strong><?php //$block->escapeHtml(__('Payment Method')) ?></strong></td>
             <td valign="top"><strong><?= $block->escapeHtml(__('Shipping Method')) ?></strong></td>
         </tr>
         <tr>
-            <!-- <td valign="top" width="50%"><?php /* @noEscape */ //nl2br//(//$block->getPaymentBlock()) ?></td> -->
+            <td valign="top" width="50%"><?php /* @noEscape */ //nl2br//(//$block->getPaymentBlock()) ?></td>
             <td valign="top"><?= /* @noEscape */ $block->getShippingBlock() ?></td>
         </tr>
     <?php endif; ?>
