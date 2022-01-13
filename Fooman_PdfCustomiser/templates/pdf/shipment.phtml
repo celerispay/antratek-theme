@@ -58,14 +58,12 @@
         <td valign="top" width="50%"><span valign="top"
                 height="30mm"
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
-            ><?= $block->escapeHtml($block->getTitle()) ?></span><br /><?= $block->escapeHtml(__('Shipment #')) ?>:
+            ><?= $block->escapeHtml($block->getTitle()) ?></span><br /><?= $block->escapeHtml(__('Packingslip #')) ?>:
             <?= $block->escapeHtml($shipment->getIncrementId()) ?><br/>
-            <?= $block->escapeHtml(__('Ship Date')) ?>:
-            <?= /* @noEscape */ $block->getFormattedDate($shipment->getCreatedAt()) ?><br/>
             <?php if ($block->showOrderIncrementId()): ?>
                 <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/>
             <?php endif; ?>
-            <?= $block->escapeHtml(__('Order Date')) ?>:
+            <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
         </td>
         <td valign="top"><?php if ($block->shouldDisplayShippingAddress()): ?>
@@ -83,18 +81,18 @@
     </tr>
     <?php if ($order->getIsVirtual()): ?>
         <tr>
-            <td valign="top" colspan="2"><strong><?= $block->escapeHtml(__('Payment Method')) ?></strong></td>
+            <!-- <td valign="top" colspan="2"><strong><?php  //$block->escapeHtml(__('Payment Method')) ?></strong></td> -->
         </tr>
         <tr>
-            <td valign="top" colspan="2"><?= /* @noEscape */ nl2br($block->getPaymentBlock()) ?></td>
+            <!-- <td valign="top" colspan="2"><?= /* @noEscape */ nl2br//($block->getPaymentBlock()) ?></td> -->
         </tr>
     <?php else: ?>
         <tr>
-            <td valign="top" width="50%"><strong><?= $block->escapeHtml(__('Payment Method')) ?></strong></td>
+            <!-- <td valign="top" width="50%"><strong><?php //$block->escapeHtml(__('Payment Method')) ?></strong></td> -->
             <td valign="top"><strong><?= $block->escapeHtml(__('Shipping Method')) ?></strong></td>
         </tr>
         <tr>
-            <td valign="top" width="50%"><?= /* @noEscape */ nl2br($block->getPaymentBlock()) ?></td>
+            <!-- <td valign="top" width="50%"><?php /* @noEscape */ nl2br//(//$block->getPaymentBlock()) ?></td> -->
             <td valign="top"><?= /* @noEscape */ $block->getShippingBlock() ?></td>
         </tr>
     <?php endif; ?>

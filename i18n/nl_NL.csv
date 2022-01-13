@@ -1,12 +1,13 @@
-"Shipping","Adresgegevens"
-"Confirmation","Bestelbevestiging"
+Shipping,Adresgegevens
+Confirmation,Bestelbevestiging
 "You will receive an order confirmation via E-mail. This contains all information like delivery time, product overview, payment method, etc.","U ontvangt per e-mail een bestelbevestiging met alle informatie zoals levertijd, betaalmethode, etc."
-"Shipment","Verzending"
+Shipment,Verzending
 "When your order is ready for shipment, you will receive the tracking information via e-mail.","Zodra uw bestelling ingepakt is, sturen wij u direct een e-mail met alle Track & Trace informatie."
-"Invoice (30 days net)","Factuur (Op rekening 30 dagen)"
+Invoice (30 days net),Factuur (Op rekening 30 dagen)
 "After the (first) shipment the invoice will be send via e-mail. This invoice will have all the information needed such as Country Of Origin, Tariff number, Bank Accounts, etc.","Nadat de (eerste) zending ons magazijn heeft verlaten, ontvangt u van de factuur. Op dit document kunt u alle informatie vinden zoals bankinformatie, Tarrif codes, land van herkomst, etc."
-"Proforma invoice","Proforma factuur"
-"We will send you the proforma invoice by e-mail. The PDF document will have all the instructions you need to transfer the amount.","Voor we de bestelling verder kunnen verwerken, dient u eerste de bankoverschrijving te voldoen. Wij sturen u via e-mail een proforma factuur in PDF met alle benodigde informatie."
-"Final invoice","Uw factuur"
-"This is the confirmation your payment has been received and your order will be processed. Please take good care of the invoice, it’s also your warranty.","De factuur wordt per e-mail verzonden. Bewaar deze goed dit is ook uw garantiebewijs."
-"Invoice","Uw factuur"
+Proforma invoice,Proforma factuur
+We will send you the proforma invoice by e-mail. The PDF document will have all the instructions you need to transfer the amount.,"Voor we de bestelling verder kunnen verwerken, dient u eerste de bankoverschrijving te voldoen. Wij sturen u via e-mail een proforma factuur in PDF met alle benodigde informatie."
+Final invoice,Uw factuur
+"This is the confirmation your payment has been received and your order will be processed. Please take good care of the invoice, it’s also your warranty.",De factuur wordt per e-mail verzonden. Bewaar deze goed dit is ook uw garantiebewijs.
+Invoice,Uw factuur
+Shipping Method,Verzendmethode
