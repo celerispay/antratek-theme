@@ -124,6 +124,27 @@ define([
       }, 400);
     }
 
+    function handleInvoiceEmailInput(jQuery){
+      var checkbox = jQuery('.field[name="invoice_email_check"] > .control .checkbox');
+      var emailInputdiv = jQuery('.field[name="shippingAddress.invoice_email"]');
+      checkbox.click(function(){
+        if(jQuery(this).is(":checked")){
+          emailInputdiv.show();
+        }else{
+          emailInputdiv.hide();
+        }
+        console.log(jQuery(this), 'checkbox click');
+      }).change(function(){
+        if(jQuery(this).is(":checked")){
+          emailInputdiv.show();
+        }else{
+          emailInputdiv.hide();
+        }
+        console.log(jQuery(this), 'checkbox change');
+      });
+      emailInputdiv.hide();
+    }
+
     $(document).ready(function(){
 
       var checkForm = setInterval(function() {
@@ -137,7 +158,14 @@ define([
           clearInterval(checkForm);
         }
       }, 500);
-
+      var checkInvoiceEmail = setInterval(function() {
+        var invoice = $('.field[name="invoice_email_check"] .checkbox');
+        console.log('invoice email interval');
+        if(invoice.length > 0){
+          handleInvoiceEmailInput($);
+          clearInterval(checkInvoiceEmail);
+        }
+      }, 500);
     });
   }
 });
