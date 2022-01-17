@@ -61,12 +61,10 @@
             ><?= $block->escapeHtml($block->getTitle()) ?></span><br />
             <?= $block->escapeHtml(__('Invoice #')) ?>:
             <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/><br/>
-            <?= $block->escapeHtml(__('Invoice Date')) ?>:
-            <?= /* @noEscape */ $block->getFormattedDate($invoice->getCreatedAt()) ?><br/>
             <?php if ($block->showOrderIncrementId()): ?>
                 <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/><br/>
             <?php endif; ?>
-            <?= $block->escapeHtml(__('Order Date')) ?>:
+            <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
         </td>
         <td valign="top" colspan="2" align="left" width="70%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
