@@ -92,9 +92,9 @@
                     <br/><?= /* @noEscape */ $block->getShippingAddress() ?><?php
                              endif; ?></td>
         <?php elseif ($block->shouldDisplayShippingAddress()): ?>
-            <td valign="top" colspan="2" align="right" width="70%"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
+            <td valign="top" colspan="2" align="right" width="85%"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
         <?php elseif ($block->shouldDisplayBillingAddress()): ?>
-            <td valign="top" colspan="2" align="right" width="70%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
+            <td valign="top" colspan="2" align="right" width="85%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
         <?php endif; ?>
     </tr>
     <tr>
