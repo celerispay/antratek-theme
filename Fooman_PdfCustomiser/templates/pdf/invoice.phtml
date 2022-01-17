@@ -60,9 +60,9 @@
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
             ><?= $block->escapeHtml($block->getTitle()) ?></span><br />
             <?= $block->escapeHtml(__('Invoice #')) ?>:
-            <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/><br/>
+            <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/>
             <?php if ($block->showOrderIncrementId()): ?>
-                <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/><br/>
+                <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/>
             <?php endif; ?>
             <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
