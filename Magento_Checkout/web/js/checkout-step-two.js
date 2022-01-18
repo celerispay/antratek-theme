@@ -133,14 +133,12 @@ define([
         }else{
           emailInputdiv.hide();
         }
-        console.log(jQuery(this), 'checkbox click');
       }).change(function(){
         if(jQuery(this).is(":checked")){
           emailInputdiv.show();
         }else{
           emailInputdiv.hide();
         }
-        console.log(jQuery(this), 'checkbox change');
       });
       emailInputdiv.hide();
     }
@@ -160,7 +158,6 @@ define([
       }, 500);
       var checkInvoiceEmail = setInterval(function() {
         var invoice = $('.field[name="invoice_email_check"] .checkbox');
-        console.log('invoice email interval');
         if(invoice.length > 0){
           handleInvoiceEmailInput($);
           clearInterval(checkInvoiceEmail);

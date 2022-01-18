@@ -162,6 +162,14 @@
         .field.street{
           .control{
             width: 98.8%;
+            .field.additional{
+              .label{
+                display: block;
+                height: auto;
+                clip: unset;
+                position: static;
+              }
+            }
           }
         }
         .field[name='shippingAddress.firstname'],
@@ -257,7 +265,7 @@
       #opc-custom-create-account{
         .create-account-field{
           max-width: 600px;
-          margin-top: 20px;
+          margin-top: 15px;
           .admin__field{
             .admin__field-label{
               font-size: small;
@@ -267,24 +275,40 @@
           }
           .inp-create-account{
             margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
             .create-acc-lbl{
               letter-spacing: .52px;
               font-weight: 600;
               display: block;
               margin-bottom: 10px;
+            }
+            .password-col{
+              width: 48.5%;
               span{
                 font-size: small;
               }
-              &:last-of-type{
-                display: none;
+              &.last-col{
+                position: relative;
               }
             }
             input{
-              width: 47%;
-              &:first-of-type{
-                margin-right: 20px;
+              width: 95%;
+            }
+            .pass-msg{
+              display: none;
+              font-size: small;
+              position: absolute;
+              bottom: -25px;
+              left: 0;
+              &.success{
+                color: #5cb85c;
+              }
+              &.fail{
+                color: red;
               }
             }
+            // }
           }
         }
         .checkout-billing-address{
@@ -335,8 +359,15 @@
                 .control{
                   width: 100%;
                 }
+                .field.additional{
+                  .label{
+                    display: block;
+                    height: auto;
+                    clip: unset;
+                    position: static;
+                  }
+                }
               }
-              .field[name="billingAddress.vat_id"],
               .field[name="billingAddress.country_id"],
               .field[name="billingAddress.city"],
               .field[name="billingAddress.dept_extra_info"],
@@ -348,8 +379,10 @@
                   width: 108%;
                 }
               }
+              .field[name="billingAddress.vat_id"],
+              .field[name="billingAddress.invoice_email"],
               .field[name="billingAddress.department"]{
-                display: block;
+                display: none;
               }
               .field.save-address{
                 .label{
