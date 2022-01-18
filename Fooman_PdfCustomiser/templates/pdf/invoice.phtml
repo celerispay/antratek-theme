@@ -60,12 +60,16 @@
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
             ><?= $block->escapeHtml($block->getTitle()) ?></span><br />
             <?= $block->escapeHtml(__('Invoice #')) ?>:
-            <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/>
+            <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/><br/>
             <?php if ($block->showOrderIncrementId()): ?>
                 <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/>
             <?php endif; ?>
             <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
+        <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
+            <?= $block->escapeHtml(__('Purchase Order Number')) ?><br />
+            <?= $block->escapeHtml($order->getData()['po_number']); ?>
+        <?php endif; ?>
         </td>
         <td valign="top" colspan="2" align="left" width="70%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
         <td valign="top"><?= /* @noEscape */ nl2br($block->escapeHtml($block->getOwnerAddress())) ?></td>

@@ -49,9 +49,13 @@
                 height="30mm"
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
             ><?= $block->escapeHtml($block->getTitle()) ?></span><br /><?= $block->escapeHtml(__('Order #')) ?>:
-            <?= $block->escapeHtml($order->getIncrementId()) ?><br/><br/>
-            <?= $block->escapeHtml(__('Order Date')) ?>:
-            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/>
+            <?= $block->escapeHtml($order->getIncrementId()) ?><br/>
+            <?= $block->escapeHtml(__('Date')) ?>:
+            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/><br/>
+        <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
+            <?= $block->escapeHtml(__('Purchase Order Number')) ?><br />
+            <?= $block->escapeHtml($order->getData()['po_number']); ?>
+        <?php endif; ?>
         </td>
         <td valign="top"> 
             <?php if ($block->shouldDisplayShippingAddress()): ?>
