@@ -11,7 +11,7 @@
 
   .opc-wrapper{
 
-    .shiping-form{
+    .shipping-form{
       .checkout-shipping-address{
         padding-top: 22px;
 
@@ -23,153 +23,11 @@
         .form-shipping-address{
           margin-bottom: 0;
           margin-top: 0;
-    
-          #shipping-new-address-form{
-            margin-top: 20px;
-            margin-bottom: 0;
-            .label{
-              width: 100%;
-              padding: 0;
-              text-align: left;
-              margin-bottom: 7px;
-              span{
-                font-size: small;
-                font-weight: 600;
-                letter-spacing: 0.52px;      
-              }
-            }
-      
-            .comment{
-              width: 100%;
-              a{
-                font-size: small;
-                font-weight: 500;
-              }
-            }
-
-            div.euvat-taxvat-validation-failure,
-            div.euvat-taxvat-validation-failure a,
-            div.mage-error[generated],
-            .field-error span{
-              font-size: small;
-            }
-
-            .field{
-              margin-bottom: 20px;
-              position: relative;
-
-              .remChar{
-                position: absolute;
-                bottom: -30px;
-                font-size: small;
-              }
-            }
-
-            &>.field:first-of-type{
-              .controls{
-                .col-sm-12{
-                  display: flex;
-                  align-items: center;
-                  input{
-                    margin-right: 10px;
-                  }
-                  span{
-                    font-size: small;
-                    font-weight: 600;
-                    letter-spacing: 1px;
-                  }
-                }
-              }
-            }
-
-            &>.field:not(:first-of-type){
-              width: 49%;
-              display: inline-block;
-            }
-            &>.field:nth-of-type(even){
-              margin-right: 2%;
-            }
-            &>.field{
-              .control{
-                width: 95%;
-
-                .field{
-                  margin-bottom: 0;
-                }
-              }
-            }
-            &>.field:nth-of-type(5){
-              width: 100%;
-              display: inline-block;
-            }
-            &> .field:nth-of-type(6){
-              display: none;
-            }
-
-            .field.street{
-              .control{
-                width: 98.8%;
-              }
-            }
-
-            .field[name='shippingAddress.firstname'],
-            .field[name='shippingAddress.lastname']{
-              position: relative;
-              #remName{
-                display: none;
-              }
-            }
-
-            .field[name='shippingAddress.city'],
-            .field[name='shippingAddress.country_id']{
-              margin-right: 2%;
-            }
-            .field[name='shippingAddress.telephone'],
-            .field[name='shippingAddress.postcode']{
-              margin-right: 0;
-            }
-            .field[name='shippingAddress.telephone']{
-              .control{
-                width: 108%;
-              }
-            }
-            .field[name='shippingAddress.company']{
-              width: 97.5%;
-              position: relative;
-              .control{
-                width: 100%;
-              }
-              #remComp{
-                display: none;
-              }
-            }
-            .field[name="shippingAddress.bss_custom_field[business_additional]"]{
-              width: 103%;
-              #remExtraInfo{
-                display: none;
-              }
-            }
-            .field[name="shippingAddress.bss_custom_field[housenumber]"]{
-              #remHouseNumber{
-                display: none;
-              }
-            }
-            .field.field-vatid .control{
-              width: 103%;
-
-              .action-euvat-vatid-validate{
-                span{
-                  font-size: 16px;
-                  font-weight: 500;
-                }
-              }
-            }
-          }
         }
     
         .form-login{
           margin-bottom: 0;
-          margin-top: 0;
+          margin-top: 20px;
 
           .control{
             width: 104%;
@@ -218,10 +76,184 @@
           }
         }
       }
+      
+      #shipping-new-address-form{
+        margin-top: 0;
+        margin-bottom: 0;
+        .label{
+          width: 100%;
+          padding: 0;
+          text-align: left;
+          margin-bottom: 7px;
+          span{
+            font-size: small;
+            font-weight: 600;
+            letter-spacing: 0.52px;      
+          }
+        }
+  
+        .comment{
+          width: 100%;
+          a{
+            font-size: small;
+            font-weight: 500;
+          }
+        }
+
+        div.euvat-taxvat-validation-failure,
+        div.euvat-taxvat-validation-failure a,
+        div.mage-error[generated],
+        .field-error span{
+          font-size: small;
+        }
+
+        .field{
+          margin-bottom: 20px;
+          position: relative;
+
+          .remChar{
+            position: absolute;
+            bottom: -30px;
+            font-size: small;
+          }
+        }
+
+        &>.field:first-of-type{
+          .controls{
+            .col-sm-12{
+              display: flex;
+              align-items: center;
+              input{
+                margin-right: 10px;
+              }
+              span{
+                font-size: small;
+                font-weight: 600;
+                letter-spacing: 1px;
+              }
+            }
+          }
+        }
+
+        &>.field:not(:first-of-type){
+          width: 49%;
+          display: inline-block;
+        }
+        &>.field:nth-of-type(even){
+          margin-right: 2%;
+        }
+        &>.field{
+          .control{
+            width: 95%;
+
+            .field{
+              margin-bottom: 0;
+            }
+          }
+        }
+        &>.field:nth-of-type(5){
+          width: 100%;
+          display: inline-block;
+        }
+        &> .field:nth-of-type(6){
+          display: none;
+        }
+
+        .field.street{
+          .control{
+            width: 98.8%;
+            .field.additional{
+              .label{
+                display: block;
+                height: auto;
+                clip: unset;
+                position: static;
+              }
+            }
+          }
+        }
+        .field[name='shippingAddress.firstname'],
+        .field[name='shippingAddress.lastname']{
+          position: relative;
+          #remName{
+            display: none;
+          }
+        }
+        .field[name='shippingAddress.city'],
+        .field[name='shippingAddress.country_id']{
+          margin-right: 2%;
+        }
+        .field[name='shippingAddress.telephone'],
+        .field[name='shippingAddress.postcode']{
+          margin-right: 0;
+        }
+        .field[name='shippingAddress.telephone']{
+          .control{
+            width: 108%;
+          }
+        }
+        .field[name='shippingAddress.company']{
+          width: 48.5%;
+          position: relative;
+          .control{
+            width: 95%;
+          }
+          #remComp{
+            display: none;
+          }
+        }
+        .field[name="shippingAddress.bss_custom_field[business_additional]"]{
+          width: 103%;
+          #remExtraInfo{
+            display: none;
+          }
+        }
+        .field[name="shippingAddress.bss_custom_field[housenumber]"]{
+          #remHouseNumber{
+            display: none;
+          }
+        }
+        .field[name="shippingAddress.custom_attributes.customer_taxvat"]{
+          width: 99.5%;
+        }
+        .field[name="shippingAddress.vat_id"]{
+          display: none;
+        }
+        .field[name="invoice_email_check"]{
+          margin-bottom: 5px;
+          width: 100%;
+          & > .label{
+            display: none;
+          }
+          .control{
+            .choice.field{
+              input[type="checkbox"]{
+                vertical-align: baseline;
+              }
+            }
+          }
+        }
+        .field[name="shippingAddress.invoice_email"]{
+          width: 100%;
+          margin-bottom: 0;
+          .control{
+            width: 97.5%;
+          }
+        }
+        .field.field-vatid .control{
+          width: 103%;
+          .action-euvat-vatid-validate{
+            span{
+              font-size: 16px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
 
       #opc-custom-invoice-email{
         margin: 10px 0 40px;
-
+        display: none !important;
         .admin__field-label{
           font-size: 14px;
         }
@@ -230,16 +262,150 @@
           width: 69.5%;
         }
       }
+      #opc-custom-create-account{
+        .create-account-field{
+          max-width: 600px;
+          margin-top: 15px;
+          .admin__field{
+            .admin__field-label{
+              font-size: small;
+              letter-spacing: .52px;
+              font-weight: 600;
+            }
+          }
+          .inp-create-account{
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            .create-acc-lbl{
+              letter-spacing: .52px;
+              font-weight: 600;
+              display: block;
+              margin-bottom: 10px;
+            }
+            .password-col{
+              width: 48.5%;
+              span{
+                font-size: small;
+              }
+              &.last-col{
+                position: relative;
+              }
+            }
+            input{
+              width: 95%;
+            }
+            .pass-msg{
+              display: none;
+              font-size: small;
+              position: absolute;
+              bottom: -25px;
+              left: 0;
+              &.success{
+                color: #5cb85c;
+              }
+              &.fail{
+                color: red;
+              }
+            }
+            // }
+          }
+        }
+        .checkout-billing-address{
+          margin-top: 20px;
+          .billing-address-same-as-shipping-block{
+            margin-bottom: 20px;
+            label{
+              letter-spacing: .52px;
+              font-weight: 600;
+              span{
+                font-size: small;
+              }
+            }
+          }
+          .billing-address-form{
+            margin-top: 20px;
+            .step-title{
+              font-size: 21px;
+              font-weight: 500;
+            }
+            #billing-new-address-form{
+              max-width: 600px;
+              margin-top: 20px;
+              .field{
+                width: 48.5%;
+                display: inline-block;
+                .label{
+                  letter-spacing: .52px;
+                  font-weight: 600;
+                  font-size: small;
+                  text-align: left;
+                  width: 100%;
+                  padding: 0;
+                  text-align: left;
+                  margin-bottom: 7px;
+                  text-transform: capitalize;
+                  span{
+                    font-size: small;
+                  }
+                }
+                .control{
+                  width: 95%;
+                }
+              }
+              .field.street{
+                width: 97%;
+                .field,
+                .control{
+                  width: 100%;
+                }
+                .field.additional{
+                  .label{
+                    display: block;
+                    height: auto;
+                    clip: unset;
+                    position: static;
+                  }
+                }
+              }
+              .field[name="billingAddress.country_id"],
+              .field[name="billingAddress.city"],
+              .field[name="billingAddress.dept_extra_info"],
+              .field[name="billingAddress.firstname"]{
+                margin-right: 2.5%;
+              }
+              .field[name="billingAddress.telephone"]{
+                .control{
+                  width: 108%;
+                }
+              }
+              .field[name="billingAddress.vat_id"],
+              .field[name="billingAddress.invoice_email"],
+              .field[name="billingAddress.department"]{
+                display: none;
+              }
+              .field.save-address{
+                .label{
+                  width: auto;
+                  float: none;
+                }
+              }
+            }
+          }
+        }
+      }
     }
 
-    .shipping-methods{
-      
+    .shipping-methods{  
       .step-title{
         font-size: 21px;
         font-weight: 500;
       }
 
       #checkout-step-shipping_method{
+        .table-checkout-shipping-method{
+          width: 100%;
+        }
         .action.primary.continue{
           padding: 8px 15px;
           span{
