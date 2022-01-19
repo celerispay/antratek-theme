@@ -160,16 +160,31 @@
         }
 
         .field.street{
-          .control{
-            width: 98.8%;
-            .field.additional{
-              .label{
-                display: block;
-                height: auto;
-                clip: unset;
-                position: static;
-              }
+          margin-bottom: 0;
+          .field.experius-address-line-one{
+            .label{
+              display: block;
+              height: auto;
+              clip: unset;
+              position: static;
             }
+          }
+          .control{
+            width: 97.5%;
+          }
+          .field[name="shippingAddress.street.1"],
+          .field[name="shippingAddress.street.2"]{
+            width: 48.5%;
+            display: inline-block;
+            .control{
+              width: 95%;
+            }
+          }
+          .field[name="shippingAddress.street.1"]{
+            margin-right: 2%;
+          }
+          #remHouseNumber{
+            display: none;
           }
         }
         .field[name='shippingAddress.firstname'],
@@ -202,17 +217,6 @@
             display: none;
           }
         }
-        .field[name="shippingAddress.bss_custom_field[business_additional]"]{
-          width: 103%;
-          #remExtraInfo{
-            display: none;
-          }
-        }
-        .field[name="shippingAddress.bss_custom_field[housenumber]"]{
-          #remHouseNumber{
-            display: none;
-          }
-        }
         .field[name="shippingAddress.custom_attributes.customer_taxvat"]{
           width: 99.5%;
         }
@@ -233,6 +237,7 @@
             }
           }
         }
+        .field[name="shippingAddress.custom_attributes.invoice_email"],
         .field[name="shippingAddress.invoice_email"]{
           width: 100%;
           margin-bottom: 0;
@@ -354,18 +359,33 @@
                 }
               }
               .field.street{
-                width: 97%;
-                .field,
-                .control{
-                  width: 100%;
-                }
-                .field.additional{
+                margin-bottom: 0;
+                width: 100%;
+                .field.experius-address-line-one{
                   .label{
                     display: block;
                     height: auto;
                     clip: unset;
                     position: static;
                   }
+                }
+                .control{
+                  width: 97.5%;
+                }
+                .field[name="billingAddress.street.0"]{
+                  width: 100%;
+                }
+                .field[name="billingAddress.street.1"],
+                .field[name="billingAddress.street.2"]{
+                  width: 48.5%;
+                  display: inline-block;
+                  margin-bottom: 29px;
+                  .control{
+                    width: 95%;
+                  }
+                }
+                .field[name="billingAddress.street.1"]{
+                  margin-right: 2%;
                 }
               }
               .field[name="billingAddress.country_id"],
@@ -589,6 +609,164 @@
   .fieldset .field-error,
   .field .field-error{
     display: none;
+  }
+
+  #opc-new-shipping-address{
+    .label{
+      width: 100%;
+      padding: 0;
+      text-align: left;
+      margin-bottom: 7px;
+      span{
+        font-size: small;
+        font-weight: 600;
+        letter-spacing: 0.52px;      
+      }
+    }
+  
+    .comment{
+      width: 100%;
+      a{
+        font-size: small;
+        font-weight: 500;
+      }
+    }
+  
+    div.euvat-taxvat-validation-failure,
+    div.euvat-taxvat-validation-failure a,
+    div.mage-error[generated],
+    .field-error span{
+      font-size: small;
+    }
+  
+    .field{
+      margin-bottom: 20px;
+      position: relative;
+  
+      .remChar{
+        position: absolute;
+        bottom: -30px;
+        font-size: small;
+      }
+      .control{
+        width: 95%;
+      }
+
+      &.choice{
+        &::before{
+          display: none;
+        }
+      }
+    }
+  
+    .field.street{
+      margin-bottom: 0;
+      .field.experius-address-line-one{
+        .label{
+          display: block;
+          height: auto;
+          clip: unset;
+          position: static;
+        }
+      }
+      .control{
+        width: 97.5%;
+      }
+      .field[name="shippingAddress.street.1"],
+      .field[name="shippingAddress.street.2"]{
+        width: 48.5%;
+        display: inline-block;
+        .control{
+          width: 95%;
+        }
+      }
+      .field[name="shippingAddress.street.1"]{
+        margin-right: 2%;
+      }
+      #remHouseNumber{
+        display: none;
+      }
+    }
+  
+    .field[name='shippingAddress.firstname'],
+    .field[name='shippingAddress.lastname']{
+      position: relative;
+      width: 48.5%;
+      display: inline-block;
+      #remName{
+        display: none;
+      }
+    }
+  
+    .field[name="shippingAddress.dept_extra_info"],
+    .field[name='shippingAddress.company']{
+      width: 48.5%;
+      position: relative;
+      display: inline-block;
+      #remComp{
+        display: none;
+      }
+    }
+  
+    .field[name="shippingAddress.custom_attributes.customer_taxvat"]{
+      width: 99.5%;
+    }
+  
+    .field[name='shippingAddress.city'],
+    .field[name='shippingAddress.postcode']{
+      width: 48.5%;
+      display: inline-block;
+    }
+  
+    .field[name='shippingAddress.country_id'],
+    .field[name='shippingAddress.telephone']{
+      width: 48.5%;
+      display: inline-block;
+    }
+  
+    .field[name='shippingAddress.firstname'],
+    .field[name="shippingAddress.dept_extra_info"],
+    .field[name='shippingAddress.city'],
+    .field[name='shippingAddress.country_id']{
+      margin-right: 2%;
+    }
+  
+    .field[name="shippingAddress.vat_id"]{
+      display: none;
+    }
+  
+    .field[name="invoice_email_check"]{
+      margin-bottom: 5px;
+      width: 100%;
+      & > .label{
+        display: none;
+      }
+      .control{
+        .choice.field{
+          input[type="checkbox"]{
+            vertical-align: baseline;
+          }
+        }
+      }
+    }
+  
+    .field[name="shippingAddress.invoice_email"]{
+      width: 100%;
+      margin-bottom: 0;
+      .control{
+        width: 97.5%;
+      }
+    }
+  
+    .field.field-vatid .control{
+      width: 103%;
+      .action-euvat-vatid-validate{
+        span{
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
   }
 }
  

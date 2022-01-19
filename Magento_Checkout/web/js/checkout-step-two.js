@@ -79,12 +79,12 @@ define([
 
     function attachHouseNumberListener(){
       var houseIntl = setInterval( function(){
-        var firstnumber = $('#co-shipping-form .field[name="shippingAddress.bss_custom_field[housenumber]"] input[name="bss_custom_field[housenumber]"]');
-        var lastnumber = $('#co-shipping-form .field[name="shippingAddress.bss_custom_field[housenumbe_additional]"] input[name="bss_custom_field[housenumbe_additional]"]');
+        var firstnumber = $('#co-shipping-form .field[name="shippingAddress.street.1"] input[name="street[1]"]');
+        var lastnumber = $('#co-shipping-form .field[name="shippingAddress.street.2"] input[name="street[2]"]');
         var housenumber = firstnumber.add(lastnumber);
 
         if(firstnumber.length>0){
-          firstnumber.closest('.field').append('<p id="remHouseNumber" class="remChar">Remaining Characters: 35</p>');
+          firstnumber.closest('.field').append('<p id="remHouseNumber" class="remChar">Remaining Characters: 8</p>');
           housenumber.on('keypress', function(){
             var numberVal = firstnumber.val()+lastnumber.val();
             if(numberVal.length >= 8) return false;
@@ -127,19 +127,25 @@ define([
     function handleInvoiceEmailInput(jQuery){
       var checkbox = jQuery('.field[name="invoice_email_check"] > .control .checkbox');
       var emailInputdiv = jQuery('.field[name="shippingAddress.invoice_email"]');
+      var invoiceEmailInput = jQuery('.field[name="shippingAddress.custom_attributes.invoice_email"]');
       checkbox.click(function(){
         if(jQuery(this).is(":checked")){
           emailInputdiv.show();
+          invoiceEmailInput.show();
         }else{
           emailInputdiv.hide();
+          invoiceEmailInput.hide();
         }
       }).change(function(){
         if(jQuery(this).is(":checked")){
           emailInputdiv.show();
+          invoiceEmailInput.show();
         }else{
           emailInputdiv.hide();
+          invoiceEmailInput.hide();
         }
       });
+      invoiceEmailInput.hide();
       emailInputdiv.hide();
     }
 
