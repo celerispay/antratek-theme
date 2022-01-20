@@ -45,7 +45,7 @@
                 for="department"><span><?php /* @escapeNotVerified */ echo __('Department') ?></span></label>
             <div class="control">
                 <input type="text" name="dept_extra_info" id="dept_extrat_info"
-                    title="<?php /* @escapeNotVerified */ echo __('Department') ?>" value="<?= $address['dept_extra_info'];?>" class="input-text">
+                    title="<?php /* @escapeNotVerified */ echo __('Department') ?>" value="<?= isset($address['dept_extra_info']) ? $address['dept_extra_info'] : "" ?>" class="input-text">
             </div>
         </div>
         <?php $_field = $block->getLayout()->createBlock('Pisc\Euvat\Block\Widget\VatId') ?>
@@ -164,7 +164,7 @@
         <div class="field invoice-email">
             <label class="label" for="invoice-email"><span><?php /* @escapeNotVerified */ echo __('Invoice Email') ?></span></label>
             <div class="control">
-                <input type="text" name="invoice_email" id="invoice_email" title="<?php /* @escapeNotVerified */ echo __('Invoice Email') ?>" value="<?= $address['invoice_email']; ?>" class="input-text">
+                <input type="text" name="invoice_email" id="invoice_email" title="<?php /* @escapeNotVerified */ echo __('Invoice Email') ?>" value="<?= isset($address['invoice_email']) ? $address['invoice_email'] : "" ?>" class="input-text">
             </div>
         </div>
         <?php if ($block->isDefaultBilling()): ?>
