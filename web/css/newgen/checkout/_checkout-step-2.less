@@ -27,7 +27,7 @@
     
         .form-login{
           margin-bottom: 0;
-          margin-top: 20px;
+          margin-top: 45px;
 
           .control{
             width: 104%;
@@ -65,6 +65,26 @@
 
         #checkout-step-shipping{
           margin-bottom: 0;
+          margin-top: 20px;
+
+          .field[name="custom_check"]{
+            .label{
+              span{
+                font-size: 14px;
+                letter-spacing: .5px;
+                font-weight: 600;
+              }
+            }
+            .controls{
+              label{
+                span{
+                  font-size: 14px;
+                  letter-spacing: .5px;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
         }
         .shipping-address-items{
           .shipping-address-item{
@@ -139,9 +159,6 @@
           width: 49%;
           display: inline-block;
         }
-        &>.field:nth-of-type(even){
-          margin-right: 2%;
-        }
         &>.field{
           .control{
             width: 95%;
@@ -187,9 +204,15 @@
         .field[name='shippingAddress.firstname'],
         .field[name='shippingAddress.lastname']{
           position: relative;
+          width: 48.5%;
+          display: inline-block;
+          margin-right: 0;
           #remName{
             display: none;
           }
+        }
+        .field[name='shippingAddress.firstname']{
+          margin-right: 2%;
         }
         .field[name='shippingAddress.city'],
         .field[name='shippingAddress.country_id']{
@@ -213,6 +236,9 @@
           #remComp{
             display: none;
           }
+        }
+        .field[name='shippingAddress.dept_extra_info']{
+          margin-right: 2%;
         }
         .field[name="shippingAddress.custom_attributes.customer_taxvat"]{
           width: 99.5%;
