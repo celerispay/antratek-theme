@@ -271,10 +271,17 @@
         .field.field-vatid .control{
           width: 103%;
           .action-euvat-vatid-validate{
+            margin-bottom: 10px;
             span{
               font-size: 16px;
               font-weight: 500;
             }
+          }
+          .field-note,
+          .message.warning,
+          .mage-error,
+          .euvat-response{
+            clear: both;
           }
         }
       }
@@ -787,6 +794,45 @@
         span{
           font-size: 16px;
           font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .modals-wrapper{
+    .euvatResponse{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .modal-inner-wrap{
+        width: 650px;
+        transform: translateX(-50%);
+        margin: 0;
+        left: 50%;
+        .modal-content{
+          padding: 1rem 3rem 2rem;
+        }
+        .modal-footer{
+          padding: 0rem 3rem 2rem;
+          border-top: none;
+          .action.edit{
+            margin-right: 10px;
+            span{
+              font-size: 16px;
+              font-weight: 500;
+            }
+          }
+          .action.proceed{
+            background-color: #0079c4;
+            color: white;
+            &:hover{
+              background-color: #30a5ff;
+            }
+            span{
+              font-size: 16px;
+              font-weight: 500;
+            }
+          }
         }
       }
     }
