@@ -1,0 +1,79 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var $block \Magento\Sales\Block\Order\Email\Items */
+?>
+<?php $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery'); ?>
+<?php $_order = $block->getOrder() ?>
+<?php if ($_order) : ?>
+<?php $_items = $_order->getAllItems(); ?>
+<table class="email-items">
+    <thead>
+        <tr>
+            <th class="item-info">
+                <?= $block->escapeHtml(__('Items')) ?>
+            </th>
+            <th class="item-qty">
+                <?= $block->escapeHtml(__('Qty')) ?>
+            </th>
+            <th class="item-price">
+                <?= $block->escapeHtml(__('Price')) ?>
+            </th>
+        </tr>
+    </thead>
+    <?php 
+        $currentId = 0;
+        $productId = null;
+    ?>
+    <?php foreach ($_items as $_item) : ?>
+    <?php if (!$_item->getParentItem()) : ?>
+    <tbody>
+        <?= $block->getItemHtml($_item) ?>
+    </tbody>
+    <?php 
+        $productId = $_item->getProductId();
+        $delayId = $delivery->getDeliveryDelayId($productId);
+        if(isset($delayId['id']) && $delayId['id'] > $currentId){
+            $currentId = $delayId;
+        }
+    ?>  
+    <?php endif; ?>
+    <?php endforeach; ?>
+    <tfoot class="order-totals">
+        <?= $block->getChildHtml('order_totals') ?>
+    </tfoot>
+</table>
+<br />
+<b><?= $block->escapeHtml(__('Levertijd')) ?></b> – <?php echo $delivery->getDeliveryDelayId($productId)['message']; ?>
+<br />
+<b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b> - <?php echo $_order->getData()['po_number'] ?>
+<br />
+<?php if ($this->helper(\Magento\GiftMessage\Helper\Message::class)
+->isMessagesAllowed('order', $_order, $_order->getStore())
+&& $_order->getGiftMessageId()
+) : ?>
+<?php $_giftMessage = $this->helper(\Magento\GiftMessage\Helper\Message::class)
+->getGiftMessage($_order->getGiftMessageId()); ?>
+<?php if ($_giftMessage) : ?>
+<br />
+<table class="message-gift">
+    <tr>
+        <td>
+            <h3><?= $block->escapeHtml(__('Gift Message for this Order')) ?></h3>
+            <strong><?= $block->escapeHtml(__('From:')) ?></strong>
+            <?= $block->escapeHtml($_giftMessage->getSender()) ?>
+            <br /><strong><?= $block->escapeHtml(__('To:')) ?></strong>
+            <?= $block->escapeHtml($_giftMessage->getRecipient()) ?>
+            <br /><strong><?= $block->escapeHtml(__('Message:')) ?></strong>
+            <br /><?= $block->escapeHtml($_giftMessage->getMessage()) ?>
+        </td>
+    </tr>
+</table>
+<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
