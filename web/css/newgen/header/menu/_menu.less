@@ -58,8 +58,7 @@
         }
     }
 }
-
-
+ 
 .header-container{
     .nav-container .nav-regular{
         background-color: #0079c4 !important;
@@ -168,6 +167,71 @@
     }
 }
 
+@media (min-width: 1200px) and (max-width: 1599px){
+    .header-container{
+        #mainmenu{
+            & > ul{
+                max-width: 1140px;
+                .nav-item{
+                    a.level-top{
+                        span{
+                            font-size: 13px;
+                        }
+                    }
+                    &.b2c-checkbox{
+                        .list-label{
+                            font-size: 13px;
+                        }
+                    }
+                    .dropdown-block.filled-heading{
+                        &.open{
+                            .inner-heading{
+                                .label{
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                        .dropdown-content{
+                            li{
+                                a{
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                        .inner-heading{
+                            .label{
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media @ant-desktop-sm{
+  .header-container{
+      #mainmenu{
+          & > ul{
+            .nav-item{
+                &.b2c-checkbox{
+                    label{
+                        line-height: 48px;
+                    }
+                    .b2c-switcher{
+                        top: 8px;
+                    }
+                }
+                .dropdown-block.filled-heading{
+                    line-height: 48px;
+                }
+            }
+          }
+      }
+  }
+}
 
 /****************** header navigation CSS Start ******************/
 

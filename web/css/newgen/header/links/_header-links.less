@@ -357,7 +357,7 @@
         .counter-number{
           text-shadow: none;
           font-size: 14px;
-          font-weight:600;
+          font-weight:500;
           line-height:22px;
         }
       }
@@ -505,6 +505,58 @@
                 background-color: #30a5ff;
                 color: white;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1599px){
+  .header-container{
+    #header-account{
+      .my-account{
+        font-size: 13px !important;
+      }
+      .authorization-link{
+        a{
+          font-size: 13px !important;
+        }
+      }
+    }
+
+    .minicart-wrapper.mini-cart{
+      margin: 0 20px 0 0;
+      .dropdown-heading{
+        .label{
+          font-size: 13px !important;
+        }
+      }
+
+      #header-cart{
+        max-width: 330px;
+      }
+    }
+
+    .miniquote-wrapper{
+      top: 5px;
+      .action.showquote{
+        .text{
+          font-size: 13px;
+          clip: unset;
+          overflow: visible;
+          margin-left: 3px;
+          position: static;
+        }
+      }
+      .block-miniquote{
+        #miniquote-content-wrapper{
+          .block-content{
+            .action.close{
+              width: 25px;
+              top: 5px;
+              right: 10px;
             }
           }
         }
