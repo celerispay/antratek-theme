@@ -1,32 +1,129 @@
+@import "../../_breakpoint-variable.less";
+
+.cms-about-us,
 .cms-over-ons {
   * {
-      letter-spacing: 0.5px;
+    letter-spacing: 0.5px;
   }
 
   .page-title {
-      margin-bottom: 0px;
+    margin-bottom: 0px;
   }
 
   h2 {
-      font-size: 26px !important;
+    font-size: 26px !important;
   }
 
-  .column.main {
-      padding-left:58px !important;
+  #maincontent {
+    @media @ant-mobile {
+      margin-top: 25px;
+    }
+    .page-title {
+      @media @ant-mobile {
+        margin-left: 0;
+        padding: 0 15px;
+      }
+    }
+
+    .column.main {
+      padding-left: 58px !important;
       padding-top: 42px;
+
+      @media @ant-mobile {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
       p,
       li,
       td {
-          font-size: 14px !important;
-          text-align: center;
+        font-size: 14px !important;
+        text-align: center;
       }
 
       li {
-          list-style: inside !important;
+        list-style: inside !important;
       }
-      img{
-          margin-bottom:10px;
+      img {
+        margin-bottom: 10px;
       }
+      .store-location {
+        .col-xs-12 {
+          padding-left: 0;
+          p {
+            text-align: left;
+            display: flex;
+            align-items: center;
+          }
+          .why-section {
+            h2 {
+              margin-bottom: 30px;
+            }
+            p {
+              margin-bottom: 5px;
+            }
+            img {
+              margin-bottom: 3px;
+              margin-right: 5px;
+            }
+          }
+          .feedback-section {
+            padding-top: 2rem;
+            clear: both;
+            .content {
+              margin-bottom: 2rem;
+            }
+            strong {
+              font-size: 18px;
+              font-weight: 700;
+            }
+          }
+          .first-divider {
+            clear: both;
+            padding-top: 2rem;
+          }
+          .usp-container {
+            h2 {
+              margin-bottom: 30px;
+            }
+            p {
+              text-align: left;
+              display: flex;
+              align-items: center;
+              a {
+                font-size: 14px;
+                text-decoration: underline;
+              }
+            }
+            img {
+              margin-bottom: 3px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      .last-divider {
+        clear: both;
+        margin-top: 2rem;
+      }
+      .services {
+        .col-xs-12 {
+          margin-bottom: 3rem;
 
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+          img {
+            margin-top: 2rem;
+          }
+          .content {
+            text-align: left;
+            a {
+              font-size: 14px;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
   }
 }
