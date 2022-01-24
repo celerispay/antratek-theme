@@ -1,8 +1,40 @@
 
 
 define([
-  'jquery'
-], function ($) {
+  'jquery',
+  'Magento_Ui/js/modal/modal',
+], function ($, modal) {
+
+  var options = {
+    type: 'popup',
+    responsive: true,
+    modalClass: 'euvatResponse',
+    buttons:[
+      {
+        text: $.mage.__('Edit'),  
+        class: 'action edit',
+        click: function(){
+          console.log('euvat agree btn');
+        }
+      },
+      {
+        text: $.mage.__('Proceed'),
+        class: 'action proceed',
+        click: function(){
+          console.log('euvat cancel btn');
+        }
+      }
+    ],
+  };
+  var popup = modal(options, $('#euvatResponseModal'));
+  $(document).on('euvatVatIdValidateResponse', function(event, data){
+    if(data && data.html && 
+      (data.html.includes('euvat-taxvat-validation-failure') || data.html.includes('euvat-taxvat-validation-notice')) 
+    ){
+      $('#euvatResponseModal').modal('openModal');
+    }
+  });
+
   "use strict";
   return function checkoutStepTwo() {
 
