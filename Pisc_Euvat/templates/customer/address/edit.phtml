@@ -92,7 +92,7 @@
                 <input type="text" name="street[1]" value="<?php echo $block->escapeHtml($block->getStreetLine($_i)) ?>"
                     title="<?php /* @escapeNotVerified */ echo __('Street Address') ?>" id="street_1"
                     class="input-text <?php /* @escapeNotVerified */ echo $_streetValidationClass ?>">
-                <div class="nested">
+                <!-- <div class="nested"> -->
                     <?php for ($_i = 2, $_n = $this->helper('Magento\Customer\Helper\Address')->getStreetLines(); $_i <= $_n; $_i++): ?>
                     <?php $_streetValidationClass = $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('street'); ?>
                     <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <?php endfor; ?>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
 
@@ -190,7 +190,7 @@
         <?php else: ?>
         <input type="hidden" name="default_shipping" value="1">
         <?php endif; ?>
-        <div class="field required">
+        <div class="field required mandate-text">
             <label class="label"><?php echo __('Please fill in the fields marked with:') ?></label>
         </div>
     </fieldset>

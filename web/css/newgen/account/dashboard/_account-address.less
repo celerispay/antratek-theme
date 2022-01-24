@@ -1,0 +1,100 @@
+@import '../../_common-mixin.less';
+
+.customer-address-form{
+  .column.main{
+    padding-top: 25px;
+    .form-address-edit{
+      .fieldset{
+        padding-left: 48px;
+        .legend{
+          span{
+            .fontSize(18px);
+            font-weight: 500;
+            .commonLetterSpacing();
+          }
+        }
+        .field{
+          & > .label{
+            .fontSize(14px);
+            .commonLetterSpacing();
+            span{
+              .fontSize(14px);
+              .commonLetterSpacing();
+            }
+          }
+          &.mandate-text{
+            margin-bottom: 0;
+            .label{
+              width: 30%;
+              text-align: left;
+            }   
+          }
+          &.street{
+            & > .label{
+              display: none;
+            }
+            & > .control{
+              width: 100%;
+
+              & > .field{
+                clear: both;
+                padding-top: 29px;
+                &:last-of-type{
+                  .label{
+                    span{
+                      &::after{
+                        display: none;
+                      }
+                    }
+                  }
+                }
+              }
+              .label{
+                padding: 6px 15px 0 0;
+                text-align: right;
+                width: 25.8%;
+                box-sizing: border-box;
+                float: left;
+                clip: unset;
+                overflow: unset;
+                position: static;
+                span{
+                  .fontSize(14px);
+                  .commonLetterSpacing();
+                  font-weight: 600;
+                  &::after{
+                    content: '*';
+                    color: #e02b27;
+                    font-size: 1.2rem;
+                    margin: 0 0 0 5px;
+                  }
+                }
+              }
+              input{
+                width: 74.2%;
+                float: left;
+              }
+            }
+          }
+          &.field-taxvat.euvat-address-vatid{
+            .comment{
+              margin-top: 1rem;
+              width: 100%;
+              a{
+                font-size: 14px;
+                color: #0079c4;
+              }
+            }
+          }
+        }
+        .message.info{
+          span{
+            .fontSize(14px);
+            .commonLetterSpacing();
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
