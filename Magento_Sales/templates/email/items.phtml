@@ -49,10 +49,28 @@
     </tfoot>
 </table>
 <br />
-<b><?= $block->escapeHtml(__('Levertijd')) ?></b> – <?php echo $delivery->getDeliveryDelayId($productId)['message']; ?>
+<table>
+    <tr>
+        <td>
+        <b><?= $block->escapeHtml(__('Levertijd')) ?></b>
+        </td>
+        <td>
+        <?php if(isset($_order->getData()['po_number'])) :?>
+            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
+        <?php endif; ?>
+        </td>
+    </tr>
+    <tr>
+        <td><?php echo $delivery->getDeliveryDelayId($productId)['message']; ?> </td>
+        <td>
+        <?php if(isset($_order->getData()['po_number'])) :?>
+            <?php echo $_order->getData()['po_number'] ?>
+        <?php endif; ?>
+        </td>
+    </tr>
+</table>
 <br />
-<b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b> - <?php echo $_order->getData()['po_number'] ?>
-<br />
+<?php endif; ?>
 <?php if ($this->helper(\Magento\GiftMessage\Helper\Message::class)
 ->isMessagesAllowed('order', $_order, $_order->getStore())
 && $_order->getGiftMessageId()
