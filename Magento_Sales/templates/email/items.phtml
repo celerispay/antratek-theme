@@ -55,19 +55,19 @@
         <b><?= $block->escapeHtml(__('Levertijd')) ?></b>
         </td>
         <td>
-        <?php if(isset($_order->getData()['po_number'])) :?>
-            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
-        <?php endif; ?>
+            <?php echo $delivery->getDeliveryDelayId($productId)['message']; ?>
         </td>
     </tr>
+    <?php if(isset($_order->getData()['po_number'])) :?>
     <tr>
-        <td><?php echo $delivery->getDeliveryDelayId($productId)['message']; ?> </td>
         <td>
-        <?php if(isset($_order->getData()['po_number'])) :?>
+            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
+        </td>
+        <td>
             <?php echo $_order->getData()['po_number'] ?>
-        <?php endif; ?>
         </td>
     </tr>
+    <?php endif;?>
 </table>
 <br />
 <?php if ($this->helper(\Magento\GiftMessage\Helper\Message::class)
