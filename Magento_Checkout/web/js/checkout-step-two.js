@@ -14,14 +14,14 @@ define([
         text: $.mage.__('Edit'),  
         class: 'action edit',
         click: function(){
-          console.log('euvat agree btn');
+          $('#euvatResponseModal').modal('closeModal');
         }
       },
       {
         text: $.mage.__('Proceed'),
         class: 'action proceed',
         click: function(){
-          console.log('euvat cancel btn');
+          $('#euvatResponseModal').modal('closeModal');    
         }
       }
     ],
@@ -33,6 +33,12 @@ define([
     ){
       $('#euvatResponseModal').modal('openModal');
     }
+  });
+  $(document).on('euvatVatIdValidateErrorResponse', function(event, data){
+    if(data && data.html && 
+      data.html.includes('euvat-taxvat-validation-failure')){
+        $('#euvatResponseModal').modal('openModal');
+      }
   });
 
   "use strict";
