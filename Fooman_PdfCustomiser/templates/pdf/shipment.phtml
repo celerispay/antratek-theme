@@ -66,12 +66,13 @@
             <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
         </td>
-        <td valign="top"><?php if ($block->shouldDisplayShippingAddress()): ?>
-                <?= /* @noEscape */ $block->getShippingAddress() ?>
-            <?php elseif ($block->shouldDisplayBillingAddress()): ?>
-                <?= /* @noEscape */ $block->getBillingAddress() ?>
-            <?php endif; ?></td>
-    </tr>
+ <?php if ($block->shouldDisplayShippingAddress()): ?>
+            <td valign="top" colspan="2"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
+        <?php elseif ($block->shouldDisplayBillingAddress()): ?>
+            <td valign="top" colspan="2"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
+        <?php endif; ?>    
+
+</tr>
     <tr>
         <td colspan="2">&nbsp;</td>
     </tr>
