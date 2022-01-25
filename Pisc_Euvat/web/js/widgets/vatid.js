@@ -279,7 +279,7 @@
                 }.bind(this),
                 error:function(response){
                   $(this.options.messageElementId).html('<div class="euvat euvat-message euvat-taxvat-validation-failure">'+$.mage.__('Sorry, currently we are unable to validate this EU VAT Identification Number')+'</div>');
-                  $(document).trigger("euvatVatIdValidateErrorResponse");
+                  $(document).trigger("euvatVatIdValidateErrorResponse", { html: '<div class="euvat euvat-message euvat-taxvat-validation-failure">'+$.mage.__('Sorry, currently we are unable to validate this EU VAT Identification Number')+'</div>' });
                 }.bind(this),
                 complete:function(){
                 if (this.options.taxvatElementId) { $(this.options.taxvatElementId).prop('disabled', false); }
