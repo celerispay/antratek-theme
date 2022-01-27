@@ -564,3 +564,74 @@
     }
   }
 }
+
+@media @ant-tablet{
+  .header-container{
+    #header-account{
+      .my-account{
+        font-size: 13px !important;
+      }
+      .authorization-link{
+        a{
+          font-size: 13px !important;
+        }
+      }
+    }
+
+    .minicart-wrapper.mini-cart{
+      margin: 0;
+      .dropdown-heading{
+        .label{
+          font-size: 13px !important;
+        }
+      }
+      #header-cart{
+        max-width: 330px;
+      }
+    }
+
+    .miniquote-wrapper{
+      .action.showquote{
+        .text{
+          font-size: 13px;
+          clip: unset;
+          overflow: visible;
+          margin-left: 3px;
+          position: static;
+        }
+      }
+    }
+  }
+}
+
+@media(max-width: 767px){
+  .header-container .mini-cart.minicart-wrapper{
+      margin-top: 0;
+  }
+  .header-primary-container .miniquote-wrapper{
+      position: absolute;
+      right: 0;
+      width: 20%;
+      margin: 0;
+      bottom: 0;
+      top: auto;
+      left: auto;
+      height: 50px;
+      float: none;
+      display: none;
+  }
+  .header-primary-container .miniquote-wrapper .action.showquote{
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0079c4;
+  }
+  .header-primary-container .miniquote-wrapper .action.showquote::before{
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      top: 50%;
+      height: 20px;
+      width: 20px;
+  }
+}
