@@ -52,12 +52,13 @@
             <?= $block->escapeHtml($order->getIncrementId()) ?><br/>
             <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/><br/>
+            <?= /* @noEscape */ $block->getCommentsBlock() ?><br/><br/>
         <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
             <?= $block->escapeHtml(__('Purchase Order Number')) ?><br />
             <?= $block->escapeHtml($order->getData()['po_number']); ?>
         <?php endif; ?>
         </td>
-        <td valign="top"> 
+        <td valign="top">
             <?php if ($block->shouldDisplayShippingAddress()): ?>
                 <?= /* @noEscape */ $block->getShippingAddress() ?>
             <?php elseif ($block->shouldDisplayBillingAddress()): ?>

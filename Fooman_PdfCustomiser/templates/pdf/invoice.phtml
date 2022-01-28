@@ -65,7 +65,8 @@
                 <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/>
             <?php endif; ?>
             <?= $block->escapeHtml(__('Date')) ?>:
-            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
+            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/></br>
+            <?= /* @noEscape */ $block->getCommentsBlock() ?><br/></br>
         <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
             <?= $block->escapeHtml(__('Purchase Order Number')) ?><br />
             <?= $block->escapeHtml($order->getData()['po_number']); ?>
@@ -137,7 +138,7 @@
 
 <?= /* @noEscape */ $block->getTaxTableBlock() ?>
 
-<?= /* @noEscape */ $block->getCommentsBlock() ?>
+
 
 <?php $customText = $block->getCustomText() ?>
 <?php if ($customText): ?>

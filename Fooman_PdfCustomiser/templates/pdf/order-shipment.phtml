@@ -63,7 +63,8 @@
                 <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/>
             <?php endif; ?>
             <?= $block->escapeHtml(__('Date')) ?>:
-            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?>
+            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/><br/>
+            <?= /* @noEscape */ $block->getCommentsBlock() ?>
         </td>
         <td valign="top"><?= /* @noEscape */ nl2br($block->escapeHtml($block->getOwnerAddress())) ?></td>
     </tr>
