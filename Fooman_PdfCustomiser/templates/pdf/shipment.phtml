@@ -66,6 +66,10 @@
             <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/><br/>
             <?= /* @noEscape */ $block->getCommentsBlock() ?>
+            <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
+                <strong><?= $block->escapeHtml(__('Purchase Order Number')) ?><br /></strong>
+                <?= $block->escapeHtml($order->getData()['po_number']); ?>
+            <?php endif; ?>
         </td>
  <?php if ($block->shouldDisplayShippingAddress()): ?>
             <td valign="top" colspan="2"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
