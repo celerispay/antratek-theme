@@ -26,7 +26,7 @@
             </th>
         </tr>
     </thead>
-    <?php 
+    <?php
         $currentId = 0;
         $productId = null;
     ?>
@@ -35,13 +35,14 @@
     <tbody>
         <?= $block->getItemHtml($_item) ?>
     </tbody>
-    <?php 
+    <?php
         $productId = $_item->getProductId();
         $delayId = $delivery->getDeliveryDelayId($productId);
         if(isset($delayId['id']) && $delayId['id'] > $currentId){
             $currentId = $delayId;
+            $productIdDelayId = $productId;
         }
-    ?>  
+    ?>
     <?php endif; ?>
     <?php endforeach; ?>
     <tfoot class="order-totals">
@@ -55,7 +56,7 @@
         <b><?= $block->escapeHtml(__('Levertijd')) ?></b>
         </td>
         <td>
-            <?php echo $delivery->getDeliveryDelayId($productId)['message']; ?>
+            <?php echo $delivery->getDeliveryDelayId($productIdDelayId)['message']; ?>
         </td>
     </tr>
     <?php if(isset($_order->getData()['po_number'])) :?>
