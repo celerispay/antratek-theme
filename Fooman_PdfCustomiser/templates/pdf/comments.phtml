@@ -6,7 +6,7 @@
 <?php if ($block->getCustomComments()): ?>
     <br/>
     <br/>
-    <strong><?= $block->escapeHtml(__('Comments')) ?></strong><br/>
+    <strong><?= $block->escapeHtml(__('Customer Comments')) ?></strong><br/>
     <table border="0" cellpadding="2" cellspacing="0">
         <?php foreach ($block->getCustomComments() as $comment): ?>
             <?php if ($comment['label']): ?>
@@ -25,7 +25,7 @@
 <?php endif; ?>
 <?php if ($block->getComments()): ?>
     <br/>
-    <strong><?= $block->escapeHtml(__('Comments')) ?></strong><br/>
+    <strong><?= $block->escapeHtml(__('Customer Comments')) ?></strong><br/>
     <table border="0" cellpadding="2" cellspacing="0">
         <?php foreach ($block->getComments() as $comment): ?>
             <tr>
