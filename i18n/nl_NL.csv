@@ -1,4 +1,4 @@
-Shipping,Adresgegevens
+﻿Shipping,Adresgegevens
 Confirmation,Bestelbevestiging
 "You will receive an order confirmation via E-mail. This contains all information like delivery time, product overview, payment method, etc.","U ontvangt per e-mail een bestelbevestiging met alle informatie zoals levertijd, betaalmethode, etc."
 Shipment,Verzending
@@ -11,4 +11,4 @@ Final invoice,Uw factuur
 "This is the confirmation your payment has been received and your order will be processed. Please take good care of the invoice, it’s also your warranty.",De factuur wordt per e-mail verzonden. Bewaar deze goed dit is ook uw garantiebewijs.
 Invoice,Uw factuur
 Shipping Method,Verzendmethode
-Article no..:,Artikelnr.:
+Article no.. :,Artikelnr. :
