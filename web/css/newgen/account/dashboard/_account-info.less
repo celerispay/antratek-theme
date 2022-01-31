@@ -57,4 +57,72 @@
       }
     }
   }
+
+  @mobile-padding: 0 12px;
+  @tablet-padding: 0 16px;
+
+  // tablet
+  @media (min-width:768px) and (max-width:1200px) {
+      .page-title {
+          padding: @tablet-padding;
+          font-size: 36px !important;
+      }
+
+      .columns {
+          .content-wrapper {
+              padding: @tablet-padding;
+
+              .actions-toolbar,
+              fieldset,
+              .field {
+                  legend {
+                      width: 100%;
+                      margin-left: 0 !important;
+                      text-align: center !important;
+                  }
+
+                  padding:@tablet-padding  !important;
+              }
+
+              .field-taxvat {
+                  #taxvat {
+                      width: calc(100% - 24% - 5px);
+                      margin-bottom: 10px;
+                  }
+
+                  #euvat_select_vatprefix {
+                      width: 24% !important;
+                  }
+              }
+          }
+      }
+  }
+
+  // mobile
+  @media (max-width:767px) {
+      .page-title {
+          padding: @mobile-padding;
+      }
+
+      .columns {
+          .content-wrapper {
+              padding: @mobile-padding;
+
+              fieldset,
+              .field,
+              .actions-toolbar {
+                  padding: 0 !important;
+              }
+
+              .field-taxvat {
+
+                  #euvat_select_vatprefix,
+                  #taxvat {
+                      width: 100%;
+                      margin-bottom: 10px;
+                  }
+              }
+          }
+      }
+  }
 }

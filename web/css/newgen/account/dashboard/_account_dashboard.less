@@ -139,4 +139,55 @@
       }
     }
   }
+
+  @mobile-padding: 0 12px;
+  @tablet-padding: 0 16px;
+
+  // tablet
+  @media (min-width:768px) and (max-width:1200px) {
+      .page-title {
+          padding: @tablet-padding;
+          font-size: 36px !important;
+      }
+
+      .columns {
+          .content-wrapper {
+              .column.main{
+                .block{
+                  &-addresses-list,
+                  &-addresses-default,
+                  &-dashboard-addresses,
+                  &-dashboard-orders,
+                  &-dashboard-info{
+                    padding: @tablet-padding;
+                  }
+                }
+              }
+              .actions-toolbar{
+                padding:@tablet-padding !important;
+              }
+          }
+      }
+  }
+
+  // mobile
+  @media (max-width:767px) {
+      .page-title {
+          padding: @mobile-padding;
+      }
+
+      .columns {
+          .content-wrapper {
+              padding: @mobile-padding;
+
+              .block {
+                  padding: 0px;
+              }
+              .actions-toolbar{
+                padding:@mobile-padding !important;
+              }
+
+          }
+      }
+  }
 }

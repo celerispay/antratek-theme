@@ -62,4 +62,48 @@
       }
     }
   }
+
+  @mobile-padding: 0 12px;
+  @tablet-padding: 0 16px;
+
+  @media (min-width:768px) and (max-width:1200px) {
+    .page-title {
+        padding: @tablet-padding;
+        font-size: 36px !important;
+    }
+
+    .column.main {
+        .table-wrapper.orders-history,
+        .actions-toolbar,
+        .order-products-toolbar {
+          padding: @tablet-padding  !important;
+        }
+        .message{
+          margin: @tablet-padding !important;
+        }
+    }
+  }
+
+  @media (max-width:767px) {
+      .page-title {
+          padding: @mobile-padding;
+          margin-bottom: 0 !important;
+      }
+
+      .content-wrapper {
+          width: 100% !important;
+      }
+
+      .column.main {
+          .table-wrapper.orders-history,
+          .actions-toolbar,
+          .order-products-toolbar {
+            box-sizing: border-box;
+            padding: @mobile-padding  !important;
+          }
+          .message{
+            margin: @mobile-padding !important;
+          }
+      }
+  }
 }

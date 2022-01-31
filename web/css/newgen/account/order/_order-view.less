@@ -1,0 +1,81 @@
+.account.sales-order-view {
+  @mobile-padding: 0 12px;
+  @tablet-padding: 0 16px;
+  @bigscreen-padding: 0 58px;
+
+  .columns {
+      .content-wrapper {
+          padding: @bigscreen-padding;
+
+          .items.order-links {
+              display: none;
+          }
+
+          .block-title {
+              font-family: Quicksand, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          }
+
+      }
+  }
+
+  // tablet
+  @media (min-width:768px) and (max-width:1200px) {
+      .page-title {
+          padding: @tablet-padding;
+          font-size: 36px !important;
+      }
+
+      .columns {
+          .content-wrapper {
+              padding: @tablet-padding;
+
+              .block {
+                  padding: 0px;
+              }
+
+              .actions-toolbar {
+                  padding: @tablet-padding  !important;
+                  padding: @tablet-padding  !important;
+              }
+          }
+      }
+  }
+
+  // mobile
+  @media (max-width:767px) {
+
+      .page-title,
+      .order-status,
+      .order-date,
+      .actions-toolbar {
+          padding: @mobile-padding;
+      }
+
+      .columns {
+          .content-wrapper {
+              width: 100% !important;
+              padding: @mobile-padding;
+
+              .items.order-links {
+                  display: none;
+              }
+
+              .data.table.table-order-items {
+                  tr td:last-child {
+                      text-align: right !important;
+                  }
+              }
+
+              .block {
+                  padding: 0px;
+              }
+
+              .actions-toolbar {
+                  padding: @mobile-padding  !important;
+                  padding: @mobile-padding  !important;
+              }
+
+          }
+      }
+  }
+}

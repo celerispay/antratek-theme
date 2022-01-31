@@ -97,4 +97,118 @@
       }
     }
   }
+
+  @mobile-padding: 0 12px;
+  @tablet-padding: 0 16px;
+  
+  // tablet
+  @media (min-width:768px) and (max-width:1200px) {
+    .page-title {
+        padding: @tablet-padding;
+        font-size: 36px !important;
+    }
+
+    .columns {
+        .content-wrapper {
+            padding: @tablet-padding;
+
+            .actions-toolbar,
+            fieldset,
+            .field {
+                &.mandate-text label{
+                    width: 100% !important;
+                }
+                legend {
+                    width: 100%;
+                    margin-left: 0 !important;
+                }
+
+                &.street .control .field {
+                    padding: 29px 0 0 !important;
+
+                    label {
+                        height: auto;
+                        position: relative;
+                    }
+                }
+
+                padding:@tablet-padding  !important;
+            }
+
+            .field-taxvat {
+                #vat_id {
+                    width: calc(100% - 24% - 5px);
+                    margin-bottom: 10px;
+                }
+
+                #euvat_select_vatprefix {
+                    width: 24% !important;
+                }
+            }
+        }
+    }
+  }
+
+  // mobile
+  @media (max-width:767px) {
+      .page-title {
+          padding: @mobile-padding;
+      }
+
+      .columns {
+          .content-wrapper {
+              padding: @mobile-padding;
+
+              fieldset,
+              .field,
+              .actions-toolbar {
+                  padding: 0 !important;
+
+                  &.mandate-text label{
+                      width: 100% !important;
+                  }
+
+                  &.street .control {
+                      .label {
+                          padding: 0 !important;
+                          margin-bottom: 5px !important;
+                          height: auto !important;
+                          position: relative !important;
+                          float: none !important;
+                          display: block !important;
+                          text-align: left !important;
+                      }
+
+                      input:last-of-type {
+                          width: 100% !important;
+                          margin-bottom: 20px !important;
+                      }
+
+                      .field {
+                          margin-bottom: 20px !important;
+
+                          input:last-of-type {
+                              width: 100% !important;
+                          }
+
+                          .control {
+                              height: 32px !important;
+                          }
+
+
+                      }
+
+                  }
+              }
+
+              .field-taxvat {
+                  #euvat_select_vatprefix,
+                  #vat_id {
+                      width: 100%;
+                      margin-bottom: 10px;
+                  }
+              }
+          }
+      }
+  }
 }
