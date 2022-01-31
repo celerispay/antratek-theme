@@ -51,7 +51,7 @@
             ><?= $block->escapeHtml($block->getTitle()) ?></span><br /><?= $block->escapeHtml(__('Order #')) ?>:
             <?= $block->escapeHtml($order->getIncrementId()) ?><br/>
             <?= $block->escapeHtml(__('Date')) ?>:
-            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/><br/>
+            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/>
             <?= /* @noEscape */ $block->getCommentsBlock() ?><br/><br/>
         <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
             <strong><?= $block->escapeHtml(__('Purchase Order Number')) ?><br /></strong>
