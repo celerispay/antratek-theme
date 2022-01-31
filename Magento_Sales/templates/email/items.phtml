@@ -52,36 +52,28 @@
 <br />
 <table>
     <tr>
-        <td style="padding-bottom: 8px;">
-        <b><?= $block->escapeHtml(__('Levertijd')) ?></b>
-        </td>
-        <td style="padding-bottom: 8px; font-size: 13px; color: #000;">
-            <?php echo $delivery->getDeliveryDelayId($productIdDelayId)['message']; ?>
+        <td style="padding-bottom: 5px;">
+            <b><?= $block->escapeHtml(__('Levertijd')) ?> - </b>
+            <span style="font-size: 13px"><?php echo $delivery->getDeliveryDelayId($productIdDelayId)['message']; ?></span>
         </td>
     </tr>
     <tr>
-        <td style="padding-bottom: 8px;">
+        <td style="padding-bottom: 5px;">
             <b><?= $block->escapeHtml(__('Verzendmethode')) ?> - </b>
-        </td>
-        <td style="padding-bottom: 8px; font-size: 13px; color: #000;">
-            <?php echo $_order->getShippingDescription();?>
+            <span style="font-size: 13px"><?php echo $_order->getShippingDescription();?></span>
         </td>
     </tr>
     <tr>
-        <td style="padding-bottom: 8px;"> 
+        <td style="padding-bottom: 5px;"> 
             <b><?= $block->escapeHtml(__('Betaalmethode')) ?> - </b>
-        </td>
-        <td style="padding-bottom: 8px; font-size: 13px; color: #000;">
-            <?php echo $_order->getPayment()->getMethodInstance()->getTitle();?>
+            <span style="font-size: 13px"><?php echo $_order->getPayment()->getMethodInstance()->getTitle();?></span>
         </td>
     </tr>
     <?php if(isset($_order->getData()['po_number'])) :?>
     <tr>
         <td>
-            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
-        </td>
-        <td style="font-size: 13px; color: #000;">
-            <?php echo $_order->getData()['po_number'] ?>
+            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?> - </b>
+            <span style="font-size: 13px"><?php echo $_order->getData()['po_number'] ?></span>
         </td>
     </tr>
     <?php endif;?>
