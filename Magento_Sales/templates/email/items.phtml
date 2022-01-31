@@ -15,13 +15,13 @@
 <table class="email-items">
     <thead>
         <tr>
-            <th class="item-info">
+            <th class="item-info" style="text-transform: capitalize">
                 <?= $block->escapeHtml(__('Items')) ?>
             </th>
-            <th class="item-qty">
+            <th class="item-qty" style="text-transform: capitalize">
                 <?= $block->escapeHtml(__('Qty')) ?>
             </th>
-            <th class="item-price">
+            <th class="item-price" style="text-transform: capitalize">
                 <?= $block->escapeHtml(__('Price')) ?>
             </th>
         </tr>
@@ -52,11 +52,27 @@
 <br />
 <table>
     <tr>
-        <td>
+        <td style="padding-bottom: 8px;">
         <b><?= $block->escapeHtml(__('Levertijd')) ?></b>
         </td>
-        <td>
+        <td style="padding-bottom: 8px; font-size: 13px; color: #000;">
             <?php echo $delivery->getDeliveryDelayId($productIdDelayId)['message']; ?>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-bottom: 8px;">
+            <b><?= $block->escapeHtml(__('Verzendmethode')) ?> - </b>
+        </td>
+        <td style="padding-bottom: 8px; font-size: 13px; color: #000;">
+            <?php echo $_order->getShippingDescription();?>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-bottom: 8px;"> 
+            <b><?= $block->escapeHtml(__('Betaalmethode')) ?> - </b>
+        </td>
+        <td style="padding-bottom: 8px; font-size: 13px; color: #000;">
+            <?php echo $_order->getPayment()->getMethodInstance()->getTitle();?>
         </td>
     </tr>
     <?php if(isset($_order->getData()['po_number'])) :?>
@@ -64,7 +80,7 @@
         <td>
             <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
         </td>
-        <td>
+        <td style="font-size: 13px; color: #000;">
             <?php echo $_order->getData()['po_number'] ?>
         </td>
     </tr>
