@@ -34,6 +34,8 @@
                 <tcpdf method="write1DBarcode" <?php echo $block->getEncodedParams($barcodeParams) ?>/>
         </td>
     </tr>
+    <tr><td></td></tr>
+    <tr><td></td></tr>
     <tr>
         <?php if ($block->isLogoOnRight()): ?>
             <td valign="top"
@@ -70,12 +72,6 @@
                 <?= $block->escapeHtml($order->getData()['po_number']); ?>
             <?php endif; ?>
         </td>
-        <td valign="top"><?= /* @noEscape */ nl2br($block->escapeHtml($block->getOwnerAddress())) ?></td>
-    </tr>
-    <tr>
-        <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
         <?php if ($block->shouldDisplayBothAddresses()): ?>
             <!--Example with indentation of address, adjust the percentages to adjust the left-right positioning
             <td valign="top" colspan="2">
@@ -101,6 +97,10 @@
         <?php elseif ($block->shouldDisplayBillingAddress()): ?>
             <td valign="top" colspan="2"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
         <?php endif; ?>
+        <td valign="top"><?= /* @noEscape */ nl2br($block->escapeHtml($block->getOwnerAddress())) ?></td>
+    </tr>
+    <tr>
+        <td colspan="2">&nbsp;</td>
     </tr>
     <tr>
         <td colspan="2">&nbsp;</td>
