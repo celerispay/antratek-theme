@@ -13,3 +13,21 @@ Invoice,Uw factuur
 Shipping Method,Verzendmethode
 Article no.. :,Artikelnr. :
 Customer Comments,Uw inkoopnummer
+"Street Address 1","Straatnaam"
+"Street Address 2","Huisnummer"
+"Street Address 3","Huisnummer toevoeging"
+"Department","Afdeling"
+"Invoice email","Factuur email"
+"Main menu","Hoofdmenu"
+"Customers Who Viewed This Also Viewed","Andere klanten bekeken ook"
+"Search entire store here...",""
+"Added to your %s shopping cart%s.","Toegevoegd aan %s winkelwagen%s"
+"Tax","BTW"
+Delivery,Levertijd
+Item,Productnaam
+Price,Prijs per stuk Excl. BTW
+"Simple and fast, you don’t need to create an account","Eenvoudig en snel, u hoeft geen account te maken"
+"till free shipping","tot gratis verzending"
+"Free shipping",Gratis verzending
+"Pickup point nearby","Ophaalpunt"
+"By courier","Thuisbezorgen"

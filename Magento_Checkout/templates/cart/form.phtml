@@ -32,7 +32,7 @@ $subtotal = $quoteHelper->getSubtotal();
             <thead>
                 <tr>
                     <th class="col item" scope="col"><span><?= $block->escapeHtml(__('Item')) ?></span></th>
-                    <th class="col item" scope="col"><span><?= $block->escapeHtml(__('Delivery time')) ?></span></th>
+                    <th class="col item" scope="col"><span><?= $block->escapeHtml(__('Delivery')) ?></span></th>
                     <th class="col price" scope="col"><span><?= $block->escapeHtml(__('Price')) ?></span></th>
                     <th class="col qty" scope="col"><span><?= $block->escapeHtml(__('Qty')) ?></span></th>
                     <th class="col subtotal" scope="col"><span><?= $block->escapeHtml(__('Subtotal')) ?></span></th>
@@ -44,9 +44,9 @@ $subtotal = $quoteHelper->getSubtotal();
         </table>
         <?php if($subtotal < 99.99){
             $balPrice = number_format(100-$subtotal);?>
-            <span class="cart-page-freeship"><?= $block->escapeHtml(__('&euro;'.$balPrice.' ot gratis verzending'));?> </span>
+            <span class="cart-page-freeship"><?= $block->escapeHtml(__('&euro;'.$balPrice.' ')); echo $block->escapeHtml(__('till free shipping'));?></span>
         <?php } else {?>
-            <span class="cart-page-freeship"><?=  $block->escapeHtml(__('Gratis verzending')); ?></span>
+            <span class="cart-page-freeship"><?=  $block->escapeHtml(__('Free shipping')); ?></span>
         <?php } ?>
         <?php if ($block->getPagerHtml()) : ?>
             <div class="cart-products-toolbar cart-products-toolbar-bottom toolbar" data-attribute="cart-products-toolbar-bottom"><?= $block->getPagerHtml() ?>

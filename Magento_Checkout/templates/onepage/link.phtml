@@ -32,7 +32,7 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
     class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>" <?php if ($block->isDisabled()) :?>
     disabled="disabled" <?php endif; ?>> <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
 </button>
-<span class="shopping-cart-proceed-text"><?= $block->escapeHtml(__('Eenvoudig en snel, u hoeft geen account te maken')) ?></span>
+<span class="shopping-cart-proceed-text"><?= $block->escapeHtml(__('Simple and fast, you don’t need to create an account')) ?></span>
 <?php if($availability == 0):?>
 <div id="modal">
     <div class="content">

@@ -8,10 +8,10 @@
 <?php /** @var $block \Magento\Checkout\Block\Cart\Shipping */ ?>
 <div class="tab-switch-container">
     <div class="tab-1 active">
-        <label> <input type="radio" name="tab" checked="checked"> Thuisbezorgen </label>
+        <label> <input type="radio" name="tab" checked="checked"> <?= $block->escapeHtml(__('By courier'));?> </label>
     </div>
     <div class="tab-2">
-        <label> <input type="radio" name="tab" > Ophaalpunt </label>
+        <label> <input type="radio" name="tab" > <?=$block->escapeHtml(__('Pickup point nearby'));?> </label>
     </div>
 </div>
 <div id="block-shipping"
@@ -96,7 +96,7 @@
           disableCheckoutBtn();
         });
     }
-    
+
     function hideOptions() {
         if(jQuery('#block-shipping').hasClass('tab-case-1')) {
             jQuery('#block-shipping #co-shipping-method-form input').each(function(){
@@ -121,7 +121,7 @@
                 }
             });
         }
-        checkOptionsClick();   
+        checkOptionsClick();
         disableCheckoutBtn();
     }
 
