@@ -65,6 +65,10 @@
             <?= $block->escapeHtml(__('Date')) ?>:
             <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/><br/>
             <?= /* @noEscape */ $block->getCommentsBlock() ?>
+            <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
+                <strong><?= $block->escapeHtml(__('Purchase Order Number')) ?><br /></strong>
+                <?= $block->escapeHtml($order->getData()['po_number']); ?>
+            <?php endif; ?>
         </td>
         <td valign="top"><?= /* @noEscape */ nl2br($block->escapeHtml($block->getOwnerAddress())) ?></td>
     </tr>
@@ -93,9 +97,9 @@
                     <br/><?= /* @noEscape */ $block->getShippingAddress() ?><?php
                              endif; ?></td>
         <?php elseif ($block->shouldDisplayShippingAddress()): ?>
-            <td valign="top" colspan="2" align="right" width="85%"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
+            <td valign="top" colspan="2"><?= /* @noEscape */ $block->getShippingAddress() ?></td>
         <?php elseif ($block->shouldDisplayBillingAddress()): ?>
-            <td valign="top" colspan="2" align="right" width="85%"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
+            <td valign="top" colspan="2"><?= /* @noEscape */ $block->getBillingAddress() ?></td>
         <?php endif; ?>
     </tr>
     <tr>
@@ -106,7 +110,7 @@
             <!-- <td valign="top" colspan="2"><strong><?php // $block->escapeHtml(__('Payment Method')) ?></strong></td> -->
         </tr>
         <tr>
-            <!-- <td valign="top" colspan="2"><?= /* @noEscape */ nl2br//($block->getPaymentBlock()) ?></td> -->
+            <!-- <td valign="top" colspan="2"><?php /* @noEscape */ //nl2br($block->getPaymentBlock()) ?></td> -->
         </tr>
     <?php else: ?>
         <tr>
@@ -124,8 +128,6 @@
 </table>
 
 <?= /* @noEscape */ $block->getItemsBlock($design->getItemStyling()) ?>
-
-<?= /* @noEscape */ $block->getCommentsBlock() ?>
 
 <?= /* @noEscape */ $block->getGiftmessageBlock()?>
 
