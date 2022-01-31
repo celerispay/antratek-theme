@@ -1,81 +1,255 @@
+@import '../../_common-mixin.less';
+
 .account.sales-order-view {
-  @mobile-padding: 0 12px;
-  @tablet-padding: 0 16px;
-  @bigscreen-padding: 0 58px;
+    @mobile-padding: 0 12px;
+    @tablet-padding: 0 16px;
 
-  .columns {
-      .content-wrapper {
-          padding: @bigscreen-padding;
+    .page-title-wrapper{
+        .order-status{
+        .fontSize(16px);
+        font-weight: 500;
+        .commonLetterSpacing();
+        }
+        .order-date{
+        span{
+            .fontSize(16px);
+            font-weight: 500;
+            .commonLetterSpacing();
+        }
+        }
+        .order-actions-toolbar{
+            margin-bottom: 0;
+            .actions{
+                .action{
+                    color: #0079c4;
+                    span{
+                        .fontSize(16px);
+                        .commonLetterSpacing();
+                    }
+                }
+            }
+        }
+    }
+    .columns {
+        .column.main{
+            padding-top: 25px;
+            .order-links{
+                margin: 0;
+                border-bottom: none;
+                li{
+                    strong{
+                        display: none;
+                    }
+                }
+            }
+            .order-details-items{
+                .paddingLeft(48px);
+                padding-bottom: 0;
+                border-bottom: none;
+                .order-title{
+                    strong{
+                        .fontSize(18px);
+                        font-weight: 500;
+                    }
+                }
+                .order-items{
+                    thead{
+                        th{
+                        .fontSize(16px);
+                        .commonLetterSpacing();
+                        text-transform: capitalize;
+                        }
+                    }
+                    tbody{
+                        td{
+                            .fontSize(14px);
+                            .commonLetterSpacing();
+                            font-weight: 500;
+                            &.name{
+                                .product-item-name{
+                                    .fontSize(14px);
+                                    .commonLetterSpacing();
+                                    font-weight: 500;
+                                    .partial_tag{
+                                        font-size: 11px;
+                                        margin-left: 10px;
+                                        background: #D7EBF4;
+                                        padding: 3px 12px;
+                                        border-radius: 25px;
+                                        font-weight: 600;
+                                        color: #0079c4;
+                                        letter-spacing: .5px;
+                                        text-transform: capitalize;
+                                        word-break: keep-all;
+                                    }
+                                }
+                            }
+                            &.qty{
+                                .title{
+                                .fontSize(14px);
+                                font-weight: 500;  
+                                }
+                                .content{
+                                .fontSize(16px);
+                                font-weight: 500;
+                                }
+                            }
+                            .price{
+                                .fontSize(16px);
+                                .commonLetterSpacing();
+                                font-weight: 500;
+                            }
+                        }
+                    }
+                    tfoot{
+                        tr{
+                            th strong,
+                            th{
+                                .fontSize(14px);
+                                .commonLetterSpacing();
+                                font-weight: 500;
+                            }
+                            td{
+                                .price{
+                                    .fontSize(16px);
+                                    .commonLetterSpacing();
+                                    font-weight: 500;
+                                }
+                            }
 
-          .items.order-links {
-              display: none;
-          }
+                            &.grand_total_incl{
+                                th strong,
+                                th{
+                                    .fontSize(16px);
+                                    font-weight: 600;
+                                }
+                                td{
+                                    .price{
+                                        font-weight: 600;
+                                    }
+                                }   
+                            }
+                        }
+                    }
+                }
+                .actions-toolbar{
+                    padding-left: 0;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #d1d1d1;
+                }
+            }
+            .block-order-details-view{
+                .paddingLeft(48px);
+                .block-title{
+                    margin-bottom: 3rem;
+                    strong{
+                        .commonLetterSpacing();
+                        font-weight: 500;
+                    }
+                }
+                .block-content{
+                    .box{
+                        .box-title{
+                            margin-bottom: 1.5rem;
+                            span{
+                                .fontSize(18px);
+                                font-weight: 500;
+                            }
+                        }
+                        .box-content{
+                            .fontSize(14px);
+                            font-weight: 500;
+                            .commonLetterSpacing();
+                            line-height: 26px;
+                            address{
+                                .fontSize(14px);
+                                font-weight: 500;
+                                .commonLetterSpacing();
+                                line-height: 26px;
+                            }   
 
-          .block-title {
-              font-family: Quicksand, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-          }
-
-      }
-  }
+                            .title{
+                                .fontSize(14px);
+                                font-weight: 600;
+                                .commonLetterSpacing();
+                            }
+                            .content{
+                                strong,
+                                span{
+                                    .fontSize(14px);
+                                    font-weight: 500;
+                                    .commonLetterSpacing();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
   // tablet
-  @media (min-width:768px) and (max-width:1200px) {
-      .page-title {
-          padding: @tablet-padding;
-          font-size: 36px !important;
-      }
+    @media (min-width:768px) and (max-width:1200px) {
+        .page-title-wrapper{
+            padding: @tablet-padding;
+            .page-title {
+                font-size: 28px;
+            }
+            .order-actions-toolbar{
+                margin-bottom: 25px;
+            }
+        }
 
-      .columns {
-          .content-wrapper {
-              padding: @tablet-padding;
-
-              .block {
-                  padding: 0px;
-              }
-
-              .actions-toolbar {
-                  padding: @tablet-padding  !important;
-                  padding: @tablet-padding  !important;
-              }
-          }
-      }
-  }
+        .columns {
+            .content-wrapper {
+                .column.main{
+                    padding-top: 0;
+                    .block-order-details-view,
+                    .order-details-items{
+                        padding: @tablet-padding !important;
+                    }
+                }
+            }
+        }
+    }
 
   // mobile
-  @media (max-width:767px) {
-
-      .page-title,
-      .order-status,
-      .order-date,
-      .actions-toolbar {
-          padding: @mobile-padding;
-      }
-
-      .columns {
-          .content-wrapper {
-              width: 100% !important;
-              padding: @mobile-padding;
-
-              .items.order-links {
-                  display: none;
-              }
-
-              .data.table.table-order-items {
-                  tr td:last-child {
-                      text-align: right !important;
-                  }
-              }
-
-              .block {
-                  padding: 0px;
-              }
-
-              .actions-toolbar {
-                  padding: @mobile-padding  !important;
-                  padding: @mobile-padding  !important;
-              }
-
-          }
-      }
-  }
+    @media (max-width:767px) {
+        .page-title-wrapper{
+            padding: @tablet-padding;
+            .page-title {
+                font-size: 24px;
+            }
+            .order-actions-toolbar{
+                margin-bottom: 20px;
+            }
+        }
+        
+        .columns {
+            .content-wrapper {
+                width: 100% !important;
+                .column.main{
+                    padding-top: 0;
+                    .block-order-details-view,
+                    .order-details-items{
+                        padding: @mobile-padding !important;
+                    }
+        
+                    // .data.table.table-order-items {
+                    //     tr td:last-child {
+                    //         text-align: right !important;
+                    //     }
+                    // }
+        
+                    // .block {
+                    //     padding: 0px;
+                    // }
+        
+                    // .actions-toolbar {
+                    //     padding: @mobile-padding  !important;
+                    // }
+                }
+            }
+        }
+    }
 }
