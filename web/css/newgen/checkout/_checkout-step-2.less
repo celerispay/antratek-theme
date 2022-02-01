@@ -85,6 +85,54 @@
               }
             }
           }
+          .field[name="shippingAddress.checkout_create_account"]{
+            margin-bottom: 15px;
+            .admin__field{
+              .admin__field-label{
+                font-size: small;
+                letter-spacing: .52px;
+                font-weight: 600;
+              }
+            }
+          }
+          .inp-create-account{
+            margin-bottom: 20px;
+            display: flex;
+            max-width: 600px;
+            justify-content: space-between;
+            .create-acc-lbl{
+              letter-spacing: .52px;
+              font-weight: 600;
+              display: block;
+              margin-bottom: 10px;
+            }
+            .password-col{
+              width: 48.5%;
+              span{
+                font-size: small;
+              }
+              &.last-col{
+                position: relative;
+              }
+            }
+            input{
+              width: 95%;
+            }
+            .pass-msg{
+              display: none;
+              font-size: small;
+              position: absolute;
+              bottom: -25px;
+              left: 0;
+              &.success{
+                color: #5cb85c;
+              }
+              &.fail{
+                color: red;
+              }
+            }
+            // }
+          }
         }
         .shipping-address-items{
           .shipping-address-item{
@@ -230,15 +278,13 @@
         .field[name='shippingAddress.company']{
           width: 48.5%;
           position: relative;
+          margin-right: 2%;
           .control{
             width: 95%;
           }
           #remComp{
             display: none;
           }
-        }
-        .field[name='shippingAddress.dept_extra_info']{
-          margin-right: 2%;
         }
         .field[name="shippingAddress.custom_attributes.customer_taxvat"]{
           width: 99.5%;
@@ -247,7 +293,7 @@
           display: none;
         }
         .field[name="invoice_email_check"]{
-          margin-bottom: 5px;
+          margin-bottom: 15px;
           width: 100%;
           & > .label{
             display: none;
@@ -263,7 +309,7 @@
         .field[name="shippingAddress.custom_attributes.invoice_email"],
         .field[name="shippingAddress.invoice_email"]{
           width: 100%;
-          margin-bottom: 0;
+          margin-bottom: 20px;
           .control{
             width: 97.5%;
           }
@@ -298,54 +344,6 @@
         }
       }
       #opc-custom-create-account{
-        .create-account-field{
-          max-width: 600px;
-          margin-top: 15px;
-          .admin__field{
-            .admin__field-label{
-              font-size: small;
-              letter-spacing: .52px;
-              font-weight: 600;
-            }
-          }
-          .inp-create-account{
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-between;
-            .create-acc-lbl{
-              letter-spacing: .52px;
-              font-weight: 600;
-              display: block;
-              margin-bottom: 10px;
-            }
-            .password-col{
-              width: 48.5%;
-              span{
-                font-size: small;
-              }
-              &.last-col{
-                position: relative;
-              }
-            }
-            input{
-              width: 95%;
-            }
-            .pass-msg{
-              display: none;
-              font-size: small;
-              position: absolute;
-              bottom: -25px;
-              left: 0;
-              &.success{
-                color: #5cb85c;
-              }
-              &.fail{
-                color: red;
-              }
-            }
-            // }
-          }
-        }
         .checkout-billing-address{
           margin-top: 20px;
           .billing-address-same-as-shipping-block{
@@ -609,17 +607,21 @@
         }
 
         .minicart-items{
-          .product-item-inner{
-            display: block;
-            .product-item-name-block{
+          .minicart-items-wrapper{
+            overflow: visible;
+            max-height: max-content;
+            .product-item-inner{
               display: block;
-              margin-bottom: 10px;
-              padding-right: 0;
-            }
-
-            .subtotal{
-              text-align: left;
-              display: table;
+              .product-item-name-block{
+                display: block;
+                margin-bottom: 10px;
+                padding-right: 0;
+              }
+  
+              .subtotal{
+                text-align: left;
+                display: table;
+              }
             }
           }
         }
