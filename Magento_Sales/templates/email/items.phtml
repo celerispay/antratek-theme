@@ -45,7 +45,7 @@
     ?>
     <?php endif; ?>
     <?php endforeach; ?>
-    <?php if(isset($delayId['message']) && $delayId['id'] == null){
+    <?php if(isset($delayId['message']) && isset($delayId['id']) == false ){
         $inStockMsg = $delayId['message'];
     }else {
         $inStockMsg = $block->escapeHtml(__("Delivery as discussed"));
