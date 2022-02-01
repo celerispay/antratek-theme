@@ -369,3 +369,33 @@
 		}
 	}
 }
+
+.account {
+	.sidebar.sidebar-main {
+			.content.account-nav-content {
+				overflow: clip;
+			}
+
+			.nav.item {
+				overflow-wrap: anywhere !important;
+			}
+	}
+	@media screen and (min-width: 768px) and (max-width:1199px){
+		.sidebar.sidebar-main,
+		.sidebar.sidebar-additional{
+			padding-right: 0;
+		}
+
+		.sidebar.sidebar-main{
+			.account-nav {
+				.account-nav-content{
+					.nav.item{
+						a{
+							.fontSize(14px);
+						}
+					}
+				}
+			}
+		}
+	}
+}

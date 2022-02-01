@@ -1,35 +1,73 @@
 @import '../../_common-mixin.less';
 
+.amblog-index-account,
 .account{
-  &.wishlist-index-index{
-    .message.info.empty{
-      margin-left: 0;
-    }  
-  }
-  .message.info.empty{
-    margin-left: 48px;
-    span{
-      .fontSize(14px);
-      .commonLetterSpacing();
-      font-weight: 500;
+  .column.main{
+    &.wishlist-index-index{
+      .message.info.empty{
+        margin-left: 0;
+      }  
     }
-  }
-  .actions-toolbar{
-    .paddingLeft(48px);
-    margin-left: 0 !important;
-    .primary{
-      .action{
+    .amblog-tabs-block{
+      .paddingLeft(48px);
+    }
+    .amblog-notify-message,
+    .message.info.empty{
+      margin-left: 48px;
+      a,
+      span{
+        .fontSize(14px);
+        .commonLetterSpacing();
+        font-weight: 500;
+      }
+      a{
+        color: #0079c4;
+      }
+    }
+    .actions-toolbar{
+      .paddingLeft(48px);
+      margin-left: 0 !important;
+      .primary{
+        .action{
+          span{
+            font-weight: 500;
+            .fontSize(16px);
+          }
+        }
+      }
+      .action.back{
         span{
-          font-weight: 500;
           .fontSize(16px);
+          .commonLetterSpacing();
+          color: #0079c4;
         }
       }
     }
-    .action.back{
-      span{
-        .fontSize(16px);
-        .commonLetterSpacing();
-        color: #0079c4;
+  }
+  @media screen and (min-width: 768px) and (max-width:1199px){
+    .column.main{
+      .actions-toolbar,
+      .amblog-tabs-block{
+        padding: 0 16px;
+      }
+      .amblog-notify-message,
+      .message.info.empty{
+        margin: 0 16px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 767px){
+    .column.main{
+      .actions-toolbar,
+      .amblog-tabs-block{
+        padding: 0 12px;
+        box-sizing: border-box;
+      }
+      .amblog-notify-message,
+      .message.info.empty{
+        margin: 0 12px;
+        box-sizing: border-box;
       }
     }
   }
