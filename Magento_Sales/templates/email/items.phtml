@@ -39,7 +39,7 @@
         $productId = $_item->getProductId();
         $delayId = $delivery->getDeliveryDelayId($productId);
         if(isset($delayId['id']) && $delayId['id'] > $currentId){
-            $currentId = $delayId;
+            $currentId = $delayId['id'];
             $productIdDelayId = $productId;
         }
     ?>
