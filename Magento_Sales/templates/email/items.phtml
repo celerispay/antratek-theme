@@ -37,11 +37,15 @@
     </tbody>
     <?php
         $productId = $_item->getProductId();
-        $delayId = $delivery->getDeliveryDelayId($productId);
+	$delayId = $delivery->getDeliveryDelayId($productId);
+	$inStockMsg = null;
+	$productIdDelayId = null;
         if(isset($delayId['id']) && $delayId['id'] > $currentId){
             $currentId = $delayId;
             $productIdDelayId = $productId;
-        }
+	}elseif(isset($delayId['message'])){
+		$inStockMsg = $delayId['message'];
+	}
     ?>
     <?php endif; ?>
     <?php endforeach; ?>
@@ -54,7 +58,7 @@
     <tr>
         <td style="padding-bottom: 5px;">
             <b><?= $block->escapeHtml(__('Levertijd')) ?> - </b>
-            <span style="font-size: 13px"><?php echo $delivery->getDeliveryDelayId($productIdDelayId)['message']; ?></span>
+            <span style="font-size: 13px"><?php echo $productIdDelayId ? $delivery->getDeliveryDelayId($productIdDelayId)['message'] : $inStockMsg ?></span>
         </td>
     </tr>
     <tr>
@@ -66,7 +70,7 @@
     <tr>
         <td style="padding-bottom: 5px;"> 
             <b><?= $block->escapeHtml(__('Betaalmethode')) ?> - </b>
-            <span style="font-size: 13px"><?php echo $_order->getPayment()->getMethodInstance()->getTitle();?></span>
+            <span style="font-size: 13px"><?= $block->escapeHtml($_order->getPayment()->getMethodInstance()->getTitle());?></span>
         </td>
     </tr>
     <?php if(isset($_order->getData()['po_number'])) :?>
