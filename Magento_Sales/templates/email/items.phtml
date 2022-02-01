@@ -41,6 +41,7 @@
         if(isset($delayId['id']) && $delayId['id'] > $currentId){
             $currentId = $delayId['id'];
             $productIdDelayId = $productId;
+            $delayMsg = $delayId['message'];
         }
     ?>
     <?php endif; ?>
@@ -60,7 +61,7 @@
     <tr>
         <td style="padding-bottom: 5px;">
             <b><?= $block->escapeHtml(__('Levertijd')) ?> - </b>
-            <span style="font-size: 13px"><?php echo isset($productIdDelayId) ? $delivery->getDeliveryDelayId($productIdDelayId)['message'] : $inStockMsg ?></span>
+            <span style="font-size: 13px"><?php echo isset($delayMsg) ? $delayMsg : $inStockMsg ?></span>
         </td>
     </tr>
     <tr>
