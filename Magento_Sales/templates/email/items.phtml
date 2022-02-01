@@ -59,28 +59,36 @@
 <br />
 <table>
     <tr>
-        <td style="padding-bottom: 5px;">
-            <b><?= $block->escapeHtml(__('Levertijd')) ?> - </b>
-            <span style="font-size: 13px"><?php echo isset($delayMsg) ? $delayMsg : $inStockMsg ?></span>
+        <td style="padding-bottom: 5px; width: 135px;">
+            <b><?= $block->escapeHtml(__('Levertijd')) ?></b>
+        </td>
+        <td style="font-size: 13px; color: #000;">
+            <?php echo isset($delayMsg) ? $delayMsg : $inStockMsg ?>
         </td>
     </tr>
     <tr>
-        <td style="padding-bottom: 5px;">
-            <b><?= $block->escapeHtml(__('Verzendmethode')) ?> - </b>
-            <span style="font-size: 13px"><?php echo $_order->getShippingDescription();?></span>
+        <td style="padding-bottom: 5px; width: 135px;">
+            <b><?= $block->escapeHtml(__('Verzendmethode')) ?></b>
+        </td>
+        <td style="font-size: 13px; color: #000;">
+            <?php echo $_order->getShippingDescription();?>
         </td>
     </tr>
     <tr>
-        <td style="padding-bottom: 5px;">
-            <b><?= $block->escapeHtml(__('Betaalmethode')) ?> - </b>
-            <span style="font-size: 13px"><?= $block->escapeHtml($_order->getPayment()->getMethodInstance()->getTitle());?></span>
+        <td style="padding-bottom: 5px; width: 135px;">
+            <b><?= $block->escapeHtml(__('Betaalmethode')) ?></b>
+        </td>
+        <td style="font-size: 13px; color: #000;">
+            <?= $block->escapeHtml($_order->getPayment()->getMethodInstance()->getTitle());?>
         </td>
     </tr>
     <?php if(isset($_order->getData()['po_number'])) :?>
     <tr>
-        <td>
-            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?> - </b>
-            <span style="font-size: 13px"><?php echo $_order->getData()['po_number'] ?></span>
+        <td style="width: 135px;">
+            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
+        </td>
+        <td style="font-size: 13px; color: #000;">
+            <?php echo $_order->getData()['po_number'] ?>
         </td>
     </tr>
     <?php endif;?>
