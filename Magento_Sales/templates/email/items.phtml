@@ -86,9 +86,9 @@
         <td style="width: 135px;">
             <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
         </td>
-        <?php if(isset($_order->getData['po_number'])) :?>
+        <?php if(isset($_order->getData()['po_number'])) :?>
             <td style="font-size: 13px; color: #000;">
-                <?php echo $_order->getData()['po_number'] ?>
+                <?php echo $_order->getData()['po_number']; ?>
             </td>
         <?php elseif($_order->getEmailCustomerNote() != NULL):?>
             <td style="font-size: 13px; color: #000;">
