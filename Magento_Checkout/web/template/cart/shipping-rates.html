@@ -8,16 +8,6 @@
     <p class="field note" data-bind="visible: (!isLoading() && shippingRates().length <= 0)">
         <!-- ko text: $t('Sorry, no quotes are available for this order at this time')--><!-- /ko -->
     </p>
-    <div class="help-text-container" data-bind="visible:  (shippingRates().length > 0) ">
-        <div class="help-text-row">
-            <div class="column-1">
-                <span>*</span>
-            </div>
-            <div class="column-2">
-                <p class="checkout-btn-help-text" ><!-- ko text: $t('Please select one of the options below in order to proceed')--><!-- /ko --></p>
-            </div>
-        </div>
-    </div>
     <fieldset class="fieldset rate" data-bind="visible: (shippingRates().length > 0)">
         <dl class="items methods" data-bind="foreach: shippingRateGroups" aria-required="true" required>
             <dd class="item-options" data-bind="foreach: { data:$parent.getRatesForGroup($data), as: 'method' }">
