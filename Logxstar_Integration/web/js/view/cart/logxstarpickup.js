@@ -194,6 +194,20 @@ define(
                     initHtml(markers);
                     $("#map").css("position", "inherit !important");
                     select_marker();
+                    function selectLangLabel(){
+                        var langMap = {
+                          1 : 'nl',
+                          6 : 'en',
+                          8 : 'de'
+                        };
+                      
+                        var storeId = JSON.parse(window.localStorage.getItem('mage-cache-storage')).cart.storeId;
+                        storeId = storeId ? parseInt(storeId) : 1 ;
+                        var lang = langMap[storeId] ? langMap[storeId] : 'nl';
+                        var btn = jQuery('#'+lang);
+                        btn.trigger('click');
+                    }
+                    selectLangLabel();
                 }
             }
             if (mapinitialized || (typeof google !== 'undefined' && typeof google.maps !== 'undefined')) {
