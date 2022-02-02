@@ -1,3 +1,10 @@
+<style>
+    .email-items .order-body td,
+    .email-items .order-totals th,
+    .email-items .order-totals td{
+        font-family: Arial !important;
+    }
+</style>
 <?php
 /**
  * Copyright © Magento, Inc. All rights reserved.
@@ -15,13 +22,13 @@
 <table class="email-items">
     <thead>
         <tr>
-            <th class="item-info" style="text-transform: capitalize">
+            <th class="item-info" style="text-transform: capitalize; font-family: Arial;">
                 <?= $block->escapeHtml(__('Items')) ?>
             </th>
-            <th class="item-qty" style="text-transform: capitalize">
+            <th class="item-qty" style="text-transform: capitalize; font-family: Arial;">
                 <?= $block->escapeHtml(__('Qty')) ?>
             </th>
-            <th class="item-price" style="text-transform: capitalize">
+            <th class="item-price" style="text-transform: capitalize; font-family: Arial;">
                 <?= $block->escapeHtml(__('Price')) ?>
             </th>
         </tr>
@@ -32,7 +39,7 @@
     ?>
     <?php foreach ($_items as $_item) : ?>
     <?php if (!$_item->getParentItem()) : ?>
-    <tbody>
+    <tbody class="order-body" style="font-family: Arial !important;">
         <?= $block->getItemHtml($_item) ?>
     </tbody>
     <?php
@@ -52,7 +59,7 @@
         $inStockMsg = $block->escapeHtml(__("Delivery as discussed"));
     }
     ?>
-    <tfoot class="order-totals">
+    <tfoot class="order-totals" style="font-family: Arial !important;">
         <?= $block->getChildHtml('order_totals') ?>
     </tfoot>
 </table>
@@ -60,38 +67,38 @@
 <table>
     <tr>
         <td style="padding-bottom: 5px; width: 135px;">
-            <b><?= $block->escapeHtml(__('Levertijd')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Levertijd')) ?></b>
         </td>
-        <td style="font-size: 13px; color: #000;">
+        <td style="font-size: 13px; color: #000; font-family: Arial;">
             <?php echo isset($delayMsg) ? $delayMsg : $inStockMsg ?>
         </td>
     </tr>
     <tr>
         <td style="padding-bottom: 5px; width: 135px;">
-            <b><?= $block->escapeHtml(__('Verzendmethode')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Verzendmethode')) ?></b>
         </td>
-        <td style="font-size: 13px; color: #000;">
+        <td style="font-size: 13px; color: #000; font-family: Arial;">
             <?php echo $_order->getShippingDescription();?>
         </td>
     </tr>
     <tr>
         <td style="padding-bottom: 5px; width: 135px;">
-            <b><?= $block->escapeHtml(__('Betaalmethode')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Betaalmethode')) ?></b>
         </td>
-        <td style="font-size: 13px; color: #000;">
+        <td style="font-size: 13px; color: #000; font-family: Arial;">
             <?= $block->escapeHtml($_order->getPayment()->getMethodInstance()->getTitle());?>
         </td>
     </tr>
     <tr>
         <td style="width: 135px;">
-            <b><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
         </td>
         <?php if(isset($_order->getData()['po_number'])) :?>
-            <td style="font-size: 13px; color: #000;">
+            <td style="font-size: 13px; color: #000;font-family: Arial;">
                 <?php echo $_order->getData()['po_number']; ?>
             </td>
         <?php elseif($_order->getEmailCustomerNote() != NULL):?>
-            <td style="font-size: 13px; color: #000;">
+            <td style="font-size: 13px; color: #000;font-family: Arial;">
                 <?php echo $_order->getEmailCustomerNote(); ?>
             </td>
         <?php endif;?>
@@ -108,13 +115,13 @@
 <br />
 <table class="message-gift">
     <tr>
-        <td>
-            <h3><?= $block->escapeHtml(__('Gift Message for this Order')) ?></h3>
-            <strong><?= $block->escapeHtml(__('From:')) ?></strong>
+        <td style="font-family: Arial;">
+            <h3 style="font-family: Arial; font-size: 18px;color: #000; margin-bottom: 8px;"><?= $block->escapeHtml(__('Gift Message for this Order')) ?></h3>
+            <strong style=" font-family: Arial;"><?= $block->escapeHtml(__('From:')) ?></strong>
             <?= $block->escapeHtml($_giftMessage->getSender()) ?>
-            <br /><strong><?= $block->escapeHtml(__('To:')) ?></strong>
+            <br /><strong style=" font-family: Arial;"><?= $block->escapeHtml(__('To:')) ?></strong>
             <?= $block->escapeHtml($_giftMessage->getRecipient()) ?>
-            <br /><strong><?= $block->escapeHtml(__('Message:')) ?></strong>
+            <br /><strong style=" font-family: Arial;"><?= $block->escapeHtml(__('Message:')) ?></strong>
             <br /><?= $block->escapeHtml($_giftMessage->getMessage()) ?>
         </td>
     </tr>
