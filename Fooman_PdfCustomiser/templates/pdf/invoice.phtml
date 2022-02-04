@@ -60,15 +60,15 @@
                 style="font-weight:bold;font-size:<?= /* @noEscape */ $block->getFontsize('large') ?>"
             ><?= $block->escapeHtml($block->getTitle()) ?></span><br />
             <?= $block->escapeHtml(__('Invoice #')) ?>:
-            <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/><br/>
+            <?= $block->escapeHtml($invoice->getIncrementId()) ?><br/>
             <?php if ($block->showOrderIncrementId()): ?>
                 <?= $block->escapeHtml(__('Order #') . ': ' . $order->getIncrementId()) ?><br/>
             <?php endif; ?>
             <?= $block->escapeHtml(__('Date')) ?>:
-            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/></br>
-            <?= /* @noEscape */ $block->getCommentsBlock() ?><br/></br>
+            <?= /* @noEscape */ $block->getFormattedDate($order->getCreatedAt()) ?><br/><br/>
+            <?= /* @noEscape */ $block->getCommentsBlock() ?><br/>
         <?php if(isset(($order->getData()['po_number'])) && !empty($order->getData()['po_number'])) :?>
-            <strong><?= $block->escapeHtml(__('Purchase Order Number')) ?><br /></strong>
+            <strong><?= $block->escapeHtml(__('Purchase Order Number')) ?></strong><br />
             <?= $block->escapeHtml($order->getData()['po_number']); ?>
         <?php endif; ?>
         </td>
