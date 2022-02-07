@@ -183,6 +183,7 @@
             position: absolute;
             bottom: -30px;
             font-size: small;
+            display: none;
           }
         }
 
@@ -310,6 +311,9 @@
         .field[name="shippingAddress.invoice_email"]{
           width: 100%;
           margin-bottom: 20px;
+          .label{
+            display: none;
+          }
           .control{
             width: 97.5%;
           }
@@ -418,7 +422,7 @@
               }
               .field[name="billingAddress.country_id"],
               .field[name="billingAddress.city"],
-              .field[name="billingAddress.dept_extra_info"],
+              .field[name="billingAddress.company"],
               .field[name="billingAddress.firstname"]{
                 margin-right: 2.5%;
               }
@@ -679,6 +683,7 @@
         position: absolute;
         bottom: -30px;
         font-size: small;
+        display: none;
       }
       .control{
         width: 95%;
@@ -748,6 +753,14 @@
     .field[name='shippingAddress.postcode']{
       width: 48.5%;
       display: inline-block;
+    }
+
+    .field[name='shippingAddress.postcode']{
+      .message.warning{
+        span{
+          font-size: 12px;
+        }
+      }
     }
   
     .field[name='shippingAddress.country_id'],

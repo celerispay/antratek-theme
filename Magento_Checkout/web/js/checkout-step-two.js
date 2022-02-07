@@ -65,7 +65,6 @@ define([
           }).on('keyup', function(){
             updateFeedbackFactory('#remComp', 35, this.value.length)();
           });
-          
           clearInterval(compIntl);
         }
       }, 400);
@@ -73,7 +72,7 @@ define([
 
     function attachExtraInfoListener(){
       var extraIntl = setInterval(function(){
-        var extraInfo = $('#co-shipping-form .field[name="shippingAddress.bss_custom_field[business_additional]"] input[name="bss_custom_field[business_additional]"]');
+        var extraInfo = $('#co-shipping-form .field[name="shippingAddress.dept_extra_info"] input[name="dept_extra_info"]');
 
         if(extraInfo.length > 0){
           extraInfo.closest('.field').append('<p id="remExtraInfo" class="remChar">Remaining Characters: 35</p>');
@@ -170,6 +169,7 @@ define([
         if(jQuery(this).is(":checked")){
           emailInputdiv.show();
           invoiceEmailInput.show();
+          validateEmailInput();
         }else{
           emailInputdiv.hide();
           invoiceEmailInput.hide();
@@ -178,6 +178,7 @@ define([
         if(jQuery(this).is(":checked")){
           emailInputdiv.show();
           invoiceEmailInput.show();
+          validateEmailInput();
         }else{
           emailInputdiv.hide();
           invoiceEmailInput.hide();
@@ -185,6 +186,42 @@ define([
       });
       invoiceEmailInput.hide();
       emailInputdiv.hide();
+    }
+
+    function validateEmailInput(){
+      var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/;
+      var invoiceEmailInput = jQuery('.field[name="shippingAddress.invoice_email"] input[name="invoice_email"]');
+      invoiceEmailInput.on('input', function(){
+        if(invoiceEmailInput.val().length > 0){
+          if(emailRegex.test(invoiceEmailInput.val())){
+            invoiceEmailInput.removeClass('mage-error');
+          } else{
+            invoiceEmailInput.addClass('mage-error');
+          }
+        }
+      }).change(function(){
+        if(invoiceEmailInput.val().length > 0){
+          if(emailRegex.test(invoiceEmailInput.val())){
+            invoiceEmailInput.removeClass('mage-error');
+          } else{
+            invoiceEmailInput.addClass('mage-error');
+          }
+        }
+      });
+    }
+
+    function attachTelephoneListener(){
+      var telIntl = setInterval(function(){
+        var telInput = $('#co-shipping-form .field[name="shippingAddress.telephone"] input[name="telephone"]');
+        if(telInput.length > 0){
+          telInput.on('keypress', function(event){
+            if(!Number.isInteger(parseInt(event.key))){
+              return false;
+            }
+          });
+          clearInterval(telIntl);
+        }
+      }, 400);
     }
 
     $(document).ready(function(){
@@ -197,6 +234,7 @@ define([
           attachNameListener();
           attachHouseNumberListener();
           attachPostCodeListener();
+          attachTelephoneListener();
           clearInterval(checkForm);
         }
       }, 500);
