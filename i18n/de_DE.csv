@@ -17,7 +17,7 @@
 "Grand Total Incl. Tax","Gesamtsumme (Inkl. MwSt.)"
 "Grand total","Gesamtsumme (Inkl. MwSt.)"
 "Shipping","Versand & Bearbeitung"
-"Article no.. :","Art.Nr."
+"Item no. ","Art.Nr. "
 "Your purchase number","Ihre Bestellungsnummer / Referenz"
 "Edit more","Bearbeiten"
 "If there is an account associated with %s you will receive an email with a link to reset your password.","Sollten wir einen Account unter %s finden können, erhalten Sie eine E-Mail mit einem Link, mit dem Sie Ihr Passwort zurücksetzen können."
@@ -63,7 +63,8 @@
 "You are here","Sie sind hier"
 "Onze service","Unser Service"
 "And choose your preferred shipping method","und wählen Sie Ihre bevorzugte Versandart"
-till free shipping,Bis zum Gratisversand
+till free shipping,Bis zum gratis Versand
+Free shipping,Bis zum gratis Versand
 "Simple and fast, you don’t need to create an account","Einfach und schnell, Sie können auch als Gast bestellen"
 "Since the billing country is outside of Netherlands, Please enter a valid VAT number for VAT free delivery.","Liegt das Abrechnungs Land außerhalb der Niederlande, geben Sie bitte eine gültige Umsatzsteuer-Identifikationsnummer an."
 "department","Abteilung"
@@ -84,3 +85,4 @@ Pickup point nearby,Paketshop in Ihrer Nähe
 "Delivery as discussed","Zoals besproken"
 "Payment within 30 days stating the invoice number","Bitte zahlen Sie innerhalb von 30 Tagen unter Angabe der Rechnungsnummer: "
 "Belgium","Belgien"
+"We don't have as many ""%1"" as you requested, but we'll back order the remaining %2.","*1 Artikel nicht auf Lager."

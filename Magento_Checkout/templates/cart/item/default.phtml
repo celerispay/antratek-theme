@@ -42,7 +42,7 @@ $delivery= $this->helper('Boostsales\Delivering\Helper\Delivery');
                         <?= $block->escapeHtml($block->getProductName()) ?>
                     <?php endif; ?>
                 </strong>
-                <p class="item-no"><?= $block->escapeHtml(__('Article no.. :')) ?><?php echo $product->getSku();?> </p>
+                <p class="item-no"><?= $block->escapeHtml(__('Item no. ')) ?><?php echo $product->getSku();?> </p>
                 <?php if ($_options = $block->getOptionList()) :?>
                     <dl class="item-options">
                         <?php foreach ($_options as $_option) :?>
