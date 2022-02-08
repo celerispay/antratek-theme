@@ -1,4 +1,4 @@
-﻿Shipping,Adresgegevens
+﻿"ShippingProg","Adresgegevens"
 Confirmation,Bestelbevestiging
 "You will receive an order confirmation via E-mail. This contains all information like delivery time, product overview, payment method, etc.","U ontvangt per e-mail een bestelbevestiging met alle informatie zoals levertijd, betaalmethode, etc."
 Shipment,Verzending
@@ -17,7 +17,7 @@ Customer Comments,Uw inkoopnummer
 "Street Address 2","Huisnummer"
 "Street Address 3","Huisnummer toevoeging"
 "Department","Afdeling"
-"Invoice email","Factuur email"
+"Invoice Email","Factuur email"
 "Main menu","Hoofdmenu"
 "Customers Who Viewed This Also Viewed","Andere klanten bekeken ook"
 "Search entire store here...",""
@@ -38,3 +38,6 @@ Price,Prijs per stuk Excl. BTW
 "Password","Wachtwoord"
 "Confirm Password","Wachtwoord bevestigen"
 "Address Type","Particulier / zakelijk adres"
+"Shopping Cart","Winkelwagen"
+"Payment within 30 days stating the invoice number","Betaling binnen 30 dagen onder vermelding van factuurnummer: "
+"Belgium","België"

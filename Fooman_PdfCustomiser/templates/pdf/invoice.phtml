@@ -139,7 +139,6 @@
 <?= /* @noEscape */ $block->getTaxTableBlock() ?>
 
 
-
 <?php $customText = $block->getCustomText() ?>
 <?php if ($customText): ?>
     <br/>
@@ -149,6 +148,18 @@
         </tr>
     </table>
 <?php endif; ?>
+
+<?php if($block->escapeHtml($order->getPayment()->getMethodInstance()->getCode()) == 'checkmo'):?>
+    <table width="100%" border="0" cellpadding="2" cellspacing="0">
+        <tr>
+            <td colspan="2"><strong><?php echo $block->escapeHtml(__('Payment within 30 days stating the invoice number')); echo $block->escapeHtml($invoice->getIncrementId()) . '.' ?></strong>
+    <br /><br />
+    <strong>ABN-AMRO Bank 448837501, IBAN: NL11ABNA0448837501, BIC: ABNANL2A</strong><br />
+    <strong>ING Bank 5488351, IBAN: NL23INGB0005488351, BIC: INGBNL2A</strong><br />
+    <strong>KBC Bank <?= $block->escapeHtml(__('Belgium'));?> 414445281162, IBAN: BE51414445281162, BIC: KREDBEBB</strong></td>
+        </tr>
+    </table>
+<?php endif;?>
 
 <?php $groupText = $block->getGroupText($order->getCustomerGroupId()) ?>
 <?php if ($groupText): ?>
