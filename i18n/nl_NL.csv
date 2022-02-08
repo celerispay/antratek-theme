@@ -11,7 +11,7 @@ Final invoice,Uw factuur
 "This is the confirmation your payment has been received and your order will be processed. Please take good care of the invoice, it’s also your warranty.",De factuur wordt per e-mail verzonden. Bewaar deze goed dit is ook uw garantiebewijs.
 Invoice,Uw factuur
 Shipping Method,Verzendmethode
-Article no.. :,Artikelnr. :
+Item no. ,Artikelnr. 
 Customer Comments,Uw inkoopnummer
 "Street Address 1","Straatnaam"
 "Street Address 2","Huisnummer"
@@ -25,7 +25,7 @@ Customer Comments,Uw inkoopnummer
 "Tax","BTW"
 Delivery,Levertijd
 Item,Productnaam
-Price,Prijs per stuk Excl. BTW
+Unit Price,Prijs per stuk
 "Simple and fast, you don’t need to create an account","Eenvoudig en snel, u hoeft geen account te maken"
 "till free shipping","tot gratis verzending"
 "Free shipping",Gratis verzending
@@ -41,3 +41,5 @@ Price,Prijs per stuk Excl. BTW
 "Shopping Cart","Winkelwagen"
 "Payment within 30 days stating the invoice number","Betaling binnen 30 dagen onder vermelding van factuurnummer: "
 "Belgium","België"
+"*1 pieces are not in stock","*1 stuks zijn niet op voorraad"
+"We don't have as many ""%1"" as you requested, but we'll back order the remaining %2.","*1 stuks zijn niet op voorraad."
