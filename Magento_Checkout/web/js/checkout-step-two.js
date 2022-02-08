@@ -72,7 +72,7 @@ define([
 
     function attachExtraInfoListener(){
       var extraIntl = setInterval(function(){
-        var extraInfo = $('#co-shipping-form .field[name="shippingAddress.dept_extra_info"] input[name="dept_extra_info"]');
+        var extraInfo = $('#co-shipping-form .field[name="shippingAddress.custom_attributes.dept_extra_info"] input[name="custom_attributes[dept_extra_info]"]');
 
         if(extraInfo.length > 0){
           extraInfo.closest('.field').append('<p id="remExtraInfo" class="remChar">Remaining Characters: 35</p>');
@@ -163,34 +163,31 @@ define([
 
     function handleInvoiceEmailInput(jQuery){
       var checkbox = jQuery('.field[name="invoice_email_check"] > .control .checkbox');
-      var emailInputdiv = jQuery('.field[name="shippingAddress.invoice_email"]');
-      var invoiceEmailInput = jQuery('.field[name="shippingAddress.custom_attributes.invoice_email"]');
+      var invoiceEmailDiv = jQuery('.field[name="shippingAddress.custom_attributes.invoice_email"]');
+      var emailInput = invoiceEmailDiv.find('input[name="custom_attributes[invoice_email]"]');
       checkbox.click(function(){
         if(jQuery(this).is(":checked")){
-          emailInputdiv.show();
-          invoiceEmailInput.show();
+          invoiceEmailDiv.show();
           validateEmailInput();
         }else{
-          emailInputdiv.hide();
-          invoiceEmailInput.hide();
+          emailInput.val('');
+          invoiceEmailDiv.hide();
         }
       }).change(function(){
         if(jQuery(this).is(":checked")){
-          emailInputdiv.show();
-          invoiceEmailInput.show();
+          invoiceEmailDiv.show();
           validateEmailInput();
         }else{
-          emailInputdiv.hide();
-          invoiceEmailInput.hide();
+          emailInput.val('');
+          invoiceEmailDiv.hide();
         }
       });
-      invoiceEmailInput.hide();
-      emailInputdiv.hide();
+      invoiceEmailDiv.hide();
     }
 
     function validateEmailInput(){
       var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/;
-      var invoiceEmailInput = jQuery('.field[name="shippingAddress.invoice_email"] input[name="invoice_email"]');
+      var invoiceEmailInput = jQuery('.field[name="shippingAddress.custom_attributes.invoice_email"] input[name="custom_attributes[invoice_email]"]');
       invoiceEmailInput.on('input', function(){
         if(invoiceEmailInput.val().length > 0){
           if(emailRegex.test(invoiceEmailInput.val())){
