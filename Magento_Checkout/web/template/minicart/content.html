@@ -80,7 +80,7 @@
         </div>
     </div>
     <if args="getCartParam('summary_count')">
-        <span class="minicart-shipping-text"> En kies uw verzendmethode </span>
+        <span class="minicart-shipping-text" data-bind="i18n: 'And choose your preferred shipping method'" ></span>
     </if>
     <div id="minicart-widgets" class="minicart-widgets" if="getRegion('promotion').length">
         <each args="getRegion('promotion')" render="" />
