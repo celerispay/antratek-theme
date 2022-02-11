@@ -42,4 +42,6 @@ Unit Price,Prijs per stuk
 "Payment within 30 days stating the invoice number","Betaling binnen 30 dagen onder vermelding van factuurnummer: "
 "Belgium","België"
 "*1 pieces are not in stock","*1 stuks zijn niet op voorraad"
-"We don't have as many ""%1"" as you requested, but we'll back order the remaining %2.","*1 stuks zijn niet op voorraad."
+"We don't have as many ""%1"" as you requested, but we'll back order the remaining %2.","*%2 stuks zijn niet op voorraad."
+"And choose your preferred shipping method","En kies uw verzendmethode"
+"Company Radio Btn","Bedrijf"

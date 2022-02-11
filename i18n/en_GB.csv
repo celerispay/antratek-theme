@@ -11,7 +11,8 @@
 "Excl. Tax","Excl. VAT"
 "Comments","Uw inkoopnummer"
 Item,Product name
-"We don't have as many ""%1"" as you requested, but we'll back order the remaining %2.","*1 pieces are not in stock."
+"We don't have as many ""%1"" as you requested, but we'll back order the remaining %2.","*%2 pieces are not in stock."
 "Order Total Incl. Tax","Order Total Incl. VAT"
 "Order Total Excl. Tax","Order Total Excl. VAT"
 "Tax","VAT"
+"Company Radio Btn","Company"
