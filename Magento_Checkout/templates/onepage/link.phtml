@@ -23,12 +23,11 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
 ?>
 <?php if ($block->isPossibleOnepageCheckout()) :?>
 <button type="button" data-role="proceed-to-checkout" title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
-    <?php if($availability != 0): ?> data-mage-init='{
+    data-mage-init='{
                 "Magento_Checkout/js/proceed-to-checkout":{
                     "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl().'#shipping')) ?>"
                 }
             }'
-    <?php else:?> id="order_btn" <?php endif; ?>
     class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>" <?php if ($block->isDisabled()) :?>
     disabled="disabled" <?php endif; ?>> <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
 </button>
@@ -84,9 +83,9 @@ $quoteHelper = $this->helper('Magento\Checkout\Helper\Data')->getQuote();
             }]
         };
         var popup = modal(options, $('#modal'));
-        $("#order_btn").click(function () {
-            $('#modal').modal('openModal');
-        });
+        // $("#order_btn").click(function () {
+        //     $('#modal').modal('openModal');
+        // });
     });
 </script>
 <?php endif?>
