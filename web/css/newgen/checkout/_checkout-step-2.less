@@ -236,6 +236,11 @@
           .control{
             width: 97.5%;
           }
+          .input-text{
+            &::placeholder{
+              color: white;
+            }
+          }
           .field[name="shippingAddress.street.1"],
           .field[name="shippingAddress.street.2"]{
             width: 48.5%;
@@ -264,12 +269,12 @@
         .field[name='shippingAddress.firstname']{
           margin-right: 2%;
         }
-        .field[name='shippingAddress.city'],
+        .field[name='shippingAddress.postcode'],
         .field[name='shippingAddress.country_id']{
           margin-right: 2%;
         }
-        .field[name='shippingAddress.telephone'],
-        .field[name='shippingAddress.postcode']{
+        .field[name='shippingAddress.city'],
+        .field[name='shippingAddress.telephone']{
           margin-right: 0;
         }
         .field[name='shippingAddress.telephone']{
