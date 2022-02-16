@@ -140,9 +140,17 @@ define([
     }
 
     function attachPostCodeListener(){
+      var langMap = {
+        1 : 'nl',
+        6 : 'en',
+        8 : 'de'
+      };
+      var storeId = JSON.parse(window.localStorage.getItem('mage-cache-storage')).cart.storeId;
+      storeId = storeId ? parseInt(storeId) : 1 ;
+
       var regexPostCode = /^[\d]+[\da-zA-Z\s\-]*$/;
       var regexUKPostCode = /^[\da-zA-Z\s\-]*$/;
-      var storeCode = 'nl';
+      var storeCode = langMap[storeId] ? langMap[storeId] : 'nl';
 
       var postIntl = setInterval(function(){
         var postCode = $('#co-shipping-form .field[name="shippingAddress.postcode"] input[name="postcode"]');
@@ -221,6 +229,43 @@ define([
       }, 400);
     }
 
+    function makePostcodeRequired(isBtnClick){
+      var checkPostcode = setInterval(function() {
+        var postcode = $('#co-shipping-form .field[name="shippingAddress.postcode"] input[name="postcode"]');
+        if(postcode.length > 0){
+          postcode.closest('.field').addClass('_required');
+          postcode.attr('required', true);
+          if(isBtnClick && postcode.val().length == 0){
+            postcode.closest('.field').addClass('_error');
+          }
+          clearInterval(checkPostcode);
+        }
+      }, 500);
+      var checkPostcode1 = setInterval(function() {
+        var postcode1 = $('#billing-new-address-form .field[name="billingAddress.postcode"] input[name="postcode"]');
+        if(postcode1.length > 0){
+          postcode1.closest('.field').addClass('_required');
+          postcode1.attr('required', true);
+          clearInterval(checkPostcode1);
+        }
+      }, 500);
+    }
+
+    function attachShippingBtnListener(){
+      makePostcodeRequired();
+      var checkBtn = setInterval(function() {
+        var btn = $('#shipping-method-buttons-container button.action.continue');
+        if(btn.length > 0){
+          btn.click(function() { 
+            setTimeout(function() {
+              makePostcodeRequired(true);
+            }, 200);
+          });
+          clearInterval(checkBtn);
+        }
+      }, 500);
+    }
+
     $(document).ready(function(){
 
       var checkForm = setInterval(function() {
@@ -242,6 +287,7 @@ define([
           clearInterval(checkInvoiceEmail);
         }
       }, 500);
+      attachShippingBtnListener();
     });
   }
 });

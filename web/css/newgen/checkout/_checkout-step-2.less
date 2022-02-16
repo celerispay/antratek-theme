@@ -137,11 +137,7 @@
         }
         .shipping-address-items{
           .shipping-address-item{
-            width: 100%;
-            padding: 15px 20px;
-            br{
-              display: none;
-            }
+            padding: 10px;
           }
         }
       }
@@ -427,7 +423,7 @@
                 }
               }
               .field[name="billingAddress.country_id"],
-              .field[name="billingAddress.city"],
+              .field[name="billingAddress.postcode"],
               .field[name="billingAddress.company"],
               .field[name="billingAddress.firstname"]{
                 margin-right: 2.5%;
@@ -466,6 +462,10 @@
         }
         .action.primary.continue{
           padding: 8px 15px;
+          background: #5cb85c;
+          &:hover{
+            background: #00B900;
+          }
           span{
             font-size: 16px;
             font-weight: 500;
