@@ -67,7 +67,7 @@
 <table>
     <tr>
         <td style="padding-bottom: 5px; width: 135px;">
-            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Levertijd')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Delivery')) ?></b>
         </td>
         <td style="font-size: 13px; color: #000; font-family: Arial;">
             <?php echo isset($delayMsg) ? $delayMsg : $inStockMsg ?>
@@ -75,7 +75,7 @@
     </tr>
     <tr>
         <td style="padding-bottom: 5px; width: 135px;">
-            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Verzendmethode')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Shipping Carrier')) ?></b>
         </td>
         <td style="font-size: 13px; color: #000; font-family: Arial;">
             <?php echo $_order->getShippingDescription();?>
@@ -83,7 +83,7 @@
     </tr>
     <tr>
         <td style="padding-bottom: 5px; width: 135px;">
-            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Betaalmethode')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Payment method')) ?></b>
         </td>
         <td style="font-size: 13px; color: #000; font-family: Arial;">
             <?= $block->escapeHtml($_order->getPayment()->getMethodInstance()->getTitle());?>
@@ -91,7 +91,7 @@
     </tr>
     <tr>
         <td style="width: 135px;">
-            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Uw inkoopnummer')) ?></b>
+            <b style=" font-family: Arial;"><?= $block->escapeHtml(__('Your purchase number')) ?></b>
         </td>
         <?php if(isset($_order->getData()['po_number'])) :?>
             <td style="font-size: 13px; color: #000;font-family: Arial;">
