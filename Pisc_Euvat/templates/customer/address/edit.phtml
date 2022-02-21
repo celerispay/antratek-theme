@@ -167,6 +167,22 @@
                 <input type="text" name="invoice_email" id="invoice_email" title="<?php /* @escapeNotVerified */ echo __('Invoice Email') ?>" value="<?= isset($address['invoice_email']) ? $address['invoice_email'] : "" ?>" class="input-text">
             </div>
         </div>
+        <div class="field department-ict" style="display: none;">
+            <label class="label" for="department-ict"><span><?php /* @escapeNotVerified */ echo __('Invoice Email') ?></span></label>
+            <div class="control">
+                <select name="department" id="department">
+                    <option value="">select the department</option>
+                    <option value= 'logistics'>Logistics</option>
+                    <option value='healthcare'>Healthcare</option>
+                    <option value='automotive'>Automotive</option>
+                    <option value='industrial automation'>Industrial automation</option>
+                    <option value='machine and system'>machine and system</option>
+                    <option value='energy and utilities'>Energy and utilities</option>
+                    <option value='ict bv'>ICT BV</option>
+                    <option value='ict nv'>ICT NV</option>
+                </select>
+            </div>
+        </div>
         <?php if ($block->isDefaultBilling()): ?>
         <div class="message info"><?php /* @escapeNotVerified */ echo __("It's a default billing address.") ?></div>
         <?php elseif ($block->canSetAsDefaultBilling()): ?>
