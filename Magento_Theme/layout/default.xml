@@ -15,5 +15,6 @@
             <referenceBlock name="catalog.leftnav" remove="true"/>
         </referenceContainer>
         <move element="main" destination="content.custom" before="-"/>
+        <move element="page.main.title" destination="main" before="-"/>
     </body>
 </page>
