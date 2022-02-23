@@ -26,20 +26,20 @@ define([
       }
     ],
   };
-  var popup = modal(options, $('#euvatResponseModal'));
-  $(document).on('euvatVatIdValidateResponse', function(event, data){
-    if(data && data.html && 
-      (data.html.includes('euvat-taxvat-validation-failure') || data.html.includes('euvat-taxvat-validation-notice')) 
-    ){
-      $('#euvatResponseModal').modal('openModal');
-    }
-  });
-  $(document).on('euvatVatIdValidateErrorResponse', function(event, data){
-    if(data && data.html && 
-      data.html.includes('euvat-taxvat-validation-failure')){
-        $('#euvatResponseModal').modal('openModal');
-      }
-  });
+  // var popup = modal(options, $('#euvatResponseModal'));
+  // $(document).on('euvatVatIdValidateResponse', function(event, data){
+  //   if(data && data.html && 
+  //     (data.html.includes('euvat-taxvat-validation-failure') || data.html.includes('euvat-taxvat-validation-notice')) 
+  //   ){
+  //     $('#euvatResponseModal').modal('openModal');
+  //   }
+  // });
+  // $(document).on('euvatVatIdValidateErrorResponse', function(event, data){
+  //   if(data && data.html && 
+  //     data.html.includes('euvat-taxvat-validation-failure')){
+  //       $('#euvatResponseModal').modal('openModal');
+  //     }
+  // });
 
   "use strict";
   return function checkoutStepTwo() {
