@@ -34,6 +34,8 @@
             }
         }
         &.contact-info{
+            width: 100%;
+            float: none;
             h5{
                 margin-top: 25px;
                 letter-spacing: 0.5px;
@@ -120,70 +122,124 @@
   }
 
   .block-static-block{
-      padding-left: 0 !important;
+    padding-left: 0 !important;
+    .contact-page{
+        table{
+            td{
+                font-size: 14px;
+            }
+        }
+    }
+
+    & > table{
+        td:empty,
+        p:empty{
+            display: none;
+        }
+
+        h2{
+            span{
+                font-size: 26px;
+                font-weight: 500;
+                color: #333;
+                letter-spacing: .5px;
+            }
+        }
+
+        td, p{
+            font-size: 14px;
+            font-weight: 500;
+        }
+        span{
+            strong{
+                font-size: 21px;
+                font-weight: 500;
+                letter-spacing: .5px;
+                font-family: Oswald;
+            }
+        }
+        .col-md-6{
+            font-size: 14px;
+            font-weight: 500;
+            padding-left: 0;
+            strong{
+                font-size: 21px;
+                font-weight: 500;
+                letter-spacing: .5px;
+                margin-bottom: 8px;
+                display: inline-block;
+                font-family: Oswald;
+            }
+        }
+    }
   }
 
   p,
   a {
-      font-size: 14px !important;
+    font-size: 14px !important;
   }
 
-  .fieldset {
-      padding-left: 20px !important;
-  }
-
-  button {
-      font-size: 16px !important;
-      font-weight: 400 !important;
-  }
-
-  .actions-toolbar {
-      margin: 0px !important;
-
-      .primary {
-          width: 100% !important;
-          padding-left: 20px;
-
-
-          button {
-              width: 100% !important;
-          }
-      }
-  }
-
-  .column.main {
-      padding-top: 28px !important;
-  }
-
-  .form-input-wrapper {
-      display: flex;
-      margin-bottom: 10px;
-
-    .field {
-        &.comment,
-        &.email {
-            width: 49% !important;
-            display: inline-block;
-        }
-
-        &.email {
-            margin-right: 2% !important;
+    button {
+        span{
+            font-size: 16px;
+            font-weight: 500;
         }
     }
 
-      .form.contact.ticket-form-content.ticket-form {
+    .actions-toolbar {
+        margin: 0px !important;
+        .primary {
+            width: 100% !important;
+            button {
+               width: 100% !important;
+                span{
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
 
-          .field.name.required.ticket-non-registered-users {
-              margin-right: 5px !important;
-
-              &:nth-of-type(3) {
-                  margin-right: 0px !important;
-              }
-          }
-
-
-      }
+  .page-title-wrapper{
+    margin-bottom: 40px;
   }
+
+  .column.main {
+    padding-top: 25px !important;
+    padding-left: calc(48px) !important;
+  }
+
+    .form-input-wrapper {
+        display: flex;
+        margin-bottom: 10px;
+
+        .field {
+            &.comment,
+            &.email {
+                width: 49% !important;
+                display: inline-block;
+            }
+
+            &.email {
+                margin-right: 2% !important;
+            }
+        }
+    }
+    .form.contact.ticket-form-content.ticket-form {
+        float: none;
+        margin-bottom: 40px;
+        .fieldset{
+            padding-left: 0;
+            margin-bottom: 15px;
+        }
+
+        .field.name.required.ticket-non-registered-users {
+
+            &:nth-of-type(3) {
+                margin-right: 0px !important;
+            }
+        }
+    }
 
   .field {
 
