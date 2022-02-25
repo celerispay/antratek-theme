@@ -1,0 +1,30 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+$currentCategory = $objectManager->get('Magento\Catalog\Model\Category')->load($category->getId());
+$children = $category->getChildrenCategories();
+?>
+<div class="block-content">
+<h2>Menu <?php echo $currentCategory->getName() ?></h2>
+    <ul id="category-blocks aa">
+        <?php foreach ($children as $category) : ?>
+            <li>
+                <?php $_helper = $this->helper('Magento\Catalog\Helper\Category'); ?>
+                <?php $subcatcollection = $category->getChildren(); ?>
+                <a href="<?php echo $_helper->getCategoryUrl($category) ?>">
+                    <?php //echo Mage::getModel('catalog/category')->load($_category->getId())->getImage()
+                    ?>
+                    <div class="block-title"><?php echo $category->getName() ?></div>
+                </a>
+
+                <?php if (!empty($subcatcollection) && is_array($subcatcollection)) : ?>
+                    <?php foreach ($subcatcollection as $_categorychild) : ?>
+                        <span>
+                            <a href="<?php echo $_helper->getCategoryUrl($_categorychild) ?>"><?php echo $_categorychild->getName(); ?></a>
+                        </span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
