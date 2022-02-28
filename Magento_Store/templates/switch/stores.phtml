@@ -6,7 +6,7 @@
  * Language switcher template
  */
 ?>
-<?php 
+<?php
 if (count($block->getGroups())>1): ?>
 <?php
     $id = $block->getIdModifier() ? '-' . $block->getIdModifier() : '';
@@ -28,7 +28,7 @@ if (count($block->getGroups())>1): ?>
         <?php foreach ($block->getGroups() as $_lang): ?>
             <?php if (!($_lang->getId() == $block->getCurrentGroupId())): ?>
                 <li class="view-<?php echo $block->escapeHtml($_lang->getCode()); ?> switcher-option">
-                    <a href="#" data-post='<?php /* @escapeNotVerified */ echo $block->getTargetStorePostData($_lang->getDefaultStore()); ?>'><span class="label dropdown-icon" style="background-image:url('<?php echo $helperDesign->getFlagUrl($_lang->getCode()); ?>');">&nbsp;</span><?php echo $block->escapeHtml($_lang->getName()) ?></a>
+                    <a href="<?= $this->getBaseUrl(); ?>" data-post='<?php /* @escapeNotVerified */ echo $block->getTargetStorePostData($_lang->getDefaultStore()); ?>'><span class="label dropdown-icon" style="background-image:url('<?php echo $helperDesign->getFlagUrl($_lang->getCode()); ?>');">&nbsp;</span><?php echo $block->escapeHtml($_lang->getName()) ?></a>
                 </li>
             <?php endif; ?>
         <?php endforeach; ?>
