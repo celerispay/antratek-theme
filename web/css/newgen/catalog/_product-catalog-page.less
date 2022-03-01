@@ -7,10 +7,10 @@
       margin-top: 0;
     }
     .column.main{
-      padding-top: 23px;
+      padding-top: 25px;
+      padding-left: 48px;
       
       .toolbar-products{
-        padding-left: 58px;
         margin-bottom: 40px;
 
         & + .block{
@@ -49,7 +49,6 @@
       }
 
       .products.grid.products-grid{
-        padding-left: 58px;
 
         @media @ant-mobile{
           padding: 0 15px; 
@@ -205,7 +204,6 @@
       }  
 
       .list.products-list{
-        padding-left: 58px;
         .product-items{
           & > .product-item{
             margin-bottom: 10px;
@@ -384,8 +382,6 @@
     }
 
     .page-title-wrapper{
-      margin-top: 20px;
-      
       @media @ant-mobile{
         margin-top: 0;
         padding: 0 15px;
@@ -398,7 +394,9 @@
     }
 
     .category-description{
-      padding-left: 38px;
+      & > div{
+        margin: 0 !important;
+      }
       @media @ant-mobile{
         padding: 0 15px;
 
@@ -427,10 +425,41 @@
         letter-spacing: 1px;
         font-family: Quicksand, Arial, 'Helvetica Neue', Helvetica, sans-serif;     
 
+        a{
+          font-size: 14px;
+          letter-spacing: 1px;
+          font-family: Quicksand, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+          color: #0079c4;
+        }
+
         @media @ant-mobile{
           font-size: 13px;
           letter-spacing: .5px; 
         } 
+      }
+    }
+
+    .category-cms{
+      .block-content{
+        h2{
+          font-size: 26px;
+          letter-spacing: .5px;
+        }
+        ul{
+          li{
+            a{
+              font-size: 14px;
+              letter-spacing: 1px;
+              font-family: Quicksand, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+              color: #0079c4;
+
+              div.block-title{
+                width: max-content;
+                display: inline-block;
+              }
+            }
+          }
+        }
       }
     }
   }
