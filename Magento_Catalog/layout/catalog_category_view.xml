@@ -7,7 +7,7 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <move element="category.description" destination="content" after="category.cms"/>
-        <move element="category.cms" destination="content" before="-"/>
+        <move element="category.description" destination="content" before="category.cms"/>
+        <move element="category.cms" destination="content" after="-"/>
     </body>
 </page>
