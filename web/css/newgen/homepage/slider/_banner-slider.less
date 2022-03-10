@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 & when (@media-common =true) {
     .column.main {
         .slideshow-wrapper {
@@ -263,6 +265,17 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@media @ant-mobile{
+    .cms-home,
+    .cms-ict-automatisering{
+        .column.main{
+            .slideshow-wrapper-outer{
+                padding-left: 0;
             }
         }
     }
