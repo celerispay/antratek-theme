@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 .cms-ict-automatisering,
 .cms-home{
     .column.main {
@@ -121,6 +123,21 @@
                 padding-left: 0;
                 .feedback-company {
                     padding: 3rem 2rem 2.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media @ant-mobile{
+    .cms-ict-automatisering,
+    .cms-home{
+        .column.main{
+            .block-static-block.widget,
+            .ict-twitter-certificate-row{
+                padding: 0 15px;
+                .antratek-homepage-certificate {
+                    padding: 0 5px;
                 }
             }
         }
