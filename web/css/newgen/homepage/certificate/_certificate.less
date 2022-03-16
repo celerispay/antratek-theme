@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 .cms-ict-automatisering,
 .cms-home{
     .column.main {
@@ -108,5 +110,36 @@
             }
         }
 
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .cms-home,
+    .cms-ict-automatisering{
+        .column.main{
+            .ict-twitter-certificate-row,
+            .block-static-block.widget{
+                margin-top: 4rem;
+                padding-left: 0;
+                .feedback-company {
+                    padding: 3rem 2rem 2.5rem;
+                }
+            }
+        }
+    }
+}
+
+@media @ant-mobile{
+    .cms-ict-automatisering,
+    .cms-home{
+        .column.main{
+            .block-static-block.widget,
+            .ict-twitter-certificate-row{
+                padding: 0 15px;
+                .antratek-homepage-certificate {
+                    padding: 0 5px;
+                }
+            }
+        }
     }
 }
