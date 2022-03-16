@@ -272,175 +272,6 @@
     }
 }
 
-// @media @ant-desktop-sm{
-//     .catalog-product-view {
-//         .slick-list.draggable {
-//             .slick-slide {
-//                 .product-item {
-//                     text-align: left;
-//                 }
-//                 .product-item-info {
-//                     height: 340px !important;
-//                     position: relative;
-//                     .product-item-photo {
-//                         border: 1px solid #ccc;
-//                         border-radius: 5px;
-//                         margin-bottom: 10px;
-//                         display: flex;
-//                         align-items: center;
-//                         height: 170px;
-//                         justify-content: center;
-//                     }
-//                     .product-item-details {
-//                         .product-item-name {
-//                             a {
-//                                 font-size: 18px;
-//                                 font-family: Oswald;
-//                                 font-weight: 500;
-//                             }
-//                         }
-//                         img {
-//                             margin-top: 0 !important;
-//                             margin-right: 8px;
-//                             display: inline-block;
-//                         }
-//                         .product-availability-in-stock {
-//                             display: inline-block;
-//                             font-size: 13px;
-//                             font-weight: 600;
-//                             color: #03BA03;
-//                         }
-//                         .product-availability-out-of-stock {
-//                             display: inline-block;
-//                             font-size: 13px;
-//                             font-weight: 600;
-//                             color: red;
-//                         }
-//                         .delay-message-1,
-//                         .delay-message-2,
-//                         .delay-message-3 {
-//                             display: inline-block;
-//                             font-size: 13px;
-//                             font-weight: 600;
-//                         }
-//                         .price-box {
-//                             float: none !important;
-//                             position: absolute;
-//                             bottom: 0;
-//                             width: 70%;
-//                         }
-//                         .actions-primary {
-//                             margin: 0 !important;
-//                             position: absolute;
-//                             right: 0;
-//                             bottom: 0;
-//                             .action.tocart.primary {
-//                                 margin: 0 !important;
-//                                 font-size: 14px;
-//                                 padding: 12px 10px;
-//                                 background: #5cb85c;
-//                                 font-weight: 500;
-//                                 width: auto;
-//                                 &:hover {
-//                                     background: #00B900 !important;
-//                                 }
-//                             }
-//                         }
-//                         .price-final_price {
-//                             .price-including-tax {
-//                                 &::before {
-//                                     color: #747576 !important;
-//                                     font-size: 13px !important;
-//                                     font-weight: 500 !important;
-//                                 }
-//                                 .price {
-//                                     color: #747576 !important;
-//                                     font-size: 13px !important;
-//                                     font-weight: 500 !important;
-//                                 }
-//                                 margin: 0 !important;
-//                                 line-height: 1.5em !important;
-//                             }
-//                             .price-excluding-tax {
-//                                 &::before {
-//                                     color: #747576 !important;
-//                                     font-size: 13px !important;
-//                                     font-weight: 500 !important;
-//                                 }
-//                                 .price {
-//                                     color: #747576 !important;
-//                                     font-size: 13px !important;
-//                                     font-weight: 500 !important;
-//                                 }
-//                                 margin: 0 !important;
-//                                 line-height: 1.5em !important;
-//                             }
-//                             .price-including-tax.consumer {
-//                                 .price {
-//                                     color: #444 !important;
-//                                     font-size: 18px !important;
-//                                     font-weight: 600 !important;
-//                                 }
-//                             }
-//                             .price-excluding-tax.business {
-//                                 .price {
-//                                     color: #444 !important;
-//                                     font-size: 18px !important;
-//                                     font-weight: 600 !important;
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-//     .block.aw_wbtab{
-//         padding-left: 0;
-//         .products-grid.products{
-//             .slick-slider{
-//                 .slick-list{
-//                     .slick-slide{
-//                         .product-item{
-//                             .product-item-info{
-//                                 height: 370px !important;
-//                                 .product-item-details{
-//                                     & > img{
-//                                         margin-top: 0 !important;
-//                                     }
-//                                     .price-including-tax,
-//                                     .price-excluding-tax{
-//                                         &::before,
-//                                         .price{
-//                                             font-size: 13px !important;
-//                                         }
-//                                     }
-//                                     .price-including-tax.consumer,
-//                                     .price-excluding-tax.business{
-//                                         .price{
-//                                             font-size: 18px !important;
-//                                         }
-//                                     }
-//                                 }
-//                                 .actions-primary{
-//                                     .action.tocart.primary{
-//                                         span{
-//                                             font-size: 14px;
-//                                         }
-//                                     }
-//                                 }
-//                             }
-//                         }
-//                     }
-//                 }
-//                 .slick-prev.slick-arrow {
-//                     left: 93%;
-//                 }
-//             }
-//         }
-//     }
-// }
-
 @media only screen and (min-width:1200px) and (max-width: 1599px){
     .block.aw_wbtab{
         padding-left: 0;
@@ -488,4 +319,34 @@
             }
         }
     }
+}
+
+@media @ant-mobile{
+    .block.aw_wbtab{
+        padding: 0 15px;
+        .products-grid.products {
+            .slick-slider{
+                .slick-list{
+                    .slick-slide{
+                        .product-item{
+                            .product-item-details{
+                                & > img {
+                                    margin-top: 1px;
+                                }
+                            }
+                            .product-item-info{
+                                max-width: 98%;
+                            }
+                        }
+                    }
+                }
+                .slick-arrow{
+                    top: -8%;
+                    &.slick-prev{
+                        left: 83%;
+                    }
+                }
+            }
+        }
+    }    
 }

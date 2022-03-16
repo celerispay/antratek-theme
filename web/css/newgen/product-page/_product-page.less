@@ -1,3 +1,4 @@
+@import '../_breakpoint-variable.less';
 @import 'usp/_usp.less';
 @import 'bundle-products/_bundle-products.less';
 @import 'product/_product-view.less';
@@ -7,4 +8,12 @@
 .product-item-details .minimal-price-link{
   display: none;
  }
+
+@media @ant-mobile{
+  .catalog-product-view {
+    .content-wrapper{
+      width: 100%;
+    }
+  }
+}
  

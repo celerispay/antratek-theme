@@ -239,55 +239,6 @@
     }
 }
 
-// @media @ant-desktop-sm{
-//     #product-simple-bundles{
-//         padding-left: 0;
-//         width: 100%;
-//         li.simplebundle{
-//             clear: both;
-//             .simplebundle-selection{
-//                 .simplebundle-selection-item{
-//                     width: 90px;
-//                     .extra-infos{
-//                         padding: 10px;
-//                         font-size: 13px;
-//                         line-height: 18.5px;
-//                         p{
-//                             font-size: 13px;
-//                             line-height: 18.5px;
-//                             br{
-//                                 display: none;
-//                             }
-//                             a{
-//                                 font-size: 13px;
-//                                 line-height: 18.5px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//             .simplebundle-infos{
-//                 .simplebundle-info-prices{
-//                     font-size: 13px;
-//                     .simplebundle-price{
-//                         .price{
-//                             font-size: 18px;
-//                         }
-//                     }
-//                     .simplebundle-orig-price{
-//                         .price{
-//                             font-size: 13px;
-//                         }
-//                     }
-//                 }
-//                 .simplebundle-percent{
-//                     font-size: 13px;    
-//                 }
-//             }
-//         }
-//     }
-// }
-
 @media only screen and (min-width:1200px) and (max-width: 1599px){
     #product-simple-bundles{
         padding-left: 0;
@@ -332,6 +283,35 @@
                 .simplebundle-percent{
                     font-size: 13px;    
                 }
+            }
+        }
+    }
+}
+
+@media @ant-mobile{
+    #product-simple-bundles{
+        padding: 0 15px;
+        width: 100%;
+        box-sizing: border-box;
+        li.simplebundle {
+            padding: 15px 0;
+            .simplebundle-selection{
+                width: 100%;
+                box-sizing: border-box;
+                .simplebundle-selection-item{
+                    margin-bottom: 20px;
+                    width: 125px;
+                }
+                .simplebundle-plus{
+                    padding-top: 45px;
+                }
+            }
+            .simplebundle-infos{
+                float: none;
+                margin-top: 2rem;
+                width: 100%;
+                box-sizing: border-box;
+                clear: both;
             }
         }
     }

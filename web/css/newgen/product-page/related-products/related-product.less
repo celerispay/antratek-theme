@@ -139,46 +139,6 @@
     }
 }
 
-// @media @ant-desktop-sm {
-//     .block.upsell.itemslider,
-//     .block.related.itemslider{
-//         padding-left: 0;
-//         .owl-carousel{
-//             .owl-item{
-//                 .product-item-info{
-//                     height: 370px !important;
-//                     .product-item-details{
-//                         height: 170px;
-//                         & > img{
-//                             margin-top: 0 !important;
-//                         }
-//                         .price-including-tax,
-//                         .price-excluding-tax{
-//                             &::before,
-//                             .price{
-//                                 font-size: 13px !important;
-//                             }
-//                         }
-//                         .price-including-tax.consumer,
-//                         .price-excluding-tax.business{
-//                             .price{
-//                                 font-size: 18px !important;
-//                             }
-//                         }
-//                     }
-//                     .actions-primary{
-//                         .action.tocart.primary{
-//                             span{
-//                                 font-size: 14px;
-//                             }
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
 @media only screen and (min-width:1200px) and (max-width: 1599px){
     .block.upsell.itemslider,
     .block.related.itemslider{
@@ -210,6 +170,24 @@
                             span{
                                 font-size: 14px;
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @ant-mobile {
+    .block.related.itemslider,
+    .block.upsell.itemslider{
+        padding: 0 15px;
+        .owl-carousel{
+            .owl-item{
+                .product-item-info{
+                    .product-item-details{
+                        & > img{
+                            margin-top: 1px !important;
                         }
                     }
                 }
