@@ -23,7 +23,7 @@
         }
 
         @media @ant-mobile{
-          padding: 0 15px; 
+          // padding: 0 15px; 
           margin-bottom: 20px;
         }
 
@@ -49,10 +49,6 @@
       }
 
       .products.grid.products-grid{
-
-        @media @ant-mobile{
-          padding: 0 15px; 
-        }
 
         .product-items{
           & > .product-item{
@@ -385,7 +381,7 @@
     .page-title-wrapper{
       @media @ant-mobile{
         margin-top: 0;
-        padding: 0 15px;
+        // padding: 0 15px;
       }
       .page-title{
         .base{
@@ -502,6 +498,69 @@
               margin-left: 20px;
               .product-item-info{
                 height: 400px;
+              }
+              .product-item-details {
+                .price-box.price-final_price {
+                  .price-excluding-tax::before,
+                  .price-including-tax::before,
+                  .price-excluding-tax .price,
+                  .price-including-tax .price{
+                    font-size: 13px;
+                  }
+                  .price-excluding-tax.business .price,
+                  .price-including-tax.consumer .price {
+                    font-size: 18px !important;
+                  }
+                }
+                .actions-primary {
+                  .action.tocart.primary {
+                    padding: 8px !important;
+                    span{
+                      font-size: 14px;
+                    }
+                  }
+                  .ajax-message{
+                    top: 45px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media @ant-mobile {
+  .catalog-category-view,
+  .catalogsearch-result-index{
+    #maincontent{
+      .column.main{
+        padding-left: 15px;
+        padding-right: 15px;
+        .products.products-grid.grid{
+          .product-items{
+            & > .product-item{
+              .product-item-info{
+                height: 400px;
+                .product.photo.product-item-photo{
+                  height: 200px;
+                  display: block;
+                  margin-bottom: 15px;
+                  .product-image-container{
+                    height: inherit;
+                    .product-image-wrapper{
+                      display: inline;
+                      height: auto;
+                      padding: 0 !important;
+                      position: static;
+                      img{
+                        position: static;
+                      }
+                    }
+                  }
+                }
               }
               .product-item-details {
                 .price-box.price-final_price {
