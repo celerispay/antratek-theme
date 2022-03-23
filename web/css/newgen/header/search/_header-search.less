@@ -93,7 +93,64 @@
             }
           }
           .mst-searchautocomplete__autocomplete{
-            min-width:35rem;
+            // min-width:35rem;
+            min-width: inherit;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1599px){
+  .header-container{
+    .header-primary-container{
+      .header-primary{
+        .hp-blocks-holder{
+          .central-column.hp-block{
+            #header-search{
+              float: none;
+              .block-search{
+                width: 400px;
+                #search{
+                  padding: 18px 10px;
+                }
+                .actions{
+                  .action.search{
+                    width: 10rem;
+                    .ic-search{
+                      font-size: 13px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media @ant-tablet{
+  .header-container{
+    .header-primary-container{
+      .header-primary{
+        .hp-blocks-holder{
+          .central-column.hp-block{
+            .block-search{
+              width: 300px;
+            }
+            .mst-searchautocomplete__autocomplete{
+              left: 0 !important;
+            }
+            #action-search{
+              width: 8rem;
+              font-size: 13px;
+              .ic-search{
+                font-size: 13px;
+              }
+            }
           }
         }
       }

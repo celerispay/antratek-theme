@@ -1,16 +1,21 @@
-@ant-tab-min: 768px;
+@ant-tab-sm-min: 768px;
+@ant-tab-min: 820px;
 // desktop min widths
 @ant-desktop-sm-min: 1200px;
 @ant-desktop-lg-min: 1400px;
 @ant-desktop-xl-min: 1600px;
 
 
-@ant-mobile-max: (@ant-tab-min - 1);
+@ant-mobile-max: (@ant-tab-sm-min - 1);
+@ant-tab-sm-max: (@ant-tab-min - 1);
+@ant-tab-max: (@ant-desktop-sm-min - 1);
 // desktop max widths
 @ant-desktop-sm-max: (@ant-desktop-lg-min - 1);
 @ant-desktop-lg-max: (@ant-desktop-xl-min - 1);
 
 @ant-mobile: ~"only screen and (max-width: @{ant-mobile-max})";
+@ant-tablet-sm: ~"only screen and (min-width: @{ant-tab-sm-min}) and (max-width: @{ant-tab-sm-max})";
+@ant-tablet: ~"only screen and (min-width: @{ant-tab-min}) and (max-width: @{ant-tab-max})";
 // desktop media query range
 @ant-desktop-sm: ~"only screen and (min-width: @{ant-desktop-sm-min}) and (max-width: @{ant-desktop-sm-max})";
 @ant-desktop-lg: ~"only screen and (min-width: @{ant-desktop-lg-min}) and (max-width: @{ant-desktop-lg-max})";
