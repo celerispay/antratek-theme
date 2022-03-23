@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 & when (@media-common =true) {
     .itemslider {
         margin-top: 20px;
@@ -169,7 +171,7 @@
 
             .owl-carousel{
                 .owl-item{
-                    width:22.4% !important;
+                    // width:22.4% !important;
     
                     &:hover {
                         background: #fff;
@@ -294,8 +296,8 @@
         .ajax-message{
             font-size: 14px;
             padding: 3px 10px;
-            right: 8%;
-            bottom: 0;
+            right: 0;
+            bottom: -25px;
             animation: ajaxMessageLg 1000ms ease-in-out !important;
             a{
                 font-size: 14px;
@@ -310,8 +312,128 @@
       opacity: 0;
     }
     100%{
-      right: 6%;
+      right: 0;
       opacity: 1;
     }
 }
 
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .cms-ict-automatisering,
+    .cms-home {
+        .column.main {
+            .block.itemslider {
+                padding-left: 0;
+                .block-content {
+                    .owl-carousel {
+                        .owl-item {
+                            &:hover {
+                                background-color: white;
+                            }
+                            .product-item-info {
+                                justify-content: flex-start;
+                                position: relative;
+                                height: 390px;
+                                .product-item-details{
+                                    position: static;
+                                    .product-item-name{
+                                        height: 80px;
+                                        margin: 5px 0;   
+                                        a.product-item-link {
+                                            font-size: 18px;
+                                        }
+                                    }
+                                    .product-delivery-details{
+                                        &> img{
+                                            margin-top: 0 !important;
+                                        }
+                                    }
+                                    .price-box.price-final_price {
+                                        bottom: 12px;
+                                        .price-excluding-tax,
+                                        .price-including-tax{
+                                            &::before,
+                                            .price{
+                                                font-size: 13px;
+                                            }
+                                            .price{
+                                                margin-left: 0;
+                                            }
+                                        }
+        
+                                        .price-excluding-tax.business .price,
+                                        .price-including-tax.consumer .price{
+                                            font-size: 18px !important;
+                                        }
+                                    }
+                
+                                    .product-item-actions {
+                                        .actions-primary {
+                                            bottom: 12px;
+                                            button {
+                                                padding: 8px 10px;
+                                                span {
+                                                    font-size: 14px;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .ajax-message{
+                    bottom: -25px;
+                    font-size: 13px;
+                    a{
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media @ant-mobile{
+    .cms-home,
+    .cms-ict-automatisering{
+        .column.main{
+            .block.itemslider{
+                padding: 0 15px;
+                .block-content{
+                    .owl-carousel{
+                        .owl-item{
+                            .product-item-info{
+                                .product-item-details{
+                                    .product-delivery-details{
+                                        &> img{
+                                            margin-top: 1px !important;
+                                        }
+                                    }
+                                    .product-item-actions {
+                                        .actions-primary {
+                                            button {
+                                                padding: 8px 10px;
+                                                span {
+                                                    font-size: 16px;
+                                                    font-weight: 500;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .items-grid{
+                    .price-including-tax{
+                        .price{
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

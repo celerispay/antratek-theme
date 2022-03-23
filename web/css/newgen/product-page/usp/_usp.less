@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 .antratek-product-page-usp {
     margin-left: 5px;
     float: right;
@@ -63,28 +65,54 @@
   }  
 }
 
-@media @ant-desktop-xl {
-    .antratek-product-page-usp {
-        width: 50%;
-        position: relative;
-        right: -15px;
-        .row {
-            margin: 0;
+.antratek-product-page-usp {
+    width: 50%;
+    position: relative;
+    right: -15px;
+    .row {
+        margin: 0;
+    }
+    .antratek-usp-item {
+        height: 165px;
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 3%;
+        width: 31.2%;
+        .antratek-usp-label {
+            font-size: 16px;
+            margin-top: 10px;
         }
-        .antratek-usp-item {
-            height: 165px;
-            padding-left: 0px;
-            padding-right: 0px;
-            padding-top: 3%;
-            width: 31.2%;
+        .antratek-usp-description {
+            font-size: 14px;
+        }
+    }
+}
 
+// @media @ant-desktop-sm{
+//     .antratek-product-page-usp{
+//         .antratek-usp-item {
+//             width: 31%;
+//             .antratek-usp-label {
+//                 font-size: 15px;
+//             }
+//             .antratek-usp-description {
+//                 font-size: 13px;
+//             }
+//         }
+//     }
+// }
+
+@media only screen and (min-width:1200px) and (max-width: 1599px){
+    .antratek-product-page-usp{
+        .antratek-usp-item {
+            width: 31%;
             .antratek-usp-label {
-                font-size: 16px;
-                margin-top: 10px;
+                font-size: 15px;
             }
             .antratek-usp-description {
-                font-size: 14px;
+                font-size: 13px;
             }
         }
     }
 }
+

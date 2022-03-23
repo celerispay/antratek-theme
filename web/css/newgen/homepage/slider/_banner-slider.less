@@ -213,9 +213,9 @@
 }
 
 .cms-ict-automatisering,
-.cms-home{
-    .column.main{
-        .slideshow-wrapper-outer{
+.cms-home {
+    .column.main {
+        .slideshow-wrapper-outer {
             padding-left: 58px;
             .slideshow-wrapper{
                 .owl-carousel{
@@ -270,12 +270,115 @@
     }
 }
 
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .cms-ict-automatisering,
+    .cms-home {
+        .column.main {
+            .row {
+                margin: 0;
+            }
+            .slideshow-wrapper-outer {
+                padding-left: 0;
+                .slideshow-wrapper {
+                    .owl-carousel {
+                        .owl-item {
+                            .antratek-slider.slider-2,
+                            .antratek-slider.slider-1 {
+                                width: 40%;
+                                .antratek-slider-caption,
+                                .antratek-slider-content { 
+                                    font-size: 30px;
+                                }
+                                .antratek-slider-button{
+                                    .antratek-shop-button{
+                                        width: 165px;
+                                        height: 45px;
+                                    }
+                                }
+                            }
+                            .antratek-slider-3 {
+                                .content-description-1 {
+                                    top: 20px;
+                                }
+                                .content-description-1 {
+                                    top: 35px;
+                                }
+                                .antratek-slider-link {
+                                    a {
+                                        top: 55px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media @ant-mobile{
     .cms-home,
     .cms-ict-automatisering{
-        .column.main{
-            .slideshow-wrapper-outer{
-                padding-left: 0;
+        .columns{
+            display: block;
+            .column.main{
+                .row{
+                    margin: 0;
+                }
+                .slideshow-wrapper-outer{
+                    padding-left: 0;
+                    .owl-carousel{
+                        .owl-item{
+                            .antratek-slider.slider-2,
+                            .antratek-slider.slider-1{
+                                bottom: 15px;
+                                width: 100%;
+                                box-sizing: border-box;
+                                padding: 0 15px;
+                                margin: 0;
+                                left: 0;
+
+                                .antratek-slider-caption{
+                                    font-size: 25px;
+                                }
+                                .antratek-slider-content { 
+                                    font-size: 30px;
+                                    width: 100%;
+                                }
+                                .antratek-slider-button{
+                                    .antratek-shop-button{
+                                        margin-top: 1rem;
+                                        font-size: 14px;
+                                        width: 110px;
+                                        height: 40px;
+                                    }
+                                }
+                            }
+                            .antratek-slider-3 {
+                                width: 100%;
+                                box-sizing: border-box;
+                                padding: 0 15px;
+                                margin: 0;
+                                left: 0;
+                                bottom: 0;
+                                top: 45px;
+                                .antratek-slider-3-caption {
+                                    .antratek-slider-3-heading {
+                                        .content-title-2,
+                                        .content-title-1 {
+                                            position: static;
+                                            font-size:25px;
+                                        }
+                                    }
+                                    .content-description-1 {
+                                        margin-top: 25px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

@@ -1,3 +1,5 @@
+@import '../../_breakpoint-variable.less';
+
 .antratek-usp {
     padding-top: 0px;
     padding-bottom: 40px;
@@ -85,6 +87,31 @@
             .antratek-usp-description {
                 font-size: 14px;
             }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    .cms-ict-automatisering,
+    .cms-home{
+        .antratek-usp {
+            padding-left: 0;
+            margin-top: 10px;
+            .antratek-usp-item {
+                height: 210px;
+                width: 148px;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+@media @ant-mobile{
+    .cms-home,
+    .cms-ict-automatisering{
+        .antratek-usp{
+            padding: 0 15px;
         }
     }
 }
