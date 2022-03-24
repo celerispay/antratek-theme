@@ -74,7 +74,7 @@
             .block-vertnav {
                 .block-content {
                     height: 470px;
-                    overflow: auto;
+                    overflow: visible;
                 }
             }
         }
@@ -162,6 +162,10 @@
 					}
 				}
 			}
+			.block-content{
+				overflow: visible;
+				height: 450px;
+			}
 			.uaccordion.uaccordion-style1.sideacco {
 				li.level0 {
 					>a {
@@ -215,6 +219,7 @@
 						&::before {
 							font-size: 10px;
 							font-weight: 500;
+							line-height: 35px;
 						}
 					}
 				}
@@ -261,6 +266,7 @@
 							padding-right: 15px;
 							position: relative;
 							top: -5px;
+							line-height: 60px;
 						}
 					}
 				}
@@ -348,6 +354,13 @@
 	}
 }
 
+.columns .sidebar.sidebar-main .uaccordion.uaccordion-style1.sideacco .nav-item > a{
+	background: #f5f5f5;
+}
+.columns .sidebar.sidebar-main .uaccordion.uaccordion-style1.sideacco .nav-item > .opener{
+	color: #333;
+}
+
 
 .sidebar.sidebar-main{
 	.account-nav{
@@ -364,7 +377,6 @@
 					font-weight: 600;
 					color: #0079c4;
 				}
-
 			}
 		}
 	}

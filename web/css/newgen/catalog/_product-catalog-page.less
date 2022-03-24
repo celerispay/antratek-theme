@@ -122,13 +122,13 @@
                 .price-including-tax::before,
                 .price-excluding-tax .price,
                 .price-including-tax .price{
-                  font-size: 14px;
+                  font-size: 13px;
                   font-weight: 500;
                 }
 
                 .price-excluding-tax.business .price,
                 .price-including-tax.consumer .price{
-                  font-size: 21px !important;
+                  font-size: 18px !important;
                   font-weight: 600 !important;
                 }
               }
@@ -183,6 +183,22 @@
                   }
                   &:hover{
                     background-color: #00B900 !important;
+                  }
+                }
+                & > .row{
+                  position: absolute;
+                  left: -15px;
+                  .pull-right{
+                    font-size: small;
+                    a, span{
+                      font-size: small;
+                    }
+                    a{
+                      color: #0079c4;
+                      &:hover{
+                        color: #30a5ff;
+                      }
+                    }
                   }
                 }
               }
